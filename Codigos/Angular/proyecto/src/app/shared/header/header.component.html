@@ -1,0 +1,27 @@
+<header class=" ae-container-fluid--full rk-header ">
+
+
+    <div class="rk-topbar">
+      <div class="rk-logo">
+        <h1 [ngClass]="{'animate__animated animate__tada': tadaClass}" (click)="animateElement()"><a [routerLink]="['/']">FutboStats</a></h1>
+        <img [routerLink]="['/']" src="assets/img/logo.png" alt="Logotipo de la página">
+      </div>
+      <nav class="rk-navigation">
+        <ul class="rk-menu">
+          <li class="rk-menu__item" [ngClass]="{'animate__animated animate__rubberBand': rubberClass}" (click)="animateMenu()"><a [routerLink]="['/']" class="rk-menu__link">Inicio</a></li>
+          <li class="rk-menu__item" [ngClass]="{'animate__animated animate__rubberBand': rubberClass2}" (click)="animateMenu2()"><a [routerLink]="['/Partidos']"  class="rk-menu__link">Partidos</a></li>
+          <li class="rk-menu__item" [ngClass]="{'animate__animated animate__rubberBand': rubberClass3}" (click)="animateMenu3()"><a [routerLink]="['/Equipos']"  class="rk-menu__link">Equipos</a></li>
+          <li class="rk-menu__item" [ngClass]="{'animate__animated animate__rubberBand': rubberClass4}" (click)="animateMenu4()"><a [routerLink]="['/Competiciones']"  class="rk-menu__link">Competiciones</a></li>
+          <li class="rk-menu__item" [ngClass]="{'animate__animated animate__rubberBand': rubberClass5}" (click)="animateMenu5()"><a [routerLink]="['/SportIA']"  class="rk-menu__link">SportsIA</a></li>
+          <li class="rk-menu__item" [ngClass]="{'animate__animated animate__rubberBand': rubberClass6}" (click)="animateMenu6()"><a [routerLink]="['/Predicciones']"  class="rk-menu__link espacio">Predicciones</a></li>
+        </ul>
+      </nav>
+
+      <div class="rk-buttons">
+        <button [routerLink]="['/Login']" class="rk-button">INICIAR SESIÓN</button>
+        <button [routerLink]="['/']" class="rk-button" (click)="logout()">CERRAR SESIÓN</button>
+      </div>
+
+    </div>
+  </header>
+  
