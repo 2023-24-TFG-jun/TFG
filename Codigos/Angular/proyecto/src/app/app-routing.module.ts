@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, CanLoad } from '@angular/router';
 
 // Imports de componentes
 import { InicioComponent } from './aplicacion/pages/inicio/inicio.component';
@@ -9,6 +9,7 @@ import { CompeticionesComponent } from './aplicacion/pages/competiciones/competi
 import { SportIAComponent } from './aplicacion/pages/sport-ia/sport-ia.component';
 import { PrediccionesComponent } from './aplicacion/pages/predicciones/predicciones.component';
 import { LoginComponent } from './login/login.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -31,10 +32,14 @@ const routes: Routes = [
   {
     path: 'SportIA',
     component: SportIAComponent,
+    canLoad: [AuthGuard],
+    canActivate: [AuthGuard],
   },
   {
     path: 'Predicciones',
     component: PrediccionesComponent,
+    canLoad: [AuthGuard],
+    canActivate: [AuthGuard]
   },
   {
     path: 'Login',

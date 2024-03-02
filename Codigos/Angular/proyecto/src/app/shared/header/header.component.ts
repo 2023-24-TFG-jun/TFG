@@ -8,7 +8,7 @@ import { AuthGoogleService } from 'src/app/services/auth-google.service';
 })
 export class HeaderComponent {
 
-  constructor(private authGoogleService: AuthGoogleService,
+  constructor(public authGoogleService: AuthGoogleService,
     private router: Router){}
 
   tadaClass = false;

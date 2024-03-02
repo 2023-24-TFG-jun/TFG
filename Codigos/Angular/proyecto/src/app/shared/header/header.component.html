@@ -18,8 +18,9 @@
       </nav>
 
       <div class="rk-buttons">
-        <button [routerLink]="['/Login']" class="rk-button">INICIAR SESIÓN</button>
-        <button [routerLink]="['/']" class="rk-button" (click)="logout()">CERRAR SESIÓN</button>
+        <button *ngIf="!(authGoogleService.isLoggedIn | async)"
+                [routerLink]="['/Login']" class="rk-button">INICIAR SESIÓN</button>
+        <button *ngIf="authGoogleService.isLoggedIn | async" [routerLink]="['/']" class="rk-button" (click)="authGoogleService.logout()">CERRAR SESIÓN</button>
       </div>
 
     </div>
