@@ -6,27 +6,29 @@ import { InicioComponent } from './pages/inicio/inicio.component';
 import { PartidosComponent } from './pages/partidos/partidos.component';
 import { PrediccionesComponent } from './pages/predicciones/predicciones.component';
 import { SportIAComponent } from './pages/sport-ia/sport-ia.component';
+import { FormsModule } from '@angular/forms';
+import { ComponentesModule } from './components/componentes.module';
+
 
 
 
 
 @NgModule({
   declarations: [
-    CompeticionesComponent,
+    
     EquiposComponent,
     InicioComponent,
     PartidosComponent,
     PrediccionesComponent,
-    SportIAComponent
+    SportIAComponent,
   ],
   imports: [
     CommonModule,
-    CompeticionesComponent,
-    EquiposComponent,
-    InicioComponent,
-    PartidosComponent,
-    PrediccionesComponent,
-    SportIAComponent
+    FormsModule,
+
+  ],
+  exports: [
+
   ]
 })
 export class AplicacionModule { }

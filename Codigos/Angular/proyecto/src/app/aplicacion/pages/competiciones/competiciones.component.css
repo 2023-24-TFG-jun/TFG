@@ -1,0 +1,46 @@
+
+.contenedor-formulario {
+  flex: 1;
+  max-width: 500px;
+  }
+  
+  
+  form {
+    width: 100%;    
+      
+  }
+  
+  /* Incluiría también algo de padding dentro del formulario si es necesario */
+  form input[type="text"] {
+    width: 100%;      /* Hace que el input ocupe todo el ancho del formulario */
+    padding: 10px;    /* Ajusta para un mejor aspecto */
+   
+  }
+  
+  select.form-select {
+    max-width: 300px; /* Ancho máximo para el select */
+    width: 100%; /* Asegura que el select se estire hasta su max-width */
+  }
+
+  .contenedor{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 150px;
+  }
+
+  .container {
+    margin-top: 20px;
+  }
+  
+  .table {
+    margin-top: 20px;
+    margin-bottom: 300px;
+    width: 100%;
+    max-width: 80%; /* Ajusta este valor según lo ancho que quieras que sea la tabla */
+  }
+  
+  .table-responsive {
+    margin: auto; /* Esto centrará la tabla si el ancho es menor que el del viewport */
+  }

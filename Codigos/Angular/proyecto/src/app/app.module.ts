@@ -11,6 +11,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { OAuthModule } from 'angular-oauth2-oidc';
 import { HttpClientModule } from '@angular/common/http';
 
+
 @NgModule({
   declarations: [
     AppComponent
@@ -22,7 +23,7 @@ import { HttpClientModule } from '@angular/common/http';
     RouterModule,
     MatButtonModule,
     OAuthModule.forRoot(),
-    HttpClientModule,
+    HttpClientModule
   ],
   providers: [
     provideAnimationsAsync()

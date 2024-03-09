@@ -1,1 +1,98 @@
-<p>competiciones works!</p>
+
+<div class="imagen-fondo">
+        
+    <img src="assets/img/cesped.jpg" alt="Imagen fondo">
+</div>
+
+
+<div class="contenedor">
+  <div class="contenedor-formulario">
+    <form (ngSubmit)="buscarLiga(termino)" autocomplete="off">
+      <input type="text"
+             name="termino"
+             class="form-control"
+             [(ngModel)]="termino"
+             (input)="teclaPresionada()"
+             placeholder="Buscar liga..."/>
+    </form>
+  </div>
+  
+  <select class="form-select" 
+          aria-label="Seleccionar año"
+          [(ngModel)]="selectedSeason"
+          (ngModelChange)="onYearSelected($event)">
+    <option  selected>-- Seleccione el año --</option>
+    <option *ngFor="let anio of anios" [value]="anio">{{anio}}</option>
+  </select>
+
+</div>
+
+<div *ngIf="leagueInfo">
+  <div class="league-info text-center my-4">
+    <img [src]="leagueInfo.logo" alt="{{ leagueInfo.name }}" width="100">
+    <h2>{{ leagueInfo.name }}</h2>
+    <img [src]="leagueInfo.flag" alt="{{ leagueInfo.country }}" width="50">
+    <h3>{{ leagueInfo.country }}</h3>
+  </div>
+</div>
+
+
+<div class="container my-4">
+  <div class="row justify-content-center">
+    <div class="col-auto">
+      <div class="table-responsive" *ngIf="standings.length > 0">
+        <table class="table table-striped table-bordered table-hover">
+          <thead class="table-dark">
+            <tr>
+              <th>Rank</th>
+              <th>Equipo</th>
+              <th>Puntos</th>
+              <th>Dif. Goles</th>
+              <th>Grupo</th>
+              <th>Jugados (Total)</th>
+              <th>Ganados (Total)</th>
+              <th>Empates (Total)</th>
+              <th>Perdidos (Total)</th>
+              <th>Goles (Favor/Contra)</th>
+              <th>Partidos en casa</th>
+              <th>Partidos ganados en casa</th>
+              <th>Goles en casa (Favor/Contra)</th>
+              <th>Partidos fuera casa</th>
+              <th>Partidos ganados fuera de casa</th>
+              <th>Goles fuera de casa (Favor/Contra)</th>
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let standing of standings[0]">
+              <td>{{ standing.rank }}</td>
+              <td>
+                <img [src]="standing.team.logo" alt="{{ standing.team.name }}" width="30"> 
+                {{ standing.team.name }}
+              </td>
+              <td>{{ standing.points }}</td>
+              <td>{{ standing.goalsDiff }}</td>
+              <td>{{ standing.group }}</td>
+              <td>{{ standing.all.played }}</td>
+              <td>{{ standing.all.win }}</td>
+              <td>{{ standing.all.draw }}</td>
+              <td>{{ standing.all.lose }}</td>
+              <td>{{ standing.all.goals.for }} / {{ standing.all.goals.against }}</td>
+              
+              <td>{{ standing.home.played }}</td>
+              <td>{{ standing.home.win }}</td>
+              <td>{{ standing.home.goals.for }} / {{ standing.home.goals.against }}</td>
+
+              <td>{{ standing.away.played }}</td>
+              <td>{{ standing.away.win }}</td>
+              <td>{{ standing.away.goals.for }} / {{ standing.away.goals.against }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
