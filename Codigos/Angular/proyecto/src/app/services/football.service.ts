@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable, of, pipe } from 'rxjs';
 import { Competiciones, League } from '../interfaces/competiciones.interface';
 import { catchError, map } from 'rxjs/operators';
 import { Ligas } from '../interfaces/ligas.interfaces';
@@ -35,7 +35,6 @@ buscarLigaPorNombre(nombreLiga: string): Observable<number | undefined> {
     map(response => {
       // Encuentra la liga por nombre, considerando que la propiedad 'league' está dentro del objeto 'response'
       const liga = response.response.find(l => l.league.name.toLowerCase() === nombreLiga.toLowerCase());
-      console.log(liga);
       return liga ? liga.league.id : undefined;
     }),
     catchError(error => {
@@ -57,6 +56,22 @@ buscarLigaPorNombre(nombreLiga: string): Observable<number | undefined> {
     .pipe(
       map(data => data.response as number[])
       );
+  }
+
+  buscarSugerenciasLiga(nombreLiga: string): Observable<Ligas['response'][number]['league'][]>{
+    if (!nombreLiga.trim()){
+      return of([]);
+    }
+
+    return this.http.get<Ligas>(`${this.servicioUrl}`, { headers: this.headers })
+      .pipe(       
+        map(response => response.response.map(l => l.league)),
+        map(leagues => leagues.filter(league => league.name.toLowerCase().includes(nombreLiga.toLowerCase())).splice(0,5)), 
+        catchError(error => {
+        console.error('Error en buscarSugerenciasLiga:', error);
+        return of([]);
+      })
+    );
   }
   
   

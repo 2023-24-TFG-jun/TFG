@@ -5,12 +5,13 @@ import { FootballService } from 'src/app/services/football.service';
 import { FormsModule } from '@angular/forms';
 import { Subject } from 'rxjs';
 import { debounceTime, filter, switchMap, tap } from 'rxjs/operators';
+import { Ligas } from 'src/app/interfaces/ligas.interfaces';
 
 
 @Component({
   selector: 'app-competiciones',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule ],
   templateUrl: './competiciones.component.html',
   styleUrls: ['./competiciones.component.css']
 })
@@ -24,24 +25,28 @@ export class CompeticionesComponent implements OnInit {
   public anios: number[] = [];
   public leagueInfo: League | null = null;
 
+  sugerenciasLigas: Ligas['response'][number]['league'][] = [];
+
+  mostrarSugerencias : boolean = false;
+
   constructor(private footballService: FootballService) { }
 
 
   ngOnInit(): void {
-    /*
-    this.footballService.obtenerLigas().subscribe((resp: Competiciones) => {
-      // Asumiendo que la respuesta tiene una estructura { ligas: [...] }
-      this.ligas = resp.response.map(item =>item.league);
-    });
-    this.obtenerStanding(this.selectedLeagueId, this.selectedSeason);
-    */
-    this.debouncer
-      .pipe(debounceTime(300))
-      .subscribe( (nombreLiga) => {
-        this.buscarLiga(nombreLiga);
+/*
+      this.debouncer
+      .pipe(
+        debounceTime(300),
+        filter(termino => termino.length >= 2), // Solo emite si el término tiene al menos 2 caracteres
+        switchMap(termino => this.footballService.buscarSugerenciasLiga(termino))
+      )
+      .subscribe(sugerencias => {
+        this.sugerenciasLigas = sugerencias;
+        this.mostrarSugerencias = sugerencias.length > 0;
       });
+      */
       this.obtenerAnios();
-    
+      
   }
 
   buscarLiga(nombreLiga: string) {
@@ -65,7 +70,6 @@ export class CompeticionesComponent implements OnInit {
           // Respuesta con los datos de las clasificaciones
           this.standings = resp.response[0].league.standings;
           this.hayError = false;
-          console.log(this.standings);
         },
         error: (error) => {
           // Error en el proceso de búsqueda o al obtener clasificaciones
@@ -82,7 +86,6 @@ export class CompeticionesComponent implements OnInit {
   obtenerStanding(leagueId: number, season: number){
     this.footballService.obtenerClasificacion(leagueId, season)
     .subscribe( resp =>{
-      console.log(resp);//REVISARRRRRRRRRRR
       this.standings = resp.response[0].league.standings;
       this.hayError = false;
     },
@@ -97,7 +100,8 @@ export class CompeticionesComponent implements OnInit {
   obtenerAnios(){
     this.footballService.getAniosDisponibles().subscribe(
       (anios :number[]) => {
-        this.anios = anios;
+        const aniosExcluidos = [2008, 2009, 2024, 2025, 2026];
+        this.anios = anios.filter(anio => !aniosExcluidos.includes(anio));
       },
       error => {
         console.error('Erros al obtener los años: ', error);
@@ -110,6 +114,22 @@ export class CompeticionesComponent implements OnInit {
     if(this.termino){
       this.buscarLiga(this.termino);
     }
+  }
+
+
+  obtenerSugerencias(termino:string){
+    this.footballService.buscarSugerenciasLiga(termino)
+    .subscribe(sugerencias => {
+      this.sugerenciasLigas = sugerencias;
+      this.mostrarSugerencias = true;
+      
+    });
+  }
+
+  seleccionarSugerencia(liga: Ligas['response'][number]['league']): void {
+    this.termino = liga.name;
+    this.buscarLiga(liga.name);
+    this.mostrarSugerencias = false;
   }
 
   //FUTBOL INPUT
@@ -127,5 +147,13 @@ export class CompeticionesComponent implements OnInit {
 
   teclaPresionada() {
     this.debouncer.next( this.termino );
+    if(this.termino.length >=2){
+      this.obtenerSugerencias(this.termino);
+    } else {
+      this.mostrarSugerencias = false;
+      this.sugerenciasLigas=[];
+
+    }
+    this.obtenerSugerencias(this.termino);
   }
 }

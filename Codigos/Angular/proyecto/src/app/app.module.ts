@@ -23,7 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
     RouterModule,
     MatButtonModule,
     OAuthModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
+    
   ],
   providers: [
     provideAnimationsAsync()

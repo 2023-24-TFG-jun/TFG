@@ -25,6 +25,7 @@ import { ComponentesModule } from './components/componentes.module';
   imports: [
     CommonModule,
     FormsModule,
+    
 
   ],
   exports: [

@@ -13,9 +13,24 @@
              class="form-control"
              [(ngModel)]="termino"
              (input)="teclaPresionada()"
-             placeholder="Buscar liga..."/>
+             placeholder="Buscar liga..."
+             aria-label="Buscar liga"/>
     </form>
+
+    <div *ngIf="mostrarSugerencias && sugerenciasLigas.length > 0"
+          class="mt-2">
+      <ul class="list-group">
+        <li *ngFor="let liga of sugerenciasLigas"
+          (click)="seleccionarSugerencia(liga)"
+          class="list-group-item list-group-item-action">
+          {{liga.name}}
+        </li>
+      </ul>
+    </div>
   </div>
+
+
+
   
   <select class="form-select" 
           aria-label="Seleccionar año"
