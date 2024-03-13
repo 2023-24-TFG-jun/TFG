@@ -36,13 +36,13 @@ export class AuthGoogleService {
     this.oAuthService.initLoginFlow();
   }
 
-  // Método de logout para cuando lo implemente
+
   logout(){
     this.oAuthService.logOut();
     this.isAuthenticated.next(false);
   }
 
-  // Para retornar los datos del perfil
+
   getProfile(){
     return this.oAuthService.getIdentityClaims();
   }

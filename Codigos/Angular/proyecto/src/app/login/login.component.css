@@ -1,13 +1,13 @@
 .recuadro-opaco-2 {
     margin-top: -520px;
     margin-left: 800px;
-    position: relative; /* Esto permite posicionar otros elementos dentro de forma absoluta si es necesario */
+    position: relative; 
     background-color: rgba(239, 239, 239, 0.7);
     width: 1100px;
     height: 700px;
     border: 5px solid #000;
     border-radius: 10px;
-    z-index: 1; /* No es necesario un z-index alto aquí a menos que necesites superponer otros elementos */
+    z-index: 1; 
 }
 
 .hd{
@@ -18,24 +18,24 @@
 }
 
 .recuadro-opaco-2 button{
-    max-width: 350px; /* Tamaño máximo de la imagen */
-    width: 100%; /* Hace que la imagen se ajuste al contenedor */
-    margin-bottom: 20px; /* Espacio entre la imagen y el texto siguiente */
-    display: block; /* Asegura que la imagen sea tratada como un bloque */
-    margin-left: auto; /* Margen automático a la izquierda */
-    margin-right: auto; /* Margen automático a la derecha */
+    max-width: 350px; 
+    width: 100%; 
+    margin-bottom: 20px; 
+    display: block; 
+    margin-left: auto;
+    margin-right: auto; 
     margin-top: 50px;
     padding: 30px;
     font-size: 30px;
 }
 
 .recuadro-opaco-2 img {
-    max-width: 350px; /* Tamaño máximo de la imagen */
-    width: 100%; /* Hace que la imagen se ajuste al contenedor */
-    margin-bottom: 20px; /* Espacio entre la imagen y el texto siguiente */
-    display: block; /* Asegura que la imagen sea tratada como un bloque */
-    margin-left: auto; /* Margen automático a la izquierda */
-    margin-right: auto; /* Margen automático a la derecha */
+    max-width: 350px; 
+    width: 100%; 
+    margin-bottom: 20px;
+    display: block; 
+    margin-left: auto; 
+    margin-right: auto; 
     margin-top: 50px;
 }
 

@@ -1,4 +1,4 @@
-/* You can add global styles to this file, and also import other style files */
+
 .rk-header {
     position: fixed;
     top: 0;
@@ -8,52 +8,61 @@
     height: 120px;
     display: flex;
     align-items: center;
-    z-index: 10; /* Asegura que el header esté encima de la imagen de fondo */
+    z-index: 10; 
     padding: 0 20px;
 }
 .rk-logo a {
     color: #4CAF50;
-    text-decoration: none; /* Esto eliminará el subrayado de los enlaces */
+    text-decoration: none; 
 }
 
 .rk-topbar {
     display: flex;
     justify-content: space-between;
-    width: 100%; /* Ocupa el ancho completo del rk-header */
+    width: 100%; 
     align-items: center;
 }
 
 .rk-header .rk-menu__link {
-    font-size: 20px; /* Cambia el tamaño del texto según sea necesario */
+    font-size: 20px; 
 }
+
 
 .rk-logo {
     display:flex;
     align-items: center;
-    background-color: #000; /* Color de fondo negro */
-    color: #4CAF50; /* Color del texto verde */
-    padding: 5px; /* Espaciado interno para el contenido */
-    border-radius: 10px; /* Bordes redondeados */
+    background-color: #000; 
+    color: #4CAF50; 
+    padding: 5px; 
+    border-radius: 10px; 
     justify-content: center;
     margin-left: 50px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     
 }
 .rk-logo h1 {
-    margin: 0; /* Elimina cualquier margen adicional */
+    margin: 0; 
     font-size: 46px;
 }
 
+.rk-logo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
+    cursor: pointer; 
+}
+
+
 .rk-logo img {
-    max-width: 70px; /* Ancho máximo de la imagen */
-    margin-right: 10px; /* Espacio entre la imagen y el texto */
+    max-width: 70px; 
+    margin-right: 10px; 
   }
 
 
 .rk-menu{
     margin:0;
     display: flex;
-    list-style-type: none; /* Elimina los marcadores de lista */
-    padding: 0; /* Elimina el espacio interno de la lista */
+    list-style-type: none; 
+    padding: 0; 
 }
 
 .rk-menu__link {
@@ -84,33 +93,33 @@
 }
 
 .rk-menu__item img {
-    max-height: 20px; /* Ajusta la altura máxima según sea necesario */
-    width: auto; /* Asegura que el ancho sea proporcional */
+    max-height: 20px; 
+    width: auto; 
 }
 
 .rk-menu__link img{
-    max-width: 40px; /* Ancho máximo de la imagen */
+    max-width: 40px; 
     height: auto;
-    margin-right: 10px; /* Espacio entre la imagen y el texto */
+    margin-right: 10px; 
 }
 
 .rk-menu__item {
-    flex: 1; /* Hace que todos los elementos del menú tengan el mismo ancho */
+    flex: 1; 
 }
 
 .rk-menu__link {
     margin-top: 10px;
     display: flex;
-    align-items: center; /* Alinea verticalmente los elementos */
-    text-decoration: none; /* Elimina el subrayado predeterminado del enlace */
-    color: inherit; /* Hereda el color de texto de su contenedor */
+    align-items: center; 
+    text-decoration: none;
+    color: inherit; 
 }
 
 .rk-menu__link img {
-    margin-right: 5px; /* Espacio entre la imagen y el texto */
+    margin-right: 5px; 
 }
 
-/* Opcional: para agregar espacio entre los elementos del menú */
+
 .rk-menu__link.espacio {
     margin-right: 20px;
 }
@@ -125,8 +134,8 @@
 
 .imagen-logo2 {
     display: flex;
-    flex-direction: column; /* Esto apila los elementos en una columna */
-    align-items: left; /* Esto centra los elementos horizontalmente */
+    flex-direction: column; 
+    align-items: left;
     text-align: center;
    
 }
@@ -142,8 +151,8 @@
     display: flex;
     width: 20%;
     flex-wrap: wrap;
-    color: #000; /* Color del texto */
-    font-size: 33px; /* Tamaño del texto */
+    color: #000;
+    font-size: 33px; 
     
  
 }
@@ -151,10 +160,9 @@
 .imagen-fondo {
     position: fixed;
     top: 0;
-    left: 0;
     width: 100%;
     height: 100vh;
-    overflow: hidden; /* Evita que la imagen se desborde del contenedor */
+    overflow: hidden; 
     z-index: -1;
 }
 
@@ -164,20 +172,20 @@
     opacity: 0.6;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ajusta la imagen para que cubra completamente el contenedor */
+    object-fit: cover; 
 }
 
 
 .recuadro-opaco {
     margin-top: -600px;
     margin-left: 800px;
-    position: relative; /* Esto permite posicionar otros elementos dentro de forma absoluta si es necesario */
+    position: relative; 
     background-color: rgba(239, 239, 239, 0.7);
     width: 1100px;
     height: 700px;
     border: 5px solid #000;
     border-radius: 10px;
-    z-index: 1; /* No es necesario un z-index alto aquí a menos que necesites superponer otros elementos */
+    z-index: 1; 
 }
 
 
@@ -185,13 +193,13 @@
 
  .contenido {
     display: flex;
-    flex-direction: column; /* Alinea los hijos en una columna */
+    flex-direction: column; 
 }
 
 .img-contenido {
-    max-width: 110px; /* Tamaño máximo de la imagen */
-    width: 100%; /* Hace que la imagen se ajuste al contenedor */
-    margin-bottom: 20px; /* Espacio entre la imagen y el texto siguiente */
+    max-width: 110px; 
+    width: 100%; 
+    margin-bottom: 20px; 
     margin-left: 150px;
 }
 
@@ -212,14 +220,14 @@
 
 .contenido2 {
     display: flex;
-    flex-direction: column; /* Alinea los hijos en una columna */
+    flex-direction: column; 
 }
 
 .img-contenido2 {
     margin-top: 20px;
-    max-width: 110px; /* Tamaño máximo de la imagen */
-    width: 100%; /* Hace que la imagen se ajuste al contenedor */
-    margin-bottom: 20px; /* Espacio entre la imagen y el texto siguiente */
+    max-width: 110px; 
+    width: 100%; 
+    margin-bottom: 20px; 
     margin-left: 150px;
 }
 
@@ -241,14 +249,13 @@
 
 .contenido3 {
     display: flex;
-    flex-direction: column; /* Alinea los hijos en una columna */
+    flex-direction: column; 
     margin-top: -650px;
 }
 
 .img-contenido3 {
-    max-width: 110px; /* Tamaño máximo de la imagen */
-    width: 100%; /* Hace que la imagen se ajuste al contenedor */
-   /* Espacio entre la imagen y el texto siguiente */
+    max-width: 110px; 
+    width: 100%; 
     margin-left: 500px;
 }
 
@@ -270,14 +277,14 @@
 
 .contenido4 {
     display: flex;
-    flex-direction: column; /* Alinea los hijos en una columna */
+    flex-direction: column; 
     
 }
 
 .img-contenido4 {
-    max-width: 110px; /* Tamaño máximo de la imagen */
-    width: 100%; /* Hace que la imagen se ajuste al contenedor */
-    margin-bottom: 20px; /* Espacio entre la imagen y el texto siguiente */
+    max-width: 110px; 
+    width: 100%; 
+    margin-bottom: 20px; 
     margin-left: 500px;
 }
 
@@ -297,14 +304,14 @@
 
 .contenido5 {
     display: flex;
-    flex-direction: column; /* Alinea los hijos en una columna */
+    flex-direction: column; 
     margin-top: -660px;
 }
 
 .img-contenido5 {
-    max-width: 110px; /* Tamaño máximo de la imagen */
-    width: 100%; /* Hace que la imagen se ajuste al contenedor */
-    margin-bottom: 20px; /* Espacio entre la imagen y el texto siguiente */
+    max-width: 110px; 
+    width: 100%; 
+    margin-bottom: 20px; 
     margin-left: 850px;
 }
 
@@ -326,14 +333,14 @@
 
 .contenido6 {
     display: flex;
-    flex-direction: column; /* Alinea los hijos en una columna */
+    flex-direction: column; 
     margin-top: 20px;
 }
 
 .img-contenido6 {
-    max-width: 110px; /* Tamaño máximo de la imagen */
-    width: 100%; /* Hace que la imagen se ajuste al contenedor */
-    margin-bottom: 20px; /* Espacio entre la imagen y el texto siguiente */
+    max-width: 110px; 
+    width: 100%; 
+    margin-bottom: 20px; 
     margin-left: 850px;
 }
 
@@ -356,31 +363,136 @@
 /*CSS footer*/
 
 
-/* Estilo del footer */
+
 .footer {
-    background-color: #000; /* Color de fondo negro */
-    color: #fff; /* Texto en color blanco */
-    text-align: center; /* Alineación del texto al centro */
-    padding: 20px 0; /* Espaciado vertical dentro del footer */
-    font-size: 16px; /* Tamaño de la fuente del texto */
-    font-weight: bold; /* Fuente en negrita */
-    position: fixed; /* Posición relativa al flujo del documento */
-    bottom: 0; /* Alineado al fondo */
-    width: 100%; /* Ancho completo */
+    background-color: #000; 
+    color: #fff; 
+    text-align: center; 
+    padding: 20px 0; 
+    font-size: 16px; 
+    font-weight: bold; 
+    position: fixed; 
+    bottom: 0; 
+    width: 100%; 
     left: 0;
     right: 0;
     z-index: 2;
 }
 
-/* Puede que necesites ajustar el tamaño de la fuente y el padding para que coincida con el diseño exacto que buscas. */
 
-/* Estilo del texto dentro del footer */
+
+
 .footer__text {
-    margin: 0; /* Quitar márgenes automáticos */
-    /* Puedes agregar más estilos aquí si es necesario */
+    margin: 0; 
+    
 }
 
 
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+button {
+    position: relative;
+    padding: 10px 20px;
+    border-radius: 7px;
+    border: 1px solid rgb(61, 106, 255);
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 2px;
+    background: transparent;
+    color: #fff;
+    overflow: hidden;
+    box-shadow: 0 0 0 0 transparent;
+    -webkit-transition: all 0.2s ease-in;
+    -moz-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+  }
+  
+  button:hover {
+    background: rgb(61, 106, 255);
+    box-shadow: 0 0 30px 5px rgba(0, 142, 236, 0.815);
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+  }
+  
+  button:hover::before {
+    -webkit-animation: sh02 0.5s 0s linear;
+    -moz-animation: sh02 0.5s 0s linear;
+    animation: sh02 0.5s 0s linear;
+  }
+  
+  button::before {
+    content: '';
+    display: block;
+    width: 0px;
+    height: 86%;
+    position: absolute;
+    top: 7%;
+    left: 0%;
+    opacity: 0;
+    background: #fff;
+    box-shadow: 0 0 50px 30px #fff;
+    -webkit-transform: skewX(-20deg);
+    -moz-transform: skewX(-20deg);
+    -ms-transform: skewX(-20deg);
+    -o-transform: skewX(-20deg);
+    transform: skewX(-20deg);
+  }
+  
+  @keyframes sh02 {
+    from {
+      opacity: 0;
+      left: 0%;
+    }
+  
+    50% {
+      opacity: 1;
+    }
+  
+    to {
+      opacity: 0;
+      left: 100%;
+    }
+  }
+  
+  button:active {
+    box-shadow: 0 0 0 0 transparent;
+    -webkit-transition: box-shadow 0.2s ease-in;
+    -moz-transition: box-shadow 0.2s ease-in;
+    transition: box-shadow 0.2s ease-in;
+  }
+  
+
+
+li {
+    color: black;
+    text-decoration: none;
+    font-size: 25px;
+    border: none;
+    background: none;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  li::before {
+    margin-left: auto;
+  }
+  
+  li::after, li::before {
+    content: '';
+    width: 0%;
+    height: 2px;
+    background: white;
+    display: block;
+    transition: 0.5s;
+  }
+  
+  li:hover::after, li:hover::before {
+    width: 100%;
+  }
+
+ 
+

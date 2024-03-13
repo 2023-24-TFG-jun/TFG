@@ -30,10 +30,8 @@ buscarLigaPorNombre(nombreLiga: string): Observable<number | undefined> {
     return of(undefined);
   }
 
-  // Asegúrate de que la URL apunte al endpoint correcto para buscar ligas por nombre
   return this.http.get<Ligas>(`${this.servicioUrl}`, { headers: this.headers }).pipe(
     map(response => {
-      // Encuentra la liga por nombre, considerando que la propiedad 'league' está dentro del objeto 'response'
       const liga = response.response.find(l => l.league.name.toLowerCase() === nombreLiga.toLowerCase());
       return liga ? liga.league.id : undefined;
     }),

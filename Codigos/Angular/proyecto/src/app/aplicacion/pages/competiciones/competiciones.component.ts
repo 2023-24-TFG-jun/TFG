@@ -1,11 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import {Competiciones, League, Standing } from 'src/app/interfaces/competiciones.interface';
+import { League, Standing } from 'src/app/interfaces/competiciones.interface';
 import { FootballService } from 'src/app/services/football.service';
 import { FormsModule } from '@angular/forms';
 import { Subject } from 'rxjs';
-import { debounceTime, filter, switchMap, tap } from 'rxjs/operators';
+import { filter, switchMap, tap } from 'rxjs/operators';
 import { Ligas } from 'src/app/interfaces/ligas.interfaces';
+
 
 
 @Component({
@@ -18,35 +19,21 @@ import { Ligas } from 'src/app/interfaces/ligas.interfaces';
 export class CompeticionesComponent implements OnInit {
 
   public termino: string ='';
-  //ligas: League[] = [];
-  public selectedSeason: number = 2022;
+  public selectedSeason: number = 2023;
   public standings: Standing[][]= [];
   public hayError: boolean = false;
   public anios: number[] = [];
   public leagueInfo: League | null = null;
-
   sugerenciasLigas: Ligas['response'][number]['league'][] = [];
-
   mostrarSugerencias : boolean = false;
+  debouncer: Subject<string> = new Subject();
+  @Output() onEnter : EventEmitter<string> = new EventEmitter();
 
   constructor(private footballService: FootballService) { }
 
 
   ngOnInit(): void {
-/*
-      this.debouncer
-      .pipe(
-        debounceTime(300),
-        filter(termino => termino.length >= 2), // Solo emite si el término tiene al menos 2 caracteres
-        switchMap(termino => this.footballService.buscarSugerenciasLiga(termino))
-      )
-      .subscribe(sugerencias => {
-        this.sugerenciasLigas = sugerencias;
-        this.mostrarSugerencias = sugerencias.length > 0;
-      });
-      */
-      this.obtenerAnios();
-      
+      this.obtenerAnios();  
   }
 
   buscarLiga(nombreLiga: string) {
@@ -58,21 +45,18 @@ export class CompeticionesComponent implements OnInit {
     this.footballService.buscarLigaPorNombre(nombreLiga)
       .pipe(
         tap((ligaID) => console.log('Liga ID:', ligaID)),
-        filter(ligaID => ligaID !== undefined), // Filtrar los undefined
+        filter(ligaID => ligaID !== undefined), 
         switchMap(ligaID => 
-          // En este punto, ligaID no es undefined por el filtro aplicado.
           this.footballService.obtenerClasificacion(ligaID!, this.selectedSeason)
         )
       )
       .subscribe({
         next: (resp) => {
           this.leagueInfo = resp.response[0].league;
-          // Respuesta con los datos de las clasificaciones
           this.standings = resp.response[0].league.standings;
           this.hayError = false;
         },
         error: (error) => {
-          // Error en el proceso de búsqueda o al obtener clasificaciones
           this.hayError = true;
           this.standings = [];
           console.error('Error en el proceso de búsqueda: ', error);
@@ -131,14 +115,6 @@ export class CompeticionesComponent implements OnInit {
     this.buscarLiga(liga.name);
     this.mostrarSugerencias = false;
   }
-
-  //FUTBOL INPUT
-  @Output() onEnter : EventEmitter<string> = new EventEmitter();
-  @Output() onDebounce: EventEmitter<string> = new EventEmitter();
-
-  @Input() placeholder: string = '';
-
-  debouncer: Subject<string> = new Subject();
 
 
   buscar() {

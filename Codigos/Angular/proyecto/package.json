@@ -6,7 +6,7 @@
     "start": "ng serve -o",
     "build": "ng build",
     "test": "ng test",
-    "lint": "ng lint", 
+    "lint": "ng lint",
     "e2e": "ng e2e"
   },
   "private": true,
@@ -26,6 +26,7 @@
     "primeicons": "^6.0.1",
     "primeng": "^17.8.0",
     "rxjs": "~6.6.0",
+    "sweetalert2": "^11.10.6",
     "tslib": "^2.0.0",
     "zone.js": "~0.14.4"
   },
