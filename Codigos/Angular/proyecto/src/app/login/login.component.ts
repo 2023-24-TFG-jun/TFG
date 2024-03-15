@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthGoogleService } from '../services/auth-google.service';
 import { CommonModule} from '@angular/common';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -10,13 +11,15 @@ import { CommonModule} from '@angular/common';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
+
+
+  
   constructor( public authGoogleService: AuthGoogleService){}
 
   login(){
     this.authGoogleService.login();
   }
 
-  
   showData(){
     this.authGoogleService.getProfile().then((data: any) => {
       console.log(JSON.stringify(data));

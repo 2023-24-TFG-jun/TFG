@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { League, Standing } from 'src/app/interfaces/competiciones.interface';
 import { FootballService } from 'src/app/services/football.service';
 import { FormsModule } from '@angular/forms';

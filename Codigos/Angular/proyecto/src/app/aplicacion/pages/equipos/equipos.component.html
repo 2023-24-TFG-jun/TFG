@@ -4,3 +4,41 @@
     <img src="assets/img/cesped.jpg" alt="Imagen fondo">
 
 </div>
+
+<div class="contenedor">
+    <div class="contenedor-formulario">
+      <form (ngSubmit)="buscarEquipo(termino)" autocomplete="off">
+        <div class="form__group field">
+          <input type="input"
+                name="termino"
+                class="form__field"
+                [(ngModel)]="termino"
+                (input)="teclaPresionada()"
+                placeholder="Buscar liga..."
+                required=""
+                aria-label="Buscar liga"/>
+                <label for="name" class="form__label">Buscar equipo</label>
+        </div>
+      </form>
+  
+      <div *ngIf="mostrarSugerencias && sugerenciasEquipos.length > 0"
+            class="mt-2">
+        <ul class="list-group">
+          <li *ngFor="let equipo of sugerenciasEquipos"
+            (click)="seleccionarSugerencia(equipo)"
+            class="list-group-item list-group-item-action">
+            {{equipo.name}}
+          </li>
+        </ul>
+      </div>
+    </div>
+
+
+      <select class="form-select" 
+          aria-label="Seleccionar año"
+          [(ngModel)]="selectedSeason"
+          (ngModelChange)="onYearSelected($event)">
+        <option  selected>-- Seleccione el año --</option>
+        <option *ngFor="let anio of anios" [value]="anio">{{anio}}</option>
+    </select>
+</div>

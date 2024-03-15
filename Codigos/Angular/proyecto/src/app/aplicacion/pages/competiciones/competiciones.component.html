@@ -8,13 +8,17 @@
 <div class="contenedor">
   <div class="contenedor-formulario">
     <form (ngSubmit)="buscarLiga(termino)" autocomplete="off">
-      <input type="text"
-             name="termino"
-             class="form-control"
-             [(ngModel)]="termino"
-             (input)="teclaPresionada()"
-             placeholder="Buscar liga..."
-             aria-label="Buscar liga"/>
+      <div class="form__group field">
+        <input type="input"
+              name="termino"
+              class="form__field"
+              [(ngModel)]="termino"
+              (input)="teclaPresionada()"
+              placeholder="Buscar liga..."
+              required=""
+              aria-label="Buscar liga"/>
+              <label for="name" class="form__label">Buscar liga</label>
+      </div>
     </form>
 
     <div *ngIf="mostrarSugerencias && sugerenciasLigas.length > 0"
@@ -29,9 +33,6 @@
     </div>
   </div>
 
-
-
-  
   <select class="form-select" 
           aria-label="Seleccionar año"
           [(ngModel)]="selectedSeason"
