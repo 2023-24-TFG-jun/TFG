@@ -1,10 +1,10 @@
-export interface Equipos {
+export interface Equipo {
     get:        string;
     parameters: Parameters;
     errors:     any[];
     results:    number;
     paging:     Paging;
-    response:   Response[];
+    response:   Responses[];
 }
 
 export interface Paging {
@@ -16,7 +16,7 @@ export interface Parameters {
     name: string;
 }
 
-export interface Response {
+export interface Responses {
     team:  Team;
     venue: Venue;
 }
@@ -40,3 +40,5 @@ export interface Venue {
     surface:  string;
     image:    string;
 }
+
+

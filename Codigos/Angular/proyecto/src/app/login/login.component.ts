@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthGoogleService } from '../services/auth-google.service';
 import { CommonModule} from '@angular/common';
-import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',

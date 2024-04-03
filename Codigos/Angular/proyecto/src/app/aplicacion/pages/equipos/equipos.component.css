@@ -28,6 +28,7 @@
       align-items: center;
       gap: 20px;
       margin-top: 150px;
+
     }
   
     .container {
@@ -127,3 +128,84 @@
   .form__field:required, .form__field:invalid {
     box-shadow: none;
   }
+  
+
+.estadisticas{
+  max-width: 90%;
+}
+
+.centrar{
+  display: flex;
+  justify-content: center;
+}
+
+.centrar2{
+  display: flex;
+  justify-content: center;
+}
+
+.estadisticas {
+  max-width: 1400px;
+  margin: auto;
+  display: block;
+}
+
+.goles{
+  max-width: 1400px;
+  margin: auto;
+}
+
+.alineaciones{
+  max-width: 1400px;
+  margin: auto;
+}
+
+.penaltis{
+  max-width: 1400px;
+  margin: auto;
+  margin-bottom: 500px; /* O el valor que consideres necesario */
+  display: block; /* Si no está ya definido */
+}
+
+
+
+.ultimos-partidos{
+  max-width: 1400px;
+  margin: auto;
+}
+
+.plantilla{
+  max-width: 1400px;
+  margin: auto;
+}
+
+.ultimos-partidos .sub-card {
+  margin-top: 10px;
+}
+
+.match-venue h5 {
+  margin-bottom: 5px;
+}
+
+.match-detail .team-logo {
+  width: 50px; /* Adjust as needed */
+}
+
+.match-detail .match-score {
+  font-size: 1.5em;
+  align-self: center;
+}
+
+.match-detail .league-logo {
+  width: 30px; /* Adjust as needed */
+}
+
+.margen{
+  margin-bottom: 1000px !important;
+}
+
+.penaltis::after {
+  content: "";
+  display: block;
+  height: 500px;
+}

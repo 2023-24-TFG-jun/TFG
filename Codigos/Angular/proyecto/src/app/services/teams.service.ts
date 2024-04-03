@@ -3,8 +3,9 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { Equipos } from '../interfaces/teamsStatistics.interface';
-import { Team } from '../interfaces/teams.interface';
-import { League } from '../interfaces/competiciones.interface';
+import { Equipo, Team, Responses } from '../interfaces/teams.interface';
+import { League, Response } from '../interfaces/ligas.interfaces';
+import { Squads } from '../interfaces/squads.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -22,16 +23,24 @@ export class TeamsService {
   });
 
   // Obtener el id del equipo
-  buscarEquipoPorNombre(nombreEquipo: string): Observable<Team | undefined> {
+  buscarEquipoPorNombre(nombreEquipo: string): Observable<Responses | undefined> {
     if (!nombreEquipo.trim()) {
       return of(undefined);
     }
-  
-    return this.http.get<{ response: Team[] }>(`${this.servicioUrl}`, { headers: this.headers }).pipe(
+    return this.http.get<{ response: Responses[] }>(`${this.servicioUrl}?name=${nombreEquipo}`, { headers: this.headers }).pipe(
       map(response => {
-        const equipo = response.response.find(e => e.name.toLowerCase() === nombreEquipo.toLowerCase());
-        return equipo ? equipo : undefined;
+        console.log('Respuesta del servidor:', response);
+        const respuesta = response.response[0];
+        if(respuesta && respuesta.team.name.toLowerCase() === nombreEquipo.toLowerCase()){
+          return {
+            team: respuesta.team,
+            venue: respuesta.venue
+          };
+        } else {
+          return undefined;
+        }
       }),
+    
       catchError(error => {
         console.error('Error en buscarEquipoPorNombre:', error);
         return of(undefined);
@@ -41,10 +50,15 @@ export class TeamsService {
 
   // Obtener el id de la liga
   obtenerIDLiga(idEquipo: number): Observable<number | undefined> {
-    return this.http.get<{ response: League[] }>(`https://api-football-v1.p.rapidapi.com/v3/leagues?team=${idEquipo}`, { headers: this.headers }).pipe(
+    return this.http.get<{ response: Response[] }>(`https://api-football-v1.p.rapidapi.com/v3/leagues?team=${idEquipo}`, { headers: this.headers }).pipe(
       map(response => {
-        // Suponiendo que la respuesta incluye un array de ligas y queremos el ID de la primera
-        return response.response.length > 0 ? response.response[0].id : undefined;
+        console.log('Servicio obtenerIDLIga antes', response);
+        if (response.response.length > 0 && response.response[0].league) {
+          console.log('despues', response.response[0].league.id);
+          return response.response[0].league.id;
+        } else {
+          return undefined;
+        }
       }),
       catchError(error => {
         console.error('Error en obtenerIDLiga:', error);
@@ -59,40 +73,36 @@ export class TeamsService {
     return this.http.get<Equipos>(`https://api-football-v1.p.rapidapi.com/v3/teams/statistics?league=${idLiga}&season=${season}&team=${idTeam}`, { headers: this.headers });
   }
 
+  // Siguientes partidos
+  nextFixtures(idTeam: number): Observable<Equipos> {
+    return this.http.get<Equipos>(`https://api-football-v1.p.rapidapi.com/v3/fixtures?next=4&team=${idTeam}`, { headers: this.headers });
+  }
 
-  // buscarSugerenciasEquipo(nombreLiga: string): Observable<Ligas['response'][number]['league'][]>{
-  //   if (!nombreLiga.trim()){
-  //     return of([]);
-  //   }
+  // Ultimos partidos
+  lastFixtures(idTeam: number): Observable<Equipos> {
+    return this.http.get<Equipos>(`https://api-football-v1.p.rapidapi.com/v3/fixtures?last=4&team=${idTeam}`, { headers: this.headers });
+  }
 
-  //   return this.http.get<Ligas>(`${this.servicioUrl}`, { headers: this.headers })
-  //     .pipe(       
-  //       map(response => response.response.map(l => l.league)),
-  //       map(leagues => leagues.filter(league => league.name.toLowerCase().includes(nombreLiga.toLowerCase())).splice(0,5)), 
-  //       catchError(error => {
-  //       console.error('Error en buscarSugerenciasLiga:', error);
-  //       return of([]);
-  //     })
-  //   );
-  // }
+  // Integrantes del equipo
+  squad(idTeam: number): Observable<Squads> {
+    return this.http.get<Squads>(`https://api-football-v1.p.rapidapi.com/v3/players/squads?team=${idTeam}`, { headers: this.headers });
+  }
 
 
+  buscarSugerenciasEquipo(idLiga: number, season: number): Observable<Team[]> {
+    if (!idLiga || !season){
+      return of([]);
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    return this.http.get<Equipo>(`${this.servicioUrl}?league=${idLiga}&season=${season}`, { headers: this.headers })
+      .pipe(       
+        map(response => response.response.map(r => r.team)),
+        map(teams => teams.splice(0,5)), 
+        catchError(error => {
+        console.error('Error en buscarSugerenciasLiga:', error);
+        return of([]);
+      })
+    );
+  }
+  
 }

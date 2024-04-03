@@ -1,17 +1,22 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Subject } from 'rxjs';
-import { filter, switchMap, tap } from 'rxjs/operators';
-import { Team } from 'src/app/interfaces/teamsStatistics.interface';
+
+import { Subject, forkJoin, pipe } from 'rxjs';
+import { debounceTime, distinctUntilChanged, map, switchMap, tap } from 'rxjs/operators';
+import { Team } from 'src/app/interfaces/teams.interface';
+import { Missed } from 'src/app/interfaces/teamsStatistics.interface';
 import { FootballService } from 'src/app/services/football.service';
 import { TeamsService } from 'src/app/services/teams.service';
+import { HighchartsChartModule } from 'highcharts-angular';
+import * as Highcharts from 'highcharts'
+
 
 @Component({
   selector: 'app-equipos',
   templateUrl: './equipos.component.html',
   standalone: true,
-  imports: [CommonModule, FormsModule ],
+  imports: [CommonModule, FormsModule, HighchartsChartModule ],
   styleUrls: ['./equipos.component.css']
 })
 export class EquiposComponent implements OnInit {
@@ -24,13 +29,15 @@ export class EquiposComponent implements OnInit {
   mostrarSugerencias : boolean = false;
   debouncer: Subject<string> = new Subject();
   @Output() onEnter : EventEmitter<string> = new EventEmitter();
-  leagueInfo: any;
+  teamInfo: Response | any;
   sugerenciasEquipos: any;
+  selectedLeagueId!: number;
 
   constructor(private teamsService: TeamsService, private footballService: FootballService) { }
 
   ngOnInit(): void {
     this.obtenerAnios();  
+
   }
 
   //BUSCAR EQUIPO
@@ -41,38 +48,68 @@ export class EquiposComponent implements OnInit {
     }
   
     this.hayError = false;
-
+  
     this.teamsService.buscarEquipoPorNombre(nombreEquipo)
-    .pipe(
-      tap((equipo) => console.log('Equipo:', equipo)),
-      filter(equipo => equipo !== undefined),
-      switchMap(equipo => 
-        this.teamsService.obtenerIDLiga(equipo!.id).pipe(
-          switchMap(idLiga => 
-            this.teamsService.obtenerDatos(idLiga!, this.selectedSeason, equipo!.id)
-          )
+      .pipe(
+        tap((equipo) => console.log('Equipo:', equipo)),
+        switchMap(equipo => {
+          if (!equipo) {
+            throw new Error('Equipo no encontrado');
+          }
+          return this.teamsService.obtenerIDLiga(equipo.team.id).pipe(
+            map(idLiga => ({ teamData: equipo, idLiga }))
+          );
+        }),
+        tap(({ idLiga }) => {
+          if (!idLiga) {
+            throw new Error('ID de la liga no encontrado');
+          }
+          this.selectedLeagueId = idLiga;
+        }),
+        switchMap(({ teamData, idLiga }) => 
+        forkJoin({
+          statistics: this.teamsService.obtenerDatos(idLiga!, this.selectedSeason, teamData.team.id),
+          nextFixtures: this.teamsService.nextFixtures(teamData.team.id),
+          lastFixtures: this.teamsService.lastFixtures(teamData.team.id),
+          squads: this.teamsService.squad(teamData.team.id)
+        }).pipe(
+          map(results => ({
+            team: teamData.team,
+            venue: teamData.venue,
+            statistics: results.statistics.response,
+            nextFixtures: results.nextFixtures.response,
+            lastFixtures: results.lastFixtures.response,
+            squads: results.squads.response
+          }))   
         )
       )
-      )
+    )
       .subscribe({
         next: (resp) => {
-          this.leagueInfo = resp;
+          this.teamInfo = resp;
+          console.log('respuesta de team info', this.teamInfo);
           this.hayError = false;
         },
         error: (error) => {
           this.hayError = true;
-          console.error('Error en el proceso de búsqueda: ', error);
+          console.error('Error en el proceso de búsqueda:', error);
         }
       });
-
-   
   }
+  
 
 
   //MIRAR LAS SUGERENCIAS
-  obtenerSugerencias(termino:string){
-    this.footballService.buscarSugerenciasLiga(termino)
+  obtenerSugerencias(){
+    if (!this.selectedLeagueId || !this.selectedSeason) {
+      console.error('La liga o la temporada no están definidas');
+      this.mostrarSugerencias = false;
+      return;
+    }
+    console.log(`Buscando sugerencias para la liga ${this.selectedLeagueId} y la temporada ${this.selectedSeason}`);
+    this.teamsService.buscarSugerenciasEquipo(this.selectedLeagueId,this.selectedSeason)
     .subscribe((sugerencias: Team[]) => {
+      console.log('Sugerencias recibidas:', sugerencias);
       this.sugerenciasEquipos = sugerencias;
       this.mostrarSugerencias = true;
       
@@ -85,21 +122,21 @@ export class EquiposComponent implements OnInit {
     this.mostrarSugerencias = false;
   }
 
-  buscar() {
-    this.onEnter.emit( this.termino );
-  }
 
   teclaPresionada() {
     this.debouncer.next( this.termino );
-    if(this.termino.length >=2){
-      this.obtenerSugerencias(this.termino);
-    } else {
-      this.mostrarSugerencias = false;
-      this.sugerenciasEquipos=[];
-
+    this.debouncer.pipe(
+      debounceTime(300),
+      distinctUntilChanged(),
+    ).subscribe(termino => { 
+      if(termino.length >=2){
+        this.obtenerSugerencias();
+      } else {
+        this.mostrarSugerencias = false;
+        this.sugerenciasEquipos=[];
+      }
+    });
     }
-    this.obtenerSugerencias(this.termino);
-  }
 
 
 
@@ -121,6 +158,38 @@ export class EquiposComponent implements OnInit {
       this.buscarEquipo(this.termino);
     }
   }
+
+  getMissedValues(value: any): Missed {
+    return value as Missed;
+  }
+
+
+
+  // // Gráficas
+  // Highcharts: typeof Highcharts = Highcharts; // necesario para la plantilla
+  // chartOptions: Highcharts.Options = { // Opciones de la gráfica
+  //   chart: {
+  //     type: 'bar' // Tipo de gráfica
+  //   },
+  //   title: {
+  //     text: 'Estadísticas de Tarjetas'
+  //   },
+  //   xAxis: {
+  //     categories: [], // Aquí van los intervalos de minutos
+  //   },
+  //   yAxis: {
+  //     title: {
+  //       text: 'Porcentaje'
+  //     }
+  //   },
+  //   series: [{
+  //     name: 'Porcentaje de Tarjetas Amarillas',
+  //     type: 'bar',
+  //     data: [] // Aquí van los porcentajes
+  //   }]
+  // };
+
+
 
 }
 

@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { EquiposComponent } from './pages/equipos/equipos.component';
 import { InicioComponent } from './pages/inicio/inicio.component';
 import { PartidosComponent } from './pages/partidos/partidos.component';
 import { PrediccionesComponent } from './pages/predicciones/predicciones.component';
@@ -15,8 +14,6 @@ import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    
-    EquiposComponent,
     InicioComponent,
     PartidosComponent,
     PrediccionesComponent,
@@ -25,7 +22,6 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     FormsModule,
-    
 
   ],
   exports: [
