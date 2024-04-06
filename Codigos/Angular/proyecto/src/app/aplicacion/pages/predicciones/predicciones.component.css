@@ -1,0 +1,266 @@
+.customCheckBoxHolder {
+    margin-left: 100px;
+    display: flex;
+  }
+  
+  .customCheckBox {
+    width: fit-content;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    user-select: none;
+    padding: 2px 8px;
+    background-color: rgba(209, 7, 7);
+    border-radius: 0px;
+    color: rgba(255, 255, 255);
+    transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition-duration: 300ms;
+    transition-property: color, background-color, box-shadow;
+    display: flex;
+    height: 32px;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 1px 0px inset, rgba(255, 255, 255, 0.17) 0px 1px 1px 0px;
+    outline: none;
+    justify-content: center;
+    min-width: 55px;
+  }
+  
+  .customCheckBox:hover {
+    background-color: #2c2c2c;
+    color: white;
+    box-shadow: rgba(0, 0, 0, 0.23) 0px -4px 1px 0px inset, rgba(255, 255, 255, 0.17) 0px -1px 1px 0px, rgba(0, 0, 0, 0.17) 0px 2px 4px 1px;
+  }
+  
+  .customCheckBox .inner {
+    font-size: 18px;
+    font-weight: 900;
+    pointer-events: none;
+    transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition-duration: 300ms;
+    transition-property: transform;
+    transform: translateY(0px);
+  }
+  
+  .customCheckBox:hover .inner {
+    transform: translateY(-2px);
+  }
+  
+  /* Multiple Checkboxes can be chained together for a radio input */
+  .customCheckBoxWrapper:first-of-type .customCheckBox {
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    border-right: 0px;
+  }
+  
+  .customCheckBoxWrapper:last-of-type .customCheckBox {
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    border-left: 0px;
+  }
+  
+  .customCheckBoxInput {
+    display: none;
+  }
+  
+  .customCheckBoxInput:checked + .customCheckBoxWrapper .customCheckBox {
+    background-color: #2d6737;
+    color: white;
+    box-shadow: rgba(0, 0, 0, 0.23) 0px -4px 1px 0px inset, rgba(255, 255, 255, 0.17) 0px -1px 1px 0px, rgba(0, 0, 0, 0.17) 0px 2px 4px 1px;
+  }
+  
+  .customCheckBoxInput:checked + .customCheckBoxWrapper .customCheckBox .inner {
+    transform: translateY(-2px);
+  }
+  
+  .customCheckBoxInput:checked + .customCheckBoxWrapper .customCheckBox:hover {
+    background-color: #34723f;
+    box-shadow: rgba(0, 0, 0, 0.26) 0px -4px 1px 0px inset, rgba(255, 255, 255, 0.17) 0px -1px 1px 0px, rgba(0, 0, 0, 0.15) 0px 3px 6px 2px;
+  }
+  
+  .customCheckBoxWrapper .customCheckBox:hover .inner {
+    transform: translateY(-2px);
+  }
+
+
+.centrar{
+    display: flex;
+    justify-content: center;
+    margin-left: -70px;
+    margin-bottom: 50px;
+}
+
+h1{
+    margin-top: -30px;
+    text-align: center;
+}
+
+
+/* Menu */
+
+/* Estilo general del dropdown */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    margin-top: 200px;
+    margin-left: 100px;
+  }
+  
+  /* El botón que abre el dropdown */
+  .dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Estilos del contenedor dropdown */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  /* Estilos de los items del dropdown */
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    cursor: pointer;
+  }
+  
+  /* Cambio de color al pasar el cursor */
+  .dropdown-content a:hover {background-color: #f1f1f1;}
+  
+  /* Muestra el dropdown al pasar el cursor */
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  /* Cambia el color del botón al pasar el cursor */
+  .dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+  }
+  
+
+  /* Tabla */
+  .estilo-tabla {
+    width: calc(50% - 10px); /* Ajusta esto según tus necesidades */
+    margin-right: 10px; /* Espacio entre las tablas */
+}
+  
+  .estilo-tabla th,
+  .estilo-tabla td {
+    text-align: left;
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+  }
+   
+  /* Estilos para encabezados de la tabla */
+  .estilo-tabla th {
+    background-color: #333;
+    color: white;
+  }
+
+
+  .gold { background-color: gold !important; }
+  .silver { background-color: silver !important; }
+  .bronze { background-color: 	#CD7F32 !important; }
+  .red { background-color: red !important; }
+
+
+  .estilo-tabla tr.gold, 
+  .estilo-tabla tr.silver, 
+  .estilo-tabla tr.bronze, 
+  .estilo-tabla tr.red {
+  --bs-table-bg: transparent !important; /* Anula el color de fondo por defecto de Bootstrap */
+  color: var(--bs-dark); /* Ajusta el color del texto si es necesario */
+}
+
+  /* Loader */
+
+  .loader {
+  position: relative;
+  width: 120px;
+  height: 90px;
+  margin: 0 auto;
+  
+}
+
+.loader:before {
+  content: "";
+  position: absolute;
+  bottom: 30px;
+  left: 50px;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  background: #2a9d8f;
+  animation: loading-bounce 0.5s ease-in-out infinite alternate;
+}
+
+.loader:after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 7px;
+  width: 45px;
+  border-radius: 4px;
+  box-shadow: 0 5px 0 #000, -35px 50px 0 #000, -70px 95px 0 #000;
+  animation: loading-step 1s ease-in-out infinite;
+}
+
+@keyframes loading-bounce {
+  0% {
+    transform: scale(1, 0.7);
+  }
+
+  40% {
+    transform: scale(0.8, 1.2);
+  }
+
+  60% {
+    transform: scale(1, 1);
+  }
+
+  100% {
+    bottom: 140px;
+  }
+}
+
+@keyframes loading-step {
+  0% {
+    box-shadow: 0 10px 0 rgba(0, 0, 0, 0),
+            0 10px 0 #000,
+            -35px 50px 0 #000,
+            -70px 90px 0 #000;
+  }
+
+  100% {
+    box-shadow: 0 10px 0 #000,
+            -35px 50px 0 #000,
+            -70px 90px 0 #000,
+            -70px 90px 0 rgba(0, 0, 0, 0);
+  }
+}
+
+.container .loader{
+  display: flex;
+  margin-top: 15%;
+  margin-left: 36%;
+}
+
+h3{
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.container{
+  margin-left: 520px;
+}

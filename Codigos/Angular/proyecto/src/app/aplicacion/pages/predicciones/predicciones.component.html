@@ -4,3 +4,347 @@
     <img src="assets/img/cesped.jpg" alt="Imagen fondo">
 
 </div>
+
+<div class="dropdown">
+    <button class="dropbtn">Menú</button>
+    <div class="dropdown-content">
+      <a (click)="navegarC()">Clasificaciones</a>
+      <a (click)="navegarxG()">Goles Esperados</a>
+      <a (click)="navegarMundial()">Mundial</a>
+    </div>
+</div>
+
+<h1>Pulsa en los botones para visualizar una predicción de las ligas de la temportada 2015/2016</h1>
+<div class="centrar">
+
+    <div class="customCheckBoxHolder">
+        <input type="checkbox" id="cCB1" class="customCheckBoxInput">
+        <label for="cCB1" class="customCheckBoxWrapper" (click)="Laliga($event)">
+            <div class="customCheckBox">
+                <div class="inner">La Liga</div>
+            </div>
+        </label>
+    </div>
+    
+    <div class="customCheckBoxHolder">
+        <input type="checkbox" id="cCB2" class="customCheckBoxInput">
+        <label for="cCB2" class="customCheckBoxWrapper" (click)="premier($event)">
+            <div class="customCheckBox">
+                <div class="inner">Premier League</div>
+            </div>
+        </label>
+    </div>
+    
+    <div class="customCheckBoxHolder">
+        <input type="checkbox" id="cCB3" class="customCheckBoxInput">
+        <label for="cCB3" class="customCheckBoxWrapper" (click)="serieA($event)">
+            <div class="customCheckBox">
+                <div class="inner">Serie A</div>
+            </div>
+        </label>
+    </div>
+    
+    <div class="customCheckBoxHolder">
+        <input type="checkbox" id="cCB4" class="customCheckBoxInput">
+        <label for="cCB4" class="customCheckBoxWrapper" (click)="bundesliga($event)">
+            <div class="customCheckBox">
+                <div class="inner">Bundesliga</div>
+            </div>
+        </label>
+    </div>
+    
+    <div class="customCheckBoxHolder">
+        <input type="checkbox" id="cCB5" class="customCheckBoxInput">
+        <label for="cCB5" class="customCheckBoxWrapper"  (click)="ligue1($event)">
+            <div class="customCheckBox">
+                <div class="inner">Ligue 1</div>
+            </div>
+        </label>
+    </div>
+</div>
+
+
+<!-- La Liga-->
+
+<div class="container mt-3" >
+    
+    <div class="loader" *ngIf="loading"></div>
+    <div class="row">
+      <!-- Columna para la tabla de predicción -->
+      <div class="col" *ngIf="laLigaData && laLigaData.length > 0">
+          <h3 class="pre">Predicción</h3>
+          <table class="table table-striped estilo-tabla">
+            <thead >
+              <tr>
+                <th>Posición</th>
+                <th>Equipo</th>
+                <th>Puntos</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of laLigaData; let i = index" [ngClass]="{
+                  'gold': i === 0,
+                  'silver': i === 1,
+                  'bronze': i === 2,
+                  'red': i >= laLigaData.length - 3
+                }">
+                <td>{{ i + 1 }}</td>
+                <td>{{ item.equipo }}</td>
+                <td>{{ item.puntos | number: '1.2-2' }}</td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+      <div class="col" *ngIf="laLigaRealData && laLigaRealData.length > 0"> 
+        <h3 class="real">Clasificación real</h3>
+        <table class="table table-striped estilo-tabla" >
+          <thead>
+            <tr>
+              <th>Posición</th>
+              <th>Equipo</th>
+              <th>Puntos</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let team of laLigaRealData; let i = index" [ngClass]="{
+                'gold': i === 0,
+                'silver': i === 1,
+                'bronze': i === 2,
+                'red': i >= laLigaRealData.length - 3
+              }">
+              <td>{{ team.rank }}</td>
+              <td>{{ team.equipo }}</td>
+              <td>{{ team.puntos }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+</div>
+
+<!--Premier League-->
+
+<div class="container mt-3" >
+
+  <div class="row">
+    <!-- Columna para la tabla de predicción -->
+    <div class="col" *ngIf="premierData && premierData.length > 0">
+        <h3 class="pre">Predicción</h3>
+        <table class="table table-striped estilo-tabla">
+          <thead >
+            <tr>
+              <th>Posición</th>
+              <th>Equipo</th>
+              <th>Puntos</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of premierData; let i = index" [ngClass]="{
+                'gold': i === 0,
+                'silver': i === 1,
+                'bronze': i === 2,
+                'red': i >= premierData.length - 3
+              }">
+              <td>{{ i + 1 }}</td>
+              <td>{{ item.equipo }}</td>
+              <td>{{ item.puntos | number: '1.2-2' }}</td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+    <div class="col" *ngIf="premierRealData && premierRealData.length > 0"> 
+      <h3 class="real">Clasificación real</h3>
+      <table class="table table-striped estilo-tabla" >
+        <thead>
+          <tr>
+            <th>Posición</th>
+            <th>Equipo</th>
+            <th>Puntos</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let team of premierRealData; let i = index" [ngClass]="{
+              'gold': i === 0,
+              'silver': i === 1,
+              'bronze': i === 2,
+              'red': i >= premierRealData.length - 3
+            }">
+            <td>{{ team.rank }}</td>
+            <td>{{ team.equipo }}</td>
+            <td>{{ team.puntos }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+  <!--SERIEA-->
+  <div class="container mt-3" >
+    
+    <div class="row">
+      <!-- Columna para la tabla de predicción -->
+      <div class="col" *ngIf="serieAData && serieAData.length > 0">
+          <h3 class="pre">Predicción</h3>
+          <table class="table table-striped estilo-tabla">
+            <thead >
+              <tr>
+                <th>Posición</th>
+                <th>Equipo</th>
+                <th>Puntos</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of serieAData; let i = index" [ngClass]="{
+                  'gold': i === 0,
+                  'silver': i === 1,
+                  'bronze': i === 2,
+                  'red': i >= serieAData.length - 3
+                }">
+                <td>{{ i + 1 }}</td>
+                <td>{{ item.equipo }}</td>
+                <td>{{ item.puntos | number: '1.2-2' }}</td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+      <div class="col" *ngIf="SerieARealData && SerieARealData.length > 0"> 
+        <h3 class="real">Clasificación real</h3>
+        <table class="table table-striped estilo-tabla" >
+          <thead>
+            <tr>
+              <th>Posición</th>
+              <th>Equipo</th>
+              <th>Puntos</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let team of SerieARealData; let i = index" [ngClass]="{
+                'gold': i === 0,
+                'silver': i === 1,
+                'bronze': i === 2,
+                'red': i >= SerieARealData.length - 3
+              }">
+              <td>{{ team.rank }}</td>
+              <td>{{ team.equipo }}</td>
+              <td>{{ team.puntos }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!--Bundesliga-->
+  <div class="container mt-3" >
+    
+    <div class="row">
+      <!-- Columna para la tabla de predicción -->
+      <div class="col" *ngIf="bundesligaData && bundesligaData.length > 0">
+          <h3 class="pre">Predicción</h3>
+          <table class="table table-striped estilo-tabla">
+            <thead >
+              <tr>
+                <th>Posición</th>
+                <th>Equipo</th>
+                <th>Puntos</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of bundesligaData; let i = index" [ngClass]="{
+                  'gold': i === 0,
+                  'silver': i === 1,
+                  'bronze': i === 2,
+                  'red': i >= bundesligaData.length - 3
+                }">
+                <td>{{ i + 1 }}</td>
+                <td>{{ item.equipo }}</td>
+                <td>{{ item.puntos | number: '1.2-2' }}</td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+      <div class="col" *ngIf="bundesligaRealData && bundesligaRealData.length > 0"> 
+        <h3 class="real">Clasificación real</h3>
+        <table class="table table-striped estilo-tabla" >
+          <thead>
+            <tr>
+              <th>Posición</th>
+              <th>Equipo</th>
+              <th>Puntos</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let team of bundesligaRealData; let i = index" [ngClass]="{
+                'gold': i === 0,
+                'silver': i === 1,
+                'bronze': i === 2,
+                'red': i >= bundesligaRealData.length - 3
+              }">
+              <td>{{ team.rank }}</td>
+              <td>{{ team.equipo }}</td>
+              <td>{{ team.puntos }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- LIGUE1-->
+
+  <div class="container mt-3" >
+    
+    <div class="row">
+      <!-- Columna para la tabla de predicción -->
+      <div class="col" *ngIf="ligue1Data && ligue1Data.length > 0">
+          <h3 class="pre">Predicción</h3>
+          <table class="table table-striped estilo-tabla">
+            <thead >
+              <tr>
+                <th>Posición</th>
+                <th>Equipo</th>
+                <th>Puntos</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of ligue1Data; let i = index" [ngClass]="{
+                  'gold': i === 0,
+                  'silver': i === 1,
+                  'bronze': i === 2,
+                  'red': i >= ligue1Data.length - 3
+                }">
+                <td>{{ i + 1 }}</td>
+                <td>{{ item.equipo }}</td>
+                <td>{{ item.puntos | number: '1.2-2' }}</td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+      <div class="col" *ngIf="ligue1RealData && ligue1RealData.length > 0"> 
+        <h3 class="real">Clasificación real</h3>
+        <table class="table table-striped estilo-tabla" >
+          <thead>
+            <tr>
+              <th>Posición</th>
+              <th>Equipo</th>
+              <th>Puntos</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let team of ligue1RealData; let i = index" [ngClass]="{
+                'gold': i === 0,
+                'silver': i === 1,
+                'bronze': i === 2,
+                'red': i >= ligue1RealData.length - 3
+              }">
+              <td>{{ team.rank }}</td>
+              <td>{{ team.equipo }}</td>
+              <td>{{ team.puntos }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <app-spacer></app-spacer>

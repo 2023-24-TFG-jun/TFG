@@ -77,6 +77,14 @@ export class HeaderComponent {
     });
   }
 
+  alerta(){
+
+    Swal.fire({
+      icon: "info",
+      title: "No ha iniciado sesión",
+      text: "Inicia sesión para disfrutar de estas funcionalidades"
+    });
+  }
   
   
 }

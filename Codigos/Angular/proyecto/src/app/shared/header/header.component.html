@@ -8,17 +8,17 @@
       </div>
       <nav class="rk-navigation">
         <ul class="rk-menu">
-          <li class="rk-menu__item" [ngClass]="{'animate__animated animate__rubberBand': rubberClass}" (click)="animateMenu()"><a [routerLink]="['/']" class="rk-menu__link">Inicio</a></li>
-          <li class="rk-menu__item" [ngClass]="{'animate__animated animate__rubberBand': rubberClass2}" (click)="animateMenu2()"><a [routerLink]="['/Partidos']"  class="rk-menu__link">Partidos</a></li>
-          <li class="rk-menu__item" [ngClass]="{'animate__animated animate__rubberBand': rubberClass3}" (click)="animateMenu3()"><a [routerLink]="['/Equipos']"  class="rk-menu__link">Equipos</a></li>
-          <li class="rk-menu__item" [ngClass]="{'animate__animated animate__rubberBand': rubberClass4}" (click)="animateMenu4()"><a [routerLink]="['/Competiciones']"  class="rk-menu__link">Competiciones</a></li>
-          <li class="rk-menu__item" [ngClass]="{'animate__animated animate__rubberBand': rubberClass5}" (click)="animateMenu5()"><a [routerLink]="['/SportIA']"  class="rk-menu__link">SportsIA</a></li>
-          <li class="rk-menu__item" [ngClass]="{'animate__animated animate__rubberBand': rubberClass6}" (click)="animateMenu6()"><a [routerLink]="['/Predicciones']"  class="rk-menu__link espacio">Predicciones</a></li>
+          <li class="rk-menu__item" [ngClass]="{'animate__animated animate__rubberBand': rubberClass}" (click)="animateMenu()"><a [routerLink]="['/']" class="rk-menu__link"><mat-icon>home</mat-icon> Inicio</a></li>
+          <li class="rk-menu__item" [ngClass]="{'animate__animated animate__rubberBand': rubberClass2}" (click)="animateMenu2()"><a [routerLink]="['/Partidos']"  class="rk-menu__link"><mat-icon>sports_soccer</mat-icon>Partidos</a></li>
+          <li class="rk-menu__item" [ngClass]="{'animate__animated animate__rubberBand': rubberClass3}" (click)="animateMenu3()"><a [routerLink]="['/Equipos']"  class="rk-menu__link"><mat-icon>groups</mat-icon>Equipos</a></li>
+          <li class="rk-menu__item" [ngClass]="{'animate__animated animate__rubberBand': rubberClass4}" (click)="animateMenu4()"><a [routerLink]="['/Competiciones']"  class="rk-menu__link"><mat-icon>emoji_events</mat-icon>Competiciones</a></li>
+          <li class="rk-menu__item" [ngClass]="{'animate__animated animate__rubberBand': rubberClass5}" (click)="animateMenu5()"><a [routerLink]="['/SportIA']"  class="rk-menu__link"><mat-icon>camera</mat-icon>SportsIA</a></li>
+          <li class="rk-menu__item" [ngClass]="{'animate__animated animate__rubberBand': rubberClass6}" (click)="animateMenu6()"><a [routerLink]="['/Predicciones']"  class="rk-menu__link espacio"><mat-icon>analytics</mat-icon>Predicciones</a></li>
         </ul>
       </nav>
 
       <div class="rk-buttons">
-        <button *ngIf="!(authGoogleService.isLoggedIn | async)"
+        <button *ngIf="!(authGoogleService.isLoggedIn | async)" (click)="alerta()"
                 [routerLink]="['/Login']" class="rk-button">INICIAR SESIÓN</button>
         <button *ngIf="authGoogleService.isLoggedIn | async" [routerLink]="['/']" class="rk-button" (click)="logout()">CERRAR SESIÓN</button>
       </div>
