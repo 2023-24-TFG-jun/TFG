@@ -11,13 +11,16 @@ import { TeamsService } from 'src/app/services/teams.service';
 import { HighchartsChartModule } from 'highcharts-angular';
 import * as Highcharts from 'highcharts'
 
+import { SpacerComponent } from "../../../shared/spacer/spacer.component";
+
 
 @Component({
-  selector: 'app-equipos',
-  templateUrl: './equipos.component.html',
-  standalone: true,
-  imports: [CommonModule, FormsModule, HighchartsChartModule ],
-  styleUrls: ['./equipos.component.css']
+    selector: 'app-equipos',
+    templateUrl: './equipos.component.html',
+    standalone: true,
+    styleUrls: ['./equipos.component.css'],
+    imports: [CommonModule, FormsModule, HighchartsChartModule, SpacerComponent]
+
 })
 export class EquiposComponent implements OnInit {
   public termino: string ='';
@@ -164,30 +167,6 @@ export class EquiposComponent implements OnInit {
   }
 
 
-
-  // // Gráficas
-  // Highcharts: typeof Highcharts = Highcharts; // necesario para la plantilla
-  // chartOptions: Highcharts.Options = { // Opciones de la gráfica
-  //   chart: {
-  //     type: 'bar' // Tipo de gráfica
-  //   },
-  //   title: {
-  //     text: 'Estadísticas de Tarjetas'
-  //   },
-  //   xAxis: {
-  //     categories: [], // Aquí van los intervalos de minutos
-  //   },
-  //   yAxis: {
-  //     title: {
-  //       text: 'Porcentaje'
-  //     }
-  //   },
-  //   series: [{
-  //     name: 'Porcentaje de Tarjetas Amarillas',
-  //     type: 'bar',
-  //     data: [] // Aquí van los porcentajes
-  //   }]
-  // };
 
 
 

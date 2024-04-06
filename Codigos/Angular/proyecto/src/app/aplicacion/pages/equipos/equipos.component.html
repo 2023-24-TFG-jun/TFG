@@ -42,252 +42,250 @@
   </select>
 </div>
 
-
-
 <div class="container mt-4">
-  <div class="row">
-    <!-- Tarjeta del Equipo -->
-    <div class="col-md-4">
-      <div class="card text-left " *ngIf="teamInfo?.team">
-        <div class="card-body">
-          <img [src]="teamInfo.team.logo" class="card-img-top mx-auto d-block" style="max-width: 400px;" alt="Logo de {{ teamInfo.team.name }}">
-          <h2 class="card-title">{{ teamInfo.team.name }}</h2>
-          <p class="card-text"><strong>País:</strong> {{ teamInfo.team.country }}</p>
-          <p class="card-text"><strong>Fundado en:</strong> {{ teamInfo.team.founded }}</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Tarjeta del Estadio -->
-    <div class="col-md-4">
-      <div class="card text-left" *ngIf="teamInfo?.team">
-        <div class="card-body">
-          <img [src]="teamInfo.venue.image" class="card-img-top mx-auto d-block" style="max-width: 400px;" alt="Estadio {{ teamInfo.venue.name }}">
-          <h2 class="card-title">{{ teamInfo.venue.name }}</h2>
-          <p class="card-text"><strong>Dirección:</strong> {{ teamInfo.venue.address }}</p>
-          <p class="card-text"><strong>Ciudad:</strong> {{ teamInfo.venue.city }}</p>
-          <p class="card-text"><strong>Capacidad:</strong> {{ teamInfo.venue.capacity }}</p>
-          <p class="card-text"><strong>Superficie:</strong> {{ teamInfo.venue.surface }}</p>
-        </div>
-      </div>
-    </div> 
-
-    <!-- Tarjeta de la Liga -->
-    <div class="col-md-4">
-      <div class="card text-left" *ngIf="teamInfo?.team">
-        <img [src]="teamInfo.statistics.league.logo" class="card-img-top mx-auto d-block" style="max-width: 200px;" alt="Logo de {{ teamInfo.statistics.league.name }}">
-        <div class="card-body">
-          <h2 class="card-title">{{ teamInfo.statistics.league.name }}</h2>
-          <p class="card-text"><strong>País:</strong> {{ teamInfo.statistics.league.country }}</p>
-          <p class="card-text"><strong>Temporada:</strong> {{ teamInfo.statistics.league.season }}</p>
-          <img [src]="teamInfo.statistics.league.flag" class="mt-2" style="width: 50px;" alt="Bandera de {{ teamInfo.statistics.league.country }}">
-        </div>
+<div class="row">
+  <!-- Tarjeta del Equipo -->
+  <div class="col-md-4">
+    <div class="card text-left " *ngIf="teamInfo?.team">
+      <div class="card-body">
+        <img [src]="teamInfo.team.logo" class="card-img-top mx-auto d-block" style="max-width: 400px;" alt="Logo de {{ teamInfo.team.name }}">
+        <h2 class="card-title">{{ teamInfo.team.name }}</h2>
+        <p class="card-text"><strong>País:</strong> {{ teamInfo.team.country }}</p>
+        <p class="card-text"><strong>Fundado en:</strong> {{ teamInfo.team.founded }}</p>
       </div>
     </div>
   </div>
+
+  <!-- Tarjeta del Estadio -->
+  <div class="col-md-4">
+    <div class="card text-left" *ngIf="teamInfo?.team">
+      <div class="card-body">
+        <img [src]="teamInfo.venue.image" class="card-img-top mx-auto d-block" style="max-width: 400px;" alt="Estadio {{ teamInfo.venue.name }}">
+        <h2 class="card-title">{{ teamInfo.venue.name }}</h2>
+        <p class="card-text"><strong>Dirección:</strong> {{ teamInfo.venue.address }}</p>
+        <p class="card-text"><strong>Ciudad:</strong> {{ teamInfo.venue.city }}</p>
+        <p class="card-text"><strong>Capacidad:</strong> {{ teamInfo.venue.capacity }}</p>
+        <p class="card-text"><strong>Superficie:</strong> {{ teamInfo.venue.surface }}</p>
+      </div>
+    </div>
+  </div> 
+
+  <!-- Tarjeta de la Liga -->
+  <div class="col-md-4">
+    <div class="card text-left" *ngIf="teamInfo?.team">
+      <img [src]="teamInfo.statistics.league.logo" class="card-img-top mx-auto d-block" style="max-width: 200px;" alt="Logo de {{ teamInfo.statistics.league.name }}">
+      <div class="card-body">
+        <h2 class="card-title">{{ teamInfo.statistics.league.name }}</h2>
+        <p class="card-text"><strong>País:</strong> {{ teamInfo.statistics.league.country }}</p>
+        <p class="card-text"><strong>Temporada:</strong> {{ teamInfo.statistics.league.season }}</p>
+        <img [src]="teamInfo.statistics.league.flag" class="mt-2" style="width: 50px;" alt="Bandera de {{ teamInfo.statistics.league.country }}">
+      </div>
+    </div>
+  </div>
+</div>
 </div>
 
 
 <!-- Tarjeta Principal para Últimos Partidos -->
 <div class="card mt-4 ultimos-partidos" *ngIf="teamInfo?.lastFixtures">
-  <div class="card-header">
-    Últimos Partidos
-  </div>
-  <div class="card-body">
-    <!-- Iterar sobre cada último partido -->
-    <div *ngFor="let match of teamInfo.lastFixtures; let i = index" class="card sub-card mb-3">
-      <div class="card-header">
-        Partido {{ i + 1 }}
+<div class="card-header">
+  Últimos Partidos
+</div>
+<div class="card-body">
+  <!-- Iterar sobre cada último partido -->
+  <div *ngFor="let match of teamInfo.lastFixtures; let i = index" class="card sub-card mb-3">
+    <div class="card-header">
+      Partido {{ i + 1 }}
+    </div>
+    <div class="card-body">
+      <div class="match-venue">
+        <h5 class="text-center">{{ match.fixture.date }}</h5>
+        <h5 class="text-center">{{ match.fixture.venue.name }}</h5>
+        <p class="text-center">Árbitro: {{ match.fixture.referee }}</p>
       </div>
-      <div class="card-body">
-        <div class="match-venue">
-          <h5 class="text-center">{{ match.fixture.date }}</h5>
-          <h5 class="text-center">{{ match.fixture.venue.name }}</h5>
-          <p class="text-center">Árbitro: {{ match.fixture.referee }}</p>
+      <div class="row match-detail">
+        <div class="col-4 text-center">
+          <img [src]="match.teams.home.logo" alt="Home Team Logo" class="team-logo">
+          <p>{{ match.teams.home.name }}</p>
         </div>
-        <div class="row match-detail">
-          <div class="col-4 text-center">
-            <img [src]="match.teams.home.logo" alt="Home Team Logo" class="team-logo">
-            <p>{{ match.teams.home.name }}</p>
-          </div>
-          <div class="col-4 text-center match-score">
-            <p>{{ match.goals.home }} - {{ match.goals.away }}</p>
-            <img [src]="match.league.logo" alt="League Logo" class="league-logo">
-            <p>{{ match.league.round }}</p>
-          </div>
-          <div class="col-4 text-center">
-            <img [src]="match.teams.away.logo" alt="Away Team Logo" class="team-logo">
-            <p>{{ match.teams.away.name }}</p>
-          </div>
+        <div class="col-4 text-center match-score">
+          <p>{{ match.goals.home }} - {{ match.goals.away }}</p>
+          <img [src]="match.league.logo" alt="League Logo" class="league-logo">
+          <p>{{ match.league.round }}</p>
+        </div>
+        <div class="col-4 text-center">
+          <img [src]="match.teams.away.logo" alt="Away Team Logo" class="team-logo">
+          <p>{{ match.teams.away.name }}</p>
         </div>
       </div>
     </div>
   </div>
+</div>
 </div>
 
 
 <!-- Tarjeta Principal para Siguientes Partidos -->
 <div class="card mt-4 ultimos-partidos" *ngIf="teamInfo?.nextFixtures">
-  <div class="card-header">
-    Siguientes Partidos
-  </div>
-  <div class="card-body">
-    <!-- Iterar sobre cada último partido -->
-    <div *ngFor="let match of teamInfo.nextFixtures; let i = index" class="card sub-card mb-3">
-      <div class="card-header">
-        Partido {{ i + 1 }}
+<div class="card-header">
+  Siguientes Partidos
+</div>
+<div class="card-body">
+  <!-- Iterar sobre cada último partido -->
+  <div *ngFor="let match of teamInfo.nextFixtures; let i = index" class="card sub-card mb-3">
+    <div class="card-header">
+      Partido {{ i + 1 }}
+    </div>
+    <div class="card-body">
+      <div class="match-venue">
+        <h5 class="text-center">{{ match.fixture.date }}</h5>
+        <h5 class="text-center">{{ match.fixture.venue.name }}</h5>
       </div>
-      <div class="card-body">
-        <div class="match-venue">
-          <h5 class="text-center">{{ match.fixture.date }}</h5>
-          <h5 class="text-center">{{ match.fixture.venue.name }}</h5>
+      <div class="row match-detail">
+        <div class="col-4 text-center">
+          <img [src]="match.teams.home.logo" alt="Home Team Logo" class="team-logo">
+          <p>{{ match.teams.home.name }}</p>
         </div>
-        <div class="row match-detail">
-          <div class="col-4 text-center">
-            <img [src]="match.teams.home.logo" alt="Home Team Logo" class="team-logo">
-            <p>{{ match.teams.home.name }}</p>
-          </div>
-          <div class="col-4 text-center match-score">
-            <p>{{ match.goals.home }} - {{ match.goals.away }}</p>
-            <img [src]="match.league.logo" alt="League Logo" class="league-logo">
-            <p>{{ match.league.round }}</p>
-          </div>
-          <div class="col-4 text-center">
-            <img [src]="match.teams.away.logo" alt="Away Team Logo" class="team-logo">
-            <p>{{ match.teams.away.name }}</p>
-          </div>
+        <div class="col-4 text-center match-score">
+          <p>{{ match.goals.home }} - {{ match.goals.away }}</p>
+          <img [src]="match.league.logo" alt="League Logo" class="league-logo">
+          <p>{{ match.league.round }}</p>
+        </div>
+        <div class="col-4 text-center">
+          <img [src]="match.teams.away.logo" alt="Away Team Logo" class="team-logo">
+          <p>{{ match.teams.away.name }}</p>
         </div>
       </div>
     </div>
   </div>
+</div>
 </div>
 
 
 <!-- Tarjeta Principal para Plantilla -->
 <div class="card mt-4 plantilla" *ngIf="teamInfo?.squads">
-  <div class="card-header">
-    Plantilla
-  </div>
-  <div class="card-body">
-    <div class="row">
-      <!-- Iterar sobre cada jugador -->
-      <div class="col-lg-2 col-md-2 col-sm-4 col-6 mb-3" *ngFor="let player of teamInfo.squads[0].players">
-        <div class="card h-100">
-          <img [src]="player.photo" class="card-img-top" alt="Foto de {{ player.name }}" style="width:100%; height: auto;">
-          <div class="card-body">
-            <h5 class="card-title">{{ player.name }}</h5>
-            <p class="card-text">
-              <strong>Edad:</strong> {{ player.age }}<br>
-              <strong>Número:</strong> {{ player.number }}<br>
-              <strong>Posición:</strong> {{ player.position }}
-            </p>
-          </div>
+<div class="card-header">
+  Plantilla
+</div>
+<div class="card-body">
+  <div class="row">
+    <!-- Iterar sobre cada jugador -->
+    <div class="col-lg-2 col-md-2 col-sm-4 col-6 mb-3" *ngFor="let player of teamInfo.squads[0].players">
+      <div class="card h-100">
+        <img [src]="player.photo" class="card-img-top" alt="Foto de {{ player.name }}" style="width:100%; height: auto;">
+        <div class="card-body">
+          <h5 class="card-title">{{ player.name }}</h5>
+          <p class="card-text">
+            <strong>Edad:</strong> {{ player.age }}<br>
+            <strong>Número:</strong> {{ player.number }}<br>
+            <strong>Posición:</strong> {{ player.position }}
+          </p>
         </div>
       </div>
     </div>
   </div>
 </div>
+</div>
 
 
 <!-- Tarjeta Principal de Estadísticas -->
 <div class="card mt-4 estadisticas" *ngIf="teamInfo?.statistics">
-  <div class="card-header">
-    Estadísticas
+<div class="card-header">
+  Estadísticas
+</div>
+
+<div class="card-body">
+  <!-- Primera fila para tarjetas amarillas y rojas -->
+  <div class="row">
+    <!-- Tarjetas Amarillas -->
+    <div class="col-6">
+      <div class="card mb-3">
+        <div class="card-header">
+          Tarjetas Amarillas
+        </div>
+        <div class="card-body">
+          <p class="card-text" *ngFor="let yellowCard of teamInfo.statistics.cards.yellow | keyvalue">
+            {{ yellowCard.key }}: Total: {{ getMissedValues(yellowCard.value).total ?? 0 }}, Porcentaje: {{ getMissedValues(yellowCard.value).percentage ?? '0 %' }}
+          </p>
+
+        </div>
+      </div>
+    </div>
+    <!-- Tarjetas Rojas -->
+    <div class="col-6">
+      <div class="card">
+        <div class="card-header">
+          Tarjetas Rojas
+        </div>
+        <div class="card-body">
+          <p class="card-text" *ngFor="let redCard of teamInfo.statistics.cards.red | keyvalue">
+            {{ redCard.key }}: Total: {{ getMissedValues(redCard.value).total ?? 0}}, Porcentaje: {{ getMissedValues(redCard.value).percentage ?? '0 %'  }}
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div class="card-body">
-    <!-- Primera fila para tarjetas amarillas y rojas -->
-    <div class="row">
-      <!-- Tarjetas Amarillas -->
-      <div class="col-6">
-        <div class="card mb-3">
-          <div class="card-header">
-            Tarjetas Amarillas
-          </div>
-          <div class="card-body">
-            <p class="card-text" *ngFor="let yellowCard of teamInfo.statistics.cards.yellow | keyvalue">
-              {{ yellowCard.key }}: Total: {{ getMissedValues(yellowCard.value).total ?? 0 }}, Porcentaje: {{ getMissedValues(yellowCard.value).percentage ?? '0 %' }}
-            </p>
-
-          </div>
+  <!-- Tarjeta Principal para Resultados de Partidos -->
+  <div class="card mt-4 resultados-partidos" *ngIf="teamInfo?.statistics">
+    <div class="card-header">
+      Portería a 0 y partidos sin marcar
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <!-- Columna porteria 0 -->
+        <div class="col-md-4">
+          <h5 class="text-center">Porteria a 0</h5>
+          <p class="card-text text-center">En Casa: {{ teamInfo.statistics.clean_sheet.home ?? 0  }}</p>
+          <p class="card-text text-center">Fuera: {{ teamInfo.statistics.clean_sheet.away ?? 0  }}</p>
+          <p class="card-text text-center">Total: {{ teamInfo.statistics.clean_sheet.total ?? 0  }}</p>
         </div>
-      </div>
-      <!-- Tarjetas Rojas -->
-      <div class="col-6">
-        <div class="card">
-          <div class="card-header">
-            Tarjetas Rojas
-          </div>
-          <div class="card-body">
-            <p class="card-text" *ngFor="let redCard of teamInfo.statistics.cards.red | keyvalue">
-              {{ redCard.key }}: Total: {{ getMissedValues(redCard.value).total ?? 0}}, Porcentaje: {{ getMissedValues(redCard.value).percentage ?? '0 %'  }}
-            </p>
-          </div>
+        <!-- Columna sin  marcar -->
+        <div class="col-md-4">
+          <h5 class="text-center">Partidos sin marcar</h5>
+          <p class="card-text text-center">En Casa: {{  teamInfo.statistics.failed_to_score.home ?? 0 }}</p>
+          <p class="card-text text-center">Fuera: {{ teamInfo.statistics.failed_to_score.away ?? 0  }}</p>
+          <p class="card-text text-center">Total: {{ teamInfo.statistics.failed_to_score.total ?? 0  }}</p>
         </div>
+        
       </div>
     </div>
-
-    <!-- Tarjeta Principal para Resultados de Partidos -->
-    <div class="card mt-4 resultados-partidos" *ngIf="teamInfo?.statistics">
-      <div class="card-header">
-        Portería a 0 y partidos sin marcar
-      </div>
-      <div class="card-body">
-        <div class="row">
-          <!-- Columna porteria 0 -->
-          <div class="col-md-4">
-            <h5 class="text-center">Porteria a 0</h5>
-            <p class="card-text text-center">En Casa: {{ teamInfo.statistics.clean_sheet.home ?? 0  }}</p>
-            <p class="card-text text-center">Fuera: {{ teamInfo.statistics.clean_sheet.away ?? 0  }}</p>
-            <p class="card-text text-center">Total: {{ teamInfo.statistics.clean_sheet.total ?? 0  }}</p>
-          </div>
-          <!-- Columna sin  marcar -->
-          <div class="col-md-4">
-            <h5 class="text-center">Partidos sin marcar</h5>
-            <p class="card-text text-center">En Casa: {{  teamInfo.statistics.failed_to_score.home ?? 0 }}</p>
-            <p class="card-text text-center">Fuera: {{ teamInfo.statistics.failed_to_score.away ?? 0  }}</p>
-            <p class="card-text text-center">Total: {{ teamInfo.statistics.failed_to_score.total ?? 0  }}</p>
-          </div>
-          
-        </div>
-      </div>
-    </div>
-
-    <!-- Tarjeta Principal para Resultados de Partidos -->
-    <div class="card mt-4 resultados-partidos" *ngIf="teamInfo?.statistics">
-      <div class="card-header">
-        Resultados de Partidos
-      </div>
-      <div class="card-body">
-        <div class="row">
-          <!-- Columna de Victorias -->
-          <div class="col-md-4">
-            <h5 class="text-center">Victorias</h5>
-            <p class="card-text text-center">En Casa: {{ teamInfo.statistics.fixtures.wins.home }}</p>
-            <p class="card-text text-center">Fuera: {{ teamInfo.statistics.fixtures.wins.away }}</p>
-            <p class="card-text text-center">Total: {{ teamInfo.statistics.fixtures.wins.total }}</p>
-          </div>
-          <!-- Columna de Empates -->
-          <div class="col-md-4">
-            <h5 class="text-center">Empates</h5>
-            <p class="card-text text-center">En Casa: {{ teamInfo.statistics.fixtures.draws.home }}</p>
-            <p class="card-text text-center">Fuera: {{ teamInfo.statistics.fixtures.draws.away }}</p>
-            <p class="card-text text-center">Total: {{ teamInfo.statistics.fixtures.draws.total }}</p>
-          </div>
-          <!-- Columna de Derrotas -->
-          <div class="col-md-4">
-            <h5 class="text-center">Derrotas</h5>
-            <p class="card-text text-center">En Casa: {{ teamInfo.statistics.fixtures.loses.home }}</p>
-            <p class="card-text text-center">Fuera: {{ teamInfo.statistics.fixtures.loses.away }}</p>
-            <p class="card-text text-center">Total: {{ teamInfo.statistics.fixtures.loses.total }}</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-
   </div>
+
+  <!-- Tarjeta Principal para Resultados de Partidos -->
+  <div class="card mt-4 resultados-partidos" *ngIf="teamInfo?.statistics">
+    <div class="card-header">
+      Resultados de Partidos
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <!-- Columna de Victorias -->
+        <div class="col-md-4">
+          <h5 class="text-center">Victorias</h5>
+          <p class="card-text text-center">En Casa: {{ teamInfo.statistics.fixtures.wins.home }}</p>
+          <p class="card-text text-center">Fuera: {{ teamInfo.statistics.fixtures.wins.away }}</p>
+          <p class="card-text text-center">Total: {{ teamInfo.statistics.fixtures.wins.total }}</p>
+        </div>
+        <!-- Columna de Empates -->
+        <div class="col-md-4">
+          <h5 class="text-center">Empates</h5>
+          <p class="card-text text-center">En Casa: {{ teamInfo.statistics.fixtures.draws.home }}</p>
+          <p class="card-text text-center">Fuera: {{ teamInfo.statistics.fixtures.draws.away }}</p>
+          <p class="card-text text-center">Total: {{ teamInfo.statistics.fixtures.draws.total }}</p>
+        </div>
+        <!-- Columna de Derrotas -->
+        <div class="col-md-4">
+          <h5 class="text-center">Derrotas</h5>
+          <p class="card-text text-center">En Casa: {{ teamInfo.statistics.fixtures.loses.home }}</p>
+          <p class="card-text text-center">Fuera: {{ teamInfo.statistics.fixtures.loses.away }}</p>
+          <p class="card-text text-center">Total: {{ teamInfo.statistics.fixtures.loses.total }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
 
 </div>
 
@@ -295,111 +293,115 @@
 
 <!-- Tarjeta Principal para Goles -->
 <div class="card mt-4 goles" *ngIf="teamInfo?.statistics">
-  <div class="card-header">
-    Goles
-  </div>
+<div class="card-header">
+  Goles
+</div>
 
-  <div class="card-body">
-    <div class="row">
-      <!-- Goles a Favor -->
-      <div class="col-md-6">
-        <div class="card mb-3">
-          <div class="card-header">
-            Goles a Favor
-          </div>
-            <div class="card-body">
-              <p class="card-text">En Casa: {{ teamInfo.statistics.goals.for.average.home }}</p>
-              <p class="card-text">Fuera: {{ teamInfo.statistics.goals.for.average.away }}</p>
-              <p class="card-text">Total: {{ teamInfo.statistics.goals.for.average.total }}</p>
-              <p class="card-text">Total goles en casa: {{ teamInfo.statistics.goals.for.total.home }}</p>
-              <p class="card-text">Total goles fuera de casa: {{ teamInfo.statistics.goals.for.total.away }}</p>
-              <p class="card-text">Total goles a favor: {{ teamInfo.statistics.goals.for.total.total }}</p>
-              <p class="card-text" *ngFor="let goalTime of teamInfo.statistics.goals.for.minute | keyvalue">{{ goalTime.key }}: Total: {{ getMissedValues(goalTime.value).total ?? 0}}, Porcentaje: {{ getMissedValues(goalTime.value).percentage ?? '0 %'  }}</p>
-            </div>
-          </div>
+<div class="card-body">
+  <div class="row">
+    <!-- Goles a Favor -->
+    <div class="col-md-6">
+      <div class="card mb-3">
+        <div class="card-header">
+          Goles a Favor
         </div>
-
-      <!-- Goles en Contra -->
-      <div class="col-md-6">
-        <div class="card">
-          <div class="card-header">
-            Goles en Contra
-          </div>
-            <div class="card-body">
-              <p class="card-text">En Casa: {{ teamInfo.statistics.goals.against.average.home }}</p>
-              <p class="card-text">Fuera: {{ teamInfo.statistics.goals.against.average.away }}</p>
-              <p class="card-text">Total: {{ teamInfo.statistics.goals.against.average.total }}</p>
-              <p class="card-text">Total goles en casa: {{ teamInfo.statistics.goals.against.total.home }}</p>
-              <p class="card-text">Total goles fuera de casa: {{ teamInfo.statistics.goals.against.total.away }}</p>
-              <p class="card-text">Total goles a favor: {{ teamInfo.statistics.goals.against.total.total }}</p>
-              <p class="card-text"*ngFor="let goalTime of teamInfo.statistics.goals.against.minute | keyvalue">{{ goalTime.key }}: Total: {{ getMissedValues(goalTime.value).total ?? 0}}, Porcentaje: {{ getMissedValues(goalTime.value).percentage ?? '0 %'  }}</p>
-            </div>
+          <div class="card-body">
+            <p class="card-text">En Casa: {{ teamInfo.statistics.goals.for.average.home }}</p>
+            <p class="card-text">Fuera: {{ teamInfo.statistics.goals.for.average.away }}</p>
+            <p class="card-text">Total: {{ teamInfo.statistics.goals.for.average.total }}</p>
+            <p class="card-text">Total goles en casa: {{ teamInfo.statistics.goals.for.total.home }}</p>
+            <p class="card-text">Total goles fuera de casa: {{ teamInfo.statistics.goals.for.total.away }}</p>
+            <p class="card-text">Total goles a favor: {{ teamInfo.statistics.goals.for.total.total }}</p>
+            <p class="card-text" *ngFor="let goalTime of teamInfo.statistics.goals.for.minute | keyvalue">{{ goalTime.key }}: Total: {{ getMissedValues(goalTime.value).total ?? 0}}, Porcentaje: {{ getMissedValues(goalTime.value).percentage ?? '0 %'  }}</p>
           </div>
         </div>
       </div>
-  </div>
+
+    <!-- Goles en Contra -->
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">
+          Goles en Contra
+        </div>
+          <div class="card-body">
+            <p class="card-text">En Casa: {{ teamInfo.statistics.goals.against.average.home }}</p>
+            <p class="card-text">Fuera: {{ teamInfo.statistics.goals.against.average.away }}</p>
+            <p class="card-text">Total: {{ teamInfo.statistics.goals.against.average.total }}</p>
+            <p class="card-text">Total goles en casa: {{ teamInfo.statistics.goals.against.total.home }}</p>
+            <p class="card-text">Total goles fuera de casa: {{ teamInfo.statistics.goals.against.total.away }}</p>
+            <p class="card-text">Total goles a favor: {{ teamInfo.statistics.goals.against.total.total }}</p>
+            <p class="card-text"*ngFor="let goalTime of teamInfo.statistics.goals.against.minute | keyvalue">{{ goalTime.key }}: Total: {{ getMissedValues(goalTime.value).total ?? 0}}, Porcentaje: {{ getMissedValues(goalTime.value).percentage ?? '0 %'  }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
 </div>
 
 
 <!-- Tarjeta para las lineups -->
 
 <div class="card mt-4 alineaciones" *ngIf="teamInfo?.statistics">
-  <div class="card-header">
-    Alineaciones Usadas
-  </div>
-  <div class="card-body">
-    <div class="row">
-      <!-- Iterar sobre cada alineación -->
-      <div class="col-12">
-        <div *ngFor="let lineup of teamInfo.statistics.lineups">
-          <div class="card mb-3">
-            <div class="card-body">
-              <h5 class="card-title">Formación: {{ lineup.formation }}</h5>
-              <p class="card-text">Veces Jugadas: {{ lineup.played }}</p>
-            </div>
+<div class="card-header">
+  Alineaciones Usadas
+</div>
+<div class="card-body">
+  <div class="row">
+    <!-- Iterar sobre cada alineación -->
+    <div class="col-12">
+      <div *ngFor="let lineup of teamInfo.statistics.lineups">
+        <div class="card mb-3">
+          <div class="card-body">
+            <h5 class="card-title">Formación: {{ lineup.formation }}</h5>
+            <p class="card-text">Veces Jugadas: {{ lineup.played }}</p>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>
 </div>
 
 
 <!-- Tarjeta Principal para Estadísticas de Penaltis -->
 <div class="card mt-4  margen penaltis" *ngIf="teamInfo?.statistics">
-  <div class="card-header">
-    Estadísticas de Penaltis
-  </div>
-  <div class="card-body ">
-    <div class="row">
-      <!-- Penaltis Anotados -->
-      <div class="col-md-6">
-        <div class="card mb-3">
-          <div class="card-header">
-            Penaltis Anotados
-          </div>
-          <div class="card-body">
-            <p class="card-text">Total Anotados: {{ teamInfo.statistics.penalty.scored.total }}</p>
-            <p class="card-text">Porcentaje de Éxito: {{ teamInfo.statistics.penalty.scored.percentage }}</p>
-          </div>
+<div class="card-header">
+  Estadísticas de Penaltis
+</div>
+<div class="card-body ">
+  <div class="row">
+    <!-- Penaltis Anotados -->
+    <div class="col-md-6">
+      <div class="card mb-3">
+        <div class="card-header">
+          Penaltis Anotados
+        </div>
+        <div class="card-body">
+          <p class="card-text">Total Anotados: {{ teamInfo.statistics.penalty.scored.total }}</p>
+          <p class="card-text">Porcentaje de Éxito: {{ teamInfo.statistics.penalty.scored.percentage }}</p>
         </div>
       </div>
+    </div>
 
-      <!-- Penaltis Fallados -->
-      <div class="col-md-6">
-        <div class="card">
-          <div class="card-header">
-            Penaltis Fallados
-          </div>
-          <div class="card-body">
-            <p class="card-text">Total Fallados: {{ teamInfo.statistics.penalty.missed.total }}</p>
-            <p class="card-text">Porcentaje de Fallo: {{ teamInfo.statistics.penalty.missed.percentage }}</p>
-          </div>
+    <!-- Penaltis Fallados -->
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">
+          Penaltis Fallados
+        </div>
+        <div class="card-body">
+          <p class="card-text">Total Fallados: {{ teamInfo.statistics.penalty.missed.total }}</p>
+          <p class="card-text">Porcentaje de Fallo: {{ teamInfo.statistics.penalty.missed.percentage }}</p>
         </div>
       </div>
     </div>
   </div>
 </div>
+</div>
+
+
+<app-spacer></app-spacer>
+
 
 
 

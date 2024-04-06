@@ -10,6 +10,8 @@ import { SportIAComponent } from './aplicacion/pages/sport-ia/sport-ia.component
 import { PrediccionesComponent } from './aplicacion/pages/predicciones/predicciones.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './guards/auth.guard';
+import { GolesEsperadosComponent } from './aplicacion/pages/goles-esperados/goles-esperados.component';
+import { MundialComponent } from './aplicacion/pages/mundial/mundial.component';
 
 const routes: Routes = [
   {
@@ -38,6 +40,18 @@ const routes: Routes = [
   {
     path: 'Predicciones',
     component: PrediccionesComponent,
+    canLoad: [AuthGuard],
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'xG',
+    component: GolesEsperadosComponent,
+    canLoad: [AuthGuard],
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'mundial',
+    component: MundialComponent,
     canLoad: [AuthGuard],
     canActivate: [AuthGuard]
   },

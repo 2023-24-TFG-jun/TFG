@@ -163,8 +163,8 @@
 .penaltis{
   max-width: 1400px;
   margin: auto;
-  margin-bottom: 500px; /* O el valor que consideres necesario */
-  display: block; /* Si no está ya definido */
+
+  display: block;
 }
 
 
@@ -200,6 +200,104 @@
   width: 30px; /* Adjust as needed */
 }
 
+
+/* Asegúrate de que .card no sobrescriba los estilos de tus tarjetas originales */
+/* Puede ser necesario ajustar estos estilos para evitar conflictos con los estilos preexistentes */
+
+.red {
+  background-color: #f43f5e;
+}
+
+.blue {
+  background-color: #3b82f6;
+}
+
+.green {
+  background-color: #22c55e;
+}
+
+.cards {
+  /* Tus estilos preexistentes pueden permanecer aquí */
+  /* Agrega los nuevos estilos, posiblemente ajustando los nombres de las clases para evitar conflictos */
+  height: 500px; /* Esto puede necesitar ajuste para contener todo tu contenido */
+  width: 350px; /* Esto puede necesitar ajuste */
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  transition: 400ms;
+}
+
+.cards .card-body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.cards:hover {
+  transform: scale(1.1);
+}
+
+/* El siguiente selector apunta al contenedor padre directo de todas tus tarjetas. Puede que necesites ajustarlo para que coincida con tu estructura HTML específica. */
+.row:hover > .col-md-4 .cards:not(:hover) {
+  filter: blur(10px);
+  transform: scale(0.9);
+}
+
+
+.sub-card-blue {
+  background-color: #A2BFE3; 
+}
+
+.red{
+  background-color: #f43f5e;
+}
+
+.verde{
+  background-color: #22c55e;
+}
+
+/* Agrega las transiciones y otros estilos que desees aquí */
+.sub-card-custom {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.sub-card-custom:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* CARDS 2*/ 
+.cards2 {
+  /* Tus estilos preexistentes pueden permanecer aquí */
+  /* Agrega los nuevos estilos, posiblemente ajustando los nombres de las clases para evitar conflictos */
+  height: 500px; /* Esto puede necesitar ajuste para contener todo tu contenido */
+  width: 350px; /* Esto puede necesitar ajuste */
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  transition: 400ms;
+}
+
+.cards2 .card-body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.cards2:hover {
+  transform: scale(1.1);
+}
+
+/* El siguiente selector apunta al contenedor padre directo de todas tus tarjetas. Puede que necesites ajustarlo para que coincida con tu estructura HTML específica. */
+.row:hover > .col-md-4 .cards2:not(:hover) {
+  filter: blur(10px);
+  transform: scale(0.9);
+}
 .margen{
   margin-bottom: 1000px !important;
 }
@@ -208,4 +306,5 @@
   content: "";
   display: block;
   height: 500px;
+
 }
