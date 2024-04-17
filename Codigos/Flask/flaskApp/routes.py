@@ -78,3 +78,28 @@ def send_goal():
     current_dir = os.path.dirname(os.path.abspath(__file__))
     static_folder = os.path.join(current_dir, '../static')
     return send_from_directory(static_folder, 'goalArgentina.png')
+
+@main.route('/static/mapMessi.png')
+def send_MessiMap():
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    static_folder = os.path.join(current_dir, '../static')
+    return send_from_directory(static_folder, 'messiMap.png')
+
+@main.route('/static/mapMbappe.png')
+def send_mbappeMap():
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    static_folder = os.path.join(current_dir, '../static')
+    return send_from_directory(static_folder, 'mbappeMap.png')
+
+@main.route('/static/locationMapMessi.png')
+def send_locationMessiMap():
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    static_folder = os.path.join(current_dir, '../static')
+    return send_from_directory(static_folder, 'locationMessi.png')
+
+@main.route('/static/pasesMessi.png')
+def send_pasesMessi():
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    static_folder = os.path.join(current_dir, '../static')
+    return send_from_directory(static_folder, 'pasesMessi.png')
+

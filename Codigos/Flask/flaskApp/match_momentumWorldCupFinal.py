@@ -5,7 +5,7 @@ import numpy as np
 from scipy.interpolate import make_interp_spline
 import socceraction.xthreat as xthreat
 import socceraction.spadl as spadl
-
+import matplotlib.patches as mpatches
 
 def matchMomentumFinal():
     world_cup = sb.matches(competition_id=43, season_id=106)
@@ -83,6 +83,8 @@ def matchMomentumFinal():
 
     color_local = 'lightblue'
     color_visitante = 'red'
+    argentina_patch = mpatches.Patch(color=color_local, label='Argentina')
+    francia_patch = mpatches.Patch(color=color_visitante, label='Francia')
 
     x = xT_tot.index
     y = xT_tot.dif_tot
@@ -114,9 +116,8 @@ def matchMomentumFinal():
     plt.tick_params(colors='black', axis='x')
 
     plt.xlim(0,xT_tot.index[-1])
-
+    plt.legend(handles=[argentina_patch, francia_patch])
     plt.title('Match momentum entre Argentina vs. Francia. Final del Mundial Qatar 2022', fontsize=24)
 
-    fig.savefig(f'../Flask/static/matchMomentumFinal.png', bbox_inches='tight')
-
+    fig.savefig(f'Codigos/Flask/static/matchMomentumFinal.png', bbox_inches='tight')
 
