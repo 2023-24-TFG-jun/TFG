@@ -267,7 +267,7 @@ button {
   
 
 
-li {
+  .hov {
     color: black;
     text-decoration: none;
     font-size: 25px;
@@ -277,11 +277,11 @@ li {
     font-family: 'Poppins', sans-serif;
   }
   
-  li::before {
+  .hov::before {
     margin-left: auto;
   }
   
-  li::after, li::before {
+  .hov::after, .hov::before {
     content: '';
     width: 0%;
     height: 2px;
@@ -290,7 +290,7 @@ li {
     transition: 0.5s;
   }
   
-  li:hover::after, li:hover::before {
+  .hov:hover::after, .hov:hover::before {
     width: 100%;
   }
 

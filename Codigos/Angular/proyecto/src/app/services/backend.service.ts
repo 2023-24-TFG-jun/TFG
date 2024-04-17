@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { PrediccionesLigas } from '../interfaces/prediccionesLigas.interface';
 import { Competiciones } from '../interfaces/competiciones.interface';
+import { XG } from '../interfaces/xG.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -55,4 +56,38 @@ export class BackendService {
   getRealSerieA(): Observable<Competiciones>{
     return this.http.get<Competiciones>(`https://api-football-v1.p.rapidapi.com/v3/standings?league=135&season=2015`, { headers: this.headers });
   } 
+
+  golesEsperados(): Observable<XG>{
+    return this.http.get<XG>('http://127.0.0.1:5000/get_prediction_data');
+  } 
+
+  golesEsperadosImg(): Observable<Blob>{
+    return this.http.get('http://127.0.0.1:5000/static/golesEsperados.png', { responseType: 'blob' });
+  } 
+
+  matchMomentumFinal(): Observable<Blob>{
+    return this.http.get('http://127.0.0.1:5000/static/matchMomentumFinal.png', { responseType: 'blob' })
+  }
+
+  goalArgentina(): Observable<Blob>{
+    return this.http.get('http://127.0.0.1:5000/static/goalArgentina.png', { responseType: 'blob' })
+  }
+
+  messiMap(): Observable<Blob>{
+    return this.http.get('http://127.0.0.1:5000/static/mapMessi.png', { responseType: 'blob' })
+  }
+
+  mbappeMap(): Observable<Blob>{
+    return this.http.get('http://127.0.0.1:5000/static/mapMbappe.png', { responseType: 'blob' })
+  }
+
+  messiLocationMap(): Observable<Blob>{
+    return this.http.get('http://127.0.0.1:5000/static/locationMapMessi.png', { responseType: 'blob' })
+  }
+
+  messiPassMap(): Observable<Blob>{
+    return this.http.get('http://127.0.0.1:5000/static/pasesMessi.png', { responseType: 'blob' })
+  }
+
+
 }

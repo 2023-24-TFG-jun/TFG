@@ -298,13 +298,4 @@
   filter: blur(10px);
   transform: scale(0.9);
 }
-.margen{
-  margin-bottom: 1000px !important;
-}
 
-.penaltis::after {
-  content: "";
-  display: block;
-  height: 500px;
-
-}

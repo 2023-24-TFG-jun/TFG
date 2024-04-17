@@ -13,3 +13,133 @@
       <a (click)="navegarMundial()">Mundial</a>
     </div>
 </div>
+
+<div class="container">
+  <img class="copa" src="assets/img/2022_FIFA_World_Cup.svg.png" alt="copa del mundo">
+</div>
+<h1 class="titulo">FIFA World Cup Qatar 2022</h1>
+
+<div class="loader" *ngIf="loading"></div>
+
+<div class="container2">
+  <div class="card" *ngIf="imgMM">
+      <img class="imgMM" src="{{imgMM}}" alt="Imagen match momentum final">
+    <div class="card__content">
+      <p class="card__title">Match momentum entre Argentina y Francia</p>
+      <p class="card__description">El match momentum de un partido nos indica que equipo dominó más el encuentro en función de los eventos del partido. Algunos factores que influyen en el match momentum son los pases, los disparos y la posesión.</p>
+      <p class="card__description">Análisis del gráfico:</p>
+      <ul>
+        <li class="card__description"><b>Dominancia:</b> podemos observar en el gráfico que Argentina dominó el partido los primeros 40 minutos, desde el minuto 50 al 65 aproximadamente y desde el minuto 105 de la prórroga hasta el final.
+                                      En cambio, Francia fue menos dominante en el partido, siendo claro dominador del encuentro desde el minuto 65 hasta el 105 de la prórroga aproximadamente.
+        </li>
+        <li class="card__description"><b>Goles de Francia: </b> los goles de Francia llegaron en el minuto 69 y en el minuto 70 en pleno dominio francés en el partido. En la prórroga llegó el gol
+                                      cerca del minuto 120 en un buen momento para Argentina, ya que, como podemos ver en el gráfico Argentina dominaba el partido en este momento.
+        </li>
+        <li class="card__description"><b>Goles de Argentina: </b>el primero gol de Argentina llegó en el minuto 22. Lo interesante de este gol es que podemos ver que en este momento era Francia quien dominaba el partido, por lo que podríamos sacar como conclusión
+                                      que el gol fue en una contra o en un ataque rápido de Argentina. El segundo gol de Argentina llegó cerca del minuto 35 fruto del dominio de Argentina en la primera parte.
+                                      El tercer y último gol de Argentina llegó en la segunda parte de la prórroga cerca del minuto 107 cuando Argentina dominaba el partido.
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="container2">
+  <div class="card" *ngIf="imgGA">
+      <p class="card__title2">Goles Argentina mundial Qatar 2022</p>
+      <img class="imgGA" src="{{imgGA}}" alt="Imagen goles argentina">
+    <div class="card__content">
+      <p class="card__title">Goles Argentina mundial Qatar 2022</p>
+      <p class="card__description">Este gráfico refleja todos los goles que hubo por parte de Argentina en el mundial de Qatar de 2022 y que zona de la portería fue por la que entró el balón. Este gráfico puede ayudar a determinar la tendencia de tiros de un equipo.</p>
+      <p class="card__description">Análisis del gráfico:</p>
+      <ul>
+        <li class="card__description"><b>Zonas de efectividad:</b> los porcentajes más altos (zonas más oscuras) indican las áreas desde donde Argentina anotó más goles. Parece haber una concentración de goles en determinadas zonas, lo que podría sugerir que Argentina tuvo más éxito o fue más frecuentemente efectiva en esas áreas.</li>
+        <li class="card__description"><b>Precisión: </b> la presencia de círculos en áreas específicas con altos porcentajes sugiere que hubo una buena precisión en los disparos de Argentina en esas zonas, resultando en una mayor cantidad de goles.  </li>
+        <li class="card__description"><b>Distribución de goles: </b> la distribución de los círculos (que representan goles) nos puede dar una idea de la estrategia ofensiva del equipo, indicando si prefirieron disparar desde la distancia, si tuvieron éxito en penetrar la defensa para tiros más cercanos o si fueron efectivos en jugadas a balón parado.</li>
+        <li class="card__description"><b>Oportunidades aprovechadas: </b>si los círculos más grandes representan una mayor cantidad de goles desde una ubicación específica, esto podría significar que Argentina aprovechó bien sus oportunidades más claras o que ciertos jugadores son muy efectivos en áreas específicas. </li>
+        <li class="card__description"><b>Estrategia defensiva del oponente: </b> si hay áreas con porcentajes bajos de goles o sin goles, esto podría indicar que los oponentes defendieron bien esas zonas o que Argentina no pudo crear oportunidades significativas allí. </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="container2">
+  <div class="card" *ngIf="imgGA">
+      <p class="card__title2">Mapas de calor: mapa de calor de Lionel Messi en la final del mundial Qatar 2022</p>
+      <img class="imgMessi" src="{{imgMessi}}" alt="Mapa de calor de Lionel Messi en la final del mundial Qatar 2022">
+    <div class="card__content">
+      <p class="card__title">Mapa de calor de Lionel Messi en la final del mundial de Qatar 2022</p>
+      <p class="card__description">Este gráfico representa el mapa de calor de Messi en el campo en la final del mundial de 2022. Podemos sacar conclusiones acerca de las zonas en las que Messi se movió por el campo. </p>
+      <p class="card__description">Análisis del gráfico:</p>
+      <ul>
+        <li class="card__description"><b>Zonas de actividad:</b> las áreas más brillantes o "más calientes" en el mapa de calor indican las zonas del campo donde Messi estuvo más activo. Si estas zonas se concentran alrededor del centro del campo y hacia la mitad del terreno del equipo contrario, eso sugiere que Messi participó intensamente en la creación del juego y posiblemente también en intentos de anotar o asistir.</li>
+        <li class="card__description"><b>Influencia en el juego: </b> si el mapa de calor muestra una concentración en áreas clave como cerca del área penal, esto podría indicar que Messi fue una figura central en los intentos ofensivos, buscando oportunidades para disparar a gol o crearlas para sus compañeros.</li>
+        <li class="card__description"><b>Movilidad: </b>un rango amplio de colores que se extienden por varias zonas del campo reflejaría la movilidad de Messi, sugiriendo que cubrió una gran extensión del terreno de juego, moviéndose tanto en la creación como en la finalización de las jugadas.</li>
+        <li class="card__description"><b>Posicionamiento y rol: </b> dependiendo de dónde se concentren los colores más cálidos, se podría deducir si Messi jugó más como un delantero clásico, un mediocampista ofensivo o incluso un ala. Por ejemplo, una alta actividad por las bandas podría sugerir un rol más orientado a desbordar y centrar, mientras que una actividad concentrada en el centro podría indicar un papel como 'falso nueve' o mediapunta.</li>
+        <li class="card__description"><b>Cambio de Posición: </b> si hay varias "zonas calientes" en diferentes áreas, esto podría indicar un cambio de posición durante el partido o la adopción de roles diferentes en momentos distintos del juego. </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<div class="container2">
+  <div class="card" *ngIf="imgGA">
+      <p class="card__title2">Mapas de calor: mapa de calor de Mbappé en la final del mundial Qatar 2022</p>
+      <img class="imgMbappe" src="{{imgMbappe}}" alt="Mapa de calor de Mbappé en la final del mundial Qatar 2022">
+    <div class="card__content">
+      <p class="card__title">Mapa de calor de Mbappé en la final del mundial de Qatar 2022</p>
+      <p class="card__description">Este gráfico representa el mapa de calor de Mbappé en el campo en la final del mundial de 2022. Podemos sacar conclusiones acerca de las zonas en las que Mbappé se movió por el campo. </p>
+      <p class="card__description">Análisis del gráfico:</p>
+      <ul>
+        <li class="card__description"><b>Presencia en el campo: </b> si el área más brillante o "caliente" del mapa de calor está cerca de la caja del área rival, indica que Mbappé pasó mucho tiempo en posiciones de ataque, lo que sugiere un papel ofensivo prominente durante el partido.</li>
+        <li class="card__description"><b>Actividad Ofensiva: </b> una alta concentración de color cerca de del área también podría sugerir que Mbappé tuvo varias oportunidades de tiro o que estuvo involucrado en jugadas de gol, lo que lo posiciona como una amenaza constante para la defensa contraria.</li>
+        <li class="card__description"><b>Movilidad: </b>si el mapa de calor muestra actividad a lo largo de todo el frente ofensivo y en ambos lados del campo, esto revelaría la movilidad de Mbappé y su participación en diversas facetas del juego ofensivo, incluyendo desbordes, pases y tiros.</li>
+        <li class="card__description"><b>Interacciones con Compañeros: </b> la presencia de áreas calientes en lugares específicos podría correlacionarse con la combinación de juego con sus compañeros, lo que demostraría cómo el equipo construye sus jugadas alrededor de sus movimientos.</li>
+        <li class="card__description"><b>Efectividad en la Presión: </b> si hay zonas calientes en el campo rival que no están cerca del área, podría indicar que Mbappé estuvo activo en la presión alta, intentando recuperar la posesión y generar transiciones rápidas. </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="container2">
+  <div class="card" *ngIf="imgGA">
+      <p class="card__title2">Mapa de las zonas donde Messi estuvo en el campo en la final del mundial de Qatar 2022</p>
+      <img class="imgMbappe" src="{{imgML}}" alt="Messi Location">
+    <div class="card__content">
+      <p class="card__title">Mapa de locations de Messi en el campo en la final del mundial de Qatar 2022</p>
+      <p class="card__description">Este gráfico representa las zonas donde Messi estuvo en el campo en la final del mundial de Qatar en 2022.</p>
+      <p class="card__description">Análisis del gráfico:</p>
+      <ul>
+        <li class="card__description"><b>Amplitud de Movimientos: </b> si los puntos se extienden a través de una amplia área del campo, eso indicaría que Messi tuvo una gran movilidad, cubriendo muchas zonas durante el partido.</li>
+        <li class="card__description"><b>Posición ofensiva: </b> una concentración de puntos cerca de la portería rival sugiere que Messi jugó un papel ofensivo significativo, buscando espacios para crear oportunidades de gol o disparar.</li>
+        <li class="card__description"><b>Roles: </b> la presencia de puntos en las bandas podría implicar que Messi se desplazaba a lo largo de los flancos para encontrar espacio y crear jugadas, además de su participación en el centro del campo.</li>
+        <li class="card__description"><b>Estrategia del Equipo: </b> la disposición de los puntos también puede reflejar la estrategia del equipo y cómo se esperaba que Messi interactuara con sus compañeros en el terreno de juego.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="container2">
+  <div class="card" *ngIf="imgGA">
+      <p class="card__title2">Mapa de los pases de Messi en la final del mundial Qatar 2022</p>
+      <img class="imgMP" src="{{imgMP}}" alt="Mapa de pases de Messi">
+    <div class="card__content">
+      <p class="card__title">Mapa de los pases de Messi en la final del mundial Qatar 2022</p>
+      <p class="card__description">Este gráfico representa el mapa de pases de Messi en la final del mundial de Qatar 2022.</p>
+      <p class="card__description">Análisis del gráfico:</p>
+      <ul>
+        <li class="card__description"><b>Conectividad y Alcance: </b> la cantidad y la longitud de las líneas de pase indican cuán involucrado estuvo Messi en el juego y cuánto del campo cubrió con sus pases.</li>
+        <li class="card__description"><b>Precisión: </b> las líneas verdes representan los pases exitosos y las rojas pases fallidos, lo que a su vez muestra la precisión en la distribución del balón.</li>
+        <li class="card__description"><b>Creación de oportunidades: </b>  los pases hacia adelante o hacia áreas peligrosas pueden indicar intentos de crear oportunidades de gol. Si hay muchas líneas que apuntan hacia el área penal o zonas de tiro, eso sugiere que Messi desempeñó un papel clave en la generación de ataques.</li>
+        <li class="card__description"><b>Patrones de juego: </b> la distribución de las líneas podría revelar patrones de juego, como la tendencia a jugar por las bandas o a través del centro.</li>
+        <li class="card__description"><b>Influencia en el juego: </b> una gran cantidad de líneas de pase originadas por Messi indicaría su dominio en el flujo del juego, siendo un eje central en el movimiento del balón.</li>
+        <li class="card__description"><b>Colaboración con Compañeros: </b> la dirección y el destino de los pases podrían señalar a los jugadores con los que Messi interactuó más, sugiriendo asociaciones y conexiones fuertes en el campo.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<app-spacer></app-spacer>
+  

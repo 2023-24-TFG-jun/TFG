@@ -16,8 +16,8 @@ import { FormsModule } from '@angular/forms';
   declarations: [
     InicioComponent,
     PartidosComponent,
-    PrediccionesComponent,
     SportIAComponent,
+
   ],
   imports: [
     CommonModule,

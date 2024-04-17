@@ -13,3 +13,204 @@
       <a (click)="navegarMundial()">Mundial</a>
     </div>
 </div>
+
+
+
+<button class="button" (click)="obtenerGolesEsperados()">Goles esperados</button>
+
+<div class="loader" *ngIf="loading"></div>
+
+
+<div class="card animate__animated animate__zoomInDown" *ngIf="xgData">
+  <div class="first-content">
+    <div class="card-body">
+      <h5 class="card-title">Matriz de Confusión</h5>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Predicción: Gol</th>
+            <th scope="col">Predicción: No Gol</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Realidad: Gol</th>
+            <td>{{ xgData.GolesEsperados.confusion_matrix['0']['0'] }}</td> <!-- Verdaderos Negativos -->
+            <td>{{ xgData.GolesEsperados.confusion_matrix['0']['1'] }}</td> <!-- Falsos Positivos -->
+          </tr>
+          <tr>
+            <th scope="row">Realidad: No Gol</th>
+            <td>{{ xgData.GolesEsperados.confusion_matrix['1']['0'] }}</td> <!-- Falsos Negativos -->
+            <td>{{ xgData.GolesEsperados.confusion_matrix['1']['1'] }}</td> <!-- Verdaderos Positivos -->
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="second-content">
+    <p><strong>0 - 0 True positive:</strong> El modelo predijo que un gol sería marcado y efectivamente fue así. </p>
+    <p><strong>0 - 1 False negative:</strong>  El modelo predijo que no se marcaría un gol (negativo), pero en realidad ocurrió un gol (positivo).</p>
+    <p><strong>1 - 0 False positive:</strong> El modelo predijo que se marcaría un gol (positivo), pero no se anotó ningún gol (negativo).</p>
+    <p><strong>1 - 1 True negative:</strong>  El modelo predijo correctamente que no se marcaría un gol (negativo).</p>
+  </div>
+</div>
+
+<div class="card animate__animated animate__zoomInDown" *ngIf="xgData">
+  <div class="first-content">
+    <div class="card-body">
+      <h5 class="card-title">Métricas del modelo</h5>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Especificidad</th>
+            <th scope="col">Exactitud</th>
+            <th scope="col">Precisión</th>
+            <th scope="col">Sensibilidad</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">%</th>
+            <td>{{ xgData.GolesEsperados.especifidad*100 | number: '1.2-2' }}</td> 
+            <td>{{ xgData.GolesEsperados.exactitud*100 | number: '1.2-2'}}</td> 
+            <td>{{ xgData.GolesEsperados.precision*100 | number: '1.2-2'}}</td> 
+            <td>{{ xgData.GolesEsperados.sensibilidad*100 | number: '1.2-2'}}</td> 
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="second-content">
+    <p><strong>Especificidad: </strong> El modelo es muy bueno (98.94%) para predecir cuándo NO se marcará un gol.</p>
+    <p><strong>Exactitud:</strong>  El modelo predijo correctamente el evento (gol o no gol) en esa proporción de las veces(90.34%).</p>
+    <p><strong>Precisión:</strong>El modelo predice correctamente cuando SI hay gol en el 69.39% de las veces.</p>
+    <p><strong>Sensibilidad:</strong>El modelo predijo que no se marcaría gol, pero si hubo gol en el 19.69% de las veces.</p>
+  </div>
+</div>
+
+
+<div class="card animate__animated animate__zoomInDown" *ngIf="xgData">
+  <div class="first-content">
+    <div class="card-body">
+      <h5 class="card-title">Goles reales vs Goles predecidos</h5>
+      <div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">Goles Reales</th>
+              <th scope="col">Goles Predecidos</th>
+  
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Número de goles</th>
+              <td>{{ xgData.GolesEsperados.golesReales_vs_predecidos.goles_hubo}}</td> 
+              <td>{{ xgData.GolesEsperados.golesReales_vs_predecidos.goles_predecido| number: '1.2-2'}}</td> 
+            </tr>
+          </tbody>
+        </table>
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">No acabaron en gol</th>
+              <th scope="col">Acabaron en gol</th>
+  
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">%</th>
+              <td>{{ xgData.GolesEsperados.goles_esperados[0]*100 | number: '1.2-2'}}</td> 
+              <td>{{ xgData.GolesEsperados.goles_esperados[1]*100| number: '1.2-2'}}</td> 
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+    </div>
+  </div>
+  <div class="second-content">
+    <p><strong>Goles predecidos: </strong>Los goles que ocurrieron realmente fueron {{xgData.GolesEsperados.golesReales_vs_predecidos.goles_hubo}}.</p>
+    <p><strong>Goles reales: </strong>Los goles predecidos por el modelo fueron {{ xgData.GolesEsperados.golesReales_vs_predecidos.goles_predecido| number: '1.2-2'}}</p>
+    <p><strong>Gol: </strong>El {{ xgData.GolesEsperados.goles_esperados[0]*100 | number: '1.2-2'}}% de los datos fueron gol.</p>
+    <p><strong>No gol: </strong>El {{ xgData.GolesEsperados.goles_esperados[1]*100| number: '1.2-2'}}% de los datos no fueron gol.</p>
+  </div>
+</div>
+
+<div class="card animate__animated animate__zoomInDown" *ngIf="xgData">
+  <div class="first-content">
+    <div class="card-body">
+      <h5 class="card-title">Goles de penalti reales vs predicción</h5>
+      <div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">No hubo gol de penalti(R)</th>
+              <th scope="col">Hubo gol de penalti(R)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">%</th>
+              <td>{{ xgData.GolesEsperados.goles_penalti[0]*100 | number: '1.2-2'}}</td> 
+              <td>{{ xgData.GolesEsperados.goles_penalti[1]*100 | number: '1.2-2'}}</td> 
+            </tr>
+          </tbody>
+        </table>
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">No hubo gol de penalti (P)</th>
+              <th scope="col">Hubo gol de penalti(P)</th>
+  
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">%</th>
+              <td>{{(1 - xgData.GolesEsperados.predicciones_penalti.xG['mean'])*100 | number: '1.2-2'}}</td> 
+              <td>{{ xgData.GolesEsperados.predicciones_penalti.xG['mean']*100| number: '1.2-2'}}</td> 
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+    </div>
+  </div>
+  <div class="second-content">
+    <p><strong>No hubo gol de penalti: </strong>De los penaltis reales, no acabaron en gol el {{xgData.GolesEsperados.goles_penalti[0]*100 | number: '1.2-2'}}% de ellos.</p>
+    <p><strong>Hubo gol de penalti: </strong>De los penaltis reales, acabaron en gol el {{xgData.GolesEsperados.goles_penalti[1]*100 | number: '1.2-2'}}% de ellos.</p>
+    <p><strong>No hubo gol de penalti: </strong>De los penaltis predecidos, no acabaron en gol el {{(1 - xgData.GolesEsperados.predicciones_penalti.xG['mean'])*100 | number: '1.2-2'}}% de ellos.</p>
+    <p><strong>Hubo gol de penalti: </strong>De los penaltis predecidos, acabaron en gol el {{ xgData.GolesEsperados.predicciones_penalti.xG['mean']*100| number: '1.2-2'}}% de ellos.</p>
+  </div>
+</div>
+
+
+<div class="card2 animate__animated animate__zoomInDown" *ngIf="xgData">
+  <div class="card-inner">
+    <div class="card-front">
+      <div class="centrar" *ngIf="imgxG">
+        <img class="golesEsperadosImg" src="{{imgxG}}" alt="Imagen goles esperados">
+      </div>
+    </div>
+    <div class="card-back">
+      <p class="titulo"><b>Representación del modelo de goles esperados</b></p>
+      <p class="body">Este tipo de gráfico es utilizado para visualizar desde donde se efectuaron los tiros y qué probabilidad tenían de convertirse en gol.</p>
+      <p class="body"><b>Conclusiones:</b></p>
+      <p  class="body"><b>Densidad de Tiros:</b> Hay una alta concentración de tiros (puntos) alrededor del área de penalti, lo que es típico, ya que, es una posición desde donde se marca una gran cantidad de goles. La densidad de los tiros disminuye a medida que te alejas del área de gol.</p>
+      <p  class="body"><b>Calor de los Tiros:</b> La variación de colores, desde el rojo hasta el amarillo,representa la probabilidad de xG de cada tiro. Las áreas más cálidas (colores amarillos) indican una mayor probabilidad de xG, mientras que las áreas más frías (colores rojos oscuros) indican una menor probabilidad.</p>
+      <p  class="body"><b>Eficiencia de los Tiros:</b> Si se consideran los colores junto con la barra de escala de color a la derecha, se puede deducir que muchos de los tiros que se produjeron desde buenas posiciones no resultaron en goles.</p>
+    </div>
+  </div>
+</div>
+
+<app-spacer></app-spacer>

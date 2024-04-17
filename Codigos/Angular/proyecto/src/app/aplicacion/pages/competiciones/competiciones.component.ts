@@ -8,7 +8,6 @@ import { filter, switchMap, tap } from 'rxjs/operators';
 import { Ligas } from 'src/app/interfaces/ligas.interfaces';
 
 
-
 @Component({
   selector: 'app-competiciones',
   standalone: true,
