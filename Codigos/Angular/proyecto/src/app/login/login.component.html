@@ -1,24 +1,26 @@
-<section class="ae-container-fluid rk-portfolio">
 
-    <div class="imagen-fondo">
-        
-      <img src="assets/img/cesped.jpg" alt="Imagen fondo">
 
-    </div>
-
-    <div class="imagen-logo3">
-      <img class="animate__animated animate__backInLeft" src="assets/img/logo.png" alt="Imagen logo">
-    </div>
-
-    <div class="recuadro-opaco-2">
-        <h1 class="hd">Inicia sesión con Google</h1>
-        <img src="assets/img/google.png" alt="google">
-        <button type="button" 
-                class="btn btn-primary btn-lg pi pi-google"
-                (click)="login()"> LOG IN </button>
-
-    </div>
+<div class="imagen-fondo">
     
-    
+  <img src="assets/img/cesped.jpg" alt="Imagen fondo">
 
-  </section>
+</div>
+
+<div fxFlex="100" fxLayout="row" class="margen">
+  <div class="imagen-logo3" fxFlex="30" fxLayout="column" fxLayoutAlign="space-evenly center">
+    <img src="assets/img/logo.png" alt="Imagen logo">
+  </div>
+  
+  <div class="recuadro-opaco" fxFlex="65" fxLayout="column" fxLayoutAlign="space-around center"  >
+    <h1 class="hd">Inicia sesión con Google</h1>
+    <img src="assets/img/google.png" alt="google">
+  
+      <button type="button" (click)="login()">
+        <div fxFlex fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="center center">
+          <i class="fi fi-br-enter"></i>
+          <span>Iniciar sesión</span>
+        </div>
+      </button>
+  </div>
+
+</div>

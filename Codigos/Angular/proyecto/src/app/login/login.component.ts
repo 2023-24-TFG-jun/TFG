@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { AuthGoogleService } from '../services/auth-google.service';
 import { CommonModule} from '@angular/common';
+import { FlexLayoutModule } from "@angular/flex-layout";
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FlexLayoutModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })

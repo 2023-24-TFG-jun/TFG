@@ -1,48 +1,196 @@
-.recuadro-opaco-2 {
-    margin-top: -520px;
-    margin-left: 800px;
-    position: relative; 
-    background-color: rgba(239, 239, 239, 0.7);
-    width: 1100px;
-    height: 700px;
-    border: 5px solid #000;
-    border-radius: 10px;
-    z-index: 1; 
+.recuadro-opaco {
+  background-color: rgba(239, 239, 239, 0.7);
+  width: 1000px;
+  height: 750px;
+  border: 5px solid #000;
+  border-radius: 10px;
+  z-index: 1; 
 }
+
 
 .hd{
     text-align: center;
-    margin-top: 60px;
     font-size: 70px;
-    
+    font-weight: 500;
 }
 
-.recuadro-opaco-2 button{
-    max-width: 350px; 
-    width: 100%; 
-    margin-bottom: 20px; 
-    display: block; 
-    margin-left: auto;
-    margin-right: auto; 
-    margin-top: 50px;
-    padding: 30px;
-    font-size: 30px;
-}
 
-.recuadro-opaco-2 img {
+
+.recuadro-opaco img {
     max-width: 350px; 
     width: 100%; 
-    margin-bottom: 20px;
-    display: block; 
-    margin-left: auto; 
-    margin-right: auto; 
-    margin-top: 50px;
+  
 }
 
 .imagen-logo3 img{
     width: 1000px;
-    height: auto;
-    margin-top: 150px;
-    margin-left: -150px;
+    z-index: 1000;
+
 }
 
+button {
+    position: relative;
+    border-radius: 7px;
+    border: 1px solid rgb(61, 106, 255);
+    padding: 20px 20px 20px 20px;
+    font-size: 30px;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 2px;
+    background: transparent;
+    color: #fff;
+    overflow: hidden;
+    box-shadow: 0 0 0 0 transparent;
+    -webkit-transition: all 0.2s ease-in;
+    -moz-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+    background-color: #000;
+    border: none;
+  }
+  
+  button:hover {
+    background: rgb(61, 106, 255);
+    box-shadow: 0 0 30px 5px rgba(0, 142, 236, 0.815);
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+  }
+  
+  button:hover::before {
+    -webkit-animation: sh02 0.5s 0s linear;
+    -moz-animation: sh02 0.5s 0s linear;
+    animation: sh02 0.5s 0s linear;
+  }
+  
+  button::before {
+    content: '';
+    display: block;
+    width: 0px;
+    height: 86%;
+    position: absolute;
+    top: 7%;
+    left: 0%;
+    opacity: 0;
+    background: #fff;
+    box-shadow: 0 0 50px 30px #fff;
+    -webkit-transform: skewX(-20deg);
+    -moz-transform: skewX(-20deg);
+    -ms-transform: skewX(-20deg);
+    -o-transform: skewX(-20deg);
+    transform: skewX(-20deg);
+  }
+  
+  @keyframes sh02 {
+    from {
+      opacity: 0;
+      left: 0%;
+    }
+  
+    50% {
+      opacity: 1;
+    }
+  
+    to {
+      opacity: 0;
+      left: 100%;
+    }
+  }
+  
+  button:active {
+    box-shadow: 0 0 0 0 transparent;
+    -webkit-transition: box-shadow 0.2s ease-in;
+    -moz-transition: box-shadow 0.2s ease-in;
+    transition: box-shadow 0.2s ease-in;
+  }
+  
+
+
+  .hov {
+    color: black;
+    text-decoration: none;
+    font-size: 25px;
+    border: none;
+    background: none;
+    font-weight: 600;
+  }
+  
+  .hov::before {
+    margin-left: auto;
+  }
+  
+  .hov::after, .hov::before {
+    content: '';
+    width: 0%;
+    height: 2px;
+    background: white;
+    display: block;
+    transition: 0.5s;
+  }
+  
+  .hov:hover::after, .hov:hover::before {
+    width: 100%;
+  }
+
+  .margen{
+    margin-top: 8%;
+}
+
+/*Media queries*/
+
+
+@media (max-width: 768px) {
+
+  .margen {
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    margin-top: 20px; 
+  }
+
+  .imagen-logo3 {
+    order: -1; 
+    width: 80%; 
+    margin-bottom: 20px; 
+  }
+
+
+  .recuadro-opaco {
+    width: auto; 
+    height: auto;
+    padding: 20px; 
+    order: 1; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .imagen-logo3 img {
+    max-width: 200px; 
+    height: auto; 
+    margin-top: 200px;
+    z-index:0;
+  }
+
+  
+  .hd {
+    font-size: 24px; 
+  }
+
+ 
+  .recuadro-opaco img {
+    max-width: 120px; 
+  }
+
+  button {
+    font-size: 16px;
+    padding: 10px 15px; 
+  }
+
+  [fxLayout] {
+    flex-direction: column !important;
+}
+
+[fxFlex] {
+    width: 100% !important; 
+}
+}
