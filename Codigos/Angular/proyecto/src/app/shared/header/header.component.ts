@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthGoogleService } from 'src/app/services/auth-google.service';
 import Swal from 'sweetalert2';
@@ -8,10 +8,15 @@ import Swal from 'sweetalert2';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
 
-  constructor(public authGoogleService: AuthGoogleService,
-    private router: Router){}
+  constructor(public authGoogleService: AuthGoogleService, private router: Router){
+    this.checkMobileStatus();
+  }
+
+  ngOnInit() {
+    
+  }
 
   tadaClass = false;
   rubberClass = false;
@@ -20,6 +25,14 @@ export class HeaderComponent {
   rubberClass4 = false;
   rubberClass5 = false;
   rubberClass6 = false;
+
+  isMobile: boolean = false;
+  menuActive: boolean = false;
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    this.checkMobileStatus();
+  }
 
   animateElement() {
     this.tadaClass = true;
@@ -54,8 +67,6 @@ export class HeaderComponent {
   }
 
   logout(){
-
-
     Swal.fire({
       title: "¿Estás seguro de cerrar sesión?",
       text: "No podrás acceder a SportsIA ni a Predicciones",
@@ -77,14 +88,15 @@ export class HeaderComponent {
     });
   }
 
-  alerta(){
-
-    Swal.fire({
-      icon: "info",
-      title: "No ha iniciado sesión",
-      text: "Inicia sesión para disfrutar de estas funcionalidades"
-    });
+  toggleMenu() {
+    this.menuActive = !this.menuActive;
   }
-  
+
+  private checkMobileStatus(): void {
+    this.isMobile = window.innerWidth < 768;
+    // Opcionalmente puedes alternar la visibilidad del menú aquí si lo necesitas:
+    // this.menuActive = this.isMobile ? false : this.menuActive;
+  }
+
   
 }

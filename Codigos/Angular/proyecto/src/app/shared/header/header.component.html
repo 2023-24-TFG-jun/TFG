@@ -1,26 +1,77 @@
 <header class=" ae-container-fluid--full rk-header ">
 
-
     <div class="rk-topbar">
       <div class="rk-logo">
         <h1 [ngClass]="{'animate__animated animate__tada': tadaClass}" (click)="animateElement()"><a [routerLink]="['/']">FutboStats</a></h1>
         <img [routerLink]="['/']" src="assets/img/logo.png" alt="Logotipo de la página">
       </div>
-      <nav class="rk-navigation">
+      <!-- Botón de menú hamburguesa para dispositivos móviles -->
+      <div class="menu-hamburguesa" *ngIf="isMobile">
+        <button (click)="toggleMenu()"><i class="fi fi-br-menu-burger"></i></button>
+      </div>
+      <nav class="rk-navigation" [ngClass]="{'active': menuActive}">
         <ul class="rk-menu">
-          <li class="rk-menu__item hov" [ngClass]="{'animate__animated animate__rubberBand': rubberClass}" (click)="animateMenu()"><a [routerLink]="['/']" class="rk-menu__link"><mat-icon>home</mat-icon> Inicio</a></li>
-          <li class="rk-menu__item hov" [ngClass]="{'animate__animated animate__rubberBand': rubberClass2}" (click)="animateMenu2()"><a [routerLink]="['/Partidos']"  class="rk-menu__link"><mat-icon>sports_soccer</mat-icon>Partidos</a></li>
-          <li class="rk-menu__item hov" [ngClass]="{'animate__animated animate__rubberBand': rubberClass3}" (click)="animateMenu3()"><a [routerLink]="['/Equipos']"  class="rk-menu__link"><mat-icon>groups</mat-icon>Equipos</a></li>
-          <li class="rk-menu__item hov" [ngClass]="{'animate__animated animate__rubberBand': rubberClass4}" (click)="animateMenu4()"><a [routerLink]="['/Competiciones']"  class="rk-menu__link"><mat-icon>emoji_events</mat-icon>Competiciones</a></li>
-          <li class="rk-menu__item hov" [ngClass]="{'animate__animated animate__rubberBand': rubberClass5}" (click)="animateMenu5()"><a [routerLink]="['/SportIA']"  class="rk-menu__link"><mat-icon>camera</mat-icon>SportsIA</a></li>
-          <li class="rk-menu__item hov" [ngClass]="{'animate__animated animate__rubberBand': rubberClass6}" (click)="animateMenu6()"><a [routerLink]="['/Predicciones']"  class="rk-menu__link espacio"><mat-icon>analytics</mat-icon>Predicciones</a></li>
+          <li class="hov" [ngClass]="{'animate__animated animate__rubberBand': rubberClass}" (click)="animateMenu()"><a [routerLink]="['/']" class="rk-menu__link">
+            <div fxFlex fxLayout="row" fxLayoutGap="10px">
+              <i class="fi fi-sr-house-chimney"></i> 
+              <span>Inicio</span> 
+            </div>
+            </a>
+          </li>
+          <li class="hov" [ngClass]="{'animate__animated animate__rubberBand': rubberClass2}" (click)="animateMenu2()"><a [routerLink]="['/Partidos']"  class="rk-menu__link">
+            <div fxFlex fxLayout="row" fxLayoutGap="10px">
+              <i class="fi fi-br-football"></i>
+              <span>Partidos</span> 
+            </div>
+            </a>
+          </li>
+          <li class="hov" [ngClass]="{'animate__animated animate__rubberBand': rubberClass3}" (click)="animateMenu3()"><a [routerLink]="['/Equipos']"  class="rk-menu__link">
+            <div fxFlex fxLayout="row" fxLayoutGap="10px">
+              <i class="fi fi-ss-employees"></i>
+              <span>Equipos</span>
+            </div>
+            </a>
+          </li>
+          <li class="hov" [ngClass]="{'animate__animated animate__rubberBand': rubberClass4}" (click)="animateMenu4()"><a [routerLink]="['/Competiciones']"  class="rk-menu__link">
+            <div fxFlex fxLayout="row" fxLayoutGap="10px">
+              <i class="fi fi-ss-trophy"></i>
+              <span>Competiciones</span>
+            </div>
+            </a>
+          </li>
+          <li class="hov" [ngClass]="{'animate__animated animate__rubberBand': rubberClass5}" (click)="animateMenu5()"><a [routerLink]="['/SportIA']"  class="rk-menu__link">
+            <div fxFlex fxLayout="row" fxLayoutGap="10px">
+              <i class="fi fi-sr-artificial-intelligence"></i>
+              <span>SportsAI</span>
+            </div>
+            </a>
+          </li>
+          <li class="hov" [ngClass]="{'animate__animated animate__rubberBand': rubberClass6}" (click)="animateMenu6()"><a [routerLink]="['/Predicciones']"  class="rk-menu__link espacio">
+            <div fxFlex fxLayout="row" fxLayoutGap="10px">
+              <i class="fi fi-sr-chart-simple-horizontal"></i>
+              <span>Predicciones</span>
+            </div>
+          </a>
+          </li>
         </ul>
       </nav>
 
       <div class="rk-buttons">
-        <button *ngIf="!(authGoogleService.isLoggedIn | async)" (click)="alerta()"
-                [routerLink]="['/Login']" class="rk-button">INICIAR SESIÓN</button>
-        <button *ngIf="authGoogleService.isLoggedIn | async" [routerLink]="['/']" class="rk-button" (click)="logout()">CERRAR SESIÓN</button>
+        <button *ngIf="!(authGoogleService.isLoggedIn | async)" 
+                [routerLink]="['/Login']">
+                <div fxFlex fxLayout="row" fxLayoutGap="10px">
+                  <i class="fi fi-br-enter"></i>
+                  <span>INICIAR SESIÓN</span>
+
+                </div>
+
+        </button>
+        <button *ngIf="authGoogleService.isLoggedIn | async" [routerLink]="['/']" (click)="logout()">
+          <div fxFlex fxLayout="row" fxLayoutGap="10px">
+            <i class="fi fi-br-exit"></i>
+            <span>CERRAR SESIÓN</span>
+          </div>
+        </button>
       </div>
 
     </div>

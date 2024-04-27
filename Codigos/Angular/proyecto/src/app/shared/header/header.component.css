@@ -1,0 +1,356 @@
+.rk-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #528E54;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    z-index: 10; 
+    padding: 0 20px;
+}
+.rk-logo a {
+    color: #4CAF50;
+    text-decoration: none; 
+}
+
+.rk-topbar {
+    display: flex;
+    justify-content: space-between;
+    width: 100%; 
+    align-items: center;
+}
+
+.rk-header .rk-menu__link {
+    font-size: 20px; 
+}
+
+
+.rk-logo {
+    display:flex;
+    align-items: center;
+    background-color: #000; 
+    color: #4CAF50; 
+    padding: 5px; 
+    border-radius: 10px; 
+    justify-content: center;
+    margin-left: 50px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+}
+.rk-logo h1 {
+    margin: 0; 
+    font-size: 46px;
+}
+
+.rk-logo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
+    cursor: pointer; 
+}
+
+
+.rk-logo img {
+    max-width: 70px; 
+    margin-right: 10px; 
+  }
+
+
+.rk-menu{
+    margin:0;
+    display: flex;
+    list-style-type: none; 
+    padding: 0; 
+}
+
+.rk-menu__link {
+    font-size: 23px!important;
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 12px 40px;
+}
+
+
+.rk-buttons {
+    display: flex;
+    align-items: center;
+}
+
+.rk-menu__item img {
+    max-height: 20px; 
+    width: auto; 
+}
+
+.rk-menu__link img{
+    max-width: 40px; 
+    height: auto;
+    margin-right: 10px; 
+}
+
+
+
+.rk-menu__link {
+    margin-top: 10px;
+    display: flex;
+    align-items: center; 
+    text-decoration: none;
+    color: inherit; 
+}
+
+.rk-menu__link img {
+    margin-right: 5px; 
+}
+
+
+.rk-menu__link.espacio {
+    margin-right: 20px;
+}
+
+button {
+    position: relative;
+    padding: 20px 20px;
+    border-radius: 7px;
+    border: 1px solid rgb(61, 106, 255);
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 2px;
+    background: transparent;
+    color: #fff;
+    overflow: hidden;
+    box-shadow: 0 0 0 0 transparent;
+    -webkit-transition: all 0.2s ease-in;
+    -moz-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+    background-color: #000;
+    border: none;
+    cursor: pointer;
+    align-items: center;
+  }
+  
+  button:hover {
+    background: rgb(61, 106, 255);
+    box-shadow: 0 0 30px 5px rgba(0, 142, 236, 0.815);
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+  }
+  
+  button:hover::before {
+    -webkit-animation: sh02 0.5s 0s linear;
+    -moz-animation: sh02 0.5s 0s linear;
+    animation: sh02 0.5s 0s linear;
+  }
+  
+  button::before {
+    content: '';
+    display: block;
+    width: 0px;
+    height: 86%;
+    position: absolute;
+    top: 7%;
+    left: 0%;
+    opacity: 0;
+    background: #fff;
+    box-shadow: 0 0 50px 30px #fff;
+    -webkit-transform: skewX(-20deg);
+    -moz-transform: skewX(-20deg);
+    -ms-transform: skewX(-20deg);
+    -o-transform: skewX(-20deg);
+    transform: skewX(-20deg);
+  }
+  
+  @keyframes sh02 {
+    from {
+      opacity: 0;
+      left: 0%;
+    }
+  
+    50% {
+      opacity: 1;
+    }
+  
+    to {
+      opacity: 0;
+      left: 100%;
+    }
+  }
+  
+  button:active {
+    box-shadow: 0 0 0 0 transparent;
+    -webkit-transition: box-shadow 0.2s ease-in;
+    -moz-transition: box-shadow 0.2s ease-in;
+    transition: box-shadow 0.2s ease-in;
+  }
+  
+
+
+  .hov {
+    color: black;
+    text-decoration: none;
+    font-size: 25px;
+    border: none;
+    background: none;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .hov::before {
+    margin-left: auto;
+  }
+  
+  .hov::after, .hov::before {
+    content: '';
+    width: 0%;
+    height: 2px;
+    background: white;
+    display: block;
+    transition: 0.5s;
+  }
+  
+  .hov:hover::after, .hov:hover::before {
+    width: 100%;
+  }
+
+
+  /*MEDIAS QUERIES*/
+
+  @media (max-width: 768px) {
+    /* Para tablets */
+    .rk-navigation ul {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .rk-menu {
+      padding-left: 0;
+    }
+  
+    .rk-menu__link {
+      padding: 10px;
+      text-align: center;
+    }
+  
+    /* Esconde el menú y muestra el ícono del menú hamburguesa */
+    .rk-navigation {
+      display: none;
+    }
+  
+    .rk-header {
+      height: auto;
+      padding: 10px;
+    }
+  
+    /* Ajustes para el logo */
+    .rk-logo {
+      margin-left: 0;
+      flex-grow: 1;
+      margin-bottom: 10px;
+    }
+  
+    /* Ajustes para los botones de sesión */
+    .rk-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    button {
+      width: 100%;
+      margin-bottom: 10px; /* Añadir espacio entre botones */
+    }
+  
+    /* Menú hamburguesa */
+    .menu-hamburguesa {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 15%;
+    }
+  
+    /* Ajustar el tamaño de las fuentes */
+    .hov {
+      font-size: 18px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    /* Para teléfonos móviles */
+    .rk-navigation ul {
+      flex-direction: column;
+    }
+  
+    .rk-menu__link {
+      padding: 8px;
+    }
+  
+    /* Ajustar el tamaño de las fuentes más pequeño aún */
+    .hov {
+      font-size: 16px;
+    }
+  }
+
+  /* Teléfonos móviles */
+@media (max-width: 480px) {
+  .rk-logo h1 {
+    font-size: 1.5em; /* Aún más pequeño para móviles */
+  }
+  
+  .rk-navigation ul {
+    flex-direction: column;
+  }
+  
+  .rk-menu__link {
+    padding: 5px; /* Menos padding para que todo encaje en pantallas pequeñas */
+  }
+  
+  .rk-menu__link i {
+    font-size: 1em; /* Iconos más pequeños para móviles */
+  }
+}
+  
+  .menu-hamburguesa {
+  display: none; /* oculta por defecto */
+}
+
+/* Muestra el botón de menú de hamburguesa solo en móviles */
+@media (max-width: 768px) {
+  .menu-hamburguesa {
+    display: block; /* se muestra en dispositivos móviles */
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .rk-header {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .rk-logo h1 {
+    font-size: 2em; /* Tamaño más pequeño para tablets */
+    margin: 10px 0; /* Añade algo de espacio alrededor del logo */
+  }
+
+  .rk-topbar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .rk-buttons button {
+    width: 100%;
+    padding: 10px; /* Botones más pequeños y ajustados */
+  }
+
+  .menu-hamburguesa {
+    display: block; /* Muestra el botón de menú hamburguesa */
+  }
+
+  .rk-navigation.active {
+    display: flex; /* Muestra el menú cuando está activo */
+  }
+}

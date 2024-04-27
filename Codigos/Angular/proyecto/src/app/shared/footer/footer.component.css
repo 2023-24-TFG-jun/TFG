@@ -2,21 +2,16 @@
     background-color: #000; 
     color: #fff; 
     text-align: center; 
-    padding: 20px 0; 
-    font-size: 16px; 
-    font-weight: bold; 
+    padding: 10px 0; 
+    font-weight: 500; 
     position: fixed; 
-    bottom: 0; 
     width: 100%; 
-    left: 0;
-    right: 0;
+    bottom: 0;
     z-index: 2;
 }
 
 
-
-
-.footer__text {
-    margin: 0; 
-    
+img{
+    width: 25px;
 }
+
