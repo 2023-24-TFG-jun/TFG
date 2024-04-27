@@ -27,7 +27,6 @@
     justify-content: center;
     align-items: center;
     gap: 20px;
-    margin-top: 150px;
   }
 
   .container {
@@ -126,5 +125,71 @@
 /* reset input */
 .form__field:required, .form__field:invalid {
   box-shadow: none;
+}
+
+.margen{
+  margin-top: 150px;
+}
+
+h1{
+  text-align: center;
+  font-size: 30px;
+  font-weight: 500;
+}
+
+.formulario{
+  background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(234,249,249,0.67) 0.1%, rgba(239,249,251,0.63) 90.1% );
+  width: 40%;
+  margin-left: 30%;
+  border-radius: 10px;
+}
+
+/* Media queries */
+
+/* Ajustes generales para dispositivos móviles */
+@media (max-width: 768px) {
+  .contenedor, .contenedor-formulario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 20px;
+    max-width: 100%;
+  }
+
+
+
+  .mat-form-field {
+    width: 100%;
+  }
+
+  .imagen-logo3 img {
+    width: 90%;  
+  }
+
+  .formulario {
+    width: 90%; 
+    margin: 20px auto; 
+    padding: 20px; 
+  }
+
+  h1 {
+    font-size: 24px; 
+    padding: 0 10px; 
+    margin-top: 20px; 
+  }
+
+  .form__group {
+    width: 100%; 
+    margin-bottom: 20px; 
+  }
+
+  .list-group {
+    width: 100%;  
+  }
+
+  .form__field, .form__label {
+    font-size: 18px; 
+  }
+
 }
 

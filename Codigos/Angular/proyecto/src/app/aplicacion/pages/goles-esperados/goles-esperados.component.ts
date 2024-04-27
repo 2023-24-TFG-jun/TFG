@@ -4,13 +4,16 @@ import { BackendService } from 'src/app/services/backend.service';
 import { SpacerComponent } from "../../../shared/spacer/spacer.component";
 import { XG } from 'src/app/interfaces/xG.interface';
 import { CommonModule } from '@angular/common';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
 
 @Component({
     selector: 'app-goles-esperados',
     standalone: true,
     templateUrl: './goles-esperados.component.html',
     styleUrl: './goles-esperados.component.css',
-    imports: [SpacerComponent, CommonModule]
+    imports: [SpacerComponent, CommonModule, MatMenuModule, MatButtonModule, MatIconModule]
 })
 export class GolesEsperadosComponent implements OnInit{
 

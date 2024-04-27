@@ -5,7 +5,9 @@
 
 </div>
 
-<div class="contenedor">
+<h1 class="margen">Búsqueda de equipos</h1>
+
+<div class="contenedor formulario" >
     <div class="contenedor-formulario">
       <form (ngSubmit)="buscarEquipo(termino)" autocomplete="off">
         <div class="form__group field">
@@ -32,14 +34,17 @@
         </ul>
       </div>
     </div>
-
-    <select class="form-select" 
-        aria-label="Seleccionar año"
-        [(ngModel)]="selectedSeason"
-        (ngModelChange)="onYearSelected($event)">
-      <option  selected>-- Seleccione el año --</option>
-      <option *ngFor="let anio of anios" [value]="anio">{{anio}}</option>
-  </select>
+    <div class="form__group field">
+      <mat-form-field>
+        <mat-label>Elige un año</mat-label>
+        <mat-select 
+            [(ngModel)]="selectedSeason"
+            (ngModelChange)="onYearSelected($event)">
+          <mat-option  selected>-- Seleccione el año --</mat-option>
+          <mat-option *ngFor="let anio of anios" [value]="anio">{{anio}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
 </div>
 
 <div class="container mt-4">

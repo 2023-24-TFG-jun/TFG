@@ -1,7 +1,7 @@
 
 .contenedor-formulario {
     flex: 1;
-    max-width: 500px;
+    max-width: 400px;
     position: relative;
     }
     
@@ -27,8 +27,7 @@
       justify-content: center;
       align-items: center;
       gap: 20px;
-      margin-top: 150px;
-
+      height: 150px;
     }
   
     .container {
@@ -297,5 +296,87 @@
 .row:hover > .col-md-4 .cards2:not(:hover) {
   filter: blur(10px);
   transform: scale(0.9);
+}
+
+.margen{
+  margin-top: 150px;
+}
+
+h1{
+  text-align: center;
+  font-size: 30px;
+  font-weight: 500;
+}
+
+.formulario{
+  background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(234,249,249,0.67) 0.1%, rgba(239,249,251,0.63) 90.1% );
+  width: 40%;
+  margin-left: 30%;
+  border-radius: 10px;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .formulario {
+    width: 90%; 
+    margin: 20px auto; 
+    padding: 20px; 
+    display: block; /* Asegura que el formulario sea un bloque */
+    position: relative; /* Posición relativa para centrarlo con respecto a su contenedor */
+    top: 7%; /* Desplaza el formulario hacia abajo a la mitad del contenedor */
+    transform: translateY(-50%); /* Ajusta la posición exacta para centrar el formulario */
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    margin-bottom: 50px; /* Añade un margen en la parte inferior */
+  }
+
+  .mat-form-field {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+
+  h1 {
+    font-size: 24px; /* Tamaño de fuente para el título */
+    padding: 0; /* Elimina el padding si es necesario */
+    margin-top: 20px; /* Espacio en la parte superior del título */
+    margin-bottom: 30px; /* Espacio en la parte inferior del título */
+  }
+
+  .form__group {
+    width: 100%; 
+  }
+
+  .form__field,
+  .form__label {
+    font-size: 16px; /* Tamaño de fuente adecuado para legibilidad en móviles */
+  }
+
+  .list-group {
+    width: 100%;  
+  }
+
+  .contenedor,
+  .contenedor-formulario {
+    display: flex; /* Activa Flexbox para alinear los elementos */
+    flex-direction: column; /* Alinea los elementos verticalmente */
+    align-items: center; /* Centra los elementos horizontalmente */
+    padding: 0; /* Elimina el padding si es necesario */
+    margin-bottom: -20px;
+    height: 180px;
+  }
+
+  .card {
+    width: 100%; /* Las tarjetas deben ocupar el ancho completo */
+    margin-top: 10px; /* Espacio entre tarjetas */
+  }
+
+  .cards {
+    flex-direction: column; /* Alineación vertical en móviles para las tarjetas personalizadas */
+  }
+
+  .cards .card-body,
+  .cards2 .card-body {
+    padding: 10px; /* Reducción del padding interno */
+  }
 }
 

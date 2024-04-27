@@ -4,8 +4,9 @@
     <img src="assets/img/cesped.jpg" alt="Imagen fondo">
 </div>
 
+<h1 class="margen">Búsqueda de clasificaciones</h1>
 
-<div class="contenedor">
+<div class="contenedor formulario">
   <div class="contenedor-formulario">
     <form (ngSubmit)="buscarLiga(termino)" autocomplete="off">
       <div class="form__group field">
@@ -33,23 +34,17 @@
     </div>
   </div>
 
-  <select class="form-select" 
-          aria-label="Seleccionar año"
-          [(ngModel)]="selectedSeason"
-          (ngModelChange)="onYearSelected($event)">
-    <option  selected>-- Seleccione el año --</option>
-    <option *ngFor="let anio of anios" [value]="anio">{{anio}}</option>
-  </select>
-
-  <!-- <mat-form-field appearance="fill">
-    <mat-label>Seleccionar año</mat-label>
-    <mat-select [(value)]="selectedSeason" (selectionChange)="onYearSelected($event.value)">
-      <mat-option>-- Seleccione el año --</mat-option>
-      <mat-option *ngFor="let anio of anios" [value]="anio">{{ anio }}</mat-option>
-    </mat-select>
-  </mat-form-field> -->
-
-
+  <div class="form__group field">
+    <mat-form-field>
+      <mat-label>Elige un año</mat-label>
+      <mat-select
+              [(ngModel)]="selectedSeason"
+              (ngModelChange)="onYearSelected($event)">
+        <mat-option  selected>-- Seleccione el año --</mat-option>
+        <mat-option *ngFor="let anio of anios" [value]="anio">{{anio}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
 </div>
 
 <div *ngIf="leagueInfo">

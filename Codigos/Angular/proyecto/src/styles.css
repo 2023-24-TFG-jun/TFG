@@ -1,299 +1,69 @@
+@import "~@flaticon/flaticon-uicons/css/all/all";
 
-.rk-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    background-color: #528E54;
-    height: 120px;
-    display: flex;
-    align-items: center;
-    z-index: 10; 
-    padding: 0 20px;
-}
-.rk-logo a {
-    color: #4CAF50;
-    text-decoration: none; 
-}
-
-.rk-topbar {
-    display: flex;
-    justify-content: space-between;
-    width: 100%; 
-    align-items: center;
-}
-
-.rk-header .rk-menu__link {
-    font-size: 20px; 
-}
-
-
-.rk-logo {
-    display:flex;
-    align-items: center;
-    background-color: #000; 
-    color: #4CAF50; 
-    padding: 5px; 
-    border-radius: 10px; 
-    justify-content: center;
-    margin-left: 50px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    
-}
-.rk-logo h1 {
-    margin: 0; 
-    font-size: 46px;
-}
-
-.rk-logo:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
-    cursor: pointer; 
-}
-
-
-.rk-logo img {
-    max-width: 70px; 
-    margin-right: 10px; 
-  }
-
-
-.rk-menu{
-    margin:0;
-    display: flex;
-    list-style-type: none; 
-    padding: 0; 
-}
-
-.rk-menu__link {
-    font-size: 23px!important;
-    text-decoration: none;
-    color: white;
-    display: flex;
-    align-items: center;
-    padding: 15px 50px;
-}
-
-
-.rk-buttons {
-    display: flex;
-    align-items: center;
-}
-
-.rk-button {
-    font-size: 20px;
-    padding: 30px 20px;
-    background-color: #000;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    text-decoration: none;
-    margin-right: 60px;
-}
-
-.rk-menu__item img {
-    max-height: 20px; 
-    width: auto; 
-}
-
-.rk-menu__link img{
-    max-width: 40px; 
-    height: auto;
-    margin-right: 10px; 
-}
-
-.rk-menu__item {
-    flex: 1; 
-}
-
-.rk-menu__link {
-    margin-top: 10px;
-    display: flex;
-    align-items: center; 
-    text-decoration: none;
-    color: inherit; 
-}
-
-.rk-menu__link img {
-    margin-right: 5px; 
-}
-
-
-.rk-menu__link.espacio {
-    margin-right: 20px;
-}
-
-
-/*CSS para el portafolio*/
 
 .imagen-logo2 p{
-    margin-left: 108px;
-    line-height: 1.3;
-}
-
-.imagen-logo2 {
-    display: flex;
-    flex-direction: column; 
-    align-items: left;
-    text-align: center;
-   
+  margin-left: 108px;
+  line-height: 1.3;
 }
 
 .imagen-logo2 img {
-    width: 900px;
-    height: auto;
-    margin-top: 150px;
-    margin-left: -150px;
+  width: 900px;
+
 }
 
-.texto-i {
-    display: flex;
-    width: 20%;
-    flex-wrap: wrap;
-    color: #000;
-    font-size: 33px; 
-    
- 
-}
 
 .imagen-fondo {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden; 
-    z-index: -1;
+  position: fixed;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
 }
 
 
 
 .imagen-fondo img {
-    opacity: 0.6;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; 
+  opacity: 0.6;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
 }
 
 
 .recuadro-opaco {
-    margin-top: -600px;
-    margin-left: 800px;
-    position: relative; 
-    background-color: rgba(239, 239, 239, 0.7);
-    width: 1100px;
-    height: 700px;
-    border: 5px solid #000;
-    border-radius: 10px;
-    z-index: 1; 
+  background-color: rgba(239, 239, 239, 0.7);
+  width: 1100px;
+  height: 750px;
+  border: 5px solid #000;
+  border-radius: 10px;
+  z-index: 1; 
 }
+
+
+
+/*CSS para el portafolio*/
+
 
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-button {
-    position: relative;
-    padding: 10px 20px;
-    border-radius: 7px;
-    border: 1px solid rgb(61, 106, 255);
-    font-size: 14px;
-    text-transform: uppercase;
-    font-weight: 600;
-    letter-spacing: 2px;
-    background: transparent;
-    color: #fff;
-    overflow: hidden;
-    box-shadow: 0 0 0 0 transparent;
-    -webkit-transition: all 0.2s ease-in;
-    -moz-transition: all 0.2s ease-in;
-    transition: all 0.2s ease-in;
-  }
-  
-  button:hover {
-    background: rgb(61, 106, 255);
-    box-shadow: 0 0 30px 5px rgba(0, 142, 236, 0.815);
-    -webkit-transition: all 0.2s ease-out;
-    -moz-transition: all 0.2s ease-out;
-    transition: all 0.2s ease-out;
-  }
-  
-  button:hover::before {
-    -webkit-animation: sh02 0.5s 0s linear;
-    -moz-animation: sh02 0.5s 0s linear;
-    animation: sh02 0.5s 0s linear;
-  }
-  
-  button::before {
-    content: '';
-    display: block;
-    width: 0px;
-    height: 86%;
-    position: absolute;
-    top: 7%;
-    left: 0%;
-    opacity: 0;
-    background: #fff;
-    box-shadow: 0 0 50px 30px #fff;
-    -webkit-transform: skewX(-20deg);
-    -moz-transform: skewX(-20deg);
-    -ms-transform: skewX(-20deg);
-    -o-transform: skewX(-20deg);
-    transform: skewX(-20deg);
-  }
-  
-  @keyframes sh02 {
-    from {
-      opacity: 0;
-      left: 0%;
-    }
-  
-    50% {
-      opacity: 1;
-    }
-  
-    to {
-      opacity: 0;
-      left: 100%;
-    }
-  }
-  
-  button:active {
-    box-shadow: 0 0 0 0 transparent;
-    -webkit-transition: box-shadow 0.2s ease-in;
-    -moz-transition: box-shadow 0.2s ease-in;
-    transition: box-shadow 0.2s ease-in;
-  }
-  
 
+  /* Estilos para el botón que activa el menú */
+.menu {
+  background-color: black !important; 
+  color: #4CAF50 !important;
+  width: 190px;
+  font-size: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-  .hov {
-    color: black;
-    text-decoration: none;
-    font-size: 25px;
-    border: none;
-    background: none;
-    font-weight: 600;
-    font-family: 'Poppins', sans-serif;
-  }
-  
-  .hov::before {
-    margin-left: auto;
-  }
-  
-  .hov::after, .hov::before {
-    content: '';
-    width: 0%;
-    height: 2px;
-    background: white;
-    display: block;
-    transition: 0.5s;
-  }
-  
-  .hov:hover::after, .hov:hover::before {
-    width: 100%;
-  }
+.menu:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
+  cursor: pointer; 
+}
 
-  
  
 

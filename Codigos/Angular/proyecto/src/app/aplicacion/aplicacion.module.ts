@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { InicioComponent } from './pages/inicio/inicio.component';
-import { PartidosComponent } from './pages/partidos/partidos.component';
-import { PrediccionesComponent } from './pages/predicciones/predicciones.component';
 import { SportIAComponent } from './pages/sport-ia/sport-ia.component';
 import { FormsModule } from '@angular/forms';
-
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { FlexLayoutModule } from "@angular/flex-layout";
+import { MAT_DATE_LOCALE, MatNativeDateModule } from '@angular/material/core';
 
 
 
@@ -14,16 +14,22 @@ import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    InicioComponent,
-    PartidosComponent,
+    
     SportIAComponent,
 
   ],
   imports: [
     CommonModule,
     FormsModule,
-
-  ],
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatNativeDateModule,
+    MatInputModule,
+    FlexLayoutModule,
+    ],
+    providers: [
+      { provide: MAT_DATE_LOCALE, useValue: 'es-ES' }
+    ],
   exports: [
 
   ]

@@ -7,48 +7,7 @@
     margin-top: 200px;
     margin-left: 100px;
   }
-  
-  /* El botón que abre el dropdown */
-  .dropbtn {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-  }
-  
-  /* Estilos del contenedor dropdown */
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-  }
-  
-  /* Estilos de los items del dropdown */
-  .dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    cursor: pointer;
-  }
-  
-  /* Cambio de color al pasar el cursor */
-  .dropdown-content a:hover {background-color: #f1f1f1;}
-  
-  /* Muestra el dropdown al pasar el cursor */
-  .dropdown:hover .dropdown-content {
-    display: block;
-  }
-  
-  /* Cambia el color del botón al pasar el cursor */
-  .dropdown:hover .dropbtn {
-    background-color: #3e8e41;
-  }
+
   
   .centrar{
     display: flex;
@@ -61,12 +20,12 @@
 
 /*BOTON*/
 
-button {
+.button {
   position: relative;
   padding: 10px 20px;
   border-radius: 7px;
   border: 1px solid rgb(61, 106, 255);
-  margin-left: 35%;
+  margin-left: 45%;
   margin-bottom: 5%;
   font-size: 14px;
   text-transform: uppercase;
@@ -81,7 +40,7 @@ button {
   transition: all 0.2s ease-in;
 }
 
-button:hover {
+.button:hover {
   background: rgb(61, 106, 255);
   box-shadow: 0 0 30px 5px rgba(0, 142, 236, 0.815);
   -webkit-transition: all 0.2s ease-out;
@@ -89,13 +48,13 @@ button:hover {
   transition: all 0.2s ease-out;
 }
 
-button:hover::before {
+.button:hover::before {
   -webkit-animation: sh02 0.5s 0s linear;
   -moz-animation: sh02 0.5s 0s linear;
   animation: sh02 0.5s 0s linear;
 }
 
-button::before {
+.button::before {
   content: '';
   display: block;
   width: 0px;
@@ -129,15 +88,13 @@ button::before {
   }
 }
 
-button:active {
+.button:active {
   box-shadow: 0 0 0 0 transparent;
   -webkit-transition: box-shadow 0.2s ease-in;
   -moz-transition: box-shadow 0.2s ease-in;
   transition: box-shadow 0.2s ease-in;
 }
 
-
-/* Loader */
 
 /* Loader */
 
@@ -353,4 +310,15 @@ button:active {
   text-align: justify; 
   line-height: 1.5em; 
   font-size: 15px;
+}
+
+.margen{
+  margin-top: 150px;
+}
+
+h1{
+  text-align: center;
+  font-size: 30px;
+  font-weight: 500;
+  margin-bottom: 4%;
 }

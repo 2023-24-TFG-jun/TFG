@@ -6,12 +6,15 @@ import { FormsModule } from '@angular/forms';
 import { Subject } from 'rxjs';
 import { filter, switchMap, tap } from 'rxjs/operators';
 import { Ligas } from 'src/app/interfaces/ligas.interfaces';
-
+import {MatInputModule} from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-competiciones',
   standalone: true,
-  imports: [CommonModule, FormsModule ],
+  imports: [CommonModule, FormsModule, MatInputModule, MatSelectModule, MatFormFieldModule ],
   templateUrl: './competiciones.component.html',
   styleUrls: ['./competiciones.component.css']
 })
@@ -54,6 +57,21 @@ export class CompeticionesComponent implements OnInit {
           this.leagueInfo = resp.response[0].league;
           this.standings = resp.response[0].league.standings;
           this.hayError = false;
+          const Toast = Swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.onmouseenter = Swal.stopTimer;
+              toast.onmouseleave = Swal.resumeTimer;
+            }
+          });
+          Toast.fire({
+            icon: "success",
+            title: "Búsqueda realizada correctamente"
+          });
         },
         error: (error) => {
           this.hayError = true;

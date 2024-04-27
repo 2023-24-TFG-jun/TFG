@@ -9,9 +9,12 @@ import { Missed } from 'src/app/interfaces/teamsStatistics.interface';
 import { FootballService } from 'src/app/services/football.service';
 import { TeamsService } from 'src/app/services/teams.service';
 import { HighchartsChartModule } from 'highcharts-angular';
-import * as Highcharts from 'highcharts'
+import {MatInputModule} from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 import { SpacerComponent } from "../../../shared/spacer/spacer.component";
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -19,7 +22,7 @@ import { SpacerComponent } from "../../../shared/spacer/spacer.component";
     templateUrl: './equipos.component.html',
     standalone: true,
     styleUrls: ['./equipos.component.css'],
-    imports: [CommonModule, FormsModule, HighchartsChartModule, SpacerComponent]
+    imports: [CommonModule, FormsModule, HighchartsChartModule, SpacerComponent, MatSelectModule, MatFormFieldModule, MatInputModule]
 
 })
 export class EquiposComponent implements OnInit {
@@ -92,10 +95,29 @@ export class EquiposComponent implements OnInit {
           this.teamInfo = resp;
           console.log('respuesta de team info', this.teamInfo);
           this.hayError = false;
+          const Toast = Swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.onmouseenter = Swal.stopTimer;
+              toast.onmouseleave = Swal.resumeTimer;
+            }
+          });
+          Toast.fire({
+            icon: "success",
+            title: "Búsqueda realizada correctamente"
+          });
         },
         error: (error) => {
           this.hayError = true;
-          console.error('Error en el proceso de búsqueda:', error);
+          Swal.fire({
+            icon: "error",
+            title: "Error en la búsqueda",
+            text: "Nombre de equipo incorrecto",
+          });
         }
       });
   }

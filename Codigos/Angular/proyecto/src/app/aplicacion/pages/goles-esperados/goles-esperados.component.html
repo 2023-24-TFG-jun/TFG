@@ -6,15 +6,15 @@
 </div>
 
 <div class="dropdown">
-    <button class="dropbtn">Menú</button>
-    <div class="dropdown-content">
-      <a (click)="navegarC()">Clasificaciones</a>
-      <a (click)="navegarxG()">Goles Esperados</a>
-      <a (click)="navegarMundial()">Mundial</a>
-    </div>
+  <button class="menu" mat-button [matMenuTriggerFor]="menu"><mat-icon>sports_soccer</mat-icon> Goles esperados xG</button>
+  <mat-menu #menu="matMenu">
+  <button (click)="navegarC()" mat-menu-item><mat-icon>emoji_events</mat-icon>Clasificaciones</button>
+  <button (click)="navegarxG()" mat-menu-item><mat-icon>sports_soccer</mat-icon>Goles esperados xG</button>
+  <button (click)="navegarMundial()" mat-menu-item><mat-icon>public</mat-icon>Mundial</button>
+</mat-menu>
 </div>
 
-
+<h1>Predicciones: goles esperados xG</h1>
 
 <button class="button" (click)="obtenerGolesEsperados()">Goles esperados</button>
 

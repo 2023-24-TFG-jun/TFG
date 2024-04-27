@@ -1,0 +1,268 @@
+
+.contenedor-formulario {
+    flex: 1;
+    max-width: 500px;
+    position: relative;
+    }
+    
+    
+    form {
+      width: 100%;    
+        
+    }
+    
+    form input[type="text"] {
+      width: 100%;      
+      padding: 10px;    
+     
+    }
+    
+    select.form-select {
+      max-width: 300px;
+      width: 100%; 
+    }
+  
+    .contenedor{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+
+    }
+  
+    
+    .table {
+      margin-top: 20px;
+      margin-bottom: 300px;
+      width: 100%;
+      max-width: 100%;
+    }
+    
+    .table-responsive {
+      margin: auto; 
+    }
+  
+    .list-group-item {
+      background-color: white; 
+      list-style-type: none; 
+      border-bottom: 1px solid #ddd; 
+      padding: 10px 15px; 
+      color: #333; 
+      cursor: pointer;
+  }
+  
+  
+  .list-group {
+    position: absolute; 
+    width: 100%; 
+    z-index: 1000; 
+    top: 100%; 
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+  }
+  
+  /* INPUT*/
+  
+  .form__group {
+    position: relative;
+    padding: 30px 0 0;
+    width: 100%;
+    max-width: 250px;
+  }
+  
+  .form__field {
+    font-family: inherit;
+    width: 100%;
+    border: none;
+    border-bottom: 3px solid black;
+    outline: 0;
+    font-size: 20px;
+    color: black;
+    padding: 10px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+  }
+  
+  .form__field::placeholder {
+    color: transparent;
+  }
+  
+  .form__field:placeholder-shown ~ .form__label {
+    font-size: 20px;
+    cursor: text;
+    top: 30px;
+  }
+  
+  .form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 20px;
+    color: black ;
+    pointer-events: none;
+  }
+  
+  .form__field:focus {
+    padding-bottom: 7px;
+    font-weight: 700;
+    border-width: 4px;
+    border-image: linear-gradient(to right, #116399, #38caef);
+    border-image-slice: 1;
+  }
+  
+  .form__field:focus ~ .form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 20px;
+    color: black;
+    font-weight: 700;
+  }
+  
+  /* reset input */
+  .form__field:required, .form__field:invalid {
+    box-shadow: none;
+  }
+
+  .alinear{
+    display: flex;
+    gap: 50px;
+    
+  }
+
+  .margen{
+    margin-top: 150px;
+  }
+
+  .boton {
+    padding: 12.5px 30px;
+    border: 0;
+    border-radius: 100px;
+    background-color: #528E54;
+    color: #ffffff;
+    font-weight: Bold;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    max-width: 110px;
+    margin-top: 50px;
+    margin-left: 5%;
+    margin-bottom: 20px;
+  }
+
+  
+  
+  .boton:hover {
+    background-color: #528E54;
+    box-shadow: 0 0 20px #6fc5ff50;
+    transform: scale(1.1);
+  }
+  
+  .boton:active {
+    background-color: #72c475;
+    transition: all 0.25s;
+    -webkit-transition: all 0.25s;
+    box-shadow: none;
+    transform: scale(0.98);
+  }
+
+
+  /*CARDS*/
+
+  .container {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+    padding: 20px;
+    gap: 30px;
+  }
+
+  .partido-card {
+    margin-top: 50px;
+    width: 100%;  
+  }
+
+  .mat-card {
+    width: 100%; 
+    max-width: 800px;
+    margin: auto;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+
+  .competition-logo {
+    width: 80px; 
+    height: 80px;
+    margin-right: 10px;
+    margin-left: 43%;
+  }
+  
+  .team-logo {
+    width: 80px; 
+    height: 80px;
+    margin-right: 10px;
+    margin-bottom: 5px;
+  }
+  
+  .winner-badge {
+    display: inline-block;
+    background-color: #4CAF50;
+    color: white;
+    padding: 3px 10px;
+    border-radius: 5px;
+    margin-left: 10px;
+    font-weight: bold;
+  }
+
+  .mat-card-title {
+    font-size: 20px; 
+    color: #333; 
+  }
+ 
+  .mat-card-subtitle {
+    font-size: 16px;
+    color: #666; 
+    margin-bottom: 10px;
+  }
+
+  .mat-card-content {
+    font-size: 14px; 
+    line-height: 1.5; 
+  }
+
+  .goals-info {
+    font-weight: bold; 
+    color: #444; 
+  }
+
+  .score {
+    font-size: 35px; 
+    font-weight: bold;
+  }
+
+  .goals {
+    margin: 0; 
+  }
+
+  h1 {
+    position: absolute;
+    top: 20px; 
+    width: 100%;
+    text-align: center;
+    z-index: 1;
+    color: #000000; 
+    margin-top: 140px; 
+    font-weight: 500;
+    font-size: 30px;
+  }
+
+  .formulario{
+    z-index: 2;
+    position: relative;
+    background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(234,249,249,0.67) 0.1%, rgba(239,249,251,0.63) 90.1% );
+    width: 80%;
+    margin-left: 10%;
+    border-radius: 10px;
+    margin-top: 10%;
+
+  }
+

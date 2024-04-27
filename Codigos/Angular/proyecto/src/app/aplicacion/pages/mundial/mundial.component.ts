@@ -4,13 +4,16 @@ import { SpacerComponent } from "../../../shared/spacer/spacer.component";
 import { BackendService } from 'src/app/services/backend.service';
 import { CommonModule } from '@angular/common';
 import {MatListModule} from '@angular/material/list';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
 
 @Component({
     selector: 'app-mundial',
     standalone: true,
     templateUrl: './mundial.component.html',
     styleUrl: './mundial.component.css',
-    imports: [SpacerComponent, CommonModule, MatListModule], 
+    imports: [SpacerComponent, CommonModule, MatListModule,MatMenuModule, MatButtonModule, MatIconModule], 
 })
 export class MundialComponent implements OnInit {
 

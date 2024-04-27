@@ -10,7 +10,8 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import {MatButtonModule} from '@angular/material/button';
 import { OAuthModule } from 'angular-oauth2-oidc';
 import { HttpClientModule } from '@angular/common/http';
-
+import { MAT_DATE_LOCALE } from '@angular/material/core';
+import { FlexLayoutModule } from "@angular/flex-layout";
 
 @NgModule({
   declarations: [
@@ -24,10 +25,13 @@ import { HttpClientModule } from '@angular/common/http';
     MatButtonModule,
     OAuthModule.forRoot(),
     HttpClientModule,
+    FlexLayoutModule
     
   ],
   providers: [
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
+    { provide: MAT_DATE_LOCALE, useValue: 'es-ES' }
+  
   ],
   bootstrap: [AppComponent]
 })
