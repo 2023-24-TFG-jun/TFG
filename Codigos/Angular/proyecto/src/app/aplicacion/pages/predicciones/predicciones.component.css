@@ -85,8 +85,7 @@
 .centrar{
     display: flex;
     justify-content: center;
-    margin-left: -70px;
-    margin-bottom: 50px;
+
 }
 
 h1{
@@ -105,47 +104,6 @@ h1{
     margin-left: 100px;
   }
   
-  /* El botón que abre el dropdown */
-  .dropbtn {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-  }
-  
-  /* Estilos del contenedor dropdown */
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-  }
-  
-  /* Estilos de los items del dropdown */
-  .dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    cursor: pointer;
-  }
-  
-  /* Cambio de color al pasar el cursor */
-  .dropdown-content a:hover {background-color: #f1f1f1;}
-  
-  /* Muestra el dropdown al pasar el cursor */
-  .dropdown:hover .dropdown-content {
-    display: block;
-  }
-  
-  /* Cambia el color del botón al pasar el cursor */
-  .dropdown:hover .dropbtn {
-    background-color: #3e8e41;
-  }
   
 
   /* Tabla */
@@ -263,4 +221,44 @@ h3{
 
 .container{
   margin-left: 520px;
+}
+
+.iconos{
+  width: 100px;
+}
+
+.liga{
+  margin-left: 85px;
+  margin-bottom: 10px;
+}
+
+.premier{
+  margin-left: 120px;
+  margin-bottom: 10px;
+}
+
+.serieA{
+  width: 145px;
+  margin-left: 65px;
+  margin-bottom: 29px;
+}
+
+.bundesliga{
+  margin-left: 104px;
+  margin-bottom: 10px;
+}
+
+.ligue1{
+  width: 80px;
+  margin-left: 97px;
+}
+
+.margen{
+  margin-top: 150px;
+}
+
+h1{
+  text-align: center;
+  font-size: 30px;
+  font-weight: 500;
 }

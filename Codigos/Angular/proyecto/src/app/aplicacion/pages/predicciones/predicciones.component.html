@@ -5,61 +5,78 @@
 
 </div>
 
+
+
 <div class="dropdown">
-    <button class="dropbtn">Menú</button>
-    <div class="dropdown-content">
-      <a (click)="navegarC()">Clasificaciones</a>
-      <a (click)="navegarxG()">Goles Esperados</a>
-      <a (click)="navegarMundial()">Mundial</a>
-    </div>
+    <button class="menu" mat-button [matMenuTriggerFor]="menu"><mat-icon>emoji_events</mat-icon>Clasificaciones</button>
+    <mat-menu #menu="matMenu">
+    <button (click)="navegarC()" mat-menu-item><mat-icon>emoji_events</mat-icon>Clasificaciones</button>
+    <button (click)="navegarxG()" mat-menu-item><mat-icon>sports_soccer</mat-icon>Goles esperados xG</button>
+    <button (click)="navegarMundial()" mat-menu-item><mat-icon>public</mat-icon>Mundial</button>
+  </mat-menu>
 </div>
 
-<h1>Pulsa en los botones para visualizar una predicción en base a los goles esperados de las ligas de la temporada 2015/2016</h1>
-<div class="centrar">
+<h1>Predicciones: clasificaciones</h1>
 
-    <div class="customCheckBoxHolder">
-        <input type="checkbox" id="cCB1" class="customCheckBoxInput">
-        <label for="cCB1" class="customCheckBoxWrapper" (click)="Laliga($event)">
-            <div class="customCheckBox">
-                <div class="inner">La Liga</div>
-            </div>
-        </label>
+<div class="centrar">
+    <div fxFlex fxLayout="column">
+      <img class="iconos liga" src="assets/img/laliga.png" alt="La liga">
+      <div class="customCheckBoxHolder">
+          <input type="checkbox" id="cCB1" class="customCheckBoxInput">
+          <label for="cCB1" class="customCheckBoxWrapper" (click)="Laliga($event)">
+              <div class="customCheckBox">
+                  <div class="inner">La Liga</div>
+              </div>
+          </label>
+      </div>
     </div>
     
-    <div class="customCheckBoxHolder">
-        <input type="checkbox" id="cCB2" class="customCheckBoxInput">
-        <label for="cCB2" class="customCheckBoxWrapper" (click)="premier($event)">
-            <div class="customCheckBox">
-                <div class="inner">Premier League</div>
-            </div>
-        </label>
+    <div fxFlex fxLayout="column">
+      <img class="iconos premier" src="assets/img/premier.png" alt="Premier">
+      <div class="customCheckBoxHolder">
+          <input type="checkbox" id="cCB2" class="customCheckBoxInput">
+          <label for="cCB2" class="customCheckBoxWrapper" (click)="premier($event)">
+              <div class="customCheckBox">
+                  <div class="inner">Premier League</div>
+              </div>
+          </label>
+      </div>
     </div>
     
-    <div class="customCheckBoxHolder">
-        <input type="checkbox" id="cCB3" class="customCheckBoxInput">
-        <label for="cCB3" class="customCheckBoxWrapper" (click)="serieA($event)">
-            <div class="customCheckBox">
-                <div class="inner">Serie A</div>
-            </div>
-        </label>
+    <div fxFlex fxLayout="column">
+      <img class="serieA" src="assets/img/serieA.png" alt="SerieA">
+      <div class="customCheckBoxHolder">
+          <input type="checkbox" id="cCB3" class="customCheckBoxInput">
+          <label for="cCB3" class="customCheckBoxWrapper" (click)="serieA($event)">
+              <div class="customCheckBox">
+                  <div class="inner">Serie A</div>
+              </div>
+          </label>
+      </div>
     </div>
     
-    <div class="customCheckBoxHolder">
-        <input type="checkbox" id="cCB4" class="customCheckBoxInput">
-        <label for="cCB4" class="customCheckBoxWrapper" (click)="bundesliga($event)">
-            <div class="customCheckBox">
-                <div class="inner">Bundesliga</div>
-            </div>
-        </label>
+    <div fxFlex fxLayout="column">
+      <img class="iconos bundesliga" src="assets/img/bundesliga.png" alt="Bundesliga">
+      <div class="customCheckBoxHolder">
+          <input type="checkbox" id="cCB4" class="customCheckBoxInput">
+          <label for="cCB4" class="customCheckBoxWrapper" (click)="bundesliga($event)">
+              <div class="customCheckBox">
+                  <div class="inner">Bundesliga</div>
+              </div>
+          </label>
+      </div>
     </div>
-    
-    <div class="customCheckBoxHolder">
-        <input type="checkbox" id="cCB5" class="customCheckBoxInput">
-        <label for="cCB5" class="customCheckBoxWrapper"  (click)="ligue1($event)">
-            <div class="customCheckBox">
-                <div class="inner">Ligue 1</div>
-            </div>
-        </label>
+
+    <div fxFlex fxLayout="column">
+      <img class="ligue1" src="assets/img/ligue1.png" alt="Ligue 1">
+      <div class="customCheckBoxHolder">
+          <input type="checkbox" id="cCB5" class="customCheckBoxInput">
+          <label for="cCB5" class="customCheckBoxWrapper"  (click)="ligue1($event)">
+              <div class="customCheckBox">
+                  <div class="inner">Ligue 1</div>
+              </div>
+          </label>
+      </div>
     </div>
 </div>
 

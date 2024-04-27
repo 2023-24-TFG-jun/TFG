@@ -4,13 +4,16 @@ import { BackendService } from 'src/app/services/backend.service';
 import { CommonModule } from '@angular/common';
 import { SpacerComponent } from "../../../shared/spacer/spacer.component";
 import { forkJoin } from 'rxjs';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
 
 @Component({
     selector: 'app-predicciones',
     templateUrl: './predicciones.component.html',
     standalone: true,
     styleUrls: ['./predicciones.component.css'],
-    imports: [CommonModule, SpacerComponent]
+    imports: [CommonModule, SpacerComponent,MatMenuModule, MatButtonModule, MatIconModule]
 })
 export class PrediccionesComponent implements OnInit {
 

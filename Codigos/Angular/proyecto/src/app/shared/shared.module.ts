@@ -4,6 +4,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
 import {MatIconModule} from '@angular/material/icon';
+import { FlexLayoutModule } from "@angular/flex-layout";
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import {MatIconModule} from '@angular/material/icon';
   imports: [
     CommonModule,
     RouterModule,
-    MatIconModule
+    MatIconModule,
+    FlexLayoutModule
   ],
   exports: [
     HeaderComponent,

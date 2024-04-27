@@ -1,10 +1,11 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Partidos } from '../interfaces/partidos.interface';
 import { Observable, of } from 'rxjs';
 import { Responses } from '../interfaces/teams.interface';
 import { catchError, map } from 'rxjs/operators';
 import { Ligas } from '../interfaces/ligas.interfaces';
+import * as moment from 'moment';
 
 @Injectable({
   providedIn: 'root'
@@ -26,7 +27,7 @@ export class MatchesService {
     if (!nombreEquipo.trim()) {
       return of(undefined);
     }
-    return this.http.get<{ response: Responses[] }>(`${this.servicioUrl}?name=${nombreEquipo}`, { headers: this.headers }).pipe(
+    return this.http.get<{ response: Responses[] }>(`${this.servicioUrl}/teams?name=${nombreEquipo}`, { headers: this.headers }).pipe(
       map(response => {
         console.log('Respuesta del servidor:', response);
         const respuesta = response.response[0];
@@ -47,13 +48,14 @@ export class MatchesService {
     );
   }
 
+
   // Buscar el id de la liga por el nombre
   buscarLigaPorNombre(nombreLiga: string): Observable<number | undefined> {
     if (!nombreLiga.trim()) {
       return of(undefined);
     }
   
-    return this.http.get<Ligas>(`${this.servicioUrl}`, { headers: this.headers }).pipe(
+    return this.http.get<Ligas>(`${this.servicioUrl}/leagues`, { headers: this.headers }).pipe(
       map(response => {
         const liga = response.response.find(l => l.league.name.toLowerCase() === nombreLiga.toLowerCase());
         return liga ? liga.league.id : undefined;
@@ -65,9 +67,41 @@ export class MatchesService {
     );
   }
 
+
+
   /*Con el id de la liga, el id del equipo, la season y la fecha llamamos al endpoint final*/ 
 
-  obtenerPartidos(idLiga: number, season: number, idTeam: number, fecha: Date): Observable<Partidos> {
-    return this.http.get<Partidos>(`${this.servicioUrl}/fixtures?league=${idLiga}&season=${season}&team=${idTeam}&date=${fecha}`, { headers: this.headers });
+  obtenerPartidos( season: number, fecha?: Date, idLiga?: number, idTeam?: number): Observable<Partidos> {
+    let params = new HttpParams()
+      .set('season', season.toString());
+
+    if(idLiga){
+      params = params.set('league', idLiga.toString());
+    }
+    if(idTeam){
+      params = params.set('team', idTeam.toString());
+    }
+    if(fecha){
+      const formattedDate = moment(fecha).format('YYYY-MM-DD');
+      params = params.set('date', formattedDate);
+    }
+
+    return this.http.get<Partidos>(`${this.servicioUrl}/fixtures`, { headers: this.headers, params: params });
+  }
+
+  buscarSugerenciasLiga(nombreLiga: string): Observable<Ligas['response'][number]['league'][]>{
+    if (!nombreLiga.trim()){
+      return of([]);
+    }
+
+    return this.http.get<Ligas>(`${this.servicioUrl}/leagues`, { headers: this.headers })
+      .pipe(       
+        map(response => response.response.map(l => l.league)),
+        map(leagues => leagues.filter(league => league.name.toLowerCase().includes(nombreLiga.toLowerCase())).splice(0,5)), 
+        catchError(error => {
+        console.error('Error en buscarSugerenciasLiga:', error);
+        return of([]);
+      })
+    );
   }
 }
