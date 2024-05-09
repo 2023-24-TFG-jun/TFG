@@ -100,6 +100,7 @@
     font-size: 20px;
     color: black ;
     pointer-events: none;
+    
   }
   
   .form__field:focus {
@@ -128,7 +129,7 @@
   .alinear{
     display: flex;
     gap: 50px;
-    
+    margin-top: 20px;
   }
 
   .margen{
@@ -146,7 +147,7 @@
     -webkit-transition: all 0.5s;
     max-width: 110px;
     margin-top: 50px;
-    margin-left: 5%;
+    margin-left: 16%;
     margin-bottom: 20px;
   }
 
@@ -253,6 +254,11 @@
     margin-top: 140px; 
     font-weight: 500;
     font-size: 30px;
+    font-family: 'Poppins', sans-serif !important;
+  }
+
+  span{
+    font-family: 'Poppins', sans-serif !important;
   }
 
   .formulario{
@@ -266,3 +272,80 @@
 
   }
 
+
+/* Media querys */
+
+@media (max-width: 768px) {
+  .formulario {
+      width: 90%;
+      margin-top: 50px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 20px;
+  }
+
+  .form__group {
+      max-width: 100%; 
+      margin-bottom: 20px; 
+  }
+
+  .boton {
+      width: 100%;
+      padding: 15px;
+      font-size: 16px;
+  }
+
+  .alinear {
+      flex-direction: column;
+      gap: 10px;
+  }
+
+  h1 {
+      font-size: 24px;
+      margin-top: 95px;
+  }
+
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.partido-card {
+    flex: 1 1 300px; 
+    max-width: 500px; 
+}
+
+.mat-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.competition-logo, .team-logo {
+    width: 80px;
+    height: 80px;
+}
+
+.score {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.partido-card {
+  flex: 1 1 100%; 
+}
+
+.competition-logo, .team-logo {
+  width: 50px; 
+  height: 50px;
+}
+
+.score {
+  font-size: 20px;
+}
+}

@@ -7,13 +7,14 @@ import { forkJoin } from 'rxjs';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
+import { FlexLayoutModule } from "@angular/flex-layout";
 
 @Component({
     selector: 'app-predicciones',
     templateUrl: './predicciones.component.html',
     standalone: true,
     styleUrls: ['./predicciones.component.css'],
-    imports: [CommonModule, SpacerComponent,MatMenuModule, MatButtonModule, MatIconModule]
+    imports: [CommonModule, SpacerComponent,MatMenuModule, MatButtonModule, MatIconModule, FlexLayoutModule]
 })
 export class PrediccionesComponent implements OnInit {
 

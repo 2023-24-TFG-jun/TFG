@@ -47,14 +47,13 @@
 
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
+body { margin: 0; font-family: 'Poppins', sans-serif !important; }
 
   /* Estilos para el botón que activa el menú */
 .menu {
   background-color: black !important; 
   color: #4CAF50 !important;
-  width: 190px;
+  width: 210px;
   font-size: 20px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -65,5 +64,27 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   cursor: pointer; 
 }
 
+
+
+
+
+::-webkit-scrollbar {
+  width: 12px; 
+}
+
+
+::-webkit-scrollbar-track {
+  background: #000; 
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #528E54; 
+  border-radius: 10px; 
+  border: 2px solid #fff; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #76b47a; 
+}
  
 

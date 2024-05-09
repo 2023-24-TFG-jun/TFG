@@ -13,7 +13,9 @@
 <form [formGroup]="miFormulario" (ngSubmit)="onSubmit()" autocomplete="off" class="formulario margen" >
   <div fxFlex fxLayout="column">
     <div fxFlex fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="200px">
-      <div class="form__group field">
+      <div class="alinear">
+
+        <div class="form__group field">
           <input type="input"
                 formControlName="termino"
                 class="form__field"
@@ -29,7 +31,7 @@
               </li>
             </ul>
           </div>
-      </div>
+        </div>
 
 
 
@@ -41,33 +43,38 @@
                   placeholder="Buscar equipo..."
                   aria-label="Buscar equipo"/>
                   <label for="name" class="form__label">Buscar equipo</label>
-          </div>
-
-          <div class="form__group field">
-            <mat-form-field>
-              <mat-label>Elige un año</mat-label>
-              <mat-select 
-                      formControlName="season"
-                      aria-label="Seleccionar año">
-                  <mat-option  selected>-- Seleccione el año --</mat-option>
-                  <mat-option *ngFor="let anio of anios" [value]="anio">{{anio}}</mat-option>
-              </mat-select>
-            </mat-form-field>
-          </div>
-          <div class="form__group field">
-            <mat-form-field>
-                <mat-label>Elige una fecha</mat-label>
-                <input matInput [matDatepicker]="picker" formControlName="date">
-                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
-            </mat-form-field>
         </div>
 
+        <div class="form__group field">
+          <mat-form-field>
+            <mat-label><span>Elige un año</span></mat-label>
+            <mat-select 
+                    formControlName="season"
+                    aria-label="Seleccionar año">
+                <mat-option  selected>-- Seleccione el año --</mat-option>
+                <mat-option *ngFor="let anio of anios" [value]="anio">{{anio}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="form__group field">
+          <mat-form-field>
+              <mat-label><span>Elige una fecha</span></mat-label>
+              <input matInput [matDatepicker]="picker" formControlName="date">
+              <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+
+      </div>
+      
+
     </div>
-    
+
     <button class="boton" type="submit">
       Buscar
     </button>
+
+
   </div>
   
 </form>
@@ -76,8 +83,8 @@
   <div *ngFor="let partido of partidosR" class="partido-card">
     <mat-card>
       <mat-card-header>
-        <mat-card-title>{{ partido.league.name }} - {{ partido.league.round }}</mat-card-title>
-        <mat-card-subtitle>{{ partido.fixture.date | date: 'fullDate' }}</mat-card-subtitle>
+        <mat-card-title><span>{{ partido.league.name }} - {{ partido.league.round }}</span></mat-card-title>
+        <mat-card-subtitle><span>{{ partido.fixture.date | date: 'fullDate' }}</span></mat-card-subtitle>
       </mat-card-header>
       <img mat-card-image src="{{ partido.league.logo }}" alt="League Logo" class="competition-logo">
       <mat-card-content>

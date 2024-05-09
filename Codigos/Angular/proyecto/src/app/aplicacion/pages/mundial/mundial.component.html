@@ -6,11 +6,11 @@
 </div>
 
 <div class="dropdown">
-  <button class="menu" mat-button [matMenuTriggerFor]="menu"><mat-icon>public</mat-icon>Mundial</button>
+  <button class="menu" mat-button [matMenuTriggerFor]="menu"><mat-icon>public</mat-icon><span>Mundial</span></button>
   <mat-menu  #menu="matMenu">
-  <button (click)="navegarC()" mat-menu-item><mat-icon>emoji_events</mat-icon>Clasificaciones</button>
-  <button (click)="navegarxG()" mat-menu-item><mat-icon>sports_soccer</mat-icon>Goles esperados xG</button>
-  <button (click)="navegarMundial()" mat-menu-item><mat-icon>public</mat-icon>Mundial</button>
+  <button (click)="navegarC()" mat-menu-item><mat-icon>emoji_events</mat-icon><span>Clasificaciones</span></button>
+  <button (click)="navegarxG()" mat-menu-item><mat-icon>sports_soccer</mat-icon><span>Goles esperados xG</span></button>
+  <button (click)="navegarMundial()" mat-menu-item><mat-icon>public</mat-icon><span>Mundial</span></button>
 </mat-menu>
 </div>
 

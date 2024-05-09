@@ -1,5 +1,5 @@
 import { Component, HostListener, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 import { AuthGoogleService } from 'src/app/services/auth-google.service';
 import Swal from 'sweetalert2';
 
@@ -10,9 +10,13 @@ import Swal from 'sweetalert2';
 })
 export class HeaderComponent implements OnInit {
 
+  activeLink!: string;
+
   constructor(public authGoogleService: AuthGoogleService, private router: Router){
     this.checkMobileStatus();
+
   }
+
 
   ngOnInit() {
     
@@ -94,8 +98,6 @@ export class HeaderComponent implements OnInit {
 
   private checkMobileStatus(): void {
     this.isMobile = window.innerWidth < 768;
-    // Opcionalmente puedes alternar la visibilidad del menú aquí si lo necesitas:
-    // this.menuActive = this.isMobile ? false : this.menuActive;
   }
 
   

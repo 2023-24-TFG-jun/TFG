@@ -146,7 +146,6 @@ h1{
 
 /* Media queries */
 
-/* Ajustes generales para dispositivos móviles */
 @media (max-width: 768px) {
   .contenedor, .contenedor-formulario {
     display: flex;
@@ -192,4 +191,13 @@ h1{
   }
 
 }
+
+span{
+  font-family: 'Poppins', sans-serif !important;
+}
+
+h1,h2,h3{
+  font-family: 'Poppins', sans-serif !important;
+}
+
 

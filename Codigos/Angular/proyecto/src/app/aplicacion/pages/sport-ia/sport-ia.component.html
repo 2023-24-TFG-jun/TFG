@@ -4,3 +4,45 @@
     <img src="assets/img/cesped.jpg" alt="Imagen fondo">
 
 </div>
+
+
+<h1> SportsAI: imageAI</h1>
+<h3>Aplica imageAI a tus videos deportivos para ver el tracking y observar el movimiento de los jugadores.</h3>
+<h3><i class="fi fi-sr-down-to-line"></i></h3>
+<h3>Puedes descargar el vídeo haciendo click en la opción "Descargar" en el reporductor de vídeo.</h3>
+
+<div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="100px">
+
+  <div class="video-container" >
+    <video  controls>
+      <source src="/assets/img/GolCrNewRetinanet.mp4" type="video/mp4">
+      Tu navegador no soporta el elemento <code>video</code>.
+    </video>
+  </div>
+
+  <div class="loader" *ngIf="loading"></div>
+  <div class="drag-drop-area" 
+      (drop)="onFileDropped($event)" 
+      (dragover)="onDragOver($event)" 
+      (dragleave)="onDragLeave($event)"
+      (click)="openFileChooser()" fxflex fxLayout="column" fxLayoutGap="10px">
+      <i class="fi fi-rr-file-video"></i>
+      <span>Haz click o suelta tus archivos aquí para utilizar imageAI</span>
+  </div>
+  <input type="file" style="display: none;" (change)="onFileSelected($event)" #fileInput>
+
+
+  <div class="video-container" *ngIf="videoUrl">
+    <video controls (error)="handleError($event)">
+        <source [src]="videoUrl" type="video/mp4">
+        Tu navegador no soporta el elemento <code>video</code>.
+      </video>
+  </div>
+
+</div>
+
+
+
+<app-spacer></app-spacer>
+
+

@@ -1,5 +1,5 @@
-import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { CommonModule, registerLocaleData } from '@angular/common';
+import { Component, EventEmitter, LOCALE_ID, OnInit, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { Subject, forkJoin, pipe } from 'rxjs';
@@ -12,7 +12,8 @@ import { HighchartsChartModule } from 'highcharts-angular';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatFormFieldModule} from '@angular/material/form-field';
-
+registerLocaleData(localeEs, 'es');
+import localeEs from '@angular/common/locales/es';
 import { SpacerComponent } from "../../../shared/spacer/spacer.component";
 import Swal from 'sweetalert2';
 
@@ -21,6 +22,7 @@ import Swal from 'sweetalert2';
     selector: 'app-equipos',
     templateUrl: './equipos.component.html',
     standalone: true,
+    providers: [{ provide: LOCALE_ID, useValue: 'es' }],
     styleUrls: ['./equipos.component.css'],
     imports: [CommonModule, FormsModule, HighchartsChartModule, SpacerComponent, MatSelectModule, MatFormFieldModule, MatInputModule]
 

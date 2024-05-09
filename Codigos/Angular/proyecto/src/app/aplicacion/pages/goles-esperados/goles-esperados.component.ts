@@ -24,6 +24,18 @@ export class GolesEsperadosComponent implements OnInit{
 
   }
   ngOnInit() {
+    this.loading = true;
+    this.backendService.golesEsperados().subscribe({
+      next: (data: XG) => {
+        this.xgData = data;
+        this.golesEsperadosImg();
+        console.log(this.xgData);
+        this.loading = false;
+      },
+      error: (error) => {
+        console.error('Error al obtener los datos de goles esperados', error);
+      }
+    });
     
   }
   navegarC(){
@@ -54,19 +66,5 @@ export class GolesEsperadosComponent implements OnInit{
     });
   }
 
-  obtenerGolesEsperados(){
-    this.loading = true;
-    this.backendService.golesEsperados().subscribe({
-      next: (data: XG) => {
-        this.xgData = data;
-        this.golesEsperadosImg();
-        console.log(this.xgData);
-        this.loading = false;
-      },
-      error: (error) => {
-        console.error('Error al obtener los datos de goles esperados', error);
-      }
-    })
-  }
 
 }

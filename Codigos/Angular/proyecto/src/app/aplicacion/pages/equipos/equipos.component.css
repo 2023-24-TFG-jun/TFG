@@ -123,7 +123,6 @@
     font-weight: 700;
   }
   
-  /* reset input */
   .form__field:required, .form__field:invalid {
     box-shadow: none;
   }
@@ -187,7 +186,7 @@
 }
 
 .match-detail .team-logo {
-  width: 50px; /* Adjust as needed */
+  width: 50px; 
 }
 
 .match-detail .match-score {
@@ -196,12 +195,8 @@
 }
 
 .match-detail .league-logo {
-  width: 30px; /* Adjust as needed */
+  width: 30px;
 }
-
-
-/* Asegúrate de que .card no sobrescriba los estilos de tus tarjetas originales */
-/* Puede ser necesario ajustar estos estilos para evitar conflictos con los estilos preexistentes */
 
 .red {
   background-color: #f43f5e;
@@ -216,10 +211,8 @@
 }
 
 .cards {
-  /* Tus estilos preexistentes pueden permanecer aquí */
-  /* Agrega los nuevos estilos, posiblemente ajustando los nombres de las clases para evitar conflictos */
-  height: 500px; /* Esto puede necesitar ajuste para contener todo tu contenido */
-  width: 350px; /* Esto puede necesitar ajuste */
+  height: 500px; 
+  width: 350px; 
   border-radius: 10px;
   color: white;
   cursor: pointer;
@@ -238,7 +231,6 @@
   transform: scale(1.1);
 }
 
-/* El siguiente selector apunta al contenedor padre directo de todas tus tarjetas. Puede que necesites ajustarlo para que coincida con tu estructura HTML específica. */
 .row:hover > .col-md-4 .cards:not(:hover) {
   filter: blur(10px);
   transform: scale(0.9);
@@ -257,7 +249,6 @@
   background-color: #22c55e;
 }
 
-/* Agrega las transiciones y otros estilos que desees aquí */
 .sub-card-custom {
   transition: all 0.3s ease;
   cursor: pointer;
@@ -270,10 +261,8 @@
 
 /* CARDS 2*/ 
 .cards2 {
-  /* Tus estilos preexistentes pueden permanecer aquí */
-  /* Agrega los nuevos estilos, posiblemente ajustando los nombres de las clases para evitar conflictos */
-  height: 500px; /* Esto puede necesitar ajuste para contener todo tu contenido */
-  width: 350px; /* Esto puede necesitar ajuste */
+  height: 500px;
+  width: 350px; 
   border-radius: 10px;
   color: white;
   cursor: pointer;
@@ -292,7 +281,7 @@
   transform: scale(1.1);
 }
 
-/* El siguiente selector apunta al contenedor padre directo de todas tus tarjetas. Puede que necesites ajustarlo para que coincida con tu estructura HTML específica. */
+
 .row:hover > .col-md-4 .cards2:not(:hover) {
   filter: blur(10px);
   transform: scale(0.9);
@@ -321,13 +310,13 @@ h1{
     width: 90%; 
     margin: 20px auto; 
     padding: 20px; 
-    display: block; /* Asegura que el formulario sea un bloque */
-    position: relative; /* Posición relativa para centrarlo con respecto a su contenedor */
-    top: 7%; /* Desplaza el formulario hacia abajo a la mitad del contenedor */
-    transform: translateY(-50%); /* Ajusta la posición exacta para centrar el formulario */
+    display: block; 
+    position: relative; 
+    top: 7%; 
+    transform: translateY(-50%); 
     -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
-    margin-bottom: 50px; /* Añade un margen en la parte inferior */
+    margin-bottom: 50px; 
   }
 
   .mat-form-field {
@@ -336,10 +325,10 @@ h1{
   }
 
   h1 {
-    font-size: 24px; /* Tamaño de fuente para el título */
-    padding: 0; /* Elimina el padding si es necesario */
-    margin-top: 20px; /* Espacio en la parte superior del título */
-    margin-bottom: 30px; /* Espacio en la parte inferior del título */
+    font-size: 24px; 
+    padding: 0; 
+    margin-top: 20px; 
+    margin-bottom: 30px; 
   }
 
   .form__group {
@@ -348,7 +337,7 @@ h1{
 
   .form__field,
   .form__label {
-    font-size: 16px; /* Tamaño de fuente adecuado para legibilidad en móviles */
+    font-size: 16px; 
   }
 
   .list-group {
@@ -357,26 +346,34 @@ h1{
 
   .contenedor,
   .contenedor-formulario {
-    display: flex; /* Activa Flexbox para alinear los elementos */
-    flex-direction: column; /* Alinea los elementos verticalmente */
-    align-items: center; /* Centra los elementos horizontalmente */
-    padding: 0; /* Elimina el padding si es necesario */
+    display: flex; 
+    flex-direction: column;
+    align-items: center; 
+    padding: 0; 
     margin-bottom: -20px;
     height: 180px;
   }
 
   .card {
-    width: 100%; /* Las tarjetas deben ocupar el ancho completo */
-    margin-top: 10px; /* Espacio entre tarjetas */
+    width: 100%; 
+    margin-top: 10px;
   }
 
   .cards {
-    flex-direction: column; /* Alineación vertical en móviles para las tarjetas personalizadas */
+    flex-direction: column; 
   }
 
   .cards .card-body,
   .cards2 .card-body {
-    padding: 10px; /* Reducción del padding interno */
+    padding: 10px; 
   }
+}
+
+span{
+  font-family: 'Poppins', sans-serif !important;
+}
+
+h1,h2,h5{
+  font-family: 'Poppins', sans-serif !important;
 }
 

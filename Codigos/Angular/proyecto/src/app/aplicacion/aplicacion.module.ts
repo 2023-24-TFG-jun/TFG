@@ -15,7 +15,6 @@ import { MAT_DATE_LOCALE, MatNativeDateModule } from '@angular/material/core';
 @NgModule({
   declarations: [
     
-    SportIAComponent,
 
   ],
   imports: [

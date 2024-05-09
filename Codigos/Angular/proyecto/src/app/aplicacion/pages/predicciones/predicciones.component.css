@@ -1,5 +1,4 @@
 .customCheckBoxHolder {
-    margin-left: 100px;
     display: flex;
   }
   
@@ -45,7 +44,7 @@
     transform: translateY(-2px);
   }
   
-  /* Multiple Checkboxes can be chained together for a radio input */
+
   .customCheckBoxWrapper:first-of-type .customCheckBox {
     border-bottom-left-radius: 5px;
     border-top-left-radius: 5px;
@@ -82,14 +81,11 @@
   }
 
 
-.centrar{
-    display: flex;
-    justify-content: center;
 
-}
 
 h1{
-    margin-top: -30px;
+    margin-top: -40px;
+    margin-bottom: 40px;
     text-align: center;
 }
 
@@ -108,8 +104,8 @@ h1{
 
   /* Tabla */
   .estilo-tabla {
-    width: calc(50% - 10px); /* Ajusta esto según tus necesidades */
-    margin-right: 10px; /* Espacio entre las tablas */
+    width: calc(50% - 10px); 
+    margin-right: 10px; 
 }
   
   .estilo-tabla th,
@@ -119,7 +115,6 @@ h1{
     border-bottom: 1px solid #ddd;
   }
    
-  /* Estilos para encabezados de la tabla */
   .estilo-tabla th {
     background-color: #333;
     color: white;
@@ -136,8 +131,8 @@ h1{
   .estilo-tabla tr.silver, 
   .estilo-tabla tr.bronze, 
   .estilo-tabla tr.red {
-  --bs-table-bg: transparent !important; /* Anula el color de fondo por defecto de Bootstrap */
-  color: var(--bs-dark); /* Ajusta el color del texto si es necesario */
+  --bs-table-bg: transparent !important;
+  color: var(--bs-dark); 
 }
 
   /* Loader */
@@ -216,7 +211,7 @@ h1{
 
 h3{
   font-size: 20px;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .container{
@@ -228,29 +223,27 @@ h3{
 }
 
 .liga{
-  margin-left: 85px;
+
   margin-bottom: 10px;
 }
 
 .premier{
-  margin-left: 120px;
   margin-bottom: 10px;
 }
 
 .serieA{
-  width: 145px;
-  margin-left: 65px;
-  margin-bottom: 29px;
+
+  margin-bottom: 10px;
 }
 
 .bundesliga{
-  margin-left: 104px;
+
   margin-bottom: 10px;
 }
 
 .ligue1{
-  width: 80px;
-  margin-left: 97px;
+ margin-bottom: 10px;
+
 }
 
 .margen{
@@ -261,4 +254,85 @@ h1{
   text-align: center;
   font-size: 30px;
   font-weight: 500;
+}
+
+span{
+  font-family: 'Poppins', sans-serif !important;
+}
+
+h1{
+  font-family: 'Poppins', sans-serif !important;
+}
+
+/* Media query */
+
+@media (max-width: 768px) {
+
+  .dropdown {
+    margin-top: 20px; 
+    margin-left: 25%; 
+    text-align: center; 
+  }
+
+  h1 {
+    font-size: 24px; 
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .iconos {
+    width: 80px; 
+    margin-bottom: 5px; 
+  }
+
+  .estilo-tabla {
+    width: 100%;
+    margin-right: 0; 
+  }
+
+  .container {
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0 20px; 
+  }
+
+  .container .loader {
+    margin-top: 10%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  h3, .form__field, .form__label {
+    font-size: 16px; 
+  }
+
+  .form__group, .list-group {
+    width: 100%; 
+  }
+  
+
+  .customCheckBox .inner {
+    font-size: 16px; 
+  }
+
+  .contenedor-iconos {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: space-around; 
+    align-items: center; 
+    padding: 0 10px; 
+  }
+
+  .contenedor-iconos > .contenedor-logo {
+    flex: 0 0 calc(33.333% - 10px); 
+    margin-bottom: 10px;
+    max-width: calc(33.333% - 10px); 
+    box-sizing: border-box; 
+  }
+
+ 
+  .contenedor-iconos > .contenedor-logo:nth-last-of-type(-n+2) {
+    flex: 0 0 calc(50% - 10px); 
+    max-width: calc(50% - 10px); 
+  }
 }

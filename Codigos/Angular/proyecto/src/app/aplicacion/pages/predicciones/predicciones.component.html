@@ -8,77 +8,81 @@
 
 
 <div class="dropdown">
-    <button class="menu" mat-button [matMenuTriggerFor]="menu"><mat-icon>emoji_events</mat-icon>Clasificaciones</button>
+    <button class="menu" mat-button [matMenuTriggerFor]="menu"><mat-icon>emoji_events</mat-icon><span>Clasificaciones</span></button>
     <mat-menu #menu="matMenu">
-    <button (click)="navegarC()" mat-menu-item><mat-icon>emoji_events</mat-icon>Clasificaciones</button>
-    <button (click)="navegarxG()" mat-menu-item><mat-icon>sports_soccer</mat-icon>Goles esperados xG</button>
-    <button (click)="navegarMundial()" mat-menu-item><mat-icon>public</mat-icon>Mundial</button>
+    <button (click)="navegarC()" mat-menu-item><mat-icon>emoji_events</mat-icon><span>Clasificaciones</span></button>
+    <button (click)="navegarxG()" mat-menu-item><mat-icon>sports_soccer</mat-icon><span>Goles esperados xG</span></button>
+    <button (click)="navegarMundial()" mat-menu-item><mat-icon>public</mat-icon><span> Mundial</span></button>
   </mat-menu>
 </div>
 
 <h1>Predicciones: clasificaciones</h1>
 
-<div class="centrar">
-    <div fxFlex fxLayout="column">
-      <img class="iconos liga" src="assets/img/laliga.png" alt="La liga">
-      <div class="customCheckBoxHolder">
-          <input type="checkbox" id="cCB1" class="customCheckBoxInput">
-          <label for="cCB1" class="customCheckBoxWrapper" (click)="Laliga($event)">
-              <div class="customCheckBox">
-                  <div class="inner">La Liga</div>
-              </div>
-          </label>
-      </div>
-    </div>
-    
-    <div fxFlex fxLayout="column">
-      <img class="iconos premier" src="assets/img/premier.png" alt="Premier">
-      <div class="customCheckBoxHolder">
-          <input type="checkbox" id="cCB2" class="customCheckBoxInput">
-          <label for="cCB2" class="customCheckBoxWrapper" (click)="premier($event)">
-              <div class="customCheckBox">
-                  <div class="inner">Premier League</div>
-              </div>
-          </label>
-      </div>
-    </div>
-    
-    <div fxFlex fxLayout="column">
-      <img class="serieA" src="assets/img/serieA.png" alt="SerieA">
-      <div class="customCheckBoxHolder">
-          <input type="checkbox" id="cCB3" class="customCheckBoxInput">
-          <label for="cCB3" class="customCheckBoxWrapper" (click)="serieA($event)">
-              <div class="customCheckBox">
-                  <div class="inner">Serie A</div>
-              </div>
-          </label>
-      </div>
-    </div>
-    
-    <div fxFlex fxLayout="column">
-      <img class="iconos bundesliga" src="assets/img/bundesliga.png" alt="Bundesliga">
-      <div class="customCheckBoxHolder">
-          <input type="checkbox" id="cCB4" class="customCheckBoxInput">
-          <label for="cCB4" class="customCheckBoxWrapper" (click)="bundesliga($event)">
-              <div class="customCheckBox">
-                  <div class="inner">Bundesliga</div>
-              </div>
-          </label>
-      </div>
-    </div>
 
-    <div fxFlex fxLayout="column">
-      <img class="ligue1" src="assets/img/ligue1.png" alt="Ligue 1">
-      <div class="customCheckBoxHolder">
-          <input type="checkbox" id="cCB5" class="customCheckBoxInput">
-          <label for="cCB5" class="customCheckBoxWrapper"  (click)="ligue1($event)">
-              <div class="customCheckBox">
-                  <div class="inner">Ligue 1</div>
-              </div>
-          </label>
-      </div>
+<div class="contenedor-iconos">
+  <div fxFlex fxLayout="column" fxLayoutAlign="space-around center" class="contenedor-logo" >
+    <img class="iconos liga" src="assets/img/laliga.png" alt="La liga">
+    <div class="customCheckBoxHolder">
+        <input type="checkbox" id="cCB1" class="customCheckBoxInput">
+        <label for="cCB1" class="customCheckBoxWrapper" (click)="Laliga($event)">
+            <div class="customCheckBox">
+                <div class="inner"><span>La Liga</span></div>
+            </div>
+        </label>
     </div>
+  </div>
+  
+  <div fxFlex fxLayout="column" fxLayoutAlign="space-around center" class="contenedor-logo" >
+    <img class="iconos premier" src="assets/img/premier.png" alt="Premier">
+    <div class="customCheckBoxHolder">
+        <input type="checkbox" id="cCB2" class="customCheckBoxInput">
+        <label for="cCB2" class="customCheckBoxWrapper" (click)="premier($event)">
+            <div class="customCheckBox">
+                <div class="inner"><span>Premier League</span></div>
+            </div>
+        </label>
+    </div>
+  </div>
+  
+  
+  <div fxFlex fxLayout="column" fxLayoutAlign="space-around center" class="contenedor-logo" >
+    <img class="serieA iconos" src="assets/img/serieA.avif" alt="SerieA">
+    <div class="customCheckBoxHolder">
+        <input type="checkbox" id="cCB3" class="customCheckBoxInput">
+        <label for="cCB3" class="customCheckBoxWrapper" (click)="serieA($event)">
+            <div class="customCheckBox">
+                <div class="inner"><span>Serie A</span></div>
+            </div>
+        </label>
+    </div>
+  </div>
+  
+  
+  <div fxFlex fxLayout="column" fxLayoutAlign="space-around center" class="contenedor-logo" >
+    <img class="iconos bundesliga" src="assets/img/bundesliga.png" alt="Bundesliga">
+    <div class="customCheckBoxHolder">
+        <input type="checkbox" id="cCB4" class="customCheckBoxInput">
+        <label for="cCB4" class="customCheckBoxWrapper" (click)="bundesliga($event)">
+            <div class="customCheckBox">
+                <div class="inner"><span>Bundesliga</span></div>
+            </div>
+        </label>
+    </div>
+  </div>
+
+  <div fxFlex fxLayout="column" fxLayoutAlign="space-around center" class="contenedor-logo" >
+    <img class="ligue1 iconos" src="assets/img/ligue1.avif" alt="Ligue 1">
+    <div class="customCheckBoxHolder">
+        <input type="checkbox" id="cCB5" class="customCheckBoxInput">
+        <label for="cCB5" class="customCheckBoxWrapper"  (click)="ligue1($event)">
+            <div class="customCheckBox">
+                <div class="inner"><span>Ligue 1</span></div>
+            </div>
+        </label>
+    </div>
+  </div> 
 </div>
+   
 
 
 <!-- La Liga-->
@@ -89,7 +93,7 @@
     <div class="row">
       <!-- Columna para la tabla de predicción -->
       <div class="col animate__animated animate__zoomInDown" *ngIf="laLigaData && laLigaData.length > 0">
-          <h3 class="pre">Predicción</h3>
+          <h3>Predicción</h3>
           <table class="table table-striped estilo-tabla">
             <thead >
               <tr>
@@ -113,7 +117,7 @@
           </table>
       </div>
       <div class="col animate__animated animate__zoomInDown" *ngIf="laLigaRealData && laLigaRealData.length > 0"> 
-        <h3 class="real">Clasificación real</h3>
+        <h3>Clasificación real</h3>
         <table class="table table-striped estilo-tabla" >
           <thead>
             <tr>
@@ -146,7 +150,7 @@
   <div class="row">
     <!-- Columna para la tabla de predicción -->
     <div class="col animate__animated animate__zoomInDown" *ngIf="premierData && premierData.length > 0">
-        <h3 class="pre">Predicción</h3>
+        <h3>Predicción</h3>
         <table class="table table-striped estilo-tabla">
           <thead >
             <tr>
@@ -170,7 +174,7 @@
         </table>
     </div>
     <div class="col animate__animated animate__zoomInDown" *ngIf="premierRealData && premierRealData.length > 0"> 
-      <h3 class="real">Clasificación real</h3>
+      <h3>Clasificación real</h3>
       <table class="table table-striped estilo-tabla" >
         <thead>
           <tr>
@@ -202,7 +206,7 @@
     <div class="row">
       <!-- Columna para la tabla de predicción -->
       <div class="col animate__animated animate__zoomInDown" *ngIf="serieAData && serieAData.length > 0">
-          <h3 class="pre">Predicción</h3>
+          <h3>Predicción</h3>
           <table class="table table-striped estilo-tabla">
             <thead >
               <tr>
@@ -226,7 +230,7 @@
           </table>
       </div>
       <div class="col animate__animated animate__zoomInDown" *ngIf="SerieARealData && SerieARealData.length > 0"> 
-        <h3 class="real">Clasificación real</h3>
+        <h3>Clasificación real</h3>
         <table class="table table-striped estilo-tabla" >
           <thead>
             <tr>
@@ -258,7 +262,7 @@
     <div class="row">
       <!-- Columna para la tabla de predicción -->
       <div class="col animate__animated animate__zoomInDown" *ngIf="bundesligaData && bundesligaData.length > 0">
-          <h3 class="pre">Predicción</h3>
+          <h3>Predicción</h3>
           <table class="table table-striped estilo-tabla">
             <thead >
               <tr>
@@ -282,7 +286,7 @@
           </table>
       </div>
       <div class="col animate__animated animate__zoomInDown" *ngIf="bundesligaRealData && bundesligaRealData.length > 0"> 
-        <h3 class="real">Clasificación real</h3>
+        <h3>Clasificación real</h3>
         <table class="table table-striped estilo-tabla" >
           <thead>
             <tr>
@@ -315,7 +319,7 @@
     <div class="row">
       <!-- Columna para la tabla de predicción -->
       <div class="col animate__animated animate__zoomInDown" *ngIf="ligue1Data && ligue1Data.length > 0">
-          <h3 class="pre">Predicción</h3>
+          <h3>Predicción</h3>
           <table class="table table-striped estilo-tabla">
             <thead >
               <tr>
@@ -339,7 +343,7 @@
           </table>
       </div>
       <div class="col animate__animated animate__zoomInDown" *ngIf="ligue1RealData && ligue1RealData.length > 0"> 
-        <h3 class="real">Clasificación real</h3>
+        <h3>Clasificación real</h3>
         <table class="table table-striped estilo-tabla" >
           <thead>
             <tr>

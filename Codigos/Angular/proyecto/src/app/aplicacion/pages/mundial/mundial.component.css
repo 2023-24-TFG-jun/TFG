@@ -73,6 +73,7 @@
   transform: rotateX(-90deg);
   transform-origin: bottom;
   transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  backface-visibility: hidden;
 }
 
 .card:hover .card__content {
@@ -135,4 +136,78 @@ h1{
   font-size: 30px;
   font-weight: 500;
   margin-bottom: 4%;
+  font-family: 'Poppins', sans-serif !important;
+}
+
+span{
+  font-family: 'Poppins', sans-serif !important;
+}
+
+/* Media query*/
+@media (max-width: 768px) {
+
+  .dropdown {
+    margin-top: 20px; 
+    margin-bottom: 20px;
+    margin-left: 25%;
+    text-align: center;
+  }
+  
+  h1, .titulo, .card__title2 {
+    font-size: 20px; 
+    margin: 10px 0; 
+  }
+
+  .copa {
+    margin-top: 0; 
+    width: 30%; 
+  }
+
+  .container, .container2 {
+    margin-top: 20px; 
+    width: 100%; 
+    padding: 0 15px; 
+  }
+
+  .card {
+    width: 100%; 
+    height: auto; 
+    flex-direction: column; 
+    padding: 15px;
+    box-sizing: border-box; 
+    position: relative;
+  }
+
+  .imgMM, .imgGA, .imgMessi, .imgMbappe, .imgMP {
+    width: 100%; 
+    height: auto; 
+  }
+
+
+  .card__content {
+    padding: 10px; 
+    box-sizing: border-box; 
+    overflow-y: auto; 
+
+    position: absolute; 
+    top: 0;
+    left: 0; 
+    right: 0; 
+    bottom: 0; 
+    height: auto; 
+    max-height: 100%;
+  }
+
+  .card__description, .card__title {
+    font-size: 14px; 
+  }
+
+  .loader {
+    margin: 10% auto 0; 
+  }
+
+  .card__description {
+    word-wrap: break-word; 
+    overflow-wrap: break-word; 
+  }
 }
