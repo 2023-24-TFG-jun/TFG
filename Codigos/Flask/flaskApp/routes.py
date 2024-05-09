@@ -1,4 +1,7 @@
-from flask import Blueprint, jsonify, send_from_directory
+from flask import Blueprint, current_app, jsonify, send_file, send_from_directory, request
+from flask_cors import CORS
+
+from .yoloAI import process_video
 
 from .prediction_point_Ligue1 import prediction_point_Ligue1
 
@@ -11,8 +14,10 @@ from .prediction_point_Premier import prediction_point_Premier
 from .predictions_points import prediction_point
 from .statsbomb_services import get_prediction_data
 import os
+from werkzeug.utils import secure_filename
 
 main = Blueprint('main', __name__)
+CORS(main, resources={r"/api/*": {"origins": "*", "allow_headers": "*", "expose_headers": "*", "methods": "*"}})
 
 
 @main.route('/get_prediction_data')
@@ -103,3 +108,25 @@ def send_pasesMessi():
     static_folder = os.path.join(current_dir, '../static')
     return send_from_directory(static_folder, 'pasesMessi.png')
 
+@main.route('/upload', methods=['POST'])
+def upload_file():
+    if 'file' not in request.files:
+        return jsonify({"error": "No file part"}), 400
+    file = request.files['file']
+    if file.filename == '':
+         return jsonify({"error": "No selected file"}), 400
+    if file:
+        filename = secure_filename(file.filename)
+        filepath = os.path.join(current_app.config['UPLOAD_FOLDER'], filename)
+        file.save(filepath)
+        output_filename = process_video(filepath)
+        output_path = os.path.join(current_app.config['UPLOAD_FOLDER'], output_filename)
+        return jsonify({"filename": output_filename}), 200
+
+    
+@main.route('/get-video/<filename>')
+def get_video(filename):
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    static_folder = os.path.join(current_dir, '../uploads')
+    file_path = os.path.join(static_folder, filename)
+    return send_file(file_path, conditional=True)
