@@ -1,0 +1,44 @@
+{
+    "BundesligaStanding": {
+        "match_id": {
+            "Bayern Munich": 132273961,
+            "Borussia Dortmund": 132274032,
+            "Bayer Leverkusen": 132274001,
+            "Wolfsburg": 132273967,
+            "Werder Bremen": 132273985,
+            "Schalke 04": 132274012,
+            "Borussia M\u00f6nchengladbach": 132273982,
+            "FC K\u00f6ln": 132273989,
+            "VfB Stuttgart": 132274001,
+            "Ingolstadt": 132273996,
+            "FSV Mainz 05": 132273993,
+            "Hertha Berlin": 132273982,
+            "Augsburg": 132274008,
+            "Hamburger SV": 132273973,
+            "Hoffenheim": 132273985,
+            "Darmstadt 98": 132273994,
+            "Eintracht Frankfurt": 132273991,
+            "Hannover 96": 132273986
+        },
+        "xPts": {
+            "Bayern Munich": 73.6478,
+            "Borussia Dortmund": 71.2563,
+            "Bayer Leverkusen": 53.2411,
+            "Wolfsburg": 52.2344,
+            "Werder Bremen": 48.1676,
+            "Schalke 04": 48.0739,
+            "Borussia M\u00f6nchengladbach": 48.016999999999996,
+            "FC K\u00f6ln": 47.229,
+            "VfB Stuttgart": 45.3168,
+            "Ingolstadt": 44.7325,
+            "FSV Mainz 05": 44.0594,
+            "Hertha Berlin": 43.4829,
+            "Augsburg": 42.0131,
+            "Hamburger SV": 41.210499999999996,
+            "Hoffenheim": 39.5075,
+            "Darmstadt 98": 38.217,
+            "Eintracht Frankfurt": 36.0954,
+            "Hannover 96": 29.3815
+        }
+    }
+}

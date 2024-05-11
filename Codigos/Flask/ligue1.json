@@ -1,0 +1,48 @@
+{
+    "Ligue1Standing": {
+        "match_id": {
+            "Paris Saint-Germain": 143546427,
+            "Lyon": 147447029,
+            "Toulouse": 147447023,
+            "Marseille": 147447124,
+            "AS Monaco": 147447076,
+            "Rennes": 147447058,
+            "Lille": 147447036,
+            "Saint-\u00c9tienne": 143546502,
+            "OGC Nice": 147447036,
+            "Caen": 147447042,
+            "Nantes": 147447122,
+            "Montpellier": 147447001,
+            "Bordeaux": 143545857,
+            "Stade de Reims": 147447014,
+            "Angers": 147447024,
+            "Guingamp": 147447038,
+            "Lorient": 147447043,
+            "Gaz\u00e9lec Ajaccio": 143546542,
+            "Bastia": 143546539,
+            "Troyes": 143545781
+        },
+        "xPts": {
+            "Paris Saint-Germain": 79.8043,
+            "Lyon": 65.9992,
+            "Toulouse": 59.2555,
+            "Marseille": 57.7394,
+            "AS Monaco": 56.6851,
+            "Rennes": 53.3458,
+            "Lille": 52.9983,
+            "Saint-\u00c9tienne": 52.5832,
+            "OGC Nice": 52.245,
+            "Caen": 49.7646,
+            "Nantes": 49.5944,
+            "Montpellier": 49.5775,
+            "Bordeaux": 48.8907,
+            "Stade de Reims": 48.5733,
+            "Angers": 47.4853,
+            "Guingamp": 47.484899999999996,
+            "Lorient": 45.8463,
+            "Gaz\u00e9lec Ajaccio": 44.2819,
+            "Bastia": 37.801,
+            "Troyes": 29.6475
+        }
+    }
+}

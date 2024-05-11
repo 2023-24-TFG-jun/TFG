@@ -1,0 +1,48 @@
+{
+    "SerieAStantding": {
+        "match_id": {
+            "Juventus": 147424295,
+            "Napoli": 147424321,
+            "AS Roma": 147424283,
+            "Fiorentina": 147424334,
+            "AC Milan": 147424304,
+            "Torino": 147424349,
+            "Inter Milan": 147424292,
+            "Lazio": 147424307,
+            "Sassuolo": 147424364,
+            "Udinese": 147424332,
+            "Genoa": 147424329,
+            "Atalanta": 147424355,
+            "Chievo": 147424332,
+            "Empoli": 147424313,
+            "Carpi": 147424304,
+            "Hellas Verona": 147424334,
+            "Sampdoria": 147424360,
+            "Bologna": 147424287,
+            "Palermo": 147424337,
+            "Frosinone": 147424328
+        },
+        "xPts": {
+            "Juventus": 76.8102,
+            "Napoli": 74.166,
+            "AS Roma": 65.3719,
+            "Fiorentina": 63.636500000000005,
+            "AC Milan": 60.5706,
+            "Torino": 57.1731,
+            "Inter Milan": 56.8401,
+            "Lazio": 56.6626,
+            "Sassuolo": 53.4834,
+            "Udinese": 50.9166,
+            "Genoa": 48.9961,
+            "Atalanta": 48.5618,
+            "Chievo": 45.8718,
+            "Empoli": 45.7497,
+            "Carpi": 45.7087,
+            "Hellas Verona": 43.0736,
+            "Sampdoria": 39.8163,
+            "Bologna": 39.4475,
+            "Palermo": 38.304,
+            "Frosinone": 31.4544
+        }
+    }
+}

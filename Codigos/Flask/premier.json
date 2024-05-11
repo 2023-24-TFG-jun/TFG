@@ -1,0 +1,48 @@
+{
+    "PremierStandingP": {
+        "match_id": {
+            "Arsenal": 142658452,
+            "Tottenham Hotspur": 142658492,
+            "Manchester City": 142658891,
+            "Leicester City": 142658295,
+            "Liverpool": 142658106,
+            "Southampton": 142657410,
+            "Chelsea": 142656760,
+            "Manchester United": 142658435,
+            "West Ham United": 142658839,
+            "Everton": 142658029,
+            "AFC Bournemouth": 142657885,
+            "Watford": 142658749,
+            "Swansea City": 142658386,
+            "Crystal Palace": 142658152,
+            "Stoke City": 142657876,
+            "West Bromwich Albion": 142658913,
+            "Newcastle United": 142658196,
+            "Sunderland": 142656349,
+            "Norwich City": 142658389,
+            "Aston Villa": 142658136
+        },
+        "xPts": {
+            "Arsenal": 71.7406,
+            "Tottenham Hotspur": 68.4901,
+            "Manchester City": 66.44800000000001,
+            "Leicester City": 64.206,
+            "Liverpool": 63.9786,
+            "Southampton": 61.2142,
+            "Chelsea": 55.823299999999996,
+            "Manchester United": 54.192299999999996,
+            "West Ham United": 51.6571,
+            "Everton": 51.0847,
+            "AFC Bournemouth": 48.9174,
+            "Watford": 47.3628,
+            "Swansea City": 46.3646,
+            "Crystal Palace": 45.769800000000004,
+            "Stoke City": 45.0252,
+            "West Bromwich Albion": 44.8481,
+            "Newcastle United": 43.3876,
+            "Sunderland": 41.5999,
+            "Norwich City": 40.5208,
+            "Aston Villa": 33.057900000000004
+        }
+    }
+}

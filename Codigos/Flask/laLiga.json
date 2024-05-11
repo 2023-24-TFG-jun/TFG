@@ -1,0 +1,48 @@
+{
+    "LaLigaStandingP": {
+        "match_id": {
+            "Barcelona": 27927470,
+            "Real Madrid": 138260296,
+            "Atl\u00e9tico Madrid": 138260236,
+            "Sevilla": 137992676,
+            "Athletic Club": 138258832,
+            "Real Sociedad": 138260023,
+            "Celta Vigo": 138259131,
+            "M\u00e1laga": 138259804,
+            "Eibar": 141818334,
+            "Villarreal": 141818054,
+            "Rayo Vallecano": 141818757,
+            "RC Deportivo La Coru\u00f1a": 138259598,
+            "Valencia": 134434578,
+            "Espanyol": 138259109,
+            "Real Betis": 138260659,
+            "Getafe": 141818740,
+            "Sporting Gij\u00f3n": 138258986,
+            "Granada": 138260708,
+            "Las Palmas": 138261980,
+            "Levante UD": 138259333
+        },
+        "xPts": {
+            "Barcelona": 84.6208,
+            "Real Madrid": 72.8327,
+            "Atl\u00e9tico Madrid": 69.8906,
+            "Sevilla": 59.4035,
+            "Athletic Club": 58.001599999999996,
+            "Real Sociedad": 52.766,
+            "Celta Vigo": 52.5417,
+            "M\u00e1laga": 52.398,
+            "Eibar": 52.3901,
+            "Villarreal": 50.0742,
+            "Rayo Vallecano": 47.8954,
+            "RC Deportivo La Coru\u00f1a": 47.4607,
+            "Valencia": 46.663,
+            "Espanyol": 46.3792,
+            "Real Betis": 44.2776,
+            "Getafe": 43.5675,
+            "Sporting Gij\u00f3n": 41.784,
+            "Granada": 40.8338,
+            "Las Palmas": 40.4554,
+            "Levante UD": 40.0081
+        }
+    }
+}
