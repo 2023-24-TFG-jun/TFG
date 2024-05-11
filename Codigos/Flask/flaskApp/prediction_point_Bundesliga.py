@@ -1,3 +1,4 @@
+import json
 import pandas as pd
 from prettytable import PrettyTable
 import numpy as np
@@ -5,7 +6,7 @@ import time
 from statsbombpy import sb
 
 def prediction_point_Bundesliga():
-    df = pd.read_csv('Codigos/Flask/all_events_Bundesliga.csv')
+    df = pd.read_csv('all_events_Bundesliga.csv')
 
     df_xPoints = df[df.type == 'Shot']
     match_ids = df.match_id.unique()
@@ -97,5 +98,10 @@ def prediction_point_Bundesliga():
     results ={
         'BundesligaStanding': df_xpts.groupby('team').sum().sort_values(by='xPts', ascending=False).to_dict()
     }
+
+    with open('bundesliga.json', 'w') as json_file:
+        json.dump(results, json_file, indent=4)
     
     return results
+
+#prediction_point_Bundesliga()

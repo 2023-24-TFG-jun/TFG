@@ -11,7 +11,7 @@ def process_video(input_path):
     
     detector = VideoObjectDetection()
     detector.setModelTypeAsYOLOv3()
-    detector.setModelPath(os.path.join("Codigos/Flask/yolov3.pt"))
+    detector.setModelPath(os.path.join("yolov3.pt"))
     detector.loadModel()
 
     base_output_filename = os.path.splitext(os.path.basename(input_path))[0] + 'YoloV3'

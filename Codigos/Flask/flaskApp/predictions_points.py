@@ -1,3 +1,4 @@
+import json
 import pandas as pd
 from prettytable import PrettyTable
 import numpy as np
@@ -6,7 +7,7 @@ from statsbombpy import sb
 
 
 def prediction_point():
-    df = pd.read_csv('Codigos/Flask/all_events_laLiga.csv')
+    df = pd.read_csv('all_events_laLiga.csv')
 
     df_xPoints = df[df.type == 'Shot']
     match_ids = df.match_id.unique()
@@ -116,7 +117,11 @@ def prediction_point():
     results ={
         'LaLigaStandingP': df_xpts.groupby('team').sum().sort_values(by='xPts', ascending=False).to_dict()
     }
+
+         # Guardar en JSON
+    with open('laLiga.json', 'w') as json_file:
+        json.dump(results, json_file, indent=4)
     
     return results
 
-    
+# prediction_point()

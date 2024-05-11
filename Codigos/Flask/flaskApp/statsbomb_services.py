@@ -14,12 +14,13 @@ from sklearn.metrics import confusion_matrix
 from mplsoccer import FontManager
 from datetime import datetime
 from sklearn.pipeline import Pipeline
+import json
 
 '''
 Este archivo contendría la lógica para interactuar con la librería statsbombpy, obtener los datos y procesar las predicciones.
 '''
 def get_prediction_data():
-    tiros_statsbomb = pd.read_csv('Codigos/Flask/tirosStatsBomb_modeloxG.csv')
+    tiros_statsbomb = pd.read_csv('tirosStatsBomb_modeloxG.csv')
 
     #Creamos un dataframe con aquellos datos que tengan shot
     booleanos = pd.Series(tiros_statsbomb.columns).str.contains('shot')
@@ -147,15 +148,15 @@ def get_prediction_data():
 
     print('Probabilidad de goles esperados', X_with_prob.sort_values(by='xG', ascending=False).head(20))
     print('Factor de correlacion',X_with_prob.corr())
+
+     # Guardar en JSON
+    with open('xG.json', 'w') as json_file:
+        json.dump(results, json_file, indent=4)
    
   
-
-
-
-    fig.savefig(f'Codigos/Flask/static/golesEsperados.png', bbox_inches='tight')
 
     return results
 
 
 
-#get_prediction_data()
+# get_prediction_data()

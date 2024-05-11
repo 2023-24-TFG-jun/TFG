@@ -1,3 +1,4 @@
+import json
 import pandas as pd
 from prettytable import PrettyTable
 import numpy as np
@@ -6,7 +7,7 @@ from statsbombpy import sb
 
 
 def prediction_point_Premier():
-    df = pd.read_csv('Codigos/Flask/all_events_Premier.csv')
+    df = pd.read_csv('all_events_Premier.csv')
 
     df_xPoints = df[df.type == 'Shot']
     match_ids = df.match_id.unique()
@@ -101,5 +102,11 @@ def prediction_point_Premier():
     results ={
         'PremierStandingP': df_xpts.groupby('team').sum().sort_values(by='xPts', ascending=False).to_dict()
     }
+
+    # Guardar en JSON
+    with open('premier.json', 'w') as json_file:
+        json.dump(results, json_file, indent=4)
     
     return results
+
+#prediction_point_Premier()

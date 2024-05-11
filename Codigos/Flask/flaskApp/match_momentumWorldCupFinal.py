@@ -17,7 +17,7 @@ def matchMomentumFinal():
     dfxT_world_cup_final[['Carry_end_x', 'Carry_end_y']] = dfxT_world_cup_final['carry_end_location'].apply(lambda x: pd.Series(x))
 
     def xT(df, type):
-        xT = pd.read_json("Codigos/Flask/xTGrid.json")
+        xT = pd.read_json("xTGrid.json")
         xT = np.array(xT)
         xT_rows, xT_cols = xT.shape
         if type not in ['Pass', 'Carry']:
