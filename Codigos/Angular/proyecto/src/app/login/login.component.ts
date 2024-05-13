@@ -12,7 +12,7 @@ import { SpacerComponent } from "../shared/spacer/spacer.component";
     imports: [CommonModule, FlexLayoutModule, SpacerComponent]
 })
 export class LoginComponent {
-/**/
+
 
   
   constructor( public authGoogleService: AuthGoogleService){}
