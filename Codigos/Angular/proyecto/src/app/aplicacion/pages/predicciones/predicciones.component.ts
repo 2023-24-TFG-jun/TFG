@@ -58,7 +58,7 @@ export class PrediccionesComponent implements OnInit {
       next: (results) => {
         const { laLiga, realLaLiga } = results;
   
-        const xPts = laLiga.Laliga.LaLigaStandingP.xPts;
+        const xPts = laLiga.LaLigaStandingP.xPts;
         this.laLigaData = Object.keys(xPts).map(key => ({
           equipo: key,
           puntos: xPts[key]
@@ -103,7 +103,7 @@ export class PrediccionesComponent implements OnInit {
     }).subscribe({
       next: (results) => {
         const { premier, realPremier } = results;
-        const xPts = premier.Premier.PremierStandingP.xPts;
+        const xPts = premier.PremierStandingP.xPts;
         this.premierData = Object.keys(xPts).map(key => ({
           equipo: key,
           puntos: xPts[key]
@@ -145,7 +145,7 @@ export class PrediccionesComponent implements OnInit {
     }).subscribe({
       next: (results) => {
         const { serieA, realSerieA } = results;
-        const xPts = serieA.serieA.SerieAStantding.xPts;
+        const xPts = serieA.SerieAStantding.xPts;
         this.serieAData = Object.keys(xPts).map(key => ({
           equipo: key,
           puntos: xPts[key]
@@ -187,7 +187,7 @@ export class PrediccionesComponent implements OnInit {
     }).subscribe({
       next: (results) => {
         const { bundesliga, realBundesliga } = results;
-        const xPts = bundesliga.Bundesliga.BundesligaStanding.xPts;
+        const xPts = bundesliga.BundesligaStanding.xPts;
         this.bundesligaData = Object.keys(xPts).map(key => ({
           equipo: key,
           puntos: xPts[key]
@@ -229,7 +229,7 @@ export class PrediccionesComponent implements OnInit {
     }).subscribe({
       next: (results) => {
         const { ligue1, realLigue1 } = results;
-        const xPts = ligue1.Ligue1.Ligue1Standing.xPts;
+        const xPts = ligue1.Ligue1Standing.xPts;
         this.ligue1Data = Object.keys(xPts).map(key => ({
           equipo: key,
           puntos: xPts[key]

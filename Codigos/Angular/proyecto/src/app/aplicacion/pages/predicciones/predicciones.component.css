@@ -8,7 +8,7 @@
     overflow: hidden;
     cursor: pointer;
     user-select: none;
-    padding: 2px 8px;
+    padding: 16px 8px;
     background-color: rgba(209, 7, 7);
     border-radius: 0px;
     color: rgba(255, 255, 255);
@@ -313,6 +313,10 @@ h1{
 
   .customCheckBox .inner {
     font-size: 16px; 
+  }
+
+  .customCheckBox {
+    padding: 25px 28px;
   }
 
   .contenedor-iconos {

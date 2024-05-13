@@ -16,6 +16,7 @@ registerLocaleData(localeEs, 'es');
 import localeEs from '@angular/common/locales/es';
 import { SpacerComponent } from "../../../shared/spacer/spacer.component";
 import Swal from 'sweetalert2';
+import { FlexLayoutModule } from "@angular/flex-layout";
 
 
 @Component({
@@ -24,7 +25,7 @@ import Swal from 'sweetalert2';
     standalone: true,
     providers: [{ provide: LOCALE_ID, useValue: 'es' }],
     styleUrls: ['./equipos.component.css'],
-    imports: [CommonModule, FormsModule, HighchartsChartModule, SpacerComponent, MatSelectModule, MatFormFieldModule, MatInputModule]
+    imports: [CommonModule, FormsModule, HighchartsChartModule, SpacerComponent, MatSelectModule, MatFormFieldModule, MatInputModule, FlexLayoutModule]
 
 })
 export class EquiposComponent implements OnInit {

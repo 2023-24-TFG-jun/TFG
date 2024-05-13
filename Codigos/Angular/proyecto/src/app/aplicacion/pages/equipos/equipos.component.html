@@ -48,46 +48,46 @@
 </div>
 
 <div class="container mt-4">
-<div class="row">
-  <!-- Tarjeta del Equipo -->
-  <div class="col-md-4">
-    <div class="card text-left " *ngIf="teamInfo?.team">
-      <div class="card-body">
-        <img [src]="teamInfo.team.logo" class="card-img-top mx-auto d-block" style="max-width: 280px;" alt="Logo de {{ teamInfo.team.name }}">
-        <h2 class="card-title"><strong>{{ teamInfo.team.name }}</strong></h2>
-        <p class="card-text"><strong>País:</strong> {{ teamInfo.team.country }}</p>
-        <p class="card-text"><strong>Fundado en:</strong> {{ teamInfo.team.founded }}</p>
-      </div>
-    </div>
-  </div>
+  <div fxFlex="100" fxLayout="row" fxLayoutGap="100px" fxLayout.xs="column" fxLayoutGap.xs="20px"> 
+    <!-- Tarjeta del Equipo -->
 
-  <!-- Tarjeta del Estadio -->
-  <div class="col-md-4">
-    <div class="card text-left" *ngIf="teamInfo?.team">
-      <div class="card-body">
-        <img [src]="teamInfo.venue.image" class="card-img-top mx-auto d-block" style="max-width: 400px;" alt="Estadio {{ teamInfo.venue.name }}">
-        <h2 class="card-title"><strong>{{ teamInfo.venue.name }}</strong></h2>
-        <p class="card-text"><strong>Dirección:</strong> {{ teamInfo.venue.address }}</p>
-        <p class="card-text"><strong>Ciudad:</strong> {{ teamInfo.venue.city }}</p>
-        <p class="card-text"><strong>Capacidad:</strong> {{ teamInfo.venue.capacity }}</p>
-        <p class="card-text"><strong>Superficie:</strong> {{ teamInfo.venue.surface }}</p>
+      <div class="card cabecera" *ngIf="teamInfo?.team">
+        <div class="card-body">
+          <img [src]="teamInfo.team.logo" class="card-img-top mx-auto d-block" style="max-width: 280px;" alt="Logo de {{ teamInfo.team.name }}">
+          <h2 class="card-title"><strong>{{ teamInfo.team.name }}</strong></h2>
+          <p class="card-text"><strong>País:</strong> {{ teamInfo.team.country }}</p>
+          <p class="card-text"><strong>Fundado en:</strong> {{ teamInfo.team.founded }}</p>
+        </div>
       </div>
-    </div>
-  </div> 
 
-  <!-- Tarjeta de la Liga -->
-  <div class="col-md-4">
-    <div class="card text-left" *ngIf="teamInfo?.team">
-      <img [src]="teamInfo.statistics.league.logo" class="card-img-top mx-auto d-block" style="max-width: 200px; margin-top: 20px;" alt="Logo de {{ teamInfo.statistics.league.name }}">
-      <div class="card-body">
-        <h2 class="card-title">{{ teamInfo.statistics.league.name }}</h2>
-        <p class="card-text"><strong>País:</strong> {{ teamInfo.statistics.league.country }}</p>
-        <p class="card-text"><strong>Temporada:</strong> {{ teamInfo.statistics.league.season }}</p>
-        <img [src]="teamInfo.statistics.league.flag" class="mt-2" style="width: 50px;" alt="Bandera de {{ teamInfo.statistics.league.country }}">
+
+    <!-- Tarjeta del Estadio -->
+  
+      <div class="card cabecera" *ngIf="teamInfo?.team">
+        <div class="card-body">
+          <img [src]="teamInfo.venue.image" class="card-img-top mx-auto d-block" style="max-width: 400px;" alt="Estadio {{ teamInfo.venue.name }}">
+          <h2 class="card-title"><strong>{{ teamInfo.venue.name }}</strong></h2>
+          <p class="card-text"><strong>Dirección:</strong> {{ teamInfo.venue.address }}</p>
+          <p class="card-text"><strong>Ciudad:</strong> {{ teamInfo.venue.city }}</p>
+          <p class="card-text"><strong>Capacidad:</strong> {{ teamInfo.venue.capacity }}</p>
+          <p class="card-text"><strong>Superficie:</strong> {{ teamInfo.venue.surface }}</p>
+        </div>
       </div>
-    </div>
+
+
+    <!-- Tarjeta de la Liga -->
+
+      <div class="card cabecera" *ngIf="teamInfo?.team">
+        <img [src]="teamInfo.statistics.league.logo" class="card-img-top mx-auto d-block" style="max-width: 139px; margin-top: 20px;" alt="Logo de {{ teamInfo.statistics.league.name }}">
+        <div class="card-body">
+          <h2 class="card-title"><strong>{{ teamInfo.statistics.league.name }}</strong></h2>
+          <p class="card-text"><strong>País:</strong> {{ teamInfo.statistics.league.country }}</p>
+          <p class="card-text"><strong>Temporada:</strong> {{ teamInfo.statistics.league.season }}</p>
+          <img [src]="teamInfo.statistics.league.flag" class="mt-2" style="width: 50px;" alt="Bandera de {{ teamInfo.statistics.league.country }}">
+        </div>
+      </div>
+
   </div>
-</div>
 </div>
 
 

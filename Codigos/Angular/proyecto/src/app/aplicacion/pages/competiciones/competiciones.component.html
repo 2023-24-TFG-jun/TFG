@@ -19,19 +19,20 @@
               required=""
               aria-label="Buscar liga"/>
               <label for="name" class="form__label">Buscar liga</label>
+              <div *ngIf="mostrarSugerencias && sugerenciasLigas.length > 0"
+                class="mt-2">
+            <ul class="list-group">
+              <li *ngFor="let liga of sugerenciasLigas"
+                (click)="seleccionarSugerencia(liga)"
+                class="list-group-item list-group-item-action">
+                {{liga.name}}
+              </li>
+            </ul>
+          </div>
       </div>
     </form>
 
-    <div *ngIf="mostrarSugerencias && sugerenciasLigas.length > 0"
-          class="mt-2">
-      <ul class="list-group">
-        <li *ngFor="let liga of sugerenciasLigas"
-          (click)="seleccionarSugerencia(liga)"
-          class="list-group-item list-group-item-action">
-          {{liga.name}}
-        </li>
-      </ul>
-    </div>
+
   </div>
 
   <div class="form__group field">

@@ -155,7 +155,9 @@ h1{
     max-width: 100%;
   }
 
-
+  .margen{
+    margin-top: 15px;
+  }
 
   .mat-form-field {
     width: 100%;

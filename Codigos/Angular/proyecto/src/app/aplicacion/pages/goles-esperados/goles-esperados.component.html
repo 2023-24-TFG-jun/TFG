@@ -34,13 +34,13 @@
         <tbody>
           <tr>
             <th scope="row">Realidad: Gol</th>
-            <td>{{ xgData.GolesEsperados.confusion_matrix['0']['0'] }}</td> 
-            <td>{{ xgData.GolesEsperados.confusion_matrix['0']['1'] }}</td> 
+            <td>{{ xgData.confusion_matrix['0']['0'] }}</td> 
+            <td>{{ xgData.confusion_matrix['0']['1'] }}</td> 
           </tr>
           <tr>
             <th scope="row">Realidad: No Gol</th>
-            <td>{{ xgData.GolesEsperados.confusion_matrix['1']['0'] }}</td> 
-            <td>{{ xgData.GolesEsperados.confusion_matrix['1']['1'] }}</td> 
+            <td>{{ xgData.confusion_matrix['1']['0'] }}</td> 
+            <td>{{ xgData.confusion_matrix['1']['1'] }}</td> 
           </tr>
         </tbody>
       </table>
@@ -71,10 +71,10 @@
         <tbody>
           <tr>
             <th scope="row">%</th>
-            <td>{{ xgData.GolesEsperados.especifidad*100 | number: '1.2-2' }}</td> 
-            <td>{{ xgData.GolesEsperados.exactitud*100 | number: '1.2-2'}}</td> 
-            <td>{{ xgData.GolesEsperados.precision*100 | number: '1.2-2'}}</td> 
-            <td>{{ xgData.GolesEsperados.sensibilidad*100 | number: '1.2-2'}}</td> 
+            <td>{{ xgData.especifidad*100 | number: '1.2-2' }}</td> 
+            <td>{{ xgData.exactitud*100 | number: '1.2-2'}}</td> 
+            <td>{{ xgData.precision*100 | number: '1.2-2'}}</td> 
+            <td>{{ xgData.sensibilidad*100 | number: '1.2-2'}}</td> 
           </tr>
         </tbody>
       </table>
@@ -106,8 +106,8 @@
           <tbody>
             <tr>
               <th scope="row">Número de goles</th>
-              <td>{{ xgData.GolesEsperados.golesReales_vs_predecidos.goles_hubo}}</td> 
-              <td>{{ xgData.GolesEsperados.golesReales_vs_predecidos.goles_predecido| number: '1.2-2'}}</td> 
+              <td>{{ xgData.golesReales_vs_predecidos.goles_hubo}}</td> 
+              <td>{{ xgData.golesReales_vs_predecidos.goles_predecido| number: '1.2-2'}}</td> 
             </tr>
           </tbody>
         </table>
@@ -124,8 +124,8 @@
           <tbody>
             <tr>
               <th scope="row">%</th>
-              <td>{{ xgData.GolesEsperados.goles_esperados[0]*100 | number: '1.2-2'}}</td> 
-              <td>{{ xgData.GolesEsperados.goles_esperados[1]*100| number: '1.2-2'}}</td> 
+              <td>{{ xgData.goles_esperados[0]*100 | number: '1.2-2'}}</td> 
+              <td>{{ xgData.goles_esperados[1]*100| number: '1.2-2'}}</td> 
             </tr>
           </tbody>
         </table>
@@ -134,10 +134,10 @@
     </div>
   </div>
   <div class="second-content">
-    <p class="body3"><strong>Goles predecidos: </strong>Los goles que ocurrieron realmente fueron {{xgData.GolesEsperados.golesReales_vs_predecidos.goles_hubo}}.</p>
-    <p class="body3"><strong>Goles reales: </strong>Los goles predecidos por el modelo fueron {{ xgData.GolesEsperados.golesReales_vs_predecidos.goles_predecido| number: '1.2-2'}}</p>
-    <p class="body3"><strong>Gol: </strong>El {{ xgData.GolesEsperados.goles_esperados[0]*100 | number: '1.2-2'}}% de los datos fueron gol.</p>
-    <p class="body3"><strong>No gol: </strong>El {{ xgData.GolesEsperados.goles_esperados[1]*100| number: '1.2-2'}}% de los datos no fueron gol.</p>
+    <p class="body3"><strong>Goles predecidos: </strong>Los goles que ocurrieron realmente fueron {{xgData.golesReales_vs_predecidos.goles_hubo}}.</p>
+    <p class="body3"><strong>Goles reales: </strong>Los goles predecidos por el modelo fueron {{ xgData.golesReales_vs_predecidos.goles_predecido| number: '1.2-2'}}</p>
+    <p class="body3"><strong>Gol: </strong>El {{ xgData.goles_esperados[0]*100 | number: '1.2-2'}}% de los datos fueron gol.</p>
+    <p class="body3"><strong>No gol: </strong>El {{ xgData.goles_esperados[1]*100| number: '1.2-2'}}% de los datos no fueron gol.</p>
   </div>
 </div>
 
@@ -157,8 +157,8 @@
           <tbody>
             <tr>
               <th scope="row">%</th>
-              <td>{{ xgData.GolesEsperados.goles_penalti[0]*100 | number: '1.2-2'}}</td> 
-              <td>{{ xgData.GolesEsperados.goles_penalti[1]*100 | number: '1.2-2'}}</td> 
+              <td>{{ xgData.goles_penalti[0]*100 | number: '1.2-2'}}</td> 
+              <td>{{ xgData.goles_penalti[1]*100 | number: '1.2-2'}}</td> 
             </tr>
           </tbody>
         </table>
@@ -175,8 +175,8 @@
           <tbody>
             <tr>
               <th scope="row">%</th>
-              <td>{{(1 - xgData.GolesEsperados.predicciones_penalti.xG['mean'])*100 | number: '1.2-2'}}</td> 
-              <td>{{ xgData.GolesEsperados.predicciones_penalti.xG['mean']*100| number: '1.2-2'}}</td> 
+              <td>{{(1 - xgData.predicciones_penalti.xG['mean'])*100 | number: '1.2-2'}}</td> 
+              <td>{{ xgData.predicciones_penalti.xG['mean']*100| number: '1.2-2'}}</td> 
             </tr>
           </tbody>
         </table>
@@ -185,10 +185,10 @@
     </div>
   </div>
   <div class="second-content">
-    <p class="body3"><strong>No hubo gol de penalti: </strong>De los penaltis reales, no acabaron en gol el {{xgData.GolesEsperados.goles_penalti[0]*100 | number: '1.2-2'}}% de ellos.</p>
-    <p class="body3"><strong>Hubo gol de penalti: </strong>De los penaltis reales, acabaron en gol el {{xgData.GolesEsperados.goles_penalti[1]*100 | number: '1.2-2'}}% de ellos.</p>
-    <p class="body3"><strong>No hubo gol de penalti: </strong>De los penaltis predecidos, no acabaron en gol el {{(1 - xgData.GolesEsperados.predicciones_penalti.xG['mean'])*100 | number: '1.2-2'}}% de ellos.</p>
-    <p class="body3"><strong>Hubo gol de penalti: </strong>De los penaltis predecidos, acabaron en gol el {{ xgData.GolesEsperados.predicciones_penalti.xG['mean']*100| number: '1.2-2'}}% de ellos.</p>
+    <p class="body3"><strong>No hubo gol de penalti: </strong>De los penaltis reales, no acabaron en gol el {{xgData.goles_penalti[0]*100 | number: '1.2-2'}}% de ellos.</p>
+    <p class="body3"><strong>Hubo gol de penalti: </strong>De los penaltis reales, acabaron en gol el {{xgData.goles_penalti[1]*100 | number: '1.2-2'}}% de ellos.</p>
+    <p class="body3"><strong>No hubo gol de penalti: </strong>De los penaltis predecidos, no acabaron en gol el {{(1 - xgData.predicciones_penalti.xG['mean'])*100 | number: '1.2-2'}}% de ellos.</p>
+    <p class="body3"><strong>Hubo gol de penalti: </strong>De los penaltis predecidos, acabaron en gol el {{ xgData.predicciones_penalti.xG['mean']*100| number: '1.2-2'}}% de ellos.</p>
   </div>
 </div>
 

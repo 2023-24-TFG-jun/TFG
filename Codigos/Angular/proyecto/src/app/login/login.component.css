@@ -152,6 +152,7 @@ button {
     order: -1; 
     width: 80%; 
     margin-bottom: 20px; 
+    margin-right: 5%;
   }
 
 
@@ -168,7 +169,7 @@ button {
   .imagen-logo3 img {
     max-width: 400px; 
     height: auto; 
-    margin-bottom: 50px;
+    margin-bottom: 20px;
     z-index:0;
   }
 
@@ -180,6 +181,7 @@ button {
  
   .recuadro-opaco img {
     max-width: 120px; 
+    margin-bottom: 4%;
   }
 
   button {
