@@ -88,7 +88,7 @@ pandas==1.5.3
 pandera==0.13.4
 parso==0.8.3
 pickleshare==0.7.5
-Pillow==7.0.0
+Pillow==9.0.1
 platformdirs==4.1.0
 pluggy==1.4.0
 prettytable==3.10.0
