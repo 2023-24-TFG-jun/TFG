@@ -55,6 +55,14 @@ p{
     margin-top: 3%;
 }
 
+video{
+    width: 800px;
+  }
+
+.contenedor-videos{
+    margin: auto;
+}
+
 /* Media Queries para ajustes en dispositivos móviles */
 @media (max-width: 768px) {
     .img-contenido {
@@ -109,6 +117,19 @@ p{
         display: none;
     }
 
+    video {
+        width: 90%; 
+        margin: auto;
+      }
+
+    h1{
+        font-size: 14px;
+        gap: -1000px;
+    }
+
+    .container-video{
+        margin-top: -55%;
+    }
 
     [fxLayout] {
         flex-direction: column !important;

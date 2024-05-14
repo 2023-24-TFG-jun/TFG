@@ -1,10 +1,3 @@
-// export interface PrediccionesLigas {
-//     Laliga: Laliga;
-//     Premier: Premier;
-//     serieA: SerieA;
-//     Bundesliga: Bundesliga;
-//     Ligue1: Ligue1;
-// }
 
 export interface Laliga {
     LaLigaStandingP: LaLigaStandingP;

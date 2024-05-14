@@ -12,8 +12,8 @@ export class SportsIAService {
     const formData: FormData = new FormData();
     formData.append('file', file, file.name);
     //http://127.0.0.1:5000
+    //https://tfg-pj2s.onrender.com
     
-   
     return this.http.post('https://tfg-pj2s.onrender.com/upload', formData, {
       reportProgress: true,
       observe: 'events'
