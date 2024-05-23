@@ -36,7 +36,7 @@ export class PartidosComponent implements OnInit {
   public termino: string ='';
   public equipo: string ='';
   public hayError: boolean = false;
-  selectedSeason: number = 2023;
+  selectedSeason!: number;
   debouncer: Subject<string> = new Subject();
   sugerenciasLigas: Ligas['response'][number]['league'][] = [];
   mostrarSugerencias : boolean = false;
@@ -48,7 +48,7 @@ export class PartidosComponent implements OnInit {
   miFormulario: FormGroup = this.fb.group({
     termino: '',
     equipo: '',
-    season: 2023,
+    season: '',
     date: ''
   });
 
@@ -56,7 +56,6 @@ export class PartidosComponent implements OnInit {
   constructor(private matchesService: MatchesService, private footballService: FootballService, private fb: FormBuilder) { }
 
   ngOnInit(): void {
-    this.obtenerAnios(); 
     this.setupListeners(); 
 
     this.miFormulario.get('date')?.valueChanges.pipe(
@@ -82,20 +81,6 @@ export class PartidosComponent implements OnInit {
       });
   }
 
-  obtenerAnios(){
-    this.footballService.getAniosDisponibles().subscribe(
-      (anios :number[]) => {
-        const aniosExcluidos = [2008, 2009, 2024, 2025, 2026];
-        this.anios = anios.filter(anio => !aniosExcluidos.includes(anio));
-      },
-      error => {
-        console.error('Erros al obtener los años: ', error);
-      }
-    )
-  }
-
-
-
   teclaPresionada() {
     const value = this.miFormulario.get('termino')?.value;
     this.debouncer.next(value);
@@ -114,6 +99,13 @@ export class PartidosComponent implements OnInit {
   
     const formattedDate =  values.date ? moment(values.date).format('YYYY-MM-DD') : undefined;
     values.date = formattedDate;
+
+    const year = values.date ? moment(values.date).year() -1 : undefined;
+    values.season = year ? year.toString(): undefined;
+
+    if(values.season == undefined){
+      values.season = 2023;
+    }
 
     // Obtenemos el id de la liga
     this.matchesService.buscarLigaPorNombre(values.termino).subscribe(ligaIdResp => {

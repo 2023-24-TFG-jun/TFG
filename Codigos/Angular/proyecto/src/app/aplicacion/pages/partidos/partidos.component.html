@@ -7,8 +7,11 @@
 
 
 <h1>Búsqueda de partidos</h1>
+<div class="info">
+  <i class="fi fi-sr-info"></i>
+  <span>El usuario puede buscar partidos introduciendo el nombre de la liga o el nombre de un equipo(uno de los dos es obligatorio y filtrar mediante una fecha).</span>
+</div>
 
-<!--Formulario parte de ligas-->
 
 <form [formGroup]="miFormulario" (ngSubmit)="onSubmit()" autocomplete="off" class="formulario margen" >
   <div fxFlex fxLayout="column">
@@ -45,17 +48,6 @@
                   <label for="name" class="form__label">Buscar equipo</label>
         </div>
 
-        <div class="form__group field">
-          <mat-form-field>
-            <mat-label><span>Elige un año</span></mat-label>
-            <mat-select 
-                    formControlName="season"
-                    aria-label="Seleccionar año">
-                <mat-option  selected>-- Seleccione el año --</mat-option>
-                <mat-option *ngFor="let anio of anios" [value]="anio">{{anio}}</mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
         <div class="form__group field">
           <mat-form-field>
               <mat-label><span>Elige una fecha</span></mat-label>

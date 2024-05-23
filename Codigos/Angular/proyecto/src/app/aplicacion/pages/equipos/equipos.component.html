@@ -6,6 +6,10 @@
 </div>
 
 <h1 class="margen">Búsqueda de equipos</h1>
+<div class="info">
+  <i class="fi fi-sr-info"></i>
+  <span>El usuario podrá buscar información de un equipo por su nombre como año de fundación, liga, estadio, estadísticas varias y plantilla.</span>
+</div>
 
 <div class="contenedor formulario" >
     <div class="contenedor-formulario">
@@ -42,9 +46,9 @@
             (ngModelChange)="onYearSelected($event)">
           <mat-option  selected>-- Seleccione el año --</mat-option>
           <mat-option *ngFor="let anio of anios" [value]="anio">{{anio}}</mat-option>
-      </mat-select>
-    </mat-form-field>
-  </div>
+        </mat-select>
+      </mat-form-field>
+    </div>
 </div>
 
 <div class="container mt-4">
