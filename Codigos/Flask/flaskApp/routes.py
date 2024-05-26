@@ -114,6 +114,114 @@ def send_pasesMessi():
     static_folder = os.path.join(current_dir, '../static')
     return send_from_directory(static_folder, 'pasesMessi.png')
 
+@main.route('/static/enzoMap.png')
+def send_enzoMap():
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    static_folder = os.path.join(current_dir, '../static')
+    return send_from_directory(static_folder, 'enzoMap.png')
+
+@main.route('/static/koundeMap.png')
+def send_koundeMap():
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    static_folder = os.path.join(current_dir, '../static')
+    return send_from_directory(static_folder, 'koundeMap.png')
+
+@main.route('/static/RodrigodepaulMap.png')
+def send_rodrigoDePaulMap():
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    static_folder = os.path.join(current_dir, '../static')
+    return send_from_directory(static_folder, 'RodrigodepaulMap.png')
+
+@main.route('/static/tchouameniMap.png')
+def send_tchouameniMap():
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    static_folder = os.path.join(current_dir, '../static')
+    return send_from_directory(static_folder, 'tchouameniMap.png')
+
+@main.route('/static/goalFrance.png')
+def send_goalFrance():
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    static_folder = os.path.join(current_dir, '../static')
+    return send_from_directory(static_folder, 'goalFrance.png')
+
+@main.route('/static/locationEnzo.png')
+def send_locationEnzo():
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    static_folder = os.path.join(current_dir, '../static')
+    return send_from_directory(static_folder, 'locationEnzo.png')
+
+@main.route('/static/locationKounde.png')
+def send_locationKounde():
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    static_folder = os.path.join(current_dir, '../static')
+    return send_from_directory(static_folder, 'locationKounde.png')
+
+@main.route('/static/locationMbappe.png')
+def send_locationMbappe():
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    static_folder = os.path.join(current_dir, '../static')
+    return send_from_directory(static_folder, 'locationMbappe.png')
+
+@main.route('/static/locationRodrigoDePaul.png')
+def send_locationRodrigoDePaul():
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    static_folder = os.path.join(current_dir, '../static')
+    return send_from_directory(static_folder, 'locationRodrigoDePaul.png')
+
+@main.route('/static/locationTchouameni.png')
+def send_locationTchouameni():
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    static_folder = os.path.join(current_dir, '../static')
+    return send_from_directory(static_folder, 'locationTchouameni.png')
+
+@main.route('/static/pasesEnzo.png')
+def send_pasesEnzo():
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    static_folder = os.path.join(current_dir, '../static')
+    return send_from_directory(static_folder, 'pasesEnzo.png')
+
+@main.route('/static/pasesKounde.png')
+def send_pasesKounde():
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    static_folder = os.path.join(current_dir, '../static')
+    return send_from_directory(static_folder, 'pasesKounde.png')
+
+@main.route('/static/pasesMbappe.png')
+def send_pasesMbappe():
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    static_folder = os.path.join(current_dir, '../static')
+    return send_from_directory(static_folder, 'pasesMbappe.png')
+
+@main.route('/static/Ligue1.png')
+def send_progresoLigue1():
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    static_folder = os.path.join(current_dir, '../static')
+    return send_from_directory(static_folder, 'Ligue1.png')
+
+@main.route('/static/progresoBundesliga.png')
+def send_progresoBundesliga():
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    static_folder = os.path.join(current_dir, '../static')
+    return send_from_directory(static_folder, 'progresoBundesliga.png')
+
+@main.route('/static/progresoLaLiga.png')
+def send_progresoLaLiga():
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    static_folder = os.path.join(current_dir, '../static')
+    return send_from_directory(static_folder, 'progresoLaLiga.png')
+
+@main.route('/static/progresoPremier.png')
+def send_progresoPremier():
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    static_folder = os.path.join(current_dir, '../static')
+    return send_from_directory(static_folder, 'progresoPremier.png')
+
+@main.route('/static/progresoSerieA.png')
+def send_progresoSerieA():
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    static_folder = os.path.join(current_dir, '../static')
+    return send_from_directory(static_folder, 'progresoSerieA.png')
+
 @main.route('/upload', methods=['POST'])
 def upload_file():
     if 'file' not in request.files:
