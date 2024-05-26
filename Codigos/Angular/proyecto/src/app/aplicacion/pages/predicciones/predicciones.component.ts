@@ -32,6 +32,11 @@ export class PrediccionesComponent implements OnInit {
   ligue1RealData: any;
   loading: boolean = false;
   loaded:boolean = false;
+  imgLigue1: any;
+  imgProgresoBundesliga: any;
+  imgProgresoLaLiga: any;
+  imgProgresoPremier:any;
+  imgProgresoSerieA: any;
 
   ngOnInit(): void {
     
@@ -84,6 +89,7 @@ export class PrediccionesComponent implements OnInit {
     event.stopPropagation();
     if (!this.loaded) { 
         this.getLaLigaData();
+        this.progresoLaLiga();
     } else { 
         this.laLigaData = []; 
         this.laLigaRealData = []
@@ -129,6 +135,7 @@ export class PrediccionesComponent implements OnInit {
     event.stopPropagation();
     if (!this.loaded) { 
         this.getPremierData();
+        this.progresoPremier();
     } else { 
         this.premierData = []; 
         this.premierRealData = []
@@ -171,6 +178,7 @@ export class PrediccionesComponent implements OnInit {
     event.stopPropagation();
     if (!this.loaded) { 
         this.getSerieAData();
+        this.progresoSerieA();
     } else { 
         this.serieAData = []; 
         this.SerieARealData = []
@@ -213,6 +221,7 @@ export class PrediccionesComponent implements OnInit {
     event.stopPropagation();
     if (!this.loaded) { 
         this.getBundesligaData();
+        this.progresoBundesliga();
     } else { 
         this.bundesligaData = []; 
         this.bundesligaRealData = []
@@ -255,10 +264,82 @@ export class PrediccionesComponent implements OnInit {
     event.stopPropagation();
     if (!this.loaded) { 
         this.getLigue1Data();
+        this.Ligue1();
     } else { 
         this.ligue1Data = []; 
         this.ligue1RealData = []
         this.loaded = false; 
     }
+  }
+
+
+  Ligue1(){
+    this.loading=true;
+    this.backendService.Ligue1().subscribe({
+      next: (data: Blob) => {
+        const objectUrl = URL.createObjectURL(data);
+        this.imgLigue1 = objectUrl;
+        this.loading = false;
+      },
+      error: (error) => {
+        console.error('Error al obtener los datos', error);
+      }
+    });
+  }
+
+  progresoBundesliga(){
+    this.loading=true;
+    this.backendService.progresoBundesliga().subscribe({
+      next: (data: Blob) => {
+        const objectUrl = URL.createObjectURL(data);
+        this.imgProgresoBundesliga = objectUrl;
+        this.loading = false;
+      },
+      error: (error) => {
+        console.error('Error al obtener los datos', error);
+      }
+    });
+  }
+
+  progresoLaLiga(){
+    this.loading=true;
+    this.backendService.progresoLaLiga().subscribe({
+      next: (data: Blob) => {
+        const objectUrl = URL.createObjectURL(data);
+        this.imgProgresoLaLiga = objectUrl;
+        this.loading = false;
+      },
+      error: (error) => {
+        console.error('Error al obtener los datos', error);
+      }
+    });
+  }
+
+  progresoPremier(){
+    this.loading=true;
+    this.backendService.progresoPremier().subscribe({
+      next: (data: Blob) => {
+        const objectUrl = URL.createObjectURL(data);
+        this.imgProgresoPremier = objectUrl;
+        this.loading = false;
+      },
+      error: (error) => {
+        console.error('Error al obtener los datos', error);
+      }
+    });
+  }
+
+  progresoSerieA(){
+    this.loading=true;
+    this.backendService.progresoSerieA().subscribe({
+      next: (data: Blob) => {
+        const objectUrl = URL.createObjectURL(data);
+        this.imgProgresoSerieA = objectUrl;
+        this.loading = false;
+      },
+      error: (error) => {
+        console.error('Error al obtener los datos', error);
+      }
+    });
   }
 }

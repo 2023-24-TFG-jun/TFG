@@ -15,6 +15,10 @@
 </div>
 
 <h1>Predicciones: mundial</h1>
+<div class="info">
+  <i class="fi fi-sr-info"></i>
+  <span>El usuario podrá visualizar gráficos del mundial del año 2022.</span>
+</div>
 
 <div class="container">
   <img class="copa" src="assets/img/2022_FIFA_World_Cup.svg.png" alt="copa del mundo">
@@ -46,8 +50,20 @@
   </div>
 </div>
 
+<form [formGroup]="miFormulario" class="selector1">
+  <mat-form-field>
+    <mat-label>Seleccionar equipo</mat-label>
+    <mat-select  formControlName="selector1">
+      @for (porteria of porterias; track porteria) {
+        <mat-option [value]="porteria">{{porteria}}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+</form>
+
+
 <div class="container2">
-  <div class="card" *ngIf="imgGA">
+  <div class="card" *ngIf="imgGA && miFormulario?.get('selector1')?.value === 'Argentina'">
       <p class="card__title2">Goles Argentina mundial Qatar 2022</p>
       <img class="imgGA" src="{{imgGA}}" alt="Imagen goles argentina">
     <div class="card__content">
@@ -65,8 +81,38 @@
   </div>
 </div>
 
+<div class="container3">
+  <div class="card" *ngIf="imgGA && miFormulario?.get('selector1')?.value === 'Francia'">
+      <p class="card__title2">Goles Francia mundial Qatar 2022</p>
+      <img class="imgGA" src="{{imgGoalFrance}}" alt="Imagen goles Francia">
+    <div class="card__content">
+      <p class="card__title">Goles Francia mundial Qatar 2022</p>
+      <p class="card__description">Este gráfico refleja todos los goles que hubo por parte de Francia en el mundial de Qatar de 2022 y que zona de la portería fue por la que entró el balón. Este gráfico puede ayudar a determinar la tendencia de tiros de un equipo.</p>
+      <p class="card__description">Análisis del gráfico:</p>
+      <ul>
+        <li class="card__description"><b>Zonas de efectividad:</b> los porcentajes más altos (zonas más oscuras) indican las áreas desde donde Francia anotó más goles. Parece haber una concentración de goles en determinadas zonas, lo que podría sugerir que Francia tuvo más éxito o fue más frecuentemente efectiva en esas áreas.</li>
+        <li class="card__description"><b>Precisión: </b> la presencia de círculos en áreas específicas con altos porcentajes sugiere que hubo una buena precisión en los disparos de Francia en esas zonas, resultando en una mayor cantidad de goles.  </li>
+        <li class="card__description"><b>Distribución de goles: </b> la distribución de los círculos (que representan goles) nos puede dar una idea de la estrategia ofensiva del equipo, indicando si prefirieron disparar desde la distancia, si tuvieron éxito en penetrar la defensa para tiros más cercanos o si fueron efectivos en jugadas a balón parado.</li>
+        <li class="card__description"><b>Oportunidades aprovechadas: </b>si los círculos más grandes representan una mayor cantidad de goles desde una ubicación específica, esto podría significar que Francia aprovechó bien sus oportunidades más claras o que ciertos jugadores son muy efectivos en áreas específicas. </li>
+        <li class="card__description"><b>Estrategia defensiva del oponente: </b> si hay áreas con porcentajes bajos de goles o sin goles, esto podría indicar que los oponentes defendieron bien esas zonas o que Argentina no pudo crear oportunidades significativas allí. </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<form [formGroup]="miFormulario" class="selector2">
+  <mat-form-field>
+    <mat-label>Seleccionar jugador</mat-label>
+    <mat-select  formControlName="selector2">
+      @for (mapa of mapasCalor; track mapa) {
+        <mat-option [value]="mapa">{{mapa}}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+</form>
+
 <div class="container2">
-  <div class="card" *ngIf="imgGA">
+  <div class="card" *ngIf="imgGA && miFormulario?.get('selector2')?.value === 'Lionel Messi'">
       <p class="card__title2">Mapas de calor: mapa de calor de Lionel Messi en la final del mundial Qatar 2022</p>
       <img class="imgMessi" src="{{imgMessi}}" alt="Mapa de calor de Lionel Messi en la final del mundial Qatar 2022">
     <div class="card__content">
@@ -85,8 +131,8 @@
 </div>
 
 
-<div class="container2">
-  <div class="card" *ngIf="imgGA">
+<div class="container3">
+  <div class="card" *ngIf="imgGA && miFormulario?.get('selector2')?.value === 'Kylian Mbappé'">
       <p class="card__title2">Mapas de calor: mapa de calor de Mbappé en la final del mundial Qatar 2022</p>
       <img class="imgMbappe" src="{{imgMbappe}}" alt="Mapa de calor de Mbappé en la final del mundial Qatar 2022">
     <div class="card__content">
@@ -104,8 +150,96 @@
   </div>
 </div>
 
+<div class="container3">
+  <div class="card" *ngIf="imgGA && miFormulario?.get('selector2')?.value === 'Enzo Fernández'">
+      <p class="card__title2">Mapas de calor: mapa de calor de Enzo Fernández en la final del mundial Qatar 2022</p>
+      <img class="imgMbappe" src="{{imgEnzoMap}}" alt="Mapa de calor de Enzo Fernández en la final del mundial Qatar 2022">
+    <div class="card__content">
+      <p class="card__title">Mapa de calor de Enzo Fernández en la final del mundial de Qatar 2022</p>
+      <p class="card__description">Este gráfico representa el mapa de calor de Enzo Fernández en el campo en la final del mundial de 2022. Podemos sacar conclusiones acerca de las zonas en las que Enzo Fernández se movió por el campo. </p>
+      <p class="card__description">Análisis del gráfico:</p>
+      <ul>
+        <li class="card__description"><b>Presencia en el campo: </b> si el área más brillante o "caliente" del mapa de calor está cerca de la caja del área rival, indica que Enzo Fernández pasó mucho tiempo en posiciones de ataque, lo que sugiere un papel ofensivo prominente durante el partido.</li>
+        <li class="card__description"><b>Actividad Ofensiva: </b> una alta concentración de color cerca de del área también podría sugerir que Mbappé tuvo varias oportunidades de tiro o que estuvo involucrado en jugadas de gol, lo que lo posiciona como una amenaza constante para la defensa contraria.</li>
+        <li class="card__description"><b>Movilidad: </b>si el mapa de calor muestra actividad a lo largo de todo el frente ofensivo y en ambos lados del campo, esto revelaría la movilidad de Mbappé y su participación en diversas facetas del juego ofensivo, incluyendo desbordes, pases y tiros.</li>
+        <li class="card__description"><b>Interacciones con Compañeros: </b> la presencia de áreas calientes en lugares específicos podría correlacionarse con la combinación de juego con sus compañeros, lo que demostraría cómo el equipo construye sus jugadas alrededor de sus movimientos.</li>
+        <li class="card__description"><b>Efectividad en la Presión: </b> si hay zonas calientes en el campo rival que no están cerca del área, podría indicar que Mbappé estuvo activo en la presión alta, intentando recuperar la posesión y generar transiciones rápidas. </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="container3">
+  <div class="card" *ngIf="imgGA && miFormulario?.get('selector2')?.value === 'Jules Koundé'">
+      <p class="card__title2">Mapas de calor: mapa de calor de Jules Koundé en la final del mundial Qatar 2022</p>
+      <img class="imgMbappe" src="{{imgKoundeMap}}" alt="Mapa de calor de Enzo Fernández en la final del mundial Qatar 2022">
+    <div class="card__content">
+      <p class="card__title">Mapa de calor de Enzo Fernández en la final del mundial de Qatar 2022</p>
+      <p class="card__description">Este gráfico representa el mapa de calor de Enzo Fernández en el campo en la final del mundial de 2022. Podemos sacar conclusiones acerca de las zonas en las que Enzo Fernández se movió por el campo. </p>
+      <p class="card__description">Análisis del gráfico:</p>
+      <ul>
+        <li class="card__description"><b>Presencia en el campo: </b> si el área más brillante o "caliente" del mapa de calor está cerca de la caja del área rival, indica que Enzo Fernández pasó mucho tiempo en posiciones de ataque, lo que sugiere un papel ofensivo prominente durante el partido.</li>
+        <li class="card__description"><b>Actividad Ofensiva: </b> una alta concentración de color cerca de del área también podría sugerir que Mbappé tuvo varias oportunidades de tiro o que estuvo involucrado en jugadas de gol, lo que lo posiciona como una amenaza constante para la defensa contraria.</li>
+        <li class="card__description"><b>Movilidad: </b>si el mapa de calor muestra actividad a lo largo de todo el frente ofensivo y en ambos lados del campo, esto revelaría la movilidad de Mbappé y su participación en diversas facetas del juego ofensivo, incluyendo desbordes, pases y tiros.</li>
+        <li class="card__description"><b>Interacciones con Compañeros: </b> la presencia de áreas calientes en lugares específicos podría correlacionarse con la combinación de juego con sus compañeros, lo que demostraría cómo el equipo construye sus jugadas alrededor de sus movimientos.</li>
+        <li class="card__description"><b>Efectividad en la Presión: </b> si hay zonas calientes en el campo rival que no están cerca del área, podría indicar que Mbappé estuvo activo en la presión alta, intentando recuperar la posesión y generar transiciones rápidas. </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="container3">
+  <div class="card" *ngIf="imgGA && miFormulario?.get('selector2')?.value === 'Rodrigo De Paul'">
+      <p class="card__title2">Mapas de calor: mapa de calor de Rodrigo De Paul en la final del mundial Qatar 2022</p>
+      <img class="imgMbappe" src="{{imgRodrigoDePaulMap}}" alt="Mapa de calor de Enzo Fernández en la final del mundial Qatar 2022">
+    <div class="card__content">
+      <p class="card__title">Mapa de calor de Enzo Fernández en la final del mundial de Qatar 2022</p>
+      <p class="card__description">Este gráfico representa el mapa de calor de Enzo Fernández en el campo en la final del mundial de 2022. Podemos sacar conclusiones acerca de las zonas en las que Enzo Fernández se movió por el campo. </p>
+      <p class="card__description">Análisis del gráfico:</p>
+      <ul>
+        <li class="card__description"><b>Presencia en el campo: </b> si el área más brillante o "caliente" del mapa de calor está cerca de la caja del área rival, indica que Enzo Fernández pasó mucho tiempo en posiciones de ataque, lo que sugiere un papel ofensivo prominente durante el partido.</li>
+        <li class="card__description"><b>Actividad Ofensiva: </b> una alta concentración de color cerca de del área también podría sugerir que Mbappé tuvo varias oportunidades de tiro o que estuvo involucrado en jugadas de gol, lo que lo posiciona como una amenaza constante para la defensa contraria.</li>
+        <li class="card__description"><b>Movilidad: </b>si el mapa de calor muestra actividad a lo largo de todo el frente ofensivo y en ambos lados del campo, esto revelaría la movilidad de Mbappé y su participación en diversas facetas del juego ofensivo, incluyendo desbordes, pases y tiros.</li>
+        <li class="card__description"><b>Interacciones con Compañeros: </b> la presencia de áreas calientes en lugares específicos podría correlacionarse con la combinación de juego con sus compañeros, lo que demostraría cómo el equipo construye sus jugadas alrededor de sus movimientos.</li>
+        <li class="card__description"><b>Efectividad en la Presión: </b> si hay zonas calientes en el campo rival que no están cerca del área, podría indicar que Mbappé estuvo activo en la presión alta, intentando recuperar la posesión y generar transiciones rápidas. </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<div class="container3">
+  <div class="card" *ngIf="imgGA && miFormulario?.get('selector2')?.value === 'Aurélien Tchouaméni'">
+      <p class="card__title2">Mapas de calor: mapa de calor de Aurélien Tchouaméni en la final del mundial Qatar 2022</p>
+      <img class="imgMbappe" src="{{imgTchouameniMap}}" alt="Mapa de calor de Enzo Fernández en la final del mundial Qatar 2022">
+    <div class="card__content">
+      <p class="card__title">Mapa de calor de Enzo Fernández en la final del mundial de Qatar 2022</p>
+      <p class="card__description">Este gráfico representa el mapa de calor de Enzo Fernández en el campo en la final del mundial de 2022. Podemos sacar conclusiones acerca de las zonas en las que Enzo Fernández se movió por el campo. </p>
+      <p class="card__description">Análisis del gráfico:</p>
+      <ul>
+        <li class="card__description"><b>Presencia en el campo: </b> si el área más brillante o "caliente" del mapa de calor está cerca de la caja del área rival, indica que Enzo Fernández pasó mucho tiempo en posiciones de ataque, lo que sugiere un papel ofensivo prominente durante el partido.</li>
+        <li class="card__description"><b>Actividad Ofensiva: </b> una alta concentración de color cerca de del área también podría sugerir que Mbappé tuvo varias oportunidades de tiro o que estuvo involucrado en jugadas de gol, lo que lo posiciona como una amenaza constante para la defensa contraria.</li>
+        <li class="card__description"><b>Movilidad: </b>si el mapa de calor muestra actividad a lo largo de todo el frente ofensivo y en ambos lados del campo, esto revelaría la movilidad de Mbappé y su participación en diversas facetas del juego ofensivo, incluyendo desbordes, pases y tiros.</li>
+        <li class="card__description"><b>Interacciones con Compañeros: </b> la presencia de áreas calientes en lugares específicos podría correlacionarse con la combinación de juego con sus compañeros, lo que demostraría cómo el equipo construye sus jugadas alrededor de sus movimientos.</li>
+        <li class="card__description"><b>Efectividad en la Presión: </b> si hay zonas calientes en el campo rival que no están cerca del área, podría indicar que Mbappé estuvo activo en la presión alta, intentando recuperar la posesión y generar transiciones rápidas. </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<form [formGroup]="miFormulario" class="selector3">
+  <mat-form-field>
+    <mat-label>Seleccionar jugador</mat-label>
+    <mat-select  formControlName="selector3">
+      @for (location of locations; track location) {
+        <mat-option [value]="location">{{location}}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+</form>
+
 <div class="container2">
-  <div class="card" *ngIf="imgGA">
+  <div class="card" *ngIf="imgGA && miFormulario?.get('selector3')?.value === 'Lionel Messi'">
       <p class="card__title2">Mapa de las zonas donde Messi estuvo en el campo en la final del mundial de Qatar 2022</p>
       <img class="imgMbappe" src="{{imgML}}" alt="Messi Location">
     <div class="card__content">
@@ -122,10 +256,171 @@
   </div>
 </div>
 
+<div class="container3">
+  <div class="card" *ngIf="imgGA && miFormulario?.get('selector3')?.value === 'Kylian Mbappé'">
+      <p class="card__title2">Mapa de las zonas donde Kylian Mbappé estuvo en el campo en la final del mundial de Qatar 2022</p>
+      <img class="imgMbappe" src="{{imgLocationMbappe}}" alt="Messi Location">
+    <div class="card__content">
+      <p class="card__title">Mapa de locations de Messi en el campo en la final del mundial de Qatar 2022</p>
+      <p class="card__description">Este gráfico representa las zonas donde Messi estuvo en el campo en la final del mundial de Qatar en 2022.</p>
+      <p class="card__description">Análisis del gráfico:</p>
+      <ul>
+        <li class="card__description"><b>Amplitud de Movimientos: </b> si los puntos se extienden a través de una amplia área del campo, eso indicaría que Messi tuvo una gran movilidad, cubriendo muchas zonas durante el partido.</li>
+        <li class="card__description"><b>Posición ofensiva: </b> una concentración de puntos cerca de la portería rival sugiere que Messi jugó un papel ofensivo significativo, buscando espacios para crear oportunidades de gol o disparar.</li>
+        <li class="card__description"><b>Roles: </b> la presencia de puntos en las bandas podría implicar que Messi se desplazaba a lo largo de los flancos para encontrar espacio y crear jugadas, además de su participación en el centro del campo.</li>
+        <li class="card__description"><b>Estrategia del Equipo: </b> la disposición de los puntos también puede reflejar la estrategia del equipo y cómo se esperaba que Messi interactuara con sus compañeros en el terreno de juego.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="container3">
+  <div class="card" *ngIf="imgGA && miFormulario?.get('selector3')?.value === 'Enzo Fernández'">
+      <p class="card__title2">Mapa de las zonas donde Enzo Fernández estuvo en el campo en la final del mundial de Qatar 2022</p>
+      <img class="imgMbappe" src="{{imgLocationEnzo}}" alt="Messi Location">
+    <div class="card__content">
+      <p class="card__title">Mapa de locations de Messi en el campo en la final del mundial de Qatar 2022</p>
+      <p class="card__description">Este gráfico representa las zonas donde Messi estuvo en el campo en la final del mundial de Qatar en 2022.</p>
+      <p class="card__description">Análisis del gráfico:</p>
+      <ul>
+        <li class="card__description"><b>Amplitud de Movimientos: </b> si los puntos se extienden a través de una amplia área del campo, eso indicaría que Messi tuvo una gran movilidad, cubriendo muchas zonas durante el partido.</li>
+        <li class="card__description"><b>Posición ofensiva: </b> una concentración de puntos cerca de la portería rival sugiere que Messi jugó un papel ofensivo significativo, buscando espacios para crear oportunidades de gol o disparar.</li>
+        <li class="card__description"><b>Roles: </b> la presencia de puntos en las bandas podría implicar que Messi se desplazaba a lo largo de los flancos para encontrar espacio y crear jugadas, además de su participación en el centro del campo.</li>
+        <li class="card__description"><b>Estrategia del Equipo: </b> la disposición de los puntos también puede reflejar la estrategia del equipo y cómo se esperaba que Messi interactuara con sus compañeros en el terreno de juego.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="container3">
+  <div class="card" *ngIf="imgGA && miFormulario?.get('selector3')?.value === 'Jules Koundé'">
+      <p class="card__title2">Mapa de las zonas donde Jules Koundé estuvo en el campo en la final del mundial de Qatar 2022</p>
+      <img class="imgMbappe" src="{{imgLocationKounde}}" alt="Messi Location">
+    <div class="card__content">
+      <p class="card__title">Mapa de locations de Messi en el campo en la final del mundial de Qatar 2022</p>
+      <p class="card__description">Este gráfico representa las zonas donde Messi estuvo en el campo en la final del mundial de Qatar en 2022.</p>
+      <p class="card__description">Análisis del gráfico:</p>
+      <ul>
+        <li class="card__description"><b>Amplitud de Movimientos: </b> si los puntos se extienden a través de una amplia área del campo, eso indicaría que Messi tuvo una gran movilidad, cubriendo muchas zonas durante el partido.</li>
+        <li class="card__description"><b>Posición ofensiva: </b> una concentración de puntos cerca de la portería rival sugiere que Messi jugó un papel ofensivo significativo, buscando espacios para crear oportunidades de gol o disparar.</li>
+        <li class="card__description"><b>Roles: </b> la presencia de puntos en las bandas podría implicar que Messi se desplazaba a lo largo de los flancos para encontrar espacio y crear jugadas, además de su participación en el centro del campo.</li>
+        <li class="card__description"><b>Estrategia del Equipo: </b> la disposición de los puntos también puede reflejar la estrategia del equipo y cómo se esperaba que Messi interactuara con sus compañeros en el terreno de juego.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="container3">
+  <div class="card" *ngIf="imgGA && miFormulario?.get('selector3')?.value === 'Rodrigo De Paul'">
+      <p class="card__title2">Mapa de las zonas donde Rodrigo De Paul estuvo en el campo en la final del mundial de Qatar 2022</p>
+      <img class="imgMbappe" src="{{imgLocationRodrigoDePaul}}" alt="Messi Location">
+    <div class="card__content">
+      <p class="card__title">Mapa de locations de Messi en el campo en la final del mundial de Qatar 2022</p>
+      <p class="card__description">Este gráfico representa las zonas donde Messi estuvo en el campo en la final del mundial de Qatar en 2022.</p>
+      <p class="card__description">Análisis del gráfico:</p>
+      <ul>
+        <li class="card__description"><b>Amplitud de Movimientos: </b> si los puntos se extienden a través de una amplia área del campo, eso indicaría que Messi tuvo una gran movilidad, cubriendo muchas zonas durante el partido.</li>
+        <li class="card__description"><b>Posición ofensiva: </b> una concentración de puntos cerca de la portería rival sugiere que Messi jugó un papel ofensivo significativo, buscando espacios para crear oportunidades de gol o disparar.</li>
+        <li class="card__description"><b>Roles: </b> la presencia de puntos en las bandas podría implicar que Messi se desplazaba a lo largo de los flancos para encontrar espacio y crear jugadas, además de su participación en el centro del campo.</li>
+        <li class="card__description"><b>Estrategia del Equipo: </b> la disposición de los puntos también puede reflejar la estrategia del equipo y cómo se esperaba que Messi interactuara con sus compañeros en el terreno de juego.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="container3">
+  <div class="card" *ngIf="imgGA && miFormulario?.get('selector3')?.value === 'Aurélien Tchouaméni'">
+      <p class="card__title2">Mapa de las zonas donde Aurélien Tchouaméni estuvo en el campo en la final del mundial de Qatar 2022</p>
+      <img class="imgMbappe" src="{{imgLocationTchouameni}}" alt="Messi Location">
+    <div class="card__content">
+      <p class="card__title">Mapa de locations de Messi en el campo en la final del mundial de Qatar 2022</p>
+      <p class="card__description">Este gráfico representa las zonas donde Messi estuvo en el campo en la final del mundial de Qatar en 2022.</p>
+      <p class="card__description">Análisis del gráfico:</p>
+      <ul>
+        <li class="card__description"><b>Amplitud de Movimientos: </b> si los puntos se extienden a través de una amplia área del campo, eso indicaría que Messi tuvo una gran movilidad, cubriendo muchas zonas durante el partido.</li>
+        <li class="card__description"><b>Posición ofensiva: </b> una concentración de puntos cerca de la portería rival sugiere que Messi jugó un papel ofensivo significativo, buscando espacios para crear oportunidades de gol o disparar.</li>
+        <li class="card__description"><b>Roles: </b> la presencia de puntos en las bandas podría implicar que Messi se desplazaba a lo largo de los flancos para encontrar espacio y crear jugadas, además de su participación en el centro del campo.</li>
+        <li class="card__description"><b>Estrategia del Equipo: </b> la disposición de los puntos también puede reflejar la estrategia del equipo y cómo se esperaba que Messi interactuara con sus compañeros en el terreno de juego.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<form [formGroup]="miFormulario" class="selector4">
+  <mat-form-field>
+    <mat-label>Seleccionar jugador</mat-label>
+    <mat-select  formControlName="selector4">
+      @for (pase of pases; track pase) {
+        <mat-option [value]="pase">{{pase}}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+</form>
+
 <div class="container2">
-  <div class="card" *ngIf="imgGA">
+  <div class="card" *ngIf="imgGA && miFormulario?.get('selector4')?.value === 'Lionel Messi'">
       <p class="card__title2">Mapa de los pases de Messi en la final del mundial Qatar 2022</p>
       <img class="imgMP" src="{{imgMP}}" alt="Mapa de pases de Messi">
+    <div class="card__content">
+      <p class="card__title">Mapa de los pases de Messi en la final del mundial Qatar 2022</p>
+      <p class="card__description">Este gráfico representa el mapa de pases de Messi en la final del mundial de Qatar 2022.</p>
+      <p class="card__description">Análisis del gráfico:</p>
+      <ul>
+        <li class="card__description"><b>Conectividad y Alcance: </b> la cantidad y la longitud de las líneas de pase indican cuán involucrado estuvo Messi en el juego y cuánto del campo cubrió con sus pases.</li>
+        <li class="card__description"><b>Precisión: </b> las líneas verdes representan los pases exitosos y las rojas pases fallidos, lo que a su vez muestra la precisión en la distribución del balón.</li>
+        <li class="card__description"><b>Creación de oportunidades: </b>  los pases hacia adelante o hacia áreas peligrosas pueden indicar intentos de crear oportunidades de gol. Si hay muchas líneas que apuntan hacia el área penal o zonas de tiro, eso sugiere que Messi desempeñó un papel clave en la generación de ataques.</li>
+        <li class="card__description"><b>Patrones de juego: </b> la distribución de las líneas podría revelar patrones de juego, como la tendencia a jugar por las bandas o a través del centro.</li>
+        <li class="card__description"><b>Influencia en el juego: </b> una gran cantidad de líneas de pase originadas por Messi indicaría su dominio en el flujo del juego, siendo un eje central en el movimiento del balón.</li>
+        <li class="card__description"><b>Colaboración con Compañeros: </b> la dirección y el destino de los pases podrían señalar a los jugadores con los que Messi interactuó más, sugiriendo asociaciones y conexiones fuertes en el campo.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="container3">
+  <div class="card" *ngIf="imgGA && miFormulario?.get('selector4')?.value === 'Enzo Fernández'">
+      <p class="card__title2">Mapa de los pases de Enzo Fernández en la final del mundial Qatar 2022</p>
+      <img class="imgMP" src="{{imgPasesEnzo}}" alt="Mapa de pases de Messi">
+    <div class="card__content">
+      <p class="card__title">Mapa de los pases de Messi en la final del mundial Qatar 2022</p>
+      <p class="card__description">Este gráfico representa el mapa de pases de Messi en la final del mundial de Qatar 2022.</p>
+      <p class="card__description">Análisis del gráfico:</p>
+      <ul>
+        <li class="card__description"><b>Conectividad y Alcance: </b> la cantidad y la longitud de las líneas de pase indican cuán involucrado estuvo Messi en el juego y cuánto del campo cubrió con sus pases.</li>
+        <li class="card__description"><b>Precisión: </b> las líneas verdes representan los pases exitosos y las rojas pases fallidos, lo que a su vez muestra la precisión en la distribución del balón.</li>
+        <li class="card__description"><b>Creación de oportunidades: </b>  los pases hacia adelante o hacia áreas peligrosas pueden indicar intentos de crear oportunidades de gol. Si hay muchas líneas que apuntan hacia el área penal o zonas de tiro, eso sugiere que Messi desempeñó un papel clave en la generación de ataques.</li>
+        <li class="card__description"><b>Patrones de juego: </b> la distribución de las líneas podría revelar patrones de juego, como la tendencia a jugar por las bandas o a través del centro.</li>
+        <li class="card__description"><b>Influencia en el juego: </b> una gran cantidad de líneas de pase originadas por Messi indicaría su dominio en el flujo del juego, siendo un eje central en el movimiento del balón.</li>
+        <li class="card__description"><b>Colaboración con Compañeros: </b> la dirección y el destino de los pases podrían señalar a los jugadores con los que Messi interactuó más, sugiriendo asociaciones y conexiones fuertes en el campo.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="container3">
+  <div class="card" *ngIf="imgGA && miFormulario?.get('selector4')?.value === 'Kylian Mbappé'">
+      <p class="card__title2">Mapa de los pases de Kylian Mbappé en la final del mundial Qatar 2022</p>
+      <img class="imgMP" src="{{imgPasesMbappe}}" alt="Mapa de pases de Messi">
+    <div class="card__content">
+      <p class="card__title">Mapa de los pases de Messi en la final del mundial Qatar 2022</p>
+      <p class="card__description">Este gráfico representa el mapa de pases de Messi en la final del mundial de Qatar 2022.</p>
+      <p class="card__description">Análisis del gráfico:</p>
+      <ul>
+        <li class="card__description"><b>Conectividad y Alcance: </b> la cantidad y la longitud de las líneas de pase indican cuán involucrado estuvo Messi en el juego y cuánto del campo cubrió con sus pases.</li>
+        <li class="card__description"><b>Precisión: </b> las líneas verdes representan los pases exitosos y las rojas pases fallidos, lo que a su vez muestra la precisión en la distribución del balón.</li>
+        <li class="card__description"><b>Creación de oportunidades: </b>  los pases hacia adelante o hacia áreas peligrosas pueden indicar intentos de crear oportunidades de gol. Si hay muchas líneas que apuntan hacia el área penal o zonas de tiro, eso sugiere que Messi desempeñó un papel clave en la generación de ataques.</li>
+        <li class="card__description"><b>Patrones de juego: </b> la distribución de las líneas podría revelar patrones de juego, como la tendencia a jugar por las bandas o a través del centro.</li>
+        <li class="card__description"><b>Influencia en el juego: </b> una gran cantidad de líneas de pase originadas por Messi indicaría su dominio en el flujo del juego, siendo un eje central en el movimiento del balón.</li>
+        <li class="card__description"><b>Colaboración con Compañeros: </b> la dirección y el destino de los pases podrían señalar a los jugadores con los que Messi interactuó más, sugiriendo asociaciones y conexiones fuertes en el campo.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="container3">
+  <div class="card" *ngIf="imgGA && miFormulario?.get('selector4')?.value === 'Jules Koundé'">
+      <p class="card__title2">Mapa de los pases de Jules Koundé en la final del mundial Qatar 2022</p>
+      <img class="imgMP" src="{{imgPasesKounde}}" alt="Mapa de pases de Messi">
     <div class="card__content">
       <p class="card__title">Mapa de los pases de Messi en la final del mundial Qatar 2022</p>
       <p class="card__description">Este gráfico representa el mapa de pases de Messi en la final del mundial de Qatar 2022.</p>
