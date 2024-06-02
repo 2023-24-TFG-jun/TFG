@@ -12,6 +12,7 @@ Proporciona a los usuarios información detallada sobre equipos, competiciones y
 ## 🚀 Tecnologías Utilizadas
 **Frontend**:
 - [**Angular**](https://angular.io/) - Un framework de aplicaciones web robusto y dinámico que proporciona una experiencia de usuario fluida.
+  
 **Backend**:
 - [**Flask**](https://flask.palletsprojects.com/) - Un microframework ligero y flexible para Python, ideal para crear APIs RESTful.
 
