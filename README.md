@@ -1,4 +1,4 @@
-# ![FutboStats Logo](./Codigos/Angular/proyecto/src/assets/img/logo.png) FutboStats 📊
+# ![FutboStats Logo](./Codigos/Angular/proyecto/src/assets/img/logo.png) ⚽ FutboStats 📊
 ## ¡Bienvenido a FutboStats! 🚀
 FutboStats es una aplicación innovadora que permite a un usuario consultar y analizar estadísticas de una forma sencilla.
 Proporciona a los usuarios información detallada sobre equipos, competiciones y partidos en tiempo real además de gráficos, modelos de predicción y una herramienta de tracking.
