@@ -21,4 +21,4 @@ Proporciona a los usuarios información detallada sobre equipos, competiciones y
 
 ## 📄 Licencia
 
-Este proyecto está bajo la Licencia MIT. Consulta el archivo [LICENSE](./LICENSE) para más detalles.
+Este proyecto está bajo la Licencia MIT. Consulta el archivo [LICENSE](./LICENSE.txt) para más detalles.
