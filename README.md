@@ -15,6 +15,9 @@ Proporciona a los usuarios información detallada sobre equipos, competiciones y
 **Backend**:
 - [**Flask**](https://flask.palletsprojects.com/) - Un microframework ligero y flexible para Python, ideal para crear APIs RESTful.
 
+## Web del proyecto:
+- [FutboStats](https://futbostats.netlify.app/)
+
 ## 📄 Licencia
 
 Este proyecto está bajo la Licencia MIT. Consulta el archivo [LICENSE](./LICENSE) para más detalles.
