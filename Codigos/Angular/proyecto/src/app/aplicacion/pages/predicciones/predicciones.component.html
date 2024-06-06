@@ -5,8 +5,6 @@
 
 </div>
 
-
-
 <div class="dropdown">
     <button class="menu" mat-button [matMenuTriggerFor]="menu"><mat-icon>emoji_events</mat-icon><span>Clasificaciones</span></button>
     <mat-menu #menu="matMenu">
@@ -19,7 +17,7 @@
 <h1>Predicciones: clasificaciones</h1>
 <div class="info">
   <i class="fi fi-sr-info"></i>
-  <span>El usuario puede consultar y comparar las clasificaciones de puntos esperados y real para la temporada 2015/2016</span>
+  <span>Compara las clasificaciones de puntos esperados y real para la temporada 2015/2016</span>
 </div>
 
 <div class="contenedor-iconos">
@@ -86,10 +84,7 @@
   </div> 
 </div>
    
-
-
 <!-- La Liga-->
-
 
 <div class="container mt-3" >
     
@@ -147,7 +142,7 @@
     </div>
     <div *ngIf="imgProgresoLaLiga && laLigaData && laLigaData.length > 0">
       <div class="text-center animate__animated animate__zoomInDown imagen" fxLayout="column">
-        <h3>Gráfico de la La Liga</h3>
+        <h3>Gráfico que representa el progreso de la clasificación de puntos esperados para La Liga</h3>
         <img [src]="imgProgresoLaLiga" alt="Gráfico de xPoints de la Ligue 1" class="img-fluid mx-auto"/>
       </div>
     </div>
@@ -210,7 +205,7 @@
   </div>
   <div *ngIf="imgProgresoPremier && premierData && premierData.length > 0">
     <div class="text-center animate__animated animate__zoomInDown imagen" fxLayout="column">
-      <h3>Gráfico de la Premier League</h3>
+      <h3>Gráfico que representa el progreso de la clasificación de puntos esperados para la Premier League</h3>
       <img [src]="imgProgresoPremier" alt="Gráfico de xPoints de la Ligue 1" class="img-fluid mx-auto"/>
     </div>
   </div>
@@ -272,7 +267,7 @@
     </div>
     <div *ngIf="imgProgresoSerieA && serieAData && serieAData.length > 0">
       <div class="text-center animate__animated animate__zoomInDown imagen" fxLayout="column">
-        <h3>Gráfico de la Serie A</h3>
+        <h3>Gráfico que representa el progreso de la clasificación de puntos esperados para la Serie A</h3>
         <img [src]="imgProgresoSerieA" alt="Gráfico de xPoints de la Ligue 1" class="img-fluid mx-auto"/>
       </div>
     </div>
@@ -334,7 +329,7 @@
     </div>
     <div *ngIf="imgProgresoBundesliga && bundesligaData && bundesligaData.length > 0">
       <div class="text-center animate__animated animate__zoomInDown imagen" fxLayout="column">
-        <h3>Gráfico de la Bundesliga</h3>
+        <h3>Gráfico que representa el progreso de la clasificación de puntos esperados para la Bundesliga</h3>
         <img [src]="imgProgresoBundesliga" alt="Gráfico de xPoints de la Bundesliga" class="img-fluid mx-auto"/>
       </div>
     </div>
@@ -398,7 +393,7 @@
 
     <div *ngIf="imgLigue1 && ligue1Data && ligue1Data.length > 0">
       <div class="text-center animate__animated animate__zoomInDown imagen" fxLayout="column">
-        <h3>Gráfico de la Ligue 1</h3>
+        <h3>Gráfico que representa el progreso de la clasificación de puntos esperados para la Ligue 1</h3>
         <img [src]="imgLigue1" alt="Gráfico de xPoints de la Ligue 1" class="img-fluid mx-auto"/>
       </div>
     </div>

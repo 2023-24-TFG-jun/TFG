@@ -5,6 +5,7 @@ import { FlexLayoutModule } from "@angular/flex-layout";
 import { SportsIAService } from '../../../services/sports-ia.service';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { SpacerComponent } from "../../../shared/spacer/spacer.component";
+import Swal from 'sweetalert2';
 
 @Component({
     selector: 'app-sport-ia',
@@ -56,8 +57,20 @@ export class SportIAComponent implements OnInit {
   }
 
   processFile(file: File) {
-    this.loading=true;
+    
+
+    const ficheroValido = 'video/mp4';
+    if (file.type !== ficheroValido){
+      this.loading = false;
+      Swal.fire({
+        icon: "error",
+        title: "Archivo inválido",
+        text: "El fichero no es tipo .mp4. Por favor, introduce un fichero válido."
+      });
+      return;
+    }
     this.sportIaService.uploadFile(file).subscribe(event => {
+      this.loading=true;
       if (event.type === HttpEventType.Response) {
         const response = event.body as any;  
         if (response.filename) {
@@ -68,11 +81,13 @@ export class SportIAComponent implements OnInit {
             this.loading = false;
           }, error => {
             console.error('Error al obtener el video procesado:', error);
+            this.loading = false;
           });
         }
       }
     }, error => {
       console.error('Error al subir el archivo:', error);
+      this.loading = false;
     });
   }
 
