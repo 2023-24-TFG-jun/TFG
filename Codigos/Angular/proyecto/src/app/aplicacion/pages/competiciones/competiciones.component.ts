@@ -32,7 +32,7 @@ export class CompeticionesComponent implements OnInit {
   @Output() onEnter : EventEmitter<string> = new EventEmitter();
 
   constructor(private footballService: FootballService) { }
-
+  //
 
   ngOnInit(): void {
       this.obtenerAnios();  
