@@ -87,7 +87,7 @@ export class PartidosComponent implements OnInit {
   }
 
   seleccionarSugerencia(liga: Ligas['response'][number]['league']): void {
-    this.miFormulario.get('termino')?.setValue(liga.name);
+    this.miFormulario.get('termino')?.setValue(liga.name, {emitEvent: false});
     this.mostrarSugerencias = false;
   }
 
