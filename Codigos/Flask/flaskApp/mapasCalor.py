@@ -30,7 +30,6 @@ def mapasCalorSpainRodri():
 
 
     df_Olmo = partido[partido['player'] == 'Daniel Olmo Carvajal']
-    # Desde donde comenzo sus acciones
     df_Olmo[['x', 'y']] = df_Olmo.location.apply(pd.Series)
     df_Olmo[['x', 'y', 'location']]
 

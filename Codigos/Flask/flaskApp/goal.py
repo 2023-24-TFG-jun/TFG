@@ -73,18 +73,17 @@ def goalArgentina():
     while x < width:
         for y in range(0, height, increment_y):
             rect = patches.Rectangle(
-                    (x, y),  # bottom left starting position (x,y)
-                    increment_x,  # width
-                    increment_y,  # height
+                    (x, y), 
+                    increment_x,
+                    increment_y,  
                     ec='#ab2a3e',
                     fc='#ab2a3e',
-                    alpha = scaled_data[i], # <---- the transparency
+                    alpha = scaled_data[i],
                     zorder=-1
                     )
         
             ax.add_patch(rect)
         
-            # -- Anotate the counter (i) and choose color depending on value
             if scaled_data[i] < .5:
                 color_text = 'black'
                 fore_color ='white'
@@ -93,18 +92,16 @@ def goalArgentina():
                 fore_color = 'black'
             label_ = ax.text(
                         x = x + increment_x/2, y = y + increment_y/2,
-                        s = f'{data[i]:.1%}', # <----- the data label
+                        s = f'{data[i]:.1%}',
                         color = color_text,
                         va = 'center',
                         ha = 'center',
                         size = 13.5
                     )
-            # Set path effects to ensure readability
             label_.set_path_effects([Stroke(linewidth=1.7, foreground=fore_color), Normal()])
         
             i += 1
         
-        # -- Once we've placed the top & bottom rectangles we move right.
         x = x + increment_x
 
     ax.set_xlim(-2,width + 2)
@@ -115,7 +112,6 @@ def goalArgentina():
     ax.scatter(tiros_arg['goalMouthY'], tiros_arg['goalMouthZ'], color = "#ab2a3e", alpha = 0.4, ec='black')
     goles_tiros_arg = tiros_arg[tiros_arg['shot_outcome'] == 'Goal']
     ax.scatter(goles_tiros_arg['goalMouthY'], goles_tiros_arg['goalMouthZ'], ec = "black", color = "#ab2a3e", alpha = 0.99, lw=1.15, s=400)
-    #plt.savefig('arco.png', dpi=300, bbox_inches='tight')
 
     fig.savefig(f'Codigos/Flask/static/goalArgentina.png', bbox_inches='tight')
 

@@ -52,11 +52,11 @@ def matchMomentumFinal():
     def concatenar_xTdfs(df):
         df_concat_xT = pd.DataFrame()
         types = ['Pass', 'Carry']
-        frames = []  # Lista para almacenar los DataFrames temporales
+        frames = [] 
         for i in types:
             df_xT = xT(df, type=i)
-            frames.append(df_xT)  # Añade el DataFrame a la lista de frames
-        df_concat_xT = pd.concat(frames)  # Concatena todos los DataFrames en la lista
+            frames.append(df_xT) 
+        df_concat_xT = pd.concat(frames)
         return df_concat_xT
     
     def limpiar_df(partido_entero):
