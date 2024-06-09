@@ -1,4 +1,4 @@
-\documentclass[a4paper,12pt,twoside]{memoir}
+\documentclass[a4paper,12pt,oneside]{memoir}
 
 % Castellano
 \usepackage[spanish,es-tabla]{babel}
@@ -8,6 +8,8 @@
 \usepackage{lmodern} % scalable font
 \usepackage{microtype}
 \usepackage{placeins}
+\usepackage{longtable}
+\usepackage{enumitem}
 
 \RequirePackage{booktabs}
 \RequirePackage[table]{xcolor}
@@ -17,7 +19,7 @@
 % Links
 \PassOptionsToPackage{hyphens}{url}\usepackage[colorlinks]{hyperref}
 \hypersetup{
-	allcolors = {red}
+	allcolors = {blue}
 }
 
 % Ecuaciones
@@ -353,9 +355,9 @@
 
 
 % Datos de portada
-\title{título del TFG \\Documentación Técnica}
-\author{nombre alumno}
-\tutor{nombre tutor}
+\title{FutboStats \\Análisis y estadísticas de fútbol}
+\author{Miguel Ángel Extremo Cabornero}
+\tutor{César Represa Pérez}
 \date{\today}
 
 \begin{document}
