@@ -1,4 +1,4 @@
-\documentclass[a4paper,12pt,twoside]{memoir}
+\documentclass[a4paper,12pt,oneside]{memoir}
 
 % Castellano
 \usepackage[spanish,es-tabla]{babel}
@@ -8,7 +8,9 @@
 \usepackage{lmodern} % Scalable font
 \usepackage{microtype}
 \usepackage{placeins}
-
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{graphicx}
 \RequirePackage{booktabs}
 \RequirePackage[table]{xcolor}
 \RequirePackage{xtab}
@@ -17,7 +19,7 @@
 % Links
 \PassOptionsToPackage{hyphens}{url}\usepackage[colorlinks]{hyperref}
 \hypersetup{
-	allcolors = {red}
+	allcolors = {blue}
 }
 
 % Ecuaciones
@@ -348,14 +350,14 @@
   }%
   \end{center}%
   \null
-  \cleardoublepage
+  \clearpage
   }
 \makeatother
 
 \newcommand{\nombre}{Nombre del alumno} %%% cambio de comando
 
 % Datos de portada
-\title{"FutboStats", análisis y estadísticas de fútbol.}
+\title{"FutboStats", análisis y estadísticas de fútbol}
 \author{Miguel Ángel Extremo Cabornero}
 \tutor{César Represa Pérez}
 \date{\today}
@@ -374,7 +376,7 @@
 
 \noindent\includegraphics[width=\textwidth]{cabecera}\vspace{1cm}
 
-\noindent D. César Represa Pérez, profesor del departamento de Ingeniería Electromecánica, área de Tecnología Electromecánica.
+\noindent D. César Represa Pérez, profesor del departamento de Ingeniería Electromecánica, área de Tecnología Electrónica.
 
 \noindent Expone:
 
@@ -416,12 +418,15 @@ César Represa Pérez
 % Abstract en castellano
 \renewcommand*\abstractname{Resumen}
 \begin{abstract}
-En este primer apartado se hace una \textbf{breve} presentación del tema que se aborda en el proyecto.
+\textit{FutboStats} es una aplicación web diseñada especialmente para los aficionados al fútbol y a las estadísticas. Esta plataforma interactiva permite a los usuarios buscar y visualizar datos de partidos, ligas y clasificaciones, ofreciendo además la capacidad de filtrar esta información según los parámetros que el usuario defina. \\
+Un aspecto innovador de \textit{FutboStats} es la integración de algoritmos avanzados que analizan tendencias en equipos o ligas. Por ejemplo, se puede calcular la probabilidad de que un disparo resulte en gol según su ubicación en el campo. Para ello, la aplicación emplea diversos modelos de datos que optimizan el filtrado y representación de la información, facilitando la creación de gráficos claros y fáciles de interpretar. \\
+Además, \textit{FutboStats} incorpora un sistema de seguimiento basado en inteligencia artificial, que permite analizar vídeos de el movimiento de los jugadores en el campo. Esta herramienta proporciona una perspectiva valiosa y detallada del comportamiento y la estrategia de juego, enriqueciendo la experiencia analítica del usuario. \\
+
 \end{abstract}
 
 \renewcommand*\abstractname{Descriptores}
 \begin{abstract}
-Palabras separadas por comas que identifiquen el contenido del proyecto Ej: servidor web, buscador de vuelos, android \ldots
+Aplicación web, estadísticas, fútbol, equipos, ligas, partidos, goles esperados, predicciones, representaciones gráficas, tracking.
 \end{abstract}
 
 \clearpage
@@ -429,12 +434,15 @@ Palabras separadas por comas que identifiquen el contenido del proyecto Ej: serv
 % Abstract en inglés
 \renewcommand*\abstractname{Abstract}
 \begin{abstract}
-A \textbf{brief} presentation of the topic addressed in the project.
+\textit{FutboStats} is a web application designed especially for football and statistics enthusiasts. This interactive platform allows users to search and visualize data from matches, leagues, and rankings, also offering the capability to filter this information based on user-defined parameters. \\
+A novel aspect of \textit{FutboStats} is the integration of advanced algorithms that analyze trends in teams or leagues. For example, it is possible to calculate the probability of a shot resulting in a goal based on its location on the field. For this purpose, the application uses various data models that optimize the filtering and representation of information, facilitating the creation of clear and easy-to-interpret graphics. \\
+Furthermore, \textit{FutboStats} incorporates an artificial intelligence-based tracking system that allows for the real-time visualization of player movements on the field. This tool provides a valuable and detailed perspective on player behavior and game strategy, enhancing the user's analytical experience. \\
+
 \end{abstract}
 
 \renewcommand*\abstractname{Keywords}
 \begin{abstract}
-keywords separated by commas.
+Web application, statistics, football, teams, leagues, matches, expected goals, predictions, graphics, tracking.
 \end{abstract}
 
 \clearpage
