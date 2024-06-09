@@ -1,83 +1,244 @@
 \capitulo{3}{Conceptos teóricos}
 
-En aquellos proyectos que necesiten para su comprensión y desarrollo de unos conceptos teóricos de una determinada materia o de un determinado dominio de conocimiento, debe existir un apartado que sintetice dichos conceptos.
+En este apartado, se presentan los conceptos teóricos que fundamentan el desarrollo y el funcionamiento de la aplicación web deportiva centrada en el análisis de estadísticas de fútbol. La comprensión de estos conceptos es importante para apreciar la utilidad y la innovación que aporta esta herramienta al análisis y predicción en el ámbito futbolístico. \\
+A continuación, se van a explicar los conceptos de API REST, goles esperados (xG), puntos esperados y el funcionamiento de \textit{imageAI} para realizar el tracking de objetos y en este caso jugadores de fútbol.
+Además, se expondrán los proveedores de datos que utiliza FutboStats.
 
-Algunos conceptos teóricos de \LaTeX{} \footnote{Créditos a los proyectos de Álvaro López Cantero: Configurador de Presupuestos y Roberto Izquierdo Amo: PLQuiz}.
-
-\section{Secciones}
-
-Las secciones se incluyen con el comando section.
-
-\subsection{Subsecciones}
-
-Además de secciones tenemos subsecciones.
-
-\subsubsection{Subsubsecciones}
-
-Y subsecciones. 
-
-
-\section{Referencias}
-
-Las referencias se incluyen en el texto usando cite~\cite{wiki:latex}. Para citar webs, artículos o libros~\cite{koza92}, si se desean citar más de uno en el mismo lugar~\cite{bortolot2005, koza92}.
-
-
-\section{Imágenes}
-
-Se pueden incluir imágenes con los comandos standard de \LaTeX, pero esta plantilla dispone de comandos propios como por ejemplo el siguiente:
-
-\imagen{escudoInfor}{Autómata para una expresión vacía}{.5}
-
-
-
-\section{Listas de items}
-
-Existen tres posibilidades:
-
+\section{API REST}
+Una \textit{API REST} (Representational State Transfer) es una interfaz de programación de aplicaciones que usa un conjunto de reglas para construir y consumir servicios web de manera segura \cite{apiRest}. Utiliza los métodos HTTP estándar y los principios de diseño \textit{RESTful}. Las API REST son ampliamente utilizadas en el desarrollo web debido a su simplicidad, escalabilidad y compatibilidad con HTTP.
+Algunos de los conceptos clave de una \textit{API REST} son:
 \begin{itemize}
-	\item primer item.
-	\item segundo item.
+    \item En REST todo es conocido como un recurso. Un recurso es cualquier entidad que se pueda identificar y manejar, como un usuario o un producto. Cada recurso se representa con una URL única.
+    \item Las URLs se utilizan para identificar recursos.
+    \item REST utiliza los métodos HTTP estándar para realizar operaciones sobre los recursos. Estos métodos son GET (Recuperar información de un recurso), POST (Crear un nuevo recurso), PUT (Actualiza un recurso existente), DELETE (Elimina un recurso).
+    \item Los recursos se pueden representar en diferentes formatos, como JSON, XML o HTML. JSON es el formato más común debido a su simplicidad  y facilidad de uso.
+    \item Las API REST no tienen un estado, por lo que cada solicitud del cliente al servidor debe contener toda la información necesaria para entender y procesar la solicitud. El servidor no mantiene el estado de la sesión del cliente entre solicitudes.
 \end{itemize}
 
-\begin{enumerate}
-	\item primer item.
-	\item segundo item.
-\end{enumerate}
+\section{Proveedores de información}
+Un proveedor de información es una entidad que recopila, procesa y distribuye datos específicos a los usuarios. Estos proveedores pueden ofrecer datos en tiempo real, históricos para integrar en una aplicación web. \\
+\subsection{3.2.1 StatsBomb}
+StatsBomb es una empresa líder en el análisis de datos deportivos, especializada en fútbol. Proporciona datos detallados y avanzados sobre partidos de fútbol, incluyendo información sobre eventos como pases, tiros, entradas. Estos datos son utilizados por clubes, analistas, y medios de comunicación para obtener una visión más profunda del rendimiento y las tácticas en el fútbol. \\
+Además, se puede acceder a sus datos a través de la biblioteca de Python llamada \textit{StatsBombPy}. Proporciona una interfaz simple y eficiente para manipular los datos, facilitando el trabajo a analistas y desarrolladores \cite{StatsBomb}.
+Un ejemplo de archivo JSON que devuelve \textit{StatsBombPy} se puede encontrar en el repositorio de \textit{GitHub} de \textit{StatsBomb}.
 
-\begin{description}
-	\item[Primer item] más información sobre el primer item.
-	\item[Segundo item] más información sobre el segundo item.
-\end{description}
-	
+\imagen{ejemploJSONStB}{Ejemplo de respuesta JSON StatsBombPy en \href{https://github.com/statsbomb/open-data/blob/master/data/matches/11/27.json}{GitHub}}{0.5}
+En la figura 3.1 se muestra como se puede acceder a los eventos de un partido en específico, utilizando \textit{StatsBombPy}. En concreto, se accede por el identificador y el año utilizando la función '\textit{matches}' de StatsBomb para obtener los eventos del mundial de futbol 2022. Después, realizo un filtrado aún mayor para obtener los eventos de la final del mundial de 2022.
+\imagen{statsBomb}{Filtrado básico de datos con Python utilizando StatsBombPy}{1}
+
+\subsection{3.2.2 RapidAPI y API-FOOTBALL}
+RapidAPI es una plataforma que permite a los desarrolladores descubrir, probar y conectar con miles de APIs de diversos proveedores desde un único lugar. Funciona como un mercado de APIs, facilitando la integración de servicios externos en aplicaciones mediante un proceso unificado \cite{rapidapi}. \\
+API-FOOTBALL es una de las miles de APIs externas que se pueden encontrar en RapidAPI. Esta API conforma un servicio que proporciona datos detallados y en tiempo real sobre fútbol. Ofrece información sobre ligas, equipos, jugadores, estadísticas de partidos, resultados en vivo, y eventos detallados como goles, tarjetas y sustituciones. La API está diseñada para ser fácil de integrar y ofrece datos actualizados para mejorar la experiencia del usuario final \cite{api:web}.
+
+\section{Goles esperados (xG)}
+Los goles esperados (\textit{expected goals} en inglés) constituyen una métrica estadística para calcular la probabilidad de que un disparo acabe o no en gol dependiendo de factores como la distancia a la portería, coordenadas del jugador en el campo en el momento del disparo, parte del cuerpo con la que el jugador remató, si el disparo es o no penalti, si es un tiro de falta o el ángulo de disparo. \\
+Si cogemos todos los disparos producidos en una temporada por un equipo podemos llegar a la conclusión de que tan eficiente es el equipo en el ataque y dónde puede mejorar. Es decir, un equipo puede identificar cuales son sus fortalezas y debilidades y también sacar conclusiones del rendimiento individual de los jugadores \cite{golesEsperados:latex}. \\
+Los goles esperados se calculan utilizando datos sobre disparos y goles del pasado. Con esos disparos se construye un modelo de predicción que sea capaz de predecir si un disparo nuevo va a acabar en gol o no.
+Podemos destacar algunas de las utilidades que tienen los goles esperados:
 \begin{itemize}
-\item 
+    \item \textbf{Eficiencia defensiva y ofensiva de los equipos:} los goles esperados son utilizados en el análisis estadístico del fútbol para comprender y mejorar las características ofensivas y defensivas de los equipos y con ello mejorar su rendimiento. Esta métrica ayuda a definir ciertas tendencias a largo plazo en el rendimiento de equipos y jugadores y por consecuente ayuda a reflexionar a los equipos y jugadores sobre que estrategia deben tomar para mejorar su rendimiento.
+    \item \textbf{Analizar el rendimiento de los jugadores:} si comparamos los goles reales de un jugador con los predecidos, podemos evaluar su eficacia en las situaciones de ataque y su aportación en la ofensiva del equipo. Ayuda a conocer el desempeño del jugador y a identificar aspectos específicos en los que puede mejorar.
+    \item \textbf{Predicciones y tendencias a largo plazo:} se utilizan datos de disparos pasados para tratar de predecir tendencias futuras de un equipo y sus jugadores. 
 \end{itemize}
 
-\section{Tablas}
+\subsection{Cómo calcular los goles esperados (xG)}
+Los goles esperados se calculan analizando datos históricos de tiros y goles. Se construyen modelos matemáticos que asignan una puntuación a cada disparo en función de la probabilidad de acabar en gol. Estás puntuaciones se suman para obtener el xG total de un equipo o jugador.
+En mi modelo de goles esperados obtengo los registros históricos de los disparos de las 5 grandes ligas europeas (La Liga, Ligue 1, Premier League, Bundesliga, Serie A) en la temporada 2015/2016. Con estos se calculan las probabilidades de goles esperados para todos los tiros utilizando un modelo de aprendizaje automático, en este caso, un modelo de regresión logística \cite{regresionLogistica:latex}. \\
+La regresión logística es un método de análisis estadístico utilizado para modelar la relación entre una variable dependiente binaria y una o más variables independientes. A diferencia de la regresión lineal, que es utilizada para predecir valores continuos, la regresión logística se utiliza cuando la variable dependiente es categórica y toma uno de dos posibles valores como 'si' o 'no', o en el caso de los goles esperados tomaría 'gol' o 'no gol'. \\
+La fórmula de la regresión logística es la siguiente:
+\[
+P(Y=1|X) = \frac{1}{1 + e^{-(\beta_0 + \beta_1X_1 + \beta_2X_2 + \ldots + \beta_nX_n)}}
+\]
 
-Igualmente se pueden usar los comandos específicos de \LaTeX o bien usar alguno de los comandos de la plantilla.
+donde:
+\begin{itemize}
+  \item \( P(Y=1|X) \) es la probabilidad de que la variable dependiente \( Y \) sea 1 dado el conjunto de variables independientes \( X \).
+  \item \( \beta_0 \) es la intersección (término constante).
+  \item \( \beta_1, \beta_2, \ldots, \beta_n \) son los coeficientes de las variables independientes \( X_1, \\ X_2, \ldots, X_n \).
+  \item \( e \) es la base del logaritmo natural.
+\end{itemize}
 
-\tablaSmall{Herramientas y tecnologías utilizadas en cada parte del proyecto}{l c c c c}{herramientasportipodeuso}
-{ \multicolumn{1}{l}{Herramientas} & App AngularJS & API REST & BD & Memoria \\}{ 
-HTML5 & X & & &\\
-CSS3 & X & & &\\
-BOOTSTRAP & X & & &\\
-JavaScript & X & & &\\
-AngularJS & X & & &\\
-Bower & X & & &\\
-PHP & & X & &\\
-Karma + Jasmine & X & & &\\
-Slim framework & & X & &\\
-Idiorm & & X & &\\
-Composer & & X & &\\
-JSON & X & X & &\\
-PhpStorm & X & X & &\\
-MySQL & & & X &\\
-PhpMyAdmin & & & X &\\
-Git + BitBucket & X & X & X & X\\
-Mik\TeX{} & & & & X\\
-\TeX{}Maker & & & & X\\
-Astah & & & & X\\
-Balsamiq Mockups & X & & &\\
-VersionOne & X & X & X & X\\
-} 
+El proceso para calcular estas probabilidades consiste en entrenar el modelo con datos históricos de tiros y después utilizar ese modelo para predecir las probabilidades de gol para nuevos tiros. \\
+
+La regresión logística es un modelo adecuado para calcular los goles esperados (xG) por varias razones. Primero, controla problemas con variables dependientes binarias, como predecir si un tiro resultará en gol(1) o no(0). Además, proporciona probabilidades para cada predicción, lo cual es útil para medir la calidad de oportunidades de gol. Los coeficientes obtenidos son fáciles de interpretar y ayuda a entender cómo diferentes factores influyen en la probabilidad de gol. \\
+Es un modelo computacionalmente eficiente y fácil de implementar, permitiendo así llevar a cabo su desarrollo utilizando herramientas y bibliotecas estándar de Python.
+
+La figura 3.2 representa el modelo de goles esperados (xG), donde podemos observar que la probabilidad de que un disparo termine en gol es mayor cuanto menor se la distancia a la portería (círculos de color amarillo). En cambio, la probabilidad disminuye a medida que los disparos son más lejanos (círculos de color más oscuro).
+
+\imagen{golesEsperados}{Representación del modelo de goles esperados (xG)}{0.9}
+
+Gracias a la representación del modelo podemos ver como claramente la probabilidad de que un disparo acabe en gol o no depende potencialmente de la localización desde donde se realice el disparo. Cuanto más cerca de la portería se efectúe el disparo, mayor será la probabilidad de que ese disparo acabe en gol.
+
+De los goles esperados se pueden sacar las siguientes conclusiones \cite{xG:latex}:
+\begin{itemize}
+    \item Si el ángulo del disparo es menor, la probabilidad de que un disparo acabe en gol es mayor. Por ello, son mejores las zonas centrales en lugar de las laterales.
+    \item Los remates a puerta con los pies tienen mayor probabilidad de acabar en gol que los remates de cabeza desde la misma distancia a la portería.
+    \item La posición, el ángulo, la distancia y otras propiedades del disparo son más importantes que el jugador que lo realiza. 
+    \item Un jugador es mejor que otro si tiene la capacidad de generar más cantidad de disparos desde zonas con mayor probabilidad de gol.
+\end{itemize} 
+
+
+\section{Puntos esperados (xPoints)}
+Los puntos esperados (\textit{expected points} en inglés) es una métrica que nos permite calcular la cantidad de puntos que un equipo obtendría si simulásemos muchas veces el resultado de un partido, basándonos en la probabilidad que otorga los goles esperados (xG) a cada tiro. \\
+El modelo de puntos esperados utiliza la métrica de los goles esperados de un partido. Una vez tenemos los goles esperados de cada equipo, se genera mediante un modelo de distribución, lo que hubiera ocurrido si simuláramos el mismo partido miles de veces y así podríamos obtener la probabilidad que tendría cada equipo de ganar, empatar y perder con esos goles esperados. \\
+Acabamos obteniendo un porcentaje de probabilidad de victoria para cada equipo y un resultado (victoria, empate, derrota) para ambos equipos. \\
+Después de simular con el modelo de distribución y multiplicar las probabilidades obtenidas por los valores de cada resultado (victoria son 3 puntos, empate 1 punto para cada equipo y derrota 0 puntos), obtendríamos así los puntos esperados de ese partido en concreto si ocurriera miles de veces \cite{puntosEsperados:latex}. \\
+Ahora, si en vez de hacerlo con un partido, lo hacemos con todos los partidos de una temporada para todos los equipos obtendríamos finalmente para cada equipo unos puntos esperados y por consecuente una clasificación esperada. \\
+
+Como modelo de distribución, he utilizado la distribución de Poisson \cite{poisson:latex}. La distribución de Poisson es una distribución de probabilidad que describe el número de eventos que ocurrirán en un intervalo de tiempo fijo o en una región específica con la condición de que ocurran con una tasa promedio constante y de manera independiente entre sí. \\
+La función de probabilidad de la distribución de Poisson es:
+
+\[ P(X = k) = \frac{\lambda^k e^{-\lambda}}{k!} \]
+
+Donde:
+\begin{itemize}
+  \item \( P(X = k) \) es la probabilidad de observar \( k \) eventos en un intervalo.
+  \item \( \lambda \) es el número promedio esperado de eventos en el intervalo.
+  \item \( k \) es el número de eventos observados.
+  \item \( e \) es la base del logaritmo natural.
+\end{itemize}
+
+La distribución de Poisson se utiliza para simular el número de goles que un equipo podría marcar en un partido, dada su tasa promedio de goles esperados. Es decir, es utilizada para generar un número aleatorio de goles para cada equipo en cada simulación de partido, basado en sus goles esperados. \\
+Para cada partido, se obtienen los valores de xG para ambos equipos y se realizan las múltiples simulaciones donde para cada simulación se genera un número aleatorio de goles para cada equipo usando la distribución de Poisson con los valores de goles esperados como la tasa media. Para cada simulación, se comparan los goles generados para determinar el resultado del partido y repartir los puntos entre los equipos. Finalmente, se obtienen los puntos esperados para todos los equipos.
+
+Las siguientes tablas muestran la representación de las clasificaciones de puntos esperados y la real.
+La tabla 3.1 muestra un ejemplo de la aplicación de la métrica goles esperados(xG) de la temporada 2015/2016 de la liga española de fútbol.
+La tabla 3.2 muestra la clasificación real de la temporada 2015/2016 de la liga española.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|l|c|}
+\hline
+\rowcolor{black} 
+\textcolor{white}{\textbf{Posición}} & \textcolor{white}{\textbf{Equipo}} & \textcolor{white}{\textbf{Puntos}} \\ 
+\hline
+\cellcolor{yellow} 1  & \cellcolor{yellow} Barcelona        & \cellcolor{yellow} 84.62 \\ 
+\hline
+\cellcolor{gray} 2  & \cellcolor{gray} Real Madrid         & \cellcolor{gray} 72.83 \\ 
+\hline
+\cellcolor{brown} 3  & \cellcolor{brown} Atlético Madrid    & \cellcolor{brown} 69.89 \\ 
+\hline
+4  & Sevilla                & 59.40 \\ 
+\hline
+5  & Athletic Club          & 58.00 \\ 
+\hline
+6  & Real Sociedad          & 52.77 \\ 
+\hline
+7  & Celta Vigo             & 52.54 \\ 
+\hline
+8  & Málaga                 & 52.40 \\ 
+\hline
+9  & Eibar                  & 52.39 \\ 
+\hline
+10 & Villarreal             & 50.07 \\ 
+\hline
+11 & Rayo Vallecano         & 47.90 \\ 
+\hline
+12 & RC Deportivo La Coruña & 47.46 \\ 
+\hline
+13 & Valencia               & 46.66 \\ 
+\hline
+14 & Espanyol               & 46.38 \\ 
+\hline
+15 & Real Betis             & 44.28 \\ 
+\hline
+16 & Getafe                 & 43.57 \\ 
+\hline
+17 & Sporting Gijón         & 41.78 \\ 
+\hline
+\cellcolor{red} 18 & \cellcolor{red} Granada               & \cellcolor{red} 40.83 \\ 
+\hline
+\cellcolor{red} 19 & \cellcolor{red} Las Palmas            & \cellcolor{red} 40.46 \\ 
+\hline
+\cellcolor{red} 20 & \cellcolor{red} Levante UD            & \cellcolor{red} 40.01 \\ 
+\hline
+\end{tabular}
+\caption{Clasificación predicha para la temporada 2015/16 de la liga española empleando la métrica de goles esperados.}
+\label{table:clasificacion}
+\end{table}
+
+Podemos observar que el equipo campeón de la liga española en la temporada 2015/2016 empleando la métrica de goles esperados es el Barcelona, seguido del Real Madrid y el Atlético de Madrid. \\
+Los tres equipos que descienden son el Granada, Las Palmas y el Levante UD.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|l|c|}
+\hline
+\rowcolor{black} 
+\textcolor{white}{\textbf{Posición}} & \textcolor{white}{\textbf{Equipo}} & \textcolor{white}{\textbf{Puntos}} \\ 
+\hline
+\cellcolor{yellow} 1  & \cellcolor{yellow} Barcelona        & \cellcolor{yellow} 91 \\ 
+\hline
+\cellcolor{gray} 2  & \cellcolor{gray} Real Madrid         & \cellcolor{gray} 90 \\ 
+\hline
+\cellcolor{brown} 3  & \cellcolor{brown} Atletico Madrid    & \cellcolor{brown} 88 \\ 
+\hline
+4  & Villarreal             & 64 \\ 
+\hline
+5  & Athletic Club          & 62 \\ 
+\hline
+6  & Celta Vigo             & 60 \\ 
+\hline
+7  & Sevilla                & 52 \\ 
+\hline
+8  & Málaga                 & 48 \\ 
+\hline
+9  & Real Sociedad          & 48 \\ 
+\hline
+10 & Real Betis             & 45 \\ 
+\hline
+11 & Las Palmas             & 44 \\ 
+\hline
+12 & Valencia               & 44 \\ 
+\hline
+13 & Eibar                  & 43 \\ 
+\hline
+14 & Espanyol               & 43 \\ 
+\hline
+15 & RC Deportivo La Coruña    & 42 \\ 
+\hline
+16 & Granada CF             & 39 \\ 
+\hline
+17 & Sporting Gijón         & 39 \\ 
+\hline
+\cellcolor{red} 18 & \cellcolor{red} Rayo Vallecano        & \cellcolor{red} 38 \\ 
+\hline
+\cellcolor{red} 19 & \cellcolor{red} Getafe                & \cellcolor{red} 36 \\ 
+\hline
+\cellcolor{red} 20 & \cellcolor{red} Levante UD               & \cellcolor{red} 32 \\ 
+\hline
+\end{tabular}
+\caption{Clasificación real para la temporada 2015/16 de la liga española.}
+\label{table:clasificacionReal}
+\end{table}
+La clasificación real y el modelo de goles esperados coinciden en las posiciones de los tres primeros equipos. \\
+En cambio, realmente descendieron el Rayo Vallecano, Getafe y Levante UD, por lo que el único equipo que realmente descendió de los predichos por el modelo fue el Levante UD.
+
+\section{ImageAI}
+
+\textit{ImageAI} es una biblioteca de \textit{Python} que utiliza inteligencia artifical para facilitar la implementación de tareas de detección de objetos, clasificación de imágenes. Esta biblioteca utiliza modelos de aprendizaje profundo pre-entrenados y proporciona un sistema para facilitar su integración en proyectos diversos. La biblioteca es compatible con varios modelos de detección de objetos como \textit{YOLOv3}, \textit{Retinanet} y \textit{TinyYOLOv3}, y se basa en frameworks robustos como \textit{TensorFlow} y \textit{Keras} \cite{imageAI:latex}. \\
+\textit{TinyYOLOv3} es una versión simplificada y más ligera de \textit{YOLOv3}, diseñada para funcionar en dispositivos con recursos limitados. Pierde algo de precisión a cambio de mejorar la velocidad y reducir los requisitos de hardware. \\
+\textit{YOLOv3} es un modelo que se caracteriza por su alta velocidad y precisión en la detección de objetos. Puede procesar imágenes en tiempo real y es capaz de detectar objetos de diferentes tamaños y formas debido a su arquitectura \cite{yolo:latex}. \\
+\textit{Retinanet} es un modelo de detección de objetos de una sola etapa que funciona bien con objetos densos y de pequeño tamaño difíciles de detectar \cite{retinanet:latex}.
+En la tabla 3.3 se muestra un resumen de las características a destacar de cada modelo:
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|c|c|c|c|}
+\hline
+\rowcolor{black} 
+\textcolor{white}{\textbf{Modelo}} & \textcolor{white}{\textbf{Velocidad}} & \textcolor{white}{\textbf{Precisión}} & \textcolor{white}{\textbf{Requisitos de Hardware}} \\ 
+\hline
+YOLOv3 & Alta & Alta & GPU medios \\ 
+\hline
+Retinanet & Media & Muy Alta & GPU potente \\ 
+\hline
+TinyYOLOv3 & Muy Alta & Media & Recursos limitados \\ 
+\hline
+\end{tabular}
+\caption{Comparación de modelos de detección de objetos}
+\label{table:model_comparison}
+\end{table}
+
+En una aplicación de estadísticas de fútbol, \textit{ImageAI} puede ser una herramienta interesante para el análisis y la interpretación de vídeos de partidos. Se puede analizar el movimientos y la posición de los jugadores en el campo encontrando patrones de juego y estrategias de cada equipo. \\
+

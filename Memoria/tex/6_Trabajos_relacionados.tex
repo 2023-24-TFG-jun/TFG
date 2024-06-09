@@ -1,3 +1,42 @@
 \capitulo{6}{Trabajos relacionados}
 
-Este apartado sería parecido a un estado del arte de una tesis o tesina. En un trabajo final grado no parece obligada su presencia, aunque se puede dejar a juicio del tutor el incluir un pequeño resumen comentado de los trabajos y proyectos ya realizados en el campo del proyecto en curso. 
+ En este apartado, se van a comentar algunas de las referencias, trabajos y aplicaciones que he tenido en cuenta para desarrollar esta aplicación.
+
+ \subsection{Proyectos}
+ Inicialmente, busqué proyectos que utilizarán la tecnología de imageAI para investigar y aprender más del funcionamiento acerca de esta herramienta.
+ Tomé de referencia de partida un Trabajo de fin de grado de la Universidad de Sevilla llamado 'Detección de objetos en imágenes utilizando técnicas de aprendizaje profundo (Deep Learning)' \cite{tfgSevilla:latex}. \\
+ En este trabajo de fin de grado, se ha utilizado ImageAI para el procesamiento de vídeos deportivos. Analiza los distintos algoritmos que proporciona ImageAI(YoloV3, Retinanet, TinyYOLOv3) y saca conclusiones a través de los resultados generados. \\
+
+ Mi proyecto utiliza imageAI y lo implementa en una aplicación para que un usuario común pueda utilizar está herramienta sin ninguna complicación. Además, a diferencia de este trabajo de fin de grado, FutboStats conforma una aplicación completa de fútbol y estadísticas que brinda al usuario datos en tiempo y herramientas novedosas que se pueden aplicar en el fútbol como es ImageAI.
+
+ \subsection{Aplicaciones}
+ Para desarrollar mi aplicación, tomé como referencia la aplicación móvil llamada 'One Football' \cite{oneFootball}. \\
+ OneFootball es una popular aplicación móvil dedicada a ofrecer noticias, estadísticas y contenido multimedia sobre fútbol. Ofrece una amplia cobertura de ligas y competiciones de todo el mundo, incluyendo partidos en vivo, resultados, tablas de clasificaciones y actualizaciones de los equipos y jugadores.
+
+Mi proyecto además de ser una web aplicación web implementa gráficos novedosos diseñados y creados en Python para representar estadísticas de partidos. Además, integra un modelo de goles esperados y de puntos esperados para informar al usuario de estadísticas más completas acerca de un equipo o una liga. \\
+
+\definecolor{lightgreen}{RGB}{144, 238, 144}
+\definecolor{lightred}{RGB}{255, 182, 193}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|c|c|c|}
+\hline
+\textbf{} & \textbf{TFG US} & \textbf{One Football} & \textbf{FutboStats} \\ \hline
+\textbf{Uso de ImageAI} & \cellcolor{lightgreen} Sí & \cellcolor{lightred} No & \cellcolor{lightgreen} Sí \\ \hline
+\textbf{ImageAI en web} & \cellcolor{lightred} No & \cellcolor{lightred} No & \cellcolor{lightgreen} Sí \\ \hline
+\textbf{Consulta de datos} & \cellcolor{lightred} No & \cellcolor{lightgreen} Sí & \cellcolor{lightgreen} Sí \\ \hline
+\textbf{Goles esperados (xG)} & \cellcolor{lightred} No & \cellcolor{lightred} No & \cellcolor{lightgreen} Sí \\ \hline
+\textbf{Puntos esperados (xPoints)} & \cellcolor{lightred} No & \cellcolor{lightred} No & \cellcolor{lightgreen} Sí \\ \hline
+\textbf{Estadísticas con Python} & \cellcolor{lightred} No & \cellcolor{lightred} No & \cellcolor{lightgreen} Sí \\ \hline
+\textbf{Aplicación web} & \cellcolor{lightred} No & \cellcolor{lightgreen} Sí & \cellcolor{lightgreen} Sí \\ \hline
+\textbf{Adaptación a móvil} & \cellcolor{lightred} No & \cellcolor{lightgreen} Sí & \cellcolor{lightgreen} Sí \\ \hline
+\end{tabular}
+\caption{Comparativa de funcionalidades entre el TFG de la Universidad de Sevilla, One Football y FutboStats}
+\label{table:comparativa}
+\end{table}
+
+
+
+
+

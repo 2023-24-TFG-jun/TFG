@@ -1,13 +1,380 @@
 \apendice{Plan de Proyecto Software}
 
 \section{Introducción}
+La fase de planificación constituye un punto importante en cualquier proyecto. En esta fase se estima el trabajo, el tiempo y el dinero que va a suponer realizar el proyecto. Se analizan todas las partes que va a tener el proyecto previamente para conocer al máximo posible los recursos necesarios. \\
+La fase de planificación la podemos dividir en:
+\begin{itemize}
+    \item Planificación temporal.
+    \item Estudio de viabilidad.
+\end{itemize}
+En la planificación temporal, se desarrolla un calendario de tiempos donde se estima el tiempo necesario para la realización de cada una de las partes del proyecto o \textit{sprints}. Se establece una fecha fija de inicio del proyecto y una fecha de finalización esperada. Debemos tener en cuenta los requisitos que se deben cumplir para poder empezar a trabajar en cualquiera de las tareas. \\
+El estudio de viabilidad del proyecto se puede dividir en dos apartados:
+\begin{itemize}
+    \item Viabilidad económica.
+    \item Viabilidad legal.
+\end{itemize}
+La viabilidad económica de un proyecto supone estimar sus costes y beneficios que puede suponer realizar el proyecto.
+La viabilidad legal supone analizar todas aquellas leyes que puedan afectar al proyecto como el uso de licencias y la Ley de Protección de Datos en el caso del \textit{software}.
 
 \section{Planificación temporal}
+Al inicio del proyecto se planteó utilizar una metodología ágil como Scrum para la gestión del proyecto. Se han aplicado las siguientes características Scrum en el desarrollo del proyecto:
+\begin{itemize}
+    \item Se aplicó una estrategia de desarrollo incremental a través de iteraciones (\textit{sprints}) y revisiones.
+    \item La duración media de los \textit{sprints} fue de entre dos y cuatro semanas.
+    \item Al finalizar cada \textit{sprint} se entregaba una parte del producto funcional(incremento).
+    \item Se realizaban reuniones para revisar las tareas realizadas en el \textit{sprint} y se planificaba el siguiente \textit{sprint}.
+    \item En la planificación del \textit{sprint} se generaba una pila de tareas a realizar.
+    \item Estas tareas se estimaban y priorizaban en un tablero canvas.
+\end{itemize}
+A continuación, se describen los diferentes \textit{sprints} que se han realizado:
+
+\subsection{\textbf{\textit{Sprint} 0 (19/02/24 - 18/03/24)}}
+La reunión de planificación de este \textit{sprint} marcó el comienzo del proyecto. Unas semanas atrás en una reunión se había planteado una idea inicial del proyecto. En esta nueva reunión se profundizó en las funcionalidades que iba a tener la aplicación web y se establecieron algunas pautas y objetivos. Los objetivos fueron: \\
+\begin{itemize}
+    \item Profundizar y formalizar los objetivos del proyecto.
+    \item Investigar sobre que frameworks o lenguajes de programación podría utilizar para llevar a cabo el desarrollo del \textit{front-end}.
+    \item Investigar sobre que frameworks o lenguajes de programación podría utilizar para llevar a cabo el desarrollo del \textit{back-end}.
+    \item Investigar acerca del funcionamiento de ImageAI y crear un pequeño código de ejemplo \cite{imageAI:latex}.
+    \item Investigar acerca de las métricas utilizadas en la estadística del fútbol.
+    \item Aprender a utilizar la librería de Python de StatsbombPy \cite{StatsBomb}.
+\end{itemize}
+
+Se dió un tiempo de cuatro semanas para preparar este \textit{sprint} y presentar los avances al tutor.
+\subsection{\textbf{\textit{Sprint} 1 (19/03/24 - 09/04/24)}}  
+Una vez decididas las herramientas de desarrollo del proyecto en el anterior \textit{sprint} (Angular y Flask) se pasó al desarrollo de la web. \\
+Los objetivos de este \textit{sprint} fueron los siguientes:
+\begin{itemize}
+    \item Se realizó un curso online de Angular para obtener los conocimientos necesarios y que no se disponían al empezar el proyecto \cite{udemy:latex}.
+    \item Realizar prototipos de la aplicación web antes de iniciar su desarrollo en Angular.
+    \item Iniciar el desarrollo en Angular creando una página visual y fácil de utilizar para el usuario.
+    \item Aplicar ImageAI a un vídeo de fútbol de ejemplo.
+    \item Implementar un login con Google en la aplicación.
+    \item Implementar la protección de rutas en la aplicación.
+    \item Comenzar a desarrollar la parte del \textit{back-end} en Flask.
+    \item Investigar sobre como realizar peticiones a una API externa (API-FOOTBALL).
+    \item Desarrollar pantallas de la aplicación en las que el usuario puede consultar datos fácilmente.
+\end{itemize}
+Las tareas en las que se descompusieron los objetivos se pueden ver en: \href{https://github.com/MiguelExtremo/TFG/milestone/1?closed=1}{\textit{Sprint} 1}.
+Este \textit{sprint} tuvo una duración de tres semanas.
+
+\subsection{\textbf{\textit{Sprint} 2 (10/04/24 - 17/04/24)}} 
+Los objetivos de \textit{sprint} fueron:
+\begin{itemize}
+    \item Continuar el desarrollo \textit{front-end} en Angular.
+    \item Continuar con el desarrollo del \textit{back-end} en Flask.
+    \item Investigar los endpoints de API-FOOTBALL para llevar a cabo las funcionalidades deseadas.
+    \item Creación de gráficos en Flask con datos de StatsBombPy.
+\end{itemize}
+Las tareas en las que se descompuso el \textit{sprint} se pueden ver en: \href{https://github.com/MiguelExtremo/TFG/issues?q=is%3Aclosed+milestone%3A%22Sprint+2%22}{Sprint 2}
+\subsection{\textbf{\textit{Sprint} 3 (18/04/24 - 30/04/24)}} 
+Los objetivos del \textit{sprint} fueron:
+\begin{itemize}
+    \item Continuar el desarrollo \textit{front-end} en Angular.
+    \item Corregir errores de la interfaz de usuario de la web.
+    \item Implementar los gráficos generados en Flask en la aplicación web.
+    \item Creación de gráficos en Flask con datos de StatsBombPy.
+\end{itemize}
+Las tareas en las que se descompuso el \textit{sprint} se pueden ver en:
+\href{https://github.com/MiguelExtremo/TFG/milestone/3?closed=1}{Sprint 3}
+\subsection{\textbf{Sprint 4 (1/05/24 - 15/05/24)}} 
+Los objetivos del \textit{sprint} fueron:
+\begin{itemize}
+    \item Desplegar la aplicación \textit{front-end} en Netlify.
+    \item Desplegar la aplicación \textit{back-end} en Render.
+    \item Implementación de ImageAI en la aplicación web.
+    \item Hacer responsive las vistas para poder utilizar la aplicación en móvil.
+    \item Desarrollar la memoria del proyecto.
+\end{itemize}
+Este \textit{sprint} tuvo una duración de dos semanas.
+Las tareas en las que se descompuso el \textit{sprint} se pueden ver en:
+\href{https://github.com/MiguelExtremo/TFG/milestone/4?closed=1}{Sprint 4}
+
+\subsection{\textbf{Sprint 5 (16/05/24 - 1/06/24)}}
+Los objetivos del \textit{sprint} fueron:
+\begin{itemize}
+    \item Corrección de aspectos confusos y mejoras visuales de la web.
+    \item Hacer responsive más vistas para poder utilizar la aplicación en móvil.
+    \item Finalizar la memoria del proyecto. 
+    \item Iniciar los anexos del proyecto.
+\end{itemize}
+Este \textit{sprint} tuvo una duración de dos semanas.
+Las tareas en las que se descompuso el \textit{sprint} se pueden ver en:
+\href{https://github.com/MiguelExtremo/TFG/milestone/5?closed=1}{Sprint 5}
+
+\subsection{\textbf{Sprint 6 (02/06/24 - 12/06/24)}}
+Los objetivos del \textit{sprint} fueron:
+\begin{itemize}
+    \item Finalizar anexos del proyecto.
+    \item Correcciones de memoria y anexos.
+    \item Testing con Postman.
+    \item Crear máquina virtual con el proyecto en local.
+\end{itemize}
+Este \textit{sprint} tuvo una duración de diez días hasta la entrega del proyecto completo.
+Las tareas en las que se descompuso el \textit{sprint} se pueden ver en:
+\href{https://github.com/MiguelExtremo/TFG/milestone/6}{Sprint 6}
 
 \section{Estudio de viabilidad}
-
 \subsection{Viabilidad económica}
+En el siguiente apartado se analizarán los costes y beneficios que hubieran supuesto desarrollar este proyecto en un entorno empresarial real. \\
+\subsection{Costes}
+Los costes del proyecto se pueden desglosar en las siguientes categorías.
+\subsubsection{Costes de personal:}
+El proyecto ha sido llevado a cabo por un desarrollador empleado a tiempo completo durante cuatro meses. Se considera el siguiente salario: \\
 
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{>{\bfseries}l r}
+        \toprule
+        \textbf{Concepto} & \textbf{Coste} \\
+        \midrule
+        Salario mensual neto & 1.000€ \\
+        Retención IRPF (19\%) & 235,30€ \\
+        Seguridad Social (28,3\%) & 514,90€ \\
+        Salario mensual bruto & 1.750,20€ \\
+        \midrule
+        \textbf{Total 4 meses} & \textbf{7.000,8€} \\
+        \bottomrule
+    \end{tabular}
+    \caption{Costes de personal.}
+    \label{tabla:costes}
+\end{table}
+Para realizar los cálculos en la tabla proporcionada, se han utilizado los siguientes porcentajes para determinar las diferentes deducciones y componentes del salario \cite{SS:latex}. \\
+La retención IRPF (Impuesto sobre la Renta de las Personas Físicas) varía según las circunstancias, pero para este proyecto se ha supuesto un 19\%. \\
+La contribución a la Seguridad Social se ha calculado con los siguientes porcentajes: 
+\begin{itemize}
+    \item Contingencias comunes: 23,60\%
+    \item Desempleo de tipo general : 4,70\%
+    \item Fondo de Garantía Salarial (FOGASA): 0,20\%
+    \item Formación profesional: 0,60\%
+    \item Total Seguridad Social: 23,60\% + 4,70\% + 0,20\% + 0,60\% = 28,3\%
+\end{itemize}
+
+\subsubsection{Costes de hardware:}
+En este apartado se revisan los costes de los dispositivos hardware utilizados en el desarrollo del proyecto. Se considera que la amortización para estos dispositivos es de 5 años y han sido utilizados 4 meses.
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{>{\bfseries}l r r}
+        \toprule
+        \textbf{Concepto} & \textbf{Coste} & \textbf{Coste amortizado} \\
+        \midrule
+        Ordenador de sobremesa & 1.000€ & 66,67€ \\
+        Móvil & 400€ & 26,67€ \\
+        \midrule
+        \textbf{Total} & \textbf{1.400€} & \textbf{93,34€} \\
+        \bottomrule
+    \end{tabular}
+    \caption{Costes de \textit{hardware}.}
+    \label{tabla:costes_hardware}
+\end{table}
+\subsubsection{Costes de software:}
+En este apartado se revisan los costes de las licencias software no gratuitas utilizadas en el desarrollo del proyecto. Se considera que la amortización del software es de 2 años. \\
+Las herramientas utilizadas que requieren licencia son Windows 10, Adobe Photoshop (utilizado para la edición del logo), Adobe Premiere (utilizado para editar, recortar vídeos grabados de la aplicación).
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{>{\bfseries}l r r}
+        \toprule
+        \textbf{Concepto} & \textbf{Coste} & \textbf{Coste amortizado} \\
+        \midrule
+        Adobe Premiere & 240€ & 40,00€ \\
+        Adobe Photoshop & 120€ & 20,00€ \\
+        Windows 10 & 279€ & 46,52€ \\
+        \midrule
+        \textbf{Total} & \textbf{639€} & \textbf{106,52€} \\
+        \bottomrule
+    \end{tabular}
+    \caption{Costes de \textit{software}.}
+    \label{tabla:costes_software}
+\end{table}
+\subsubsection{Costes varios:}
+En este apartado se citan el resto de costes del proyecto:
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{>{\bfseries}l r}
+        \toprule
+        \textbf{Concepto} & \textbf{Coste} \\
+        \midrule
+        Dominio de futbostats & 31,90€ \\
+        Precio por plan de API-FOOTBALL & 25€ \\
+        Internet & 150€ \\
+        Alquiler de la oficina & 500€ \\
+        Memoria impresa y pendrives & 50€ \\
+        \midrule
+        \textbf{Total} & \textbf{756,90€} \\
+        \bottomrule
+    \end{tabular}
+    \caption{Costes varios.}
+    \label{tabla:costes_varios}
+\end{table}
+\subsubsection{Costes totales:}
+El sumatorio de todos los costes es el siguiente:
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{>{\bfseries}l r}
+        \toprule
+        \textbf{Concepto} & \textbf{Coste} \\
+        \midrule
+        Personal & 7.000,8€ \\
+        \emph{Hardware} & 93,34€ \\
+        \emph{Software} & 106,52€ \\
+        Varios & 756,90€ \\
+        \midrule
+        \textbf{Total} & \textbf{7.957,56€} \\
+        \bottomrule
+    \end{tabular}
+    \caption{Costes totales.}
+    \label{tabla:costes_totales}
+\end{table}
+\subsubsection{Beneficios}
+La aplicación web desarrollada se distribuirá inicialmente de forma gratuita, permitiendo a los usuarios acceder a estadísticas de fútbol y realizar búsquedas de datos sin coste alguno. A medida que la base de usuarios crezca, se buscará monetizar la aplicación mediante la introducción de publicidad en la web. Se establecerán colaboraciones con marcas y patrocinadores interesados en llegar a una audiencia apasionada por el fútbol.
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{>{\bfseries}l r}
+        \toprule
+        \textbf{Concepto} & \textbf{Ingresos esperados} \\
+        \midrule
+        Publicidad por impresiones & 2.000,00€ \\
+        Publicidad por clics & 1.500,00€ \\
+        Colaboraciones con marcas & 3.000,00€ \\
+        Patrocinios & 2.500,00€ \\
+        \midrule
+        \textbf{Total mensual} & \textbf{9.000,00€} \\
+        \bottomrule
+    \end{tabular}
+    \caption{Ingresos esperados por publicidad y colaboraciones.}
+    \label{tabla:ingresos_publicidad}
+\end{table}
 \subsection{Viabilidad legal}
+En esta sección se expondrán los temas relacionados con las licencias de software, documentación y otros programas utilizados. \\
+Una licencia es un contrato que permite a una persona usar, copiar, distribuir, estudiar y modificar ciertos bienes, generalmente no tangibles o intelectuales, como marcas, patentes o software libre. El otorgante conserva la propiedad de estos bienes, mientras que la persona que obtiene la licencia puede utilizarlos, a menudo a cambio de un pago \cite{wiki:licencia}. 
 
+\subsubsection{Software}
+Voy a exponer cuál han sido las licencias de las dependencias utilizadas en mi proyecto para llevar a cabo su desarrollo.
+\renewcommand{\arraystretch}{1.7}
+\begin{longtable}{>{\raggedright}m{4cm} >{\raggedright}m{2cm} >{\raggedright}m{6cm} >{\raggedright\arraybackslash}m{2cm}}
+\toprule
+\textbf{Dependencia} & \textbf{Versión} & \textbf{Descripción} & \textbf{Licencia} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Dependencia} & \textbf{Versión} & \textbf{Descripción} & \textbf{Licencia} \\
+\midrule
+\endhead
+Angular & 17.2.1 & Framework para construir aplicaciones web. & MIT \\
+Flask & 3.0.2 & Microframework de desarrollo web para Python. & BSD-3-Clause \\
+OAuth2 & 17.0.1 & Biblioteca para la implementación del protocolo OAuth2. & MIT \\
+Flex-Layout & 15.0.0 & Biblioteca para la creación de layouts flexibles en Angular. & MIT \\
+Animate.css & 4.1.1 & Biblioteca de animaciones CSS listas para usar. & MIT \\
+Moment.js & 2.30.1 & Biblioteca para manipulación y formateo de fechas en JavaScript. & MIT \\
+SweetAlert2 & 11.10.6 & Biblioteca para mostrar alertas atractivas en JavaScript. & MIT \\
+Angular Material & 17.2.1 & Componentes de interfaz de usuario para Angular. & MIT \\
+StatsBombPy & 1.12.0 & API de Python para acceder a los datos de StatsBomb. & MIT \\
+MplSoccer & 1.2.2 & Biblioteca para la visualización de datos de fútbol en Matplotlib. & MIT \\
+Pandas & 1.5.3 & Biblioteca de manipulación y análisis de datos en Python. & BSD-3-Clause \\
+Matplotlib & 3.7.5 & Biblioteca de visualización de gráficos en Python. & PSF \\
+NumPy & 1.24.4 & Biblioteca para computación numérica en Python. & BSD \\
+SciPy & 1.10.1 & Biblioteca de algoritmos y herramientas matemáticas en Python. & BSD \\
+Scikit-learn & 1.3.2 & Biblioteca para aprendizaje automático en Python. & BSD-3-Clause \\
+ImageAI & 3.0.3 & Biblioteca para la implementación de inteligencia artificial en imágenes. & MIT \\
+Ffmpeg & 4.4 & Herramienta para la manipulación de multimedia. & GPLv3 \\
+PostMan & 8.6.2 & Plataforma para el desarrollo de APIs. & Apache-2.0 \\
+\bottomrule
+\caption{Dependencias del proyecto.}
+\end{longtable}
 
+Por lo tanto, tenemos que escoger una licencia para nuestro proyecto que sea compatible con Apache-2.0, MIT, BSD, PSF y GPLv3. En el siguiente gráfico muestro la compatibilidad entre estas licencias y su grado de permisividad.
+
+\imagen{licencias}{Compatibilidad entre licencias}
+
+La licencia más restrictiva como podemos ver que es GPLv3 que posee el programa Ffmpeg. \\
+La forma de monetización del proyecto se realizará mediante la integración de anuncios en la aplicación y colaboraciones con marcas. \\
+Teniendo en cuenta las licencias que usan las dependencias de mi proyecto, la licencia que más se ajusta ajusta a FutboStats es \textit{MIT License}. Esta licencia es permisiva y compatible con las licencias de las dependencias del proyecto y permiten la incorporación de anuncios y colaboraciones comerciales sin complicaciones legales \cite{MIT:latex}. \\
+Derechos en MIT:
+\begin{itemize}
+    \item La licencia permite utilizar el software para fines comerciales.
+    \item La licencia permite distribuir copias del software.
+    \item La licencia permite modificar el software.
+    \item La licencia permite el uso privado del software.
+\end{itemize}
+Condiciones en MIT:
+\begin{itemize}
+    \item Para utilizar los derechos otorgados por la licencia MIT, es necesario incluir la nota de copyright y una copia de la licencia en todas las copias o partes sustanciales del software.
+\end{itemize}
+Limitaciones en MIT:
+\begin{itemize}
+    \item El software se proporciona sin garantías ni condiciones de ningún tipo, ya sean expresas o implícitas.
+    \item  No se ofrecen garantías con el uso del software.
+\end{itemize}
+\begin{table}[h!]
+\centering
+\begin{tabular}{>{\raggedright}m{4cm} >{\raggedright}m{4cm} >{\raggedright\arraybackslash}m{4cm}}
+\toprule
+\textbf{Derechos} & \textbf{Condiciones} & \textbf{Limitaciones} \\
+\midrule
+Uso comercial. & Incluir la licencia en todas las copias o partes sustanciales del software. & Limitación de responsabilidad. \\
+Distribución. & Nota sobre la licencia y copyright. & Sin garantías. \\
+Modificación. & & \\
+Uso privado. & & \\
+\bottomrule
+\end{tabular}
+\caption{Resumen de la licencia MIT.}
+\end{table}
+
+He considerado la licencia MIT como la mejor para mi proyecto porque es permisiva y simple. Permite usar, copiar, modificar, fusionar, publicar, distribuir, vender copias del software. Además tiene alta compatibilidad con otras licencias, siendo totalmente compatible con las licencias que tienen las dependencias utilizadas en mi proyecto. \\
+En cambio, en otras licencias como es Apache License 2.0 he encontrado que posee una alta incompatibilidad con la licencia GPLv2. \\
+La licencia GPLv3 es menos permisiva y no es compatible con algunas licencias como MIT y BSD, por lo que esta licencia queda descartada para ser usada en mi proyecto. \\
+
+En resumen, dado que mi proyecto es una aplicación que se ofrece de forma gratuita a los usuarios para consultar datos y estadísticas, y teniendo en cuenta las licencias de las dependencias y programas (que incluyen MIT, BSD, Apache-2.0, PSF y GPLv3), la licencia MIT es la más adecuada por ser permisiva y compatible con otras licencias usadas en el proyecto y por permitir la incorporación de anuncios y colaboraciones comerciales.
+
+\subsubsection{Documentación}
+La documentación del proyecto ha sido realizada en LaTex. Para la documentación he decidido no utilizar MIT y optar por otro tipo de licencias que se encuentran más enfocadas en licenciar este tipo de material. \\
+Se ha elegido la \textit{Creative Commons Attribution-ShareAlike 4.0 International (CC-BY-SA 4.0)} \cite{CC:latex}. Esta licencia establece lo siguiente: \\
+\raggedbottom 
+\begin{table}[H] % Usar el entorno H para forzar la posición exacta
+\centering
+\begin{tabular}{>{\raggedright}m{4cm} >{\raggedright}m{4cm} >{\raggedright\arraybackslash}m{4cm}}
+\toprule
+\textbf{Derechos} & \textbf{Condiciones} & \textbf{Limitaciones} \\
+\midrule
+Uso comercial. & Nota sobre la licencia y copyright. & Limitación de responsabilidad. \\
+Distribución. & Indicar modificaciones realizadas. & Sin garantías. \\
+Modificación. & & No proporciona derechos sobre marcas registradas. \\
+Uso privado. & & No proporciona derechos sobre patentes. \\
+\bottomrule
+\end{tabular}
+\caption{Resumen de la licencia CC-BY-4.0.}
+\label{table:ccby40}
+\end{table}
+
+\subsubsection{Imágenes y vídeos}
+Todas las imágenes y vídeos utilizados en la documentación son propios del proyecto y tienen la misma licencia que la documentación (CC-BY-4.0). No se ha utilizado ninguna imagen o vídeo de terceros. \\
+Por otro lado, en la aplicación se ha utilizado una fuente de imágenes de terceros:
+\begin{table}[h!]
+\centering
+\begin{tabular}{>{\raggedright}m{4cm} >{\raggedright}m{6cm} >{\raggedright\arraybackslash}m{2cm}}
+\toprule
+\textbf{Fuente} & \textbf{Descripción} & \textbf{Licencia} \\
+\midrule
+FlatIcon & Plataforma que proporciona íconos vectoriales gratuitos. & Flaticon Basic License \\
+\bottomrule
+\end{tabular}
+\caption{Fuentes de imágenes de terceros.}
+\label{table:third_party_icons}
+\end{table}
+
+\subsubsection{Resumen}
+En la siguiente tabla muestro un resumen de las licencias que posee el proyecto.
+\begin{table}[H]
+\centering
+\begin{tabular}{>{\raggedright}m{6cm} >{\raggedright\arraybackslash}m{3cm}}
+\toprule
+\textbf{Recurso} & \textbf{Licencia} \\
+\midrule
+Software & MIT \\
+Documentación & CC-BY-4.0 \\
+Imágenes & CC-BY-4.0 \\
+Vídeos & CC-BY-4.0 \\
+\bottomrule
+\end{tabular}
+\caption{Resumen de las licencias del proyecto.}
+\label{table:project_licenses}
+\end{table}

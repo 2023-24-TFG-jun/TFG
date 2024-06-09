@@ -1,6 +1,195 @@
 \capitulo{4}{Técnicas y herramientas}
 
-Esta parte de la memoria tiene como objetivo presentar las técnicas metodológicas y las herramientas de desarrollo que se han utilizado para llevar a cabo el proyecto. Si se han estudiado diferentes alternativas de metodologías, herramientas, bibliotecas se puede hacer un resumen de los aspectos más destacados de cada alternativa, incluyendo comparativas entre las distintas opciones y una justificación de las elecciones realizadas. 
-No se pretende que este apartado se convierta en un capítulo de un libro dedicado a cada una de las alternativas, sino comentar los aspectos más destacados de cada opción, con un repaso somero a los fundamentos esenciales y referencias bibliográficas para que el lector pueda ampliar su conocimiento sobre el tema.
+\section{Metodologías}
+
+\subsection{Kanban}
+Kanban es un método ágil de gestión de proyectos y control de flujo que se centra en la visualización del trabajo y la optimización del flujo de tareas. Kanban utiliza un tablero visual, dividido en columnas que representan las distintas etapas del proceso de trabajo(Por hacer, Listo para hacer, En progreso, En revisión y Hecho) para gestionar y monitorizar las tareas. Las tarjetas se van moviendo a través del tablero conforme avanzan en el proceso \cite{kanban:latex}.
+
+\subsection{Scrum}
+Scrum es un marco de trabajo ágil utilizado para el desarrollo y la gestión de proyectos. Se basa en ciclos de trabajos iterativos e incrementales llamados sprints que duran entre dos y cuatro semanas. En cada sprint se trata de entregar un incremento del producto hasta conseguir el proyecto completo \cite{scrum:latex}.
+
+\section{Control de versiones}
+\begin{itemize}
+    \item Herramienta elegida: \href{https://git-scm.com/}{Git} 
+\end{itemize}
+
+Git es un sistema de control de versiones distribuido que se utiliza para gestionar y hacer el seguimiento de los cambios en el código fuente durante el desarrollo de software. Git permite a múltiples desarrolladores trabajar de manera simultánea en un proyecto sin interferir con el trabajo de los demás. Cada desarrollador tiene una copia completa del repositorio, incluyendo todo el historial de cambios.
+
+\section{Hosting del repositorio}
+\begin{itemize}
+    \item Herramienta elegida: \href{https://github.com/}{GitHub} 
+\end{itemize}
+
+GitHub es una plataforma de alojamiento de repositorios basada en Git que permite a los desarrolladores almacenar, gestionar y compartir su código fuente de manera colaborativa. GitHub es una de las herramientas más populares para el desarrollo software debido a sus características que facilitan el trabajo en equipo y la gestión de proyectos y su integración con Git.
+
+\section{Entorno de desarrollo}
+\begin{itemize}
+    \item Herramienta elegida: \href{https://code.visualstudio.com/}{Visual Studio Code} 
+\end{itemize}
+
+Visual Studio Code es un editor de código fuente gratuito, multiplataforma desarrollado por Microsoft. Se ha convertido en una de las herramientas de desarrollo más populares debido a su versatilidad(permite una amplia variedad de lenguajes de programación), rendimiento y amplio conjunto de características. Su integración con Git facilita el control de versiones, revisión del código y la colaboración en equipo.
+
+\section{Desarrollo front-end}
+\begin{itemize}
+    \item Herramientas consideradas:  \href{https://flask.palletsprojects.com/en/3.0.x/}{Flask} , \href{https://angular.io/}{Angular}
+    \item Herramienta elegida: \href{https://angular.io/}{Angular}
+\end{itemize}
+Flask es un microframework de Python utilizado principalmente para el desarrollo del back-end de aplicaciones web. Aunque es posible gestionar las vistas con Flask, este no esta diseñado específicamente para el desarrollo de una aplicación front-end. \\
+
+En cambio, Angular es un framework de desarrollo de aplicaciones web front-end de código abierto, mantenido por Google. Está basado en TypeScript y permite construir aplicaciones web de una sola página(SPA) mediante un enfoque modular y componentes reutilizables. Angular proporciona una estructura robusta para gestionar vistas dinámicas y facilita la creación de interfaces de usuario interactivas y complejas. Además, permite la construcción de servicios para hacer peticiones a APIS externas, guards para la protección de rutas e instalar dependencias avanzadas de una manera sencilla. Angular utiliza el llamado Angular CLI (Command Line Interface) para crear componentes y probar la aplicación con comandos. Al ser mantenido por Google y contar con una gran comunidad de desarrolladores, Angular recibe actualizaciones regularmente, mejoras de seguridad y un soporte extenso, lo que asegura su relevancia y confiabilidad a largo plazo. \\ 
+
+En resumen, Angular es una mejor herramienta para el desarrollo del front-end de aplicaciones web debido a su arquitectura modular, soporte de TypeScript, capacidades de enlace de datos bidireccional y su ecosistema robusto, en comparación con Flask, que está más orientado al desarrollo del back-end.
+
+\section{Desarrollo back-end}
+\begin{itemize}
+    \item Herramientas consideradas: \href{https://www.djangoproject.com/}{Django}, \href{https://flask.palletsprojects.com/en/3.0.x/}{Flask} 
+    \item Herramienta elegida: \href{https://flask.palletsprojects.com/en/3.0.x/}{Flask} 
+\end{itemize}
+
+Flask y Django son dos de los frameworks más populares para el desarrollo de aplicaciones web en Python, pero tienen diferentes enfoques y características. \\
+Flask es un microframework minimalista para el desarrollo de aplicaciones web. Fue diseñado para ser simple y flexible, permitiendo a los desarrolladores elegir las bibliotecas y herramientas que desean utilizar. \\
+Flask proporciona lo esencial al usuario para comenzar, dejando a su elección las bibliotecas y herramientas adicionales. Además, es altamente modular y extensible, lo que permite agregar solo los componentes necesarios y su curva de aprendizaje es suave (fácil de aprender y de usar) haciéndolo ideal para proyectos pequeños.
+
+En cambio, Django viene con una estructura y componentes predefinidos que pueden limitar su uso si se desean utilizar otras herramientas. Además, tiene una curva de aprendizaje más fuerte que Flask debido a su complejidad y la cantidad de funcionalidades integradas.
+
+En resumen, Flask es ideal para proyectos que requieren flexibilidad, simplicidad y un mayor control sobre los componentes del backend. Es adecuado para desarrolladores que quieren construir proyectos desde cero y elegir las herrmientas que mejor se adapten a sus necesidades. Django, por otro lado, es más adecuado para proyectos más grandes y complejos que se benefician de un conjunto de funcionalidades integradas y una estructura definida desde el inicio.
+
+\section{Gestión de usuarios con Google}
+\begin{itemize}
+    \item Herramienta elegida: \href{https://cloud.google.com/?_gl=1*1ffy0bq*_up*MQ..&gclid=CjwKCAjwupGyBhBBEiwA0UcqaJ72hmbLebmSBJTVztJdAwkGBs-MRQ33lloMcTTU3bITVG8zzVoTqxoCzYcQAvD_BwE&gclsrc=aw.ds}{Google Cloud}
+\end{itemize}
+La gestión de inicio de sesión con Google Cloud OAuth 2.0 es una estrategia efectiva para autenticar usuarios en una aplicación web. Este método ofrece una alta seguridad mediante la protección de datos. Mejora la experiencia del usuario para simplificar el inicio de sesión y aprovechar la confianza en la seguridad de Google. Permite una gestión de identidad unificada e integración con otros servicios de Google Cloud, facilitando la sincronización de datos. Google asegura un manejo eficiente de un gran número de usuarios. Al ser un estándar ampliamente adoptado, OAuth 2.0 garantiza compatibilidad y se beneficia de actualizaciones regulares que mantienen las mejores prácticas y estándares de seguridad.
+
+\section{Documentación}
+\begin{itemize}
+    \item Herramientas consideradas: \href{https://es.overleaf.com/}{Overleaf}, \href{https://www.xm1math.net/texmaker/}{Texmaker}
+    \item Herramienta elegida: \href{https://es.overleaf.com/}{Overleaf}
+\end{itemize}
+
+TexMaker y Overleaf son dos herramientas populares para trabajar con documentos en LaTeX. \\
+LaTeX es un sistema de composición de documentos y un lenguaje marcado para la creación de textos científicos y técnicos de alta calidad. \\
+
+Overleaf ofrece varias ventajas sobre TexMaker, destacándose por su capacidad de colaboración en tiempo real, acceso desde cualquier dispositivo con conexión a internet, y no requerir instalación local ni configuración de compiladores. Además, Overleaf proporciona compilación automática y visualización instántanea de cambios, integración con GitHub y otros servicios de almacenamiento en la nube, y una amplia biblioteca de plantillas y recursos, lo que simplifica el desarrollo y mantenimientos de documentos en LaTeX.
+
+\section{Librerías}
+
+\subsection{Angular}
+\imagen{angularLogo}{Logo de Angular}{0.1}
+Las librerías instaladas en Angular para desarrollar este proyecto han sido las siguientes:
+\subsubsection{OAuth}
+\href{https://www.npmjs.com/package/angular-oauth2-oidc}{OAuth2} es un estándar de autorización que permite a las aplicaciones obtener acceso limitado a los recursos del usuario en un servidor sin compartir las credenciales del usuario. Es decir, permite que las aplicaciones interactúen con servicios web utilizando tokens de acceso en lugar de contraseñas. \\
+La biblioteca 'angular-oauth2-oidc' facilita la implementación de OAuth2 en aplicaciones Angular. Proporciona herramientas y servicios que simplifican la integración de autenticación y autorización con proveedores de identidad como Google. \\
+Esta librería ha sido utilizada para implementar un sistema de inicio de sesión con Google. Esto permite a los usuarios autenticarse en la aplicación de manera sencilla con sus cuentas de Google, ofreciendo una experiencia de usuario sencilla y segura.
+\subsubsection{Flex-Layout}
+La biblioteca \href{https://www.npmjs.com/package/@angular/flex-layout}{flex-layout} es una herramienta en Angular que facilita la creación de interfaces de usuario responsivas y adaptables utilizando Flexbox CSS y CSS Grid. Esta biblioteca permite a los desarrolladores definir el diseño y la disposición de los elementos de una aplicación de manera intuitiva y eficiente. \\
+Para explorar y probar cómo funcionan las distintas directivas y configuraciones de flex-layout, he utilizado la \href{https://tburleson-layouts-demos.firebaseapp.com/#/docs}{ página de demostración y documentación} que aporta dicha biblioteca. Esta página interactiva  te permite experimentar con diferentes configuraciones de diseño y ver los resultados en tiempo real, lo cuál nos permite aprender rápido como se usa y aplicarlo en el proyecto real.
+\subsubsection{Flaticon}
+\href{https://www.flaticon.com/}{Flaticon} es una plataforma que ofrece una amplia variedad de iconos gratuitos para usar en una aplicación web. Es una herramienta popular para diseñadores gráficos, desarrolladores web y cualquiera que este buscando iconos de calidad para sus proyectos.
+Esta biblioteca se puede instalar vía \href{https://www.npmjs.com/package/@flaticon/flaticon-uicons?activeTab=readme}{NPM} para ser utilizada en Angular. \\
+Flaticon es una buena biblioteca de iconos para Angular debido a su amplia variedad, opciones de personalización, facilidad de integración y disponibilidad en múltiples formatos.
+\imagen{flaticon}{Logo de Flaticon}{0.3}
+\subsubsection{Animate.css}
+\href{https://animate.style/}{Animate.css} es una biblioteca de animaciones CSS que facilita la implementación de efectos animados a los elementos de una página web. Esta biblioteca ofrece una colección variada de animaciones CSS y no se requieren conocimientos de JavaScript, lo que la hace accesible para desarrolladores de todos los niveles. \\
+En pocas palabras, su facilidad de uso, variedad de animaciones, consistencia, rendimiento y capacidad de personalización la convierten en una buena opción para mejorar la apariencia y experiencia de usuario en cualquier sitio web.
+\imagen{animatecss}{Logo de Animate.css}{0.3}
+\subsubsection{Moment.js}
+\href{https://momentjs.com/}{Moment.js} es una popular biblioteca de JavaScript para la manipulación y formateo de fechas y tiempos. Proporciona una manera sencilla de trabajar con fechas y tiempos, permitiendo realizar operaciones como formateo, manipulación y validaciones. \\
+Esta librería es utilizada en mi proyecto para formatear la fecha de el datepicker y el usuario seleccione una fecha que se familiarice con el por el idioma. Además, se debe de formatear la fecha nuevamente para enviarla a la API externa y que la petición sea un éxito. \\
+Esta biblioteca se puede instalar en Angular vía \href{https://www.npmjs.com/package/moment}{NPM}.
+\imagen{momentjs}{Logo de Moment.js}{0.1}
+
+\subsubsection{SweetAlert2}
+\href{https://sweetalert2.github.io/}{SweetAlert2} es una biblioteca de JavaScript que facilita la creación de alertas y diálogos personalizados en aplicaciones web. A diferencia de las alertas estándar del navegador, que son bastante básicas y limitadas en funcionalidad y diseño, SweetAlert2 permite crear alertas visualmente atractivas y personalizables que pueden mejorar la experiencia del usuario. Además, esta biblioteca está diseñada para ser responsive, por lo que las alertas se verán bien en dispositivos de diferente tamaño.
+\imagen{SweetAlert2}{Logo de SweetAlert2}{0.3}
+
+\subsubsection{Angular Material} 
+\href{https://material.angular.io/}{Angular Material} es una biblioteca de componentes de interfaz de usuario (UI) diseñada y mantenida por Angular de Google. Está basada en el sistema de diseño Material Design de Google, que proporciona una guía integral para el diseño visual, de movimiento y de interacción en todas las plataformas y dispositivos. Angular Material ofrece una amplia variedad de componentes preconstruidos que se ajustan a las especificaciones de Material Design. Utilizar estos componentes permite a los desarrolladores crear rápidamente interfaces de usuario funcionales y atractivas sin tener que diseñar y desarrollar desde cero. Una ventaja respecto a competidores como \href{https://getbootstrap.com/}{Bootstrap} es que Angular Material esta diseñado específicamente para trabajar con Angular, lo que significa que se integra perfectamente con las directivas, componentes y el ciclo de vida de Angular.
+\imagen{angularMaterial}{Logo de Angular Material}{0.1}
+\subsection{Flask}
+\imagen{flask}{Logo de Flask}{0.3}
+Las librerías instaladas en Flask para desarrollar este proyecto han sido las siguientes:
+\subsubsection{StatsBombPy}
+\href{https://statsbomb.com/es/}{StatsbombPy} es una biblioteca de Python desarrollada para facilitar el acceso al uso de los datos de StatsBomb. Esta biblioteca permite a los usuarios descargar y manipular los datos de fútbol de StatsBomb de manera sencilla y eficiente. Es especialmente útil para analistas de datos, científicos de datos y desarrolladores que trabajan en proyectos relacionados con el análisis de datos de fútbol. \\
+StatsbombPy se utiliza para acceder a la API de StatsBomb y realizar distintas operaciones con los datos de fútbol como descargarlos, manipularles, filtrarles y construir gráficos con ellos que nos ayuden a entender la información. \\
+El único inconveniente que tiene esta librería es que los datos que hay en abierto gratuitamente para utilizar son limitados. Por ejemplo, de las 5 grandes ligas europeas solo se dispone de todos los eventos completamente de la temporada 2015/2016. Aún así, tiene datos actualizados como los del pasado mundial de fútbol 2022. Según se fueran añadiendo datos de más temporadas se podría trabajar con ellos. En el GitHub de StatsBomb se pueden encontrar todos los datos que hay disponibles en \href{https://github.com/statsbomb/open-data}{open-data}. \\
+En resumen, esta librería proporciona datos detallados sobre partidos y jugadores y está diseñada para facilitar el acceso y el uso de los datos.
+\imagen{statsbomb}{Logo de StatsBomb}{0.3}
+
+\subsubsection{MplSoccer}
+\href{https://mplsoccer.readthedocs.io/en/latest/}{MplSoccer} es una biblioteca de Python diseñada específicamente para la visualización y análisis de fútbol. Proporciona herramientas y funcionalidades especializadas para trabajar con datos de fútbol como dibujar campos de fútbol, mapas de tiros, y otros gráficos que son comunes en el análisis de rendimiento deportivo. Mplsoccer facilita la creación de gráficos que representan campos de fútbol. Estos gráficos pueden ser utilizados para representar la posición de jugadores, eventos de partidos (pases, tiros y entradas) y otros datos relevantes. \\
+Esta librería permite una gran personalización de los gráficos y se integra muy bien con statsbomb.
+\imagen{mplsoccerLogo}{Logo de MplSoccer}{0.3}
+
+\subsubsection{Pandas}
+\href{https://pandas.pydata.org/}{Pandas} es una biblioteca de Python de código abierto que proporciona estructuras de datos y herramientas de análisis de datos de alto rendimiento y fáciles de usar. Sus principales estructuras de datos son las Series y los DataFrames, que permiten manejar y analizar datos tabulares de una manera eficiente. Además, Pandas permite leer datos de una variedad de formatos como CSV, Excel, SQL, JSON. Pandas se integra bien con bibliotecas de visualización como Matplotlib facilitando la creación de gráficos a partir de DataFrames.
+\imagen{pandasLogo}{Logo de Pandas}{0.3}
+
+\subsubsection{Matplotlib}
+\href{https://matplotlib.org/}{Matplotlib} es una biblioteca de Python para crear gráficos y visualizaciones de datos. Es ampliamente utilizada en la ciencia de datos y análisis debido a su capacidad para generar una gran variedad de gráficos con alta calidad y personalización. Matplotlib se integra bien con otras bibliotecas de análisis de datos como NumPy y Pandas. Es compatible con diversos entornos y su extensa documentación y número de usuarios facilitan su uso y aprendizaje.
+\imagen{matplotlibLogo}{Logo de Matplotlib}{0.5}
+
+\subsubsection{NumPy}
+\href{https://numpy.org/}{Numpy} es una biblioteca de Python para el cálculo científico. Proporciona soporte para arrays y matrices multidimensionales y un conjunto de funciones matemáticas para operar con los datos de manera eficiente.
+\imagen{numpylogo}{Logo de NumPy}{0.3}
+\subsubsection{SciPy}
+\href{https://scipy.org/}{SciPy} es una biblioteca de Python utilizada para cálculos científicos. Se construye sobre NumPy, proporcionando funciones adicionnales para optimización, integración, álgebra lineal, interpolación y estadística. La biblioteca es conocida por su eficiencia y su capacidad para realizar cálculos de alto rendimiento.
+\imagen{scipyLogo}{Logo de Scipy}{0.1}
+\subsubsection{Scikit-learn}
+\href{https://scikit-learn.org/stable/}{Scikit-learn} (sklearn) es una biblioteca de Python para aprendizaje automático y minería de datos. Ofrece herramientas simples y eficientes para la modelización y el análisis predictivo, incluyendo algoritmos de clasificación, regresión. Construida sobre NumPy, SciPy y Matplotlib, scikit-learn facilita la integración con otras bibliotecas científicas de Python.
+\imagen{scikitLearnLogo}{Logo de Scikit-learn}{0.2}
+
+\subsubsection{ImageAI}
+\href{https://imageai.readthedocs.io/en/latest/}{ImageAI} es una biblioteca de Python diseñada para la implementación fácil y rápida de sistemas de inteligencia artificial para la detección y reconocimiento de objetos en imágenes y vídeos. ImageAI simplifica el uso de modelos de aprendizaje profundo preentrenados para la detección de objetos, clasificación de imágenes y reconocimiento de acciones. \\
+ImageAI está diseñada para ser implementada fácilmente y extrae gran parte de la complejidad técnica, permitiendo a los desarrolladores implementar modelos de detección de objetos con pocas líneas de código.\\
+Además, soporta varios modelos preentrenados como YOLOv3, TinyYOLOv3 y Retinanet, que son precisos y eficientes en la detección de objetos. Esto permite a los desarrolladores utilizar modelos avanzados sin tener que entrenarlos desde 0. \\
+Es una práctica interesante integrar ImageAI con Python para el tracking de jugadores en vídeos de fútbol debido a su facilidad de uso. Se puede consultar su documentación en el \href{https://github.com/OlafenwaMoses/ImageAI}{Github de ImageAI}.
+\imagen{imageAILogo}{Logo de ImageAI}{0.2}
+\subsection{Otros}
+\subsubsection{Ffmpeg}
+\href{https://ffmpeg.org/}{Ffmpeg} es una herramienta de línea de comandos de código abierto utilizada para manipular archivos multimedia, incluyendo la conversión, grabación y transmisión de audio y vídeo. Proporciona una colección de bibliotecas y programas que permiten la decodificación, codificación de archivos de vídeo y audio. \\
+Los navegadores web soportan solo algunos codecs de vídeo, por lo que, utilizar Ffmpeg facilita transformar videos a formatos compatibles y asegura que los vídeos se reproduzcan correctamente en todos los navegadores.
+\imagen{ffmpegLogo}{Logo de Ffmpeg}{0.3}
+\subsubsection{JustInMind}
+\href{https://www.justinmind.com/?k=just%20in%20mind&a=688685974017&adg=52001997837&cmp=1063145459&match=e&adposition=&utm_medium=cpc&utm_source=google&utm_campaign=1063145459&utm_term=just%20in%20mind_e&gad_source=1&gclid=Cj0KCQjw6auyBhDzARIsALIo6v8LqBRhq_QPIUhxUJt3DHKqPNfvJxZEdrFx4f1jqgqKfJ6g998HKFwaAm_WEALw_wcB}{JustInMind} es una herramienta que permite realizar prototipos de aplicaciones web para escritorio y móvil. Permite crear prototipos interactivos y completos sin necesidad de escribir código. Se pueden simular funcionalidades y el flujo de la aplicación. Utilizar una herramienta de prototipado permite identificar y solucionar problemas de usabilidad en las primeras etapas del proceso de diseño.
+\imagen{justInMindLogo}{Logo de JustInMind}{0.3}
+\subsubsection{PostMan}
+\href{https://www.postman.com/}{Postman} es una herramienta popular para el desarrollo y la prueba de APIs. Permite a los usuarios diseñar, probar, documentar y monitorear sus APIs de manera eficiente. Con Postman, los usuarios pueden crear y enviar solicitudes HTTP a un servidor y ver las respuestas, lo que facilita la comprobación de la funcionalidad de la API y la detección de problemas.
+\imagen{postmanLogo}{Logo de Postman}{0.3}
+
+\tablaSmall{Resumen de herramientas y tecnologías utilizadas en cada parte del proyecto}{l c c c c}{herramientasportipodeuso}
+{ \multicolumn{1}{l}{Herramientas} & Angular17 & API EXTERNA & Flask & Memoria \\}{ 
+HTML5 & X & & &\\
+CSS3 & X & & &\\
+TypeScript & X & & &\\
+Angular & & X & &\\
+API-FOOTBALL & & X & &\\
+Angular Material & X & & &\\
+FlatIcon & X & & &\\
+Flex-Layout & X & & &\\
+OAuth & X & & &\\
+Animate.css & X & & &\\
+Moment.js & X & & &\\
+SweetAlert2 & X & & &\\
+Python & & & X &\\
+StatsBombPy & & & X &\\
+MplSoccer & & & X &\\
+Pandas & & & X &\\
+Matplotlib & & & X &\\
+JSON & X & & X &\\
+NumPy & & & X &\\
+SciPy & & & X &\\
+Scikit-learn & & & X &\\
+ImageAI & & & X &\\
+Ffmpeg & & & X &\\
+Git & X & & X & X\\
+Git-Hub & & X & X & X\\
+La\TeX{} & & & & X\\
+Overleaf & & & & X\\
+Google Cloud & X & & & \\
+Visual Studio Code & X & & X &\\
+PostMan & X & X & X &\\
+
+} 
+
 
 
