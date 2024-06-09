@@ -1,7 +1,7 @@
 
 .contenedor-formulario {
     flex: 1;
-    max-width: 400px;
+    max-width: 500px;
     position: relative;
     }
     
@@ -11,12 +11,13 @@
         
     }
 
-    .formulario[_ngcontent-ng-c221901952] {
+    .formulario[_ngcontent-ng-c1656775659] {
       background-image: radial-gradient(circle farthest-corner at 10% 20%, rgba(234, 249, 249, 0.67) 0.1%, rgba(239, 249, 251, 0.63) 90.1%);
       width: 40%;
       margin-left: 30%;
-      border-radius: 10px;
       margin-top: 5%;
+      height: 20%;
+      border-radius: 10px;
   }
 
     
@@ -71,6 +72,35 @@
     top: 100%; 
     box-shadow: 0 6px 12px rgba(0,0,0,.175);
   }
+
+  .boton {
+    padding: 12.5px 30px;
+    border: 0;
+    border-radius: 100px;
+    background-color: #528E54;
+    color: #ffffff;
+    font-weight: Bold;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    max-width: 110px;
+
+  }
+
+  
+  
+  .boton:hover {
+    background-color: #528E54;
+    box-shadow: 0 0 20px #6fc5ff50;
+    transform: scale(1.1);
+  }
+  
+  .boton:active {
+    background-color: #72c475;
+    transition: all 0.25s;
+    -webkit-transition: all 0.25s;
+    box-shadow: none;
+    transform: scale(0.98);
+  }
   
   /* INPUT*/
   
@@ -92,6 +122,10 @@
     padding: 10px 0;
     background: transparent;
     transition: border-color 0.2s;
+  }
+
+  .iconInfo{
+    margin-right: 10px;
   }
   
   .form__field::placeholder {
@@ -324,6 +358,7 @@ h1{
   font-weight: 500;
 }
 
+
 .formulario{
   background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(234,249,249,0.67) 0.1%, rgba(239,249,251,0.63) 90.1% );
   width: 40%;
@@ -346,9 +381,14 @@ h1{
     margin-bottom: 50px; 
   }
 
-  .formulario[_ngcontent-ng-c221901952][_ngcontent-ng-c221901952] {
+.formulario[_ngcontent-ng-c1656775659][_ngcontent-ng-c1656775659] {
+    background-image: radial-gradient(circle farthest-corner at 10% 20%, rgba(234, 249, 249, 0.67) 0.1%, rgba(239, 249, 251, 0.63) 90.1%);
+    width: 40%;
     margin-left: 5%;
-    margin-bottom: 45%;
+    margin-top: 5%;
+    height: 30%;
+    margin-bottom: 40%;
+    border-radius: 10px;
 }
 
   .mat-form-field {
@@ -363,6 +403,9 @@ h1{
     margin-left: 5% ;
   }
 
+  .iconInfo{
+    margin-right: 10px;
+  }
 
   .margen{
     margin-top: 15px;
@@ -395,7 +438,7 @@ h1{
     align-items: center; 
     padding: 0; 
     margin-bottom: -20px;
-    height: 180px;
+    height: 280px;
   }
 
   .card {

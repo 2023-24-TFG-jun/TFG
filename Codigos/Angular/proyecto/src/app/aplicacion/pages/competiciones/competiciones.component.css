@@ -63,6 +63,36 @@
   box-shadow: 0 6px 12px rgba(0,0,0,.175);
 }
 
+.boton {
+  padding: 12.5px 30px;
+  border: 0;
+  border-radius: 100px;
+  background-color: #528E54;
+  color: #ffffff;
+  font-weight: Bold;
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  max-width: 110px;
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
+
+
+.boton:hover {
+  background-color: #528E54;
+  box-shadow: 0 0 20px #6fc5ff50;
+  transform: scale(1.1);
+}
+
+.boton:active {
+  background-color: #72c475;
+  transition: all 0.25s;
+  -webkit-transition: all 0.25s;
+  box-shadow: none;
+  transform: scale(0.98);
+}
+
 /* INPUT*/
 
 .form__group {
@@ -152,6 +182,10 @@ h1{
   font-weight: 500;
 }
 
+.iconInfo{
+  margin-right: 10px;
+}
+
 .formulario{
   background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(234,249,249,0.67) 0.1%, rgba(239,249,251,0.63) 90.1% );
   width: 40%;
@@ -173,6 +207,10 @@ h1{
 
   .container {
     max-width: 90%;
+  }
+
+  .iconInfo{
+    margin-right: 10px;
   }
 
   .margen{

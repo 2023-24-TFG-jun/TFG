@@ -233,6 +233,10 @@ h3{
   font-size: 20px;
 }
 
+.iconInfo{
+  margin-right: 10px;
+}
+
 .iconos{
   width: 100px;
 }
@@ -310,6 +314,10 @@ h1{
   .iconos {
     width: 80px; 
     margin-bottom: 5px; 
+  }
+
+  .iconInfo{
+    margin-right: 10px;
   }
 
   .estilo-tabla {

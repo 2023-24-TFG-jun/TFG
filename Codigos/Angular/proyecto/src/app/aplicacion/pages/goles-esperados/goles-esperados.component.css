@@ -19,8 +19,9 @@
     width: 100%;
   }
 
-
-
+  .iconInfo{
+    margin-right: 10px;
+  }
 
 /* Loader */
 
@@ -350,6 +351,10 @@ h1{
   .centrar {
     justify-content: center;
     text-align: center;
+  }
+
+  .iconInfo{
+    margin-right: 10px;
   }
 
   .table {

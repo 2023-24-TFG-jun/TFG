@@ -285,6 +285,10 @@
 
   }
 
+.iconInfo{
+  margin-right: 10px;
+}
+
 
 /* Media querys */
 
@@ -301,6 +305,10 @@
     top: 30px;
     width: 90%;
     margin-left: 5% ;
+  }
+
+  .iconInfo{
+    margin-right: 10px;
   }
 
   .form__group {

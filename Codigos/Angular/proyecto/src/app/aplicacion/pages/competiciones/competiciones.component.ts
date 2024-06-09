@@ -10,11 +10,12 @@ import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import Swal from 'sweetalert2';
+import { FlexLayoutModule } from "@angular/flex-layout";
 
 @Component({
   selector: 'app-competiciones',
   standalone: true,
-  imports: [CommonModule, FormsModule, MatInputModule, MatSelectModule, MatFormFieldModule ],
+  imports: [CommonModule, FormsModule, MatInputModule, MatSelectModule, MatFormFieldModule, FlexLayoutModule ],
   templateUrl: './competiciones.component.html',
   styleUrls: ['./competiciones.component.css']
 })
@@ -32,19 +33,19 @@ export class CompeticionesComponent implements OnInit {
   @Output() onEnter : EventEmitter<string> = new EventEmitter();
 
   constructor(private footballService: FootballService) { }
-  //
+
 
   ngOnInit(): void {
       this.obtenerAnios();  
   }
 
-  buscarLiga(nombreLiga: string) {
-    if (!nombreLiga.trim()) {
+  buscarLiga() {
+    if (!this.termino.trim()) {
       this.hayError = true;
       return;
     }
   
-    this.footballService.buscarLigaPorNombre(nombreLiga)
+    this.footballService.buscarLigaPorNombre(this.termino)
       .pipe(
         tap((ligaID) => console.log('Liga ID:', ligaID)),
         filter(ligaID => ligaID !== undefined), 
@@ -113,7 +114,7 @@ export class CompeticionesComponent implements OnInit {
   onYearSelected(season: number){
     this.selectedSeason = season;
     if(this.termino){
-      this.buscarLiga(this.termino);
+      this.buscarLiga();
     }
   }
 
@@ -129,7 +130,6 @@ export class CompeticionesComponent implements OnInit {
 
   seleccionarSugerencia(liga: Ligas['response'][number]['league']): void {
     this.termino = liga.name;
-    this.buscarLiga(liga.name);
     this.mostrarSugerencias = false;
   }
 

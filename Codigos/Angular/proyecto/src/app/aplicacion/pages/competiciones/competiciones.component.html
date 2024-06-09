@@ -6,49 +6,55 @@
 
 <h1 class="margen">Búsqueda de clasificaciones</h1>
 <div class="info">
-  <i class="fi fi-sr-info"></i>
-  <span>Busca la clasificación de una liga introduciendo su nombre (ejm: "Bundesliga").</span>
+  <i class="fi fi-sr-info iconInfo"></i>
+  <span>Busca la clasificación de una liga introduciendo su nombre (ej: "Bundesliga").</span>
 </div>
 
 <div class="contenedor formulario">
   <div class="contenedor-formulario">
-    <form (ngSubmit)="buscarLiga(termino)" autocomplete="off">
-      <div class="form__group field">
-        <input type="input"
-              name="termino"
-              class="form__field"
-              [(ngModel)]="termino"
-              (input)="teclaPresionada()"
-              placeholder="Buscar liga..."
-              required=""
-              aria-label="Buscar liga"/>
-              <label for="name" class="form__label">Buscar liga</label>
-              <div *ngIf="mostrarSugerencias && sugerenciasLigas.length > 0"
-                class="mt-2">
-            <ul class="list-group">
-              <li *ngFor="let liga of sugerenciasLigas"
-                (click)="seleccionarSugerencia(liga)"
-                class="list-group-item list-group-item-action">
-                {{liga.name}}
-              </li>
-            </ul>
-          </div>
+    <form (ngSubmit)="buscarLiga()" autocomplete="off" fxLayout="column">
+      <div fxFlex fxLayout="row" fxLayout.xs="column" fxLayoutGap.xs="10px" fxLayoutGap="100px">
+        <div class="form__group field">
+          <input type="input"
+                name="termino"
+                class="form__field"
+                [(ngModel)]="termino"
+                (input)="teclaPresionada()"
+                placeholder="Buscar liga..."
+                required=""
+                aria-label="Buscar liga"/>
+                <label for="name" class="form__label">Buscar liga</label>
+                <div *ngIf="mostrarSugerencias && sugerenciasLigas.length > 0"
+                  class="mt-2">
+              <ul class="list-group">
+                <li *ngFor="let liga of sugerenciasLigas"
+                  (click)="seleccionarSugerencia(liga)"
+                  class="list-group-item list-group-item-action">
+                  {{liga.name}}
+                </li>
+              </ul>
+            </div>
+        </div>
+  
+        <div class="form__group field">
+          <mat-form-field>
+            <mat-label><span>Elige un año</span></mat-label>
+            <mat-select
+                    name="selectedSeason"
+                    [(ngModel)]="selectedSeason"
+                    (ngModelChange)="onYearSelected($event)">
+              <mat-option  selected>-- Seleccione el año --</mat-option>
+              <mat-option *ngFor="let anio of anios" [value]="anio">{{anio}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
       </div>
+
+
+      <button class="boton" type="submit">
+        Buscar
+      </button>
     </form>
-
-
-  </div>
-
-  <div class="form__group field">
-    <mat-form-field>
-      <mat-label><span>Elige un año</span></mat-label>
-      <mat-select
-              [(ngModel)]="selectedSeason"
-              (ngModelChange)="onYearSelected($event)">
-        <mat-option  selected>-- Seleccione el año --</mat-option>
-        <mat-option *ngFor="let anio of anios" [value]="anio">{{anio}}</mat-option>
-      </mat-select>
-    </mat-form-field>
   </div>
 </div>
 
