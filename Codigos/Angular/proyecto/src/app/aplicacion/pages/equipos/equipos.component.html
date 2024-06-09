@@ -15,6 +15,7 @@
     <div class="contenedor-formulario">
       <form (ngSubmit)="buscarEquipo(termino)" autocomplete="off" fxFlex fxLayout="column">
         <div fxFlex fxLayout="row" fxLayout.xs="column" fxLayoutGap.xs="10px" fxLayoutGap="50px">
+
           <div class="form__group field">
             <input type="input"
                   name="termino"
@@ -49,12 +50,13 @@
               </mat-select>
             </mat-form-field>
           </div>
-  
         </div>
 
-        <button class="boton" type="submit">
-          Buscar
-        </button>
+          <button class="boton" type="submit">
+            Buscar
+          </button>
+        
+
       </form>
 
     </div>
